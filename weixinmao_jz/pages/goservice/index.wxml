@@ -1,0 +1,94 @@
+<view class="container">
+    <view class="proline">
+        <view class="progress">
+            <view class="linetext">下单</view>
+            <view class="linetext">支付</view>
+            <view class="linetext">匹配</view>
+            <view class="linetext">报价</view>
+            <view class="linetext">上门</view>
+            <view class="linetext">评价</view>
+        </view>
+        <view class="progress">
+            <view class="line"></view>
+            <view class="line" style="background:#42BE9C;"></view>
+            <view class="line" style="background:#42BE9C;"></view>
+            <view class="line" style="background:#42BE9C;"></view>
+            <view class="cricle"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+        </view>
+    </view>
+    <view class="coupon" wx:if="{{noteinfo}}">
+        <view class="logo">
+            <image src="{{noteinfo.avatarUrl}}"></image>
+        </view>
+        <view class="coupondetail">
+            <view class="name">{{noteinfo.name}}</view>
+            <view>
+                <block wx:if="{{noteinfo.type==0}}">个人服务</block>
+                <block wx:else>企业服务</block>
+            </view>
+        </view>
+        <view class="couponstatus"> 正在服务中</view>
+    </view>
+    <view class="coupon" wx:else>
+    服务商家匹配中
+    </view>
+    <view class="main">
+        <view class="title">
+         订单号：{{orderinfo.orderid}}
+        </view>
+        <view class="title" style="font-weight:600;color:red;font-size:.7rem;">
+         已支付金额：￥{{orderinfo.money}}
+        </view>
+        <view class="list">
+            <view class="item" style="border:0rpx;">
+                <view class="name">备注</view>
+                <view class="selectitem">{{orderinfo.content}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="main">
+        <view class="title" style="font-size:.7rem;">
+        预约项目
+        </view>
+        <view class="list">
+            <view class="item" wx:for="{{order_detail}}">
+                <view class="name">
+                    <image src="{{item.thumb}}" style="width:180rpx;height:120rpx;"></image>
+                </view>
+                <view class="selectitem">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="main" wx:if="{{moneylist}}">
+        <view class="title" style="font-size:.7rem;">
+        报价列表
+        </view>
+        <view class="scorelist">
+            <view class="title2">
+                <view style="width:10%;">ID</view>
+                <view style="width:20%;">报价</view>
+                <view style="width:30%;">备注</view>
+                <view style="width:40%;">操作</view>
+            </view>
+            <view class="list2" wx:for="{{moneylist}}">
+                <view style="width:10%;">{{item.id}}</view>
+                <view style="width:20%;">￥{{item.money}}</view>
+                <view style="width:30%;">{{item.content}}</view>
+                <view class="payitem" style="width:40%;">
+                    <view data-id="{{item.id}}" style="width:150rpx;">
+                        <block wx:if="{{item.status==1}}">
+  已同意
+         </block>
+                        <block wx:else>
+    
+已拒绝
+
+            </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

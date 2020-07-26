@@ -1,0 +1,55 @@
+<view class="container">
+    <view class="header">
+        <view class="title">他们都在用</view>
+        <view class="content">目前已覆盖全市(区、乡、镇),1000+商家已入驻</view>
+    </view>
+    <view class="step">
+        <view class="title">快速开店,立即<text style="color:#51af37;">开抢</text>
+        </view>
+        <view class="content">审核快,订单多,四步开启抢单模式</view>
+        <view class="list">
+            <view class="item">
+                <view>1</view>
+            </view>
+            <view class="itemtitle">
+                <view> 填写店铺资料</view>
+                <view>点击底部"立即入驻按钮"，填写相关信息</view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="item">
+                <view>2</view>
+            </view>
+            <view class="itemtitle">
+                <view> 提交审核，快速反馈</view>
+                <view>3分钟快速反馈，与您"共商大计"</view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="item">
+                <view>3</view>
+            </view>
+            <view class="itemtitle">
+                <view> 选择服务区域、服务项目</view>
+                <view>根据自身业务需求开通服务区域和项目</view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="item">
+                <view>4</view>
+            </view>
+            <view class="itemtitle">
+                <view> 开店成功，开始抢单</view>
+                <view>有单就抢，赚大了</view>
+            </view>
+        </view>
+    </view>
+    <view class="doagree">
+        <checkbox-group bindchange="doagree">
+            <checkbox checked="" value="1"></checkbox>我已阅读并同意<text bindtap="goHousexy" style="color:blue;">《家政入驻协议》</text>
+        </checkbox-group>
+    </view>
+    <view class="joinbtn">
+        <button bindtap="Tojoinagree">立即入驻</button>
+    </view>
+</view>

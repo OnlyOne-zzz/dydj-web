@@ -1,0 +1,81 @@
+<form reportSubmit bindsubmit="pay">
+    <view class="container">
+        <block wx:if="{{addressinfo}}">
+            <view bindtap="selectaddress" class="newaddress">
+                <view class="showaddress">
+                    <view>
+                        <text>{{addressinfo.name}}</text>
+                        <text style="margin-left:20rpx;"> {{addressinfo.tel}}</text>
+                    </view>
+                    <view>{{addressinfo.address}}{{addressinfo.daddress}}</view>
+                </view>
+                <view>
+                    <image src="../../resource/images/ri.png"></image>
+                </view>
+            </view>
+            <view class="addressimg" style="margin-top:-20rpx;">
+                <image src="../../resource/images/addr-line.png"></image>
+            </view>
+        </block>
+        <view class="newaddress2" wx:else>
+            <view bindtap="getaddress" class="flexaddress">
+                <view>
+                    <image src="../../resource/images/newaddress.png"></image>
+                </view>
+                <view>新增我的地址</view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="listmsg">
+                <view class="itemmsg">
+                    <view class="name">
+                        <image src="{{msgcontent.thumb}}"></image>
+                    </view>
+                    <view class="selectitem">
+                        <view> {{msgcontent.title}}</view>
+                        <view> 规格:{{gooditems.name}}</view>
+                        <view>￥{{gooditems.money}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          备注
+        </view>
+            <view class="list" style="border-bottom:0rpx;">
+                <view class="item" style="border-bottom:0rpx;">
+                    <view class="selectitem" style="border-bottom:0rpx;">
+                        <textarea name="content" placeholder="请填写备注" style="width:720rpx;" value=""></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title"></view>
+            <view class="list" style="border-bottom:0rpx;">
+                <view class="item" style="border-bottom:0rpx;">
+                    <view class="selectitem" style="padding-left:20rpx;border-bottom:0rpx; justify-content:flex-start;">
+                        <radio-group bindchange="radioPayChange" class="radio-group">
+                            <label class="radio">
+                                <radio checked value="0"></radio>微信支付
+  </label>
+                            <label class="radio">
+                                <radio value="1"></radio>余额支付
+  </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <button class="footer" formType="submit" style="background:{{intro.maincolor}}">
+    
+       {{gooditems.money==0?'立即提交':'立即支付 ￥'}}
+        {{gooditems.money==0?'':gooditems.money}}
+     </button>
+            </view>
+        </view>
+    </view>
+</form>

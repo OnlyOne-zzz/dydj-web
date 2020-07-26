@@ -1,0 +1,38 @@
+<view class="container">
+    <form bindsubmit="bindSave">
+        <view class="search">
+            <icon size="14" type="search"></icon>
+            <input confirmType="search" name="keyword" placeholder="请输入相关信息" placeholderClass="search_plac" type="text"></input>
+            <button formType="submit">搜索</button>
+        </view>
+    </form>
+    <block wx:if="{{article}}">
+        <view class="container" hidden="{{isshow}}">
+            <checkbox-group bindchange="SelectChange">
+                <view class="news">
+                    <view class="newslist" wx:for="{{article}}">
+                        <view class="select">
+                            <checkbox class="check" value="{{item.money}}@{{item.id}}"></checkbox>
+                        </view>
+                        <view class="pic" data-id="{{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                        </view>
+                        <view class="title" data-id="{{item.id}}">
+                            <view>{{item.title}}</view>
+                            <view>{{item.intro}}</view>
+                        </view>
+                    </view>
+                </view>
+            </checkbox-group>
+        </view>
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <view bindtap="goMap" class="footer">预约订金：￥{{totalprice}}</view>
+                <view bindtap="toOrder" class="footer" style="background:{{intro.maincolor}}">提交</view>
+            </view>
+        </view>
+    </block>
+    <view class="loadmore" hidden="{{loadmore}}">
+        <text>未查找相关信息</text>
+    </view>
+</view>

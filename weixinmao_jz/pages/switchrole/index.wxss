@@ -1,0 +1,32 @@
+.container {
+    background-color: #FFF;
+}
+
+.container .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .content .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60rpx;
+}
+
+.container .content .item .name {
+    width: 200rpx;
+    height: 200rpx;
+    background: #46c01b;
+    border-radius: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 2rem;
+}
+
+.container .content .item .title {
+    color: #888888;
+}

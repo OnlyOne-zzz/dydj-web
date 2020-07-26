@@ -1,0 +1,15 @@
+<view class="card clearfix">
+    <view class="card-item" style="margin-left:80rpx;margin-bottom:20rpx;" wx:for="{{list}}">
+        <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
+            <view class="card-count sub" style="width:80%;">
+                <view class="cards">
+                    <view class="card-counts gridXb f24" style="margin-right:60rpx;font-size:1.2rem;">优惠券￥{{item.money}}</view>
+                    <view class="card-tips" style="margin-right:60rpx;font-size:.8rem;">使用条件:{{item.title}}</view>
+                </view>
+            </view>
+            <view class="card-txt" style="width:20%;">
+                <view class="card-txt-box">{{item.status==0?'未使用':'已使用'}}</view>
+            </view>
+        </view>
+    </view>
+</view>

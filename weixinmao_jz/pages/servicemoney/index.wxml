@@ -1,0 +1,52 @@
+<view class="container">
+    <block wx:if="{{addressinfo}}"></block>
+    <view class="main">
+        <view class="title">
+         订单号：{{orderinfo.orderid}}
+        </view>
+        <view class="title" style="font-weight:600;color:red; border-bottom:0rpx;">
+         已支付订金：￥{{orderinfo.money}}
+        </view>
+    </view>
+    <view class="main">
+        <view class="title">
+        预约项目
+        </view>
+        <view class="list">
+            <view class="item" wx:for="{{order_detail}}">
+                <view class="name">
+                    <image src="{{item.thumb}}" style="width:180rpx;height:120rpx;"></image>
+                </view>
+                <view class="selectitem">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="servicemain">
+        <view class="title">
+        客户描述
+        </view>
+        <view class="servicedetail">{{order_mark.content}}</view>
+    </view>
+    <view class="main">
+        <view class="title">
+        我的报价
+        </view>
+        <view class="list">
+            <view class="item" wx:for="{{order_detail}}">
+                <view class="name">
+                    <image src="{{item.thumb}}" style="width:180rpx;height:120rpx;"></image>
+                </view>
+                <view class="selectitem">{{item.title}}</view>
+            </view>
+        </view>
+    </view>
+    <form reportSubmit bindsubmit="pay">
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <textarea name="content" placeholder="请填写报价说明" value=""></textarea>
+                <input name="money" placeholder="请输入报价金额" style="" type="text" value=""></input>
+                <button class="footer" formType="submit" style="background:{{intro.maincolor}}">立即报价</button>
+            </view>
+        </view>
+    </form>
+</view>

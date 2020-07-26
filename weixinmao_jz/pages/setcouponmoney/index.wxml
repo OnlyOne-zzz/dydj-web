@@ -1,0 +1,23 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="width:100%;">
+                        <textarea name="content" placeholder="请填写报价说明" style="background:#fff;"></textarea>
+                    </view>
+                </view>
+                <view class="item" style="margin-top:30rpx;">
+                    <view class="selectitem" style="width:100%;">
+                        <input name="money" placeholder="请输入报价金额" style="background:#fff;" type="text"></input>
+                    </view>
+                </view>
+                <view class="item" style="background:#f0f0f0;">
+                    <view class="selectitem" style="width:100%;">
+                        <button class="footer" formType="submit" style="background:{{intro.maincolor}}">提交</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</form>

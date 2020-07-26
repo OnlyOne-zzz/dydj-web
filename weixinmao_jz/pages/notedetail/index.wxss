@@ -1,0 +1,467 @@
+.container {
+    background-color: #FFFFFF;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .header {
+    width: 750rpx;
+    height: 320rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .header .pic {
+    width: 700rpx;
+    height: 250rpx;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20rpx;
+}
+
+.container .header .pic image {
+    width: 120rpx;
+    height: 120rpx;
+    border: 0rpx solid #FFF;
+}
+
+.container .header .pic .userinfo {
+    width: 580rpx;
+    font-size: .8rem;
+    margin-left: 25rpx;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.setting {
+    position: absolute;
+    top: 30rpx;
+    left: 580rpx;
+    display: flex;
+    flex-direction: row;
+    color: #FFF;
+    font-size: .6rem;
+    font-weight: bold;
+}
+
+.setting image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.opencard {
+    font-size: .7rem;
+    color: #fff;
+    height: 65rpx;
+    border-radius: 30rpx;
+    margin-left: 70%;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10rpx;
+}
+
+.opencard image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.noteinfo {
+    width: 750rpx;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.notename {
+    width: 700rpx;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30rpx;
+    align-self: center;
+}
+
+.notename view:nth-child(1) {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.notescore {
+    width: 700rpx;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+    font-size: .7rem;
+    color: #6a6a6a;
+    align-self: center;
+}
+
+.notescore text {
+    color: #fe552e;
+}
+
+.noteservice {
+    width: 700rpx;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+    font-size: .7rem;
+    color: #6a6a6a;
+    align-self: center;
+}
+
+.noteaddress {
+    width: 700rpx;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20rpx;
+    font-size: .7rem;
+    color: #000;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.noteaddress image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.noteaddress button {
+    width: 200rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    border-radius: 40rpx;
+    color: #3c9bdf;
+    border: 1rpx solid #3c9bdf;
+    font-size: .7rem;
+}
+
+.line {
+    width: 700rpx;
+    background: #efefef;
+    height: 2rpx;
+    align-self: center;
+    margin-top: 30rpx;
+}
+
+.news {
+    margin-top: 30rpx;
+    width: 750rpx;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.news .newstitle {
+    width: 700rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-left: 20rpx;
+    font-size: .7rem;
+    border-bottom: 0rpx solid #efefef;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-bottom: 20rpx;
+}
+
+.news .newstitle view {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.newslist {
+    display: flex;
+    flex-direction: row;
+    width: 720rpx;
+    margin: 0 auto;
+    border-bottom: 1px solid #efefef;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.newslist .pic {
+    width: 35%;
+    height: 220rpx;
+    line-height: 220rpx;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.newslist .pic image {
+    width: 300rpx;
+    height: 210rpx;
+    border-radius: 8rpx;
+}
+
+.newslist .title {
+    width: 65%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    height: 200rpx;
+}
+
+.newslist .title .address {
+    padding-left: 5%;
+    text-align: left;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.newslist .title .housearea {
+    padding-left: 5%;
+    text-align: left;
+    font-size: .7rem;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    color: #999;
+}
+
+.newslist .title .address text {
+    color: #1aac19;
+}
+
+.newslist .title .perprice {
+    padding-left: 5%;
+    font-size: 1rem;
+    color: #d65408;
+    font-weight: bold;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.perprice view:nth-child(2) {
+    width: 180rpx;
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    border-radius: 8rpx;
+    font-size: .7rem;
+}
+
+.newslist .title .price {
+    padding-left: 5%;
+    text-align: left;
+    font-size: .6rem;
+    color: #6a6a6a;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60rpx;
+    line-height: 60rpx;
+    align-self: baseline;
+    width: 450rpx;
+}
+
+.newslist .title .price view text {
+    padding: 5rpx 7rpx;
+    border-radius: 3rpx;
+    margin-right: 5rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    color: #77af6e;
+    background: #f7f5f6;
+}
+
+.newslist .title .price .money {
+    color: #d65408;
+    font-weight: bold;
+    font-size: .8rem;
+    padding-right: 10rpx;
+}
+
+.company {
+    display: flex;
+    flex-direction: column;
+    width: 700rpx;
+    margin: 0 auto;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.company .clist {
+    width: 700rpx;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30rpx;
+}
+
+.company .clist .ctitle {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.company .clist .dcontent {
+    font-size: .7rem;
+    color: #6a6a6a;
+    margin-top: 15rpx;
+}
+
+.type-container_switch {
+    width: 100%;
+    height: 88rpx;
+    background-color: #fff;
+    overflow: hidden;
+    padding-bottom: 10rpx;
+    padding-left: 20rpx;
+}
+
+.type-navbar_switch {
+    white-space: nowrap;
+    height: 88rpx;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.type-box_switch {
+    width: 22%;
+    box-sizing: content-box;
+    font-size: 24rpx;
+    line-height: 84rpx;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.type-navbar-item_switch {
+    border-bottom: 4rpx solid #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100rpx;
+}
+
+.type-item-on_switch {
+    border-bottom: 4rpx solid #0180cf;
+    color: #0180cf;
+    width: 100rpx;
+}
+
+.weixinmao-float {
+    height: 150rpx;
+}
+
+.weixinmao-foot {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer button {
+    color: #FFF;
+    align-self: center;
+    height: 80rpx;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    background: #0180cf;
+    text-align: center;
+    padding-top: 10rpx;
+    border: 0rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.weixinmao-foot view:nth-child(1) {
+    color: #FFF;
+    align-self: center;
+    height: 80rpx;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    background: #0180cf;
+    width: 20%;
+    text-align: center;
+    padding-top: 20rpx;
+}
+
+.weixinmao-foot view:nth-child(2) {
+    color: #FFF;
+    align-self: center;
+    height: 80rpx;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    background: #11cd6e;
+    width: 20%;
+    text-align: center;
+    padding-top: 20rpx;
+}
+
+.weixinmao-foot view:nth-child(3) {
+    align-self: center;
+    height: 80rpx;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    text-align: center;
+    padding-top: 20rpx;
+    background: #fff;
+}
+
+.black {
+    color: #777676;
+}
+
+.red {
+    color: red;
+}
+
+.weixinmao-foot view:nth-child(4) {
+    color: #FFF;
+    align-self: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: .9rem;
+    display: flex;
+    flex-direction: column;
+    background: #fe552e;
+    width: 40%;
+}
+
+.weixinmao-foot view image {
+    width: 50rpx;
+    height: 50rpx;
+    align-self: center;
+}
+
+.footerbutton {
+    background: #fe552e;
+}

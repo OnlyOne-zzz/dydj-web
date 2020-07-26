@@ -1,0 +1,76 @@
+<view class="container">
+    <view class="header" style=" background:linear-gradient(to right,{{intro.maincolor}},{{intro.maincolor}});">
+        <view hidden="{{!isuser}}">
+            <view class="pic">
+                <image src="../../resource/images/male1.png"></image>
+                <view class="userinfo">
+                    <view>{{userinfo.wxInfo.nickName}}</view>
+                    <view>
+                        <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;">点击登录</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view hidden="{{isuser}}">
+            <view class="pic">
+                <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
+                <view class="userinfo">
+                    <view>{{userinfo.wxInfo.nickName}}</view>
+                    <view bindtap="toDomoney">账户余额: ￥{{moneyrecordinfo.totalmoney}}</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="toLogin" class="opencard" style=" background:linear-gradient(to right,#EEB4B4,#EEA9B8);">
+            <image src="../../resource/images/comlogin.png"></image> 入驻中心</view>
+    </view>
+    <view class="service">
+        <view bindtap="toMymessageorder" class="servicelist" style="background:{{intro.maincolor}};">
+            <view class="logo">
+                <image src="../../resource/images/yuyue.png"></image>
+            </view>
+            <view class="name">
+                <view>我的预约</view>
+            </view>
+        </view>
+        <view bindtap="toMyOrder" class="servicelist" style="background: #ff553c;">
+            <view class="logo">
+                <image src="../../resource/images/order.png"></image>
+            </view>
+            <view class="name">
+                <view>我的订单</view>
+            </view>
+        </view>
+        <view bindtap="toMycoupon" class="servicelist" style="background:#FFD700;">
+            <view class="logo">
+                <image src="../../resource/images/yhj.png"></image>
+            </view>
+            <view class="name">
+                <view>我的优惠券</view>
+                <view></view>
+            </view>
+        </view>
+        <view bindtap="doCall" class="servicelist" style="background: #DA70D6;">
+            <view class="logo">
+                <image src="../../resource/images/kefu.png"></image>
+            </view>
+            <view class="name">
+                <view>客服中心</view>
+                <view></view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-msg-usertel" hidden="true">
+    <view class="weixinmao-content-usertel">
+        <view class="usertel-title">
+          您还没有绑定手机号呢
+        </view>
+        <view class="usertel-content">
+          点击‘获取’按钮，期待与您愉快的沟通~
+        </view>
+        <view class="usertel-button">
+            <button bindtap="cancelPhone">取消</button>
+            <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber">去获取</button>
+        </view>
+    </view>
+</view>

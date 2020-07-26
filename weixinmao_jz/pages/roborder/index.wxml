@@ -1,0 +1,63 @@
+<view class="container" hidden="{{isshow}}">
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true">
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
+                    全部订单
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
+                  待抢单
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
+                  待报价
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==4?'type-item-on':''}}" id="4">
+                待上门
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==5?'type-item-on':''}}" id="5">
+                已完成
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="orderlist" wx:for="{{list}}">
+        <view class="orderid">订单号:{{item.orderid}}</view>
+        <view class="content">
+            <view class="item">客户名称:{{item.name}}</view>
+            <view bindtap="doCall" class="item" data-tel="{{item.tel}}">客户电话:{{item.tel}}</view>
+            <view class="item">服务项目:{{item.service}}</view>
+            <view class="item">客户备注:{{item.order_mark}}</view>
+            <view class="item" wx:if="{{item.status>=3}}">报价:<text style="color:red; font-weight:600;">{{item.couponmoney}}元({{item.couponmoneymark}})</text>
+            </view>
+            <view class="item">状态:<text style="color:red; font-weight:600;">
+                    <block wx:if="{{item.status==1}}">待抢单</block>
+                    <block wx:if="{{item.status==2}}"> 已抢单/待报价</block>
+                    <block wx:if="{{item.status==3}}">已抢单/已报价/ <block wx:if="{{item.couponmoneystatus==0}}">待确认</block>
+                        <block wx:elif="{{item.couponmoneystatus==1}}"> 同意报价</block>
+                        <block wx:elif="{{item.couponmoneystatus==2}}"> 拒绝报价</block>
+                    </block>
+                    <block wx:if="{{item.status==4}}">已抢单/已报价/同意报价/上门服务中</block>
+                    <block wx:if="{{item.status==5}}">完成服务/<block wx:if="{{item.spaid==1}}">已支付尾款
+</block>
+                        <block wx:else>未支付尾款</block>
+                    </block>
+                </text>
+            </view>
+            <view class="item">创建时间:{{item.createtime}}</view>
+            <view class="payitem">
+                <view bindtap="RobOrderStatus" data-id="{{item.id}}" data-status="2" wx:if="{{item.status==1}}">立即抢单</view>
+                <view bindtap="toServicemoney" data-id="{{item.orderid}}" data-status="3" wx:if="{{item.status==2}}">服务报价</view>
+                <view bindtap="toOrderProcess" data-id="{{item.id}}" style="background:{{intro.maincolor}}">订单详情</view>
+                <view bindtap="RobOrderStatus" data-id="{{item.id}}" data-status="5" wx:if="{{item.status==4}}">完成上门服务</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,44 @@
+<view class="container" hidden="{{isshow}}">
+    <view class="proline">
+        <view class="progress">
+            <view class="linetext">下单</view>
+            <view class="linetext">支付</view>
+            <view class="linetext">报价</view>
+            <view class="linetext">上门</view>
+            <view class="linetext">评价</view>
+        </view>
+        <view class="progress">
+            <view class="line " style="  background: #42BE9C;"></view>
+            <view class="cricle "></view>
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+        </view>
+    </view>
+    <radio-group bindchange="radioChange" class="radio-group">
+        <view class="news">
+            <view class="newslist" wx:for="{{article}}">
+                <view class="select">
+                    <radio value="{{item.money}}@{{item.id}}@{{item.isding}}"></radio>
+                </view>
+                <view bindtap="toContentorderdetail" class="pic" data-id="{{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view bindtap="toContentorderdetail" class="title" data-id="{{item.id}}">
+                    <view>{{item.title}}</view>
+                    <view>{{item.intro}}</view>
+                </view>
+            </view>
+        </view>
+    </radio-group>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="goMap" class="footer">
+            <text>{{isding==0?'一口价':'定金'}}：</text>￥{{totalprice}}</view>
+        <form reportSubmit bindsubmit="toOrder">
+            <button class="footer" formType="submit" style="background:{{intro.maincolor}}">提交</button>
+        </form>
+    </view>
+</view>

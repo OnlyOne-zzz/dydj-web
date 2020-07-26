@@ -1,0 +1,68 @@
+<view class="container" hidden="{{isshow}}">
+    <view class="type-container">
+        <scroll-view class="type-navbar" scrollX="true">
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==0?'type-item-on':''}}" id="0">
+                    全部订单
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
+                  未付款
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
+               议价中
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
+                  等待上门
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==4?'type-item-on':''}}" id="4">
+                  待评价
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <block wx:if="{{list}}">
+        <view class="orderlist" wx:for="{{list}}">
+            <view class="orderid">订单号:{{item.orderid}}</view>
+            <view class="content">
+                <view class="item" style="font-weight:bold;">服务项目:{{item.service}}</view>
+                <view class="item">支付订金:￥{{item.money}}</view>
+                <view class="item" wx:if="{{item.status>=2}}">同意服务价:￥{{item.finalmoney}}</view>
+                <view class="item" wx:if="{{item.paymoney}}">支付尾款:￥{{item.paymoney}}<text style="color:red; font-weight:600;">【{{item.spaid==1?'已支付':'未支付'}}】</text>
+                </view>
+                <view class="item">状态:<text style="color:red; font-weight:600;">{{item.paid==1?'已支付定金':'未支付定金'}}<block wx:if="{{item.refund==2}}">/已退款</block>
+                        <block wx:if="{{item.status==1}}">/议价中</block>
+                        <block wx:if="{{item.status==2}}">/等待派单</block>
+                        <block wx:if="{{item.status==3}}">/已派单等待上门</block>
+                        <block wx:if="{{item.status==4}}">/上门服务中</block>
+                        <block wx:if="{{item.status==5}}">/服务完成</block>
+                        <block wx:if="{{item.status==6}}">/服务完成/已支付尾款</block>
+                    </text>
+                </view>
+                <view class="item">创建时间:{{item.createtime}}</view>
+                <view class="payitem">
+                    <block wx:if="{{item.refund==0}}">
+                        <view bindtap="RepayOrder" data-id="{{item.id}}" hidden="{{item.paid==0?false:true}}" wx:if="{{item.paid==0}}">立即支付</view>
+                        <view bindtap="RefundOrder" data-id="{{item.id}}" data-refund="1" wx:else>申请退款</view>
+                        <block wx:if="{{item.status==5}}">
+                            <view bindtap="paymoney" data-id="{{item.id}}" wx:if="{{item.spaid==0}}">支付尾款</view>
+                        </block>
+                    </block>
+                    <block wx:else>
+                        <view bindtap="RefundOrder" data-id="{{item.id}}" data-refund="0" wx:if="{{item.refund<2}}">取消退款</view>
+                    </block>
+                    <view bindtap="toOrderProcess" data-id="{{item.id}}" style="color:{{intro.maincolor}};border: 1rpx solid {{intro.maincolor}};" wx:if="{{item.status<=5}}">进度详情</view>
+                    <view bindtap="setcomment" data-id="{{item.id}}" style="color:{{intro.maincolor}};border: 1rpx solid {{intro.maincolor}};" wx:if="{{item.status>=6}}">我要评价</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <block wx:else></block>
+</view>

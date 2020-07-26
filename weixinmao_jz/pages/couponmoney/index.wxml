@@ -1,0 +1,69 @@
+<view class="container">
+    <view class="proline">
+        <view class="progress">
+            <view class="linetext">下单</view>
+            <view class="linetext">支付</view>
+            <view class="linetext">议价</view>
+            <view class="linetext">上门</view>
+            <view class="linetext">评价</view>
+        </view>
+        <view class="progress">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line" style="background: #42BE9C;"></view>
+            <view class="cricle "></view>
+            <view class="line"></view>
+        </view>
+    </view>
+    <view class="orderinfo">
+        <view class="main">
+            <view class="title">
+         订单号：{{orderinfo.orderid}}
+        </view>
+            <view class="title" style="font-weight:600;color:red;font-size:.7rem;">
+         已支付金额：￥{{orderinfo.money}}
+        </view>
+            <view class="title" style="font-weight:600;color:#1aad19;font-size:.7rem;">
+          同意服务价：￥{{orderinfo.finalmoney}}
+        </view>
+            <view class="list">
+                <view class="item" style="border:0rpx;">
+                    <view class="name">备注</view>
+                    <view class="selectitem">{{orderinfo.content}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+        预约项目
+        </view>
+            <view class="list">
+                <view class="item" wx:for="{{order_detail}}">
+                    <view class="name">
+                        <image src="{{item.thumb}}" style="width:180rpx;height:120rpx;"></image>
+                    </view>
+                    <view class="selectitem">{{item.title}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="main" wx:if="{{orderinfo.status>3}}">
+            <view class="title">
+        服务技师
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">
+                        <image src="{{noteinfo.avatarUrl}}" style="width:180rpx;height:120rpx;"></image>
+                    </view>
+                    <view class="selectitem">{{noteinfo.name}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button bindtap="doCall" class="footer" style="background:{{intro.maincolor}}">联系平台客服</button>
+        </view>
+    </view>
+</view>

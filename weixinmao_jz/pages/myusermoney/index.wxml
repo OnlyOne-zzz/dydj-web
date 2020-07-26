@@ -1,0 +1,17 @@
+<view class="container">
+    <form reportSubmit bindsubmit="toGetmoney">
+        <view class="header">
+            <view> 申请提现</view>
+            <view>
+                <text style="color:#999999;">￥</text>
+                <input class="money" name="money" placeholder="请输入提现金额" type="text" value=""></input>
+            </view>
+            <view>可提金额￥{{moneyinfo.totalmoney}}</view>
+            <view></view>
+            <view></view>
+        </view>
+        <view class="getmoney">
+            <button formType="submit">立即提现</button>
+        </view>
+    </form>
+</view>

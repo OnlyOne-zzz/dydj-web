@@ -1,0 +1,52 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container">
+        <view class="main">
+            <view class="title">
+          企业入驻 
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">公司名称</view>
+                    <view class="selectitem">
+                        <input name="companyname" placeholder="请输入公司名称" type="text" value=""></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">真实姓名</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入真实姓名" type="text" value=""></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">手机号</view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入手机号" type="text" value=""></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">账  号</view>
+                    <view class="selectitem">
+                        <input name="account" placeholder="请输入登录账号" type="text" value=""></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">密  码</view>
+                    <view class="selectitem">
+                        <input name="password" placeholder="请输入登录密码" type="password" value=""></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">确认密码</view>
+                    <view class="selectitem">
+                        <input name="password2" placeholder="请再次输入密码" type="password" value=""></input>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weixinmao-float">
+        <view class="weixinmao-foot">
+            <button class="footer" formType="submit">下一步</button>
+        </view>
+    </view>
+</form>

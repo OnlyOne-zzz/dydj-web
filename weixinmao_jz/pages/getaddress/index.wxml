@@ -1,0 +1,44 @@
+<form reportSubmit bindsubmit="savepubinfo">
+    <view class="container" hidden="{{isshow}}">
+        <view class="main">
+            <view class="list">
+                <view class="item">
+                    <view class="name">姓名</view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入姓名" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">电话</view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入电话" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">地址</view>
+                    <view class="selectitem">
+                        <input name="address" placeholder="请输入地址" type="text" value="{{address}}"></input>
+                        <button bindtap="getaddress" style="background: #09ba07;width:200rpx;color:#FFF;border-radius: 5rpx;font-size: .6rem;">获取地址</button>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">详细地址</view>
+                    <view class="selectitem">
+                        <input name="daddress" placeholder="请输入详细地址" type="text"></input>
+                    </view>
+                </view>
+                <view class="item" style="border:0rpx;">
+                    <view class="name">是否默认</view>
+                    <view class="selectitem">
+                        <switch bindchange="switchOn"></switch>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <button class="footer" formType="submit" style="background:{{intro.maincolor}}">保存</button>
+            </view>
+        </view>
+    </view>
+</form>

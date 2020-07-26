@@ -1,0 +1,136 @@
+.card-item {
+    position: relative;
+    width: 80%;
+    background: #fe8a0d;
+    padding-bottom: 20%;
+    margin-left: 5%;
+    float: left;
+    color: #fff;
+    overflow: hidden;
+    height: 100rpx;
+}
+
+.card-item:nth-child(n+3) {
+    margin-top: 3%;
+}
+
+.card-item:after,.card-item:before {
+    content: "";
+    display: block;
+    width: 30rpx;
+    height: 200%;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    background: radial-gradient(#f5f5f5,#f5f5f5 12rpx,rgba(0,0,0,0) 12rpx);
+    background-size: 32rpx 32rpx;
+}
+
+.card-item:after {
+    left: 0;
+    transform: translate(-50%,-50%) scale(0.5);
+}
+
+.card-item:before {
+    right: 0;
+    transform: translate(50%,-50%) scale(0.5);
+}
+
+.card-info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card-txt {
+    line-height: 120%;
+    padding: 0 25rpx 0 19rpx;
+    position: relative;
+}
+
+.card-txt-box {
+    display: block;
+    width: 48rpx;
+    margin-left: 40rpx;
+}
+
+.card-count {
+    border-right: 1px dashed #fff;
+    overflow: hidden;
+    position: relative;
+    margin-left: 30rpx;
+    padding-right: 30rpx;
+}
+
+.card-txt::after,.card-txt::before {
+    content: "";
+    width: 18rpx;
+    height: 18rpx;
+    display: block;
+    background: #f5f5f5;
+    border-radius: 50%;
+    position: absolute;
+    left: -8rpx;
+}
+
+.card-txt::after {
+    top: -9rpx;
+}
+
+.card-txt::before {
+    bottom: -9rpx;
+}
+
+.card-counts {
+    padding-bottom: 12rpx;
+    margin-bottom: 12rpx;
+}
+
+.cards {
+    width: 100%;
+    text-align: right;
+}
+
+.card {
+    margin: 30rpx 0;
+    font-size: .8rem;
+}
+
+.card-count,.card-txt {
+    display: -webkit-box;
+    -webkit-box-align: center;
+}
+
+.card-tit {
+    background: #fff;
+    font-size: 32rpx;
+    padding: 20rpx 30rpx;
+    line-height: 48rpx;
+}
+
+.icon-ticket {
+    color: #fff;
+    width: 62rpx;
+    height: 62rpx;
+    line-height: 62rpx;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 38rpx;
+    display: inline-block;
+    overflow: hidden;
+    transform: scale(0.6);
+    -webkit-transform: left center;
+    transform: left center;
+    margin: -15rpx 0;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}

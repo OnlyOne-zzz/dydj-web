@@ -1,0 +1,50 @@
+<view class="container" hidden="{{isshow}}">
+    <view class="header" style="background:{{intro.maincolor}}">
+        <view hidden="{{!isuser}}">
+            <view class="pic">
+                <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
+                <view>{{userinfo.wxInfo.nickName}}</view>
+            </view>
+        </view>
+        <view hidden="{{isuser}}">
+            <view class="pic">
+                <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
+                <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;">点击登录</button>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view bindtap="toMymessageorder" class="item">
+            <text class="fa fa-home fa-lg"></text>我的预约</view>
+        <view bindtap="toMyOrder" class="item">
+            <text class="fa fa-home fa-lg"></text>我的订单</view>
+        <view bindtap="toMycoupon" class="item">
+            <text class="fa fa-home fa-lg"></text>我的优惠券</view>
+        <view bindtap="doCall" class="item">
+            <text class="fa fa-phone fa-lg"></text>联系客服</view>
+        <view bindtap="binduserinfo" class="item">
+            <text class="fa fa-map-marker fa-lg"></text>会员绑定</view>
+    </view>
+</view>
+<view class="weixinmao-msg" hidden="{{showmsg}}">
+    <view class="weixinmao-content">
+        <view class="title" style="background:{{intro.maincolor}}">
+            <view></view>
+            <view>绑定手机号</view>
+            <view bindtap="closemsg">关闭</view>
+        </view>
+        <form bindsubmit="saveuserinfo">
+            <view class="content">
+                <view class="item">
+                    <input class="inputlist" name="name" placeholder="请输入您的姓名" type="text" value="{{user.name}}"></input>
+                </view>
+                <view class="item">
+                    <input class="inputlist" name="tel" placeholder="请输入您的手机号" type="text" value="{{user.tel}}"></input>
+                </view>
+                <view class="item tops">
+                    <button class="bindtel" formType="submit" style="background:{{intro.maincolor}}">立即绑定</button>
+                </view>
+            </view>
+        </form>
+    </view>
+</view>

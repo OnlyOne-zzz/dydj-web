@@ -1,0 +1,16 @@
+<view class="container">
+    <view class="content">
+        <view bindtap="toCompanyreg" class="item">
+            <view class="name">
+                <text class="fa fa-cloud fa-lg"></text>
+            </view>
+            <view class="title">我是企业</view>
+        </view>
+        <view bindtap="toPersonreg" class="item">
+            <view class="name">
+                <text class="fa fa-user fa-lg"></text>
+            </view>
+            <view class="title">我是个人</view>
+        </view>
+    </view>
+</view>

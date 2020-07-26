@@ -1,0 +1,92 @@
+<view class="container">
+    <view class="header" style=" background:linear-gradient(to right,{{intro.maincolor}},{{intro.maincolor}});">
+        <view>
+            <view class="pic">
+                <image src="{{data.avatarUrl}}"></image>
+                <view class="userinfo">
+                    <view>{{data.shopname}}</view>
+                    <view>人气0</view>
+                    <view>认证店铺</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="noteinfo">
+        <view class="notename">
+            <view>{{data.shopname}}</view>
+            <view></view>
+        </view>
+        <view class="notescore">
+            <view>
+                <text class="fa fa-star  fa-lg"></text>
+                <text class="fa fa-star  fa-lg"></text>
+                <text class="fa fa-star  fa-lg"></text>
+                <text class="fa fa-star  fa-lg"></text>
+                <text class="fa fa-star  fa-lg"></text>
+            </view>
+            <view>已服务0</view>
+        </view>
+        <view class="noteservice">{{data.content}}</view>
+        <view class="noteaddress">
+            <view>
+                <image src="../../resource/images/dw.png"></image> {{data.address}}</view>
+            <view>
+                <button openType="share">分享店铺</button>
+            </view>
+        </view>
+        <view class="line"></view>
+    </view>
+    <view class="news">
+        <view class="type-container_switch">
+            <scroll-view class="type-navbar_switch" scrollX="true">
+                <view class="type-box_switch">
+                    <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==1?'type-item-on_switch':''}}" id="1">
+                    服务
+                </view>
+                </view>
+                <view class="type-box_switch">
+                    <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==2?'type-item-on_switch':''}}" id="2">
+                    评价
+                </view>
+                </view>
+                <view class="type-box_switch">
+                    <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==3?'type-item-on_switch':''}}" id="3">
+                  商家
+                </view>
+                </view>
+            </scroll-view>
+        </view>
+        <view hidden="{{ordertype==1?false:true}}">
+            <view class="newslist" wx:for="{{msgcontentlist}}">
+                <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}" data-shopid="{{shopid}}">
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}" data-shopid="{{shopid}}">
+                    <view class="address">
+                        <view>{{item.title}}</view>
+                    </view>
+                    <view class="housearea">预约成后，请保持电话畅通</view>
+                    <view class="perprice">
+                        <view>  ￥{{item.money}} <text style="font-size:.7rem;">起</text>
+                        </view>
+                        <view bindtap="toHouseDetail" data-id="{{item.id}}" data-shopid="{{shopid}}" style="background:{{intro.maincolor}}">去下单</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="company" hidden="{{ordertype==3?false:true}}">
+        <view class="clist">
+            <view class="ctitle">商家介绍</view>
+            <view class="dcontent">
+        顾客至上,主要营业油烟清洗、家装打扫、日常保洁等...
+        </view>
+        </view>
+        <view class="clist">
+            <view class="ctitle">商家地址</view>
+            <view class="dcontent">
+        {{data.address}}
+        </view>
+        </view>
+    </view>
+</view>

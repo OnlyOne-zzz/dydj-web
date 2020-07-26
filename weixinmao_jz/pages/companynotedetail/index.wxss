@@ -1,0 +1,155 @@
+.container {
+    background-color: #FFF;
+    min-height: 100%;
+}
+
+.container .header {
+    width: 750rpx;
+    height: 120rpx;
+    background: #42BE9C;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.pic {
+    width: 380rpx;
+    height: 350rpx;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 200rpx;
+    top: 40rpx;
+}
+
+.pic image {
+    width: 140rpx;
+    height: 140rpx;
+    border: 7rpx solid #FFF;
+    border-radius: 140rpx;
+}
+
+.pic view {
+    height: 60rpx;
+    line-height: 60rpx;
+    width: 380rpx;
+    text-align: center;
+    color: #000;
+    font-size: .8rem;
+}
+
+.container .order {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .order .title {
+    font-size: .8rem;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    background: #FFF;
+    margin-top: 20rpx;
+    padding-left: 20rpx;
+    border-bottom: 1rpx solid #efefef;
+    font-weight: 600;
+}
+
+.container .order .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: #FFF;
+    padding: 20rpx;
+    text-indent: 20rpx;
+    font-size: .8rem;
+}
+
+.container .order .content .item {
+    width: 250rpx;
+    text-align: center;
+    font-size: .8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item text {
+    padding: 10rpx 15rpx;
+    border-radius: 3rpx;
+    margin-right: 5rpx;
+    height: 20rpx;
+    line-height: 20rpx;
+    color: #77af6e;
+    background: #f7f5f6;
+}
+
+.container .order .content .item image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.container .list {
+    width: 750rpx;
+    background: #FFF;
+}
+
+.container .list .item {
+    padding-top: 25rpx;
+    padding-bottom: 25rpx;
+    font-size: .8rem;
+    border-bottom: 1rpx solid #efefef;
+    padding-left: 20rpx;
+    color: #747474;
+}
+
+.list button {
+    width: 600rpx;
+    background: #62c7b5;
+    color: #FFF;
+    font-size: .8rem;
+    margin-top: 10rpx;
+}
+
+.weixinmao-float {
+    height: 150rpx;
+}
+
+.weixinmao-foot {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+    background: #42BE9C;
+}
+
+.weixinmao-foot button {
+    color: #FFF;
+    align-self: center;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: .9rem;
+    display: flex;
+    width: 220rpx;
+    border-radius: 0rpx;
+    border: 1rpx solid #42BE9C;
+    flex-direction: row;
+    background: #42BE9C;
+}
+
+button::after {
+    border: none;
+}
+
+.weixinmao-foot view image {
+    width: 70rpx;
+    height: 70rpx;
+    align-self: center;
+}

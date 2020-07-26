@@ -1,0 +1,68 @@
+<form bindsubmit="savepubinfo" reportSubmit="true">
+    <view class="container" hidden="{{isshow}}">
+        <view class="main">
+            <view class="title">
+          请填写预约人信息
+        </view>
+            <view class="list">
+                <view class="item">
+                    <view class="name">
+                        <image src="../../resource/img/contact.png"></image>
+                    </view>
+                    <view class="selectitem">
+                        <input name="name" placeholder="请输入联系人姓名" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">
+                        <image src="../../resource/img/phone.png"></image>
+                    </view>
+                    <view class="selectitem">
+                        <input name="tel" placeholder="请输入联系人电话" type="text"></input>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">
+                        <image src="../../resource/img/time.png"></image>
+                    </view>
+                    <view class="selectitem" style="justify-content:flex-start">
+                        <picker bindchange="bindDateChange" end="" mode="date" start="" value="{{date}}">
+                            <view class="picker">  
+        {{dates?dates:'请选择日期'}}
+    </view>
+                        </picker>
+                        <picker bindchange="bindTimeChange" end="" mode="time" start="" style="margin-left:15%;" value="{{datetime}}">
+                            <view class="picker">  
+        {{datetime?datetime:'请选择时间'}}
+    </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="item">
+                    <view class="name">
+                        <image src="../../resource/img/address.png"></image>
+                    </view>
+                    <view class="selectitem">
+                        <input name="address" placeholder="请输入地址" style="width:300rpx;" type="text" value="{{address}}"></input>
+                        <button bindtap="getpostion" style="background: #09ba07;width:200rpx;color:#FFF;border-radius: 5rpx;font-size: .6rem;">获取地址</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="list">
+                <view class="item">
+                    <view class="selectitem" style="width:100%;">
+                        <textarea name="content" placeholder="备注[选填]"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <button bindgetuserinfo="bindGetUserInfo" class="footer" hidden="{{isuser}}" openType="getUserInfo" style="background:{{intro.maincolor}}">立即预约</button>
+                <button class="footer" formType="submit" hidden="{{!isuser}}" style="background:{{intro.maincolor}}">立即预约</button>
+            </view>
+        </view>
+    </view>
+</form>

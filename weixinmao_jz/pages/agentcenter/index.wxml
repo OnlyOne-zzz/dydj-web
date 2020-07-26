@@ -1,0 +1,49 @@
+<view class="container">
+    <view class="main"></view>
+    <view class="header">
+        <view hidden="">
+            <view class="pic">
+                <image src="{{agentinfo.logo}}"></image>
+                <view class="userinfo">
+                    <view>{{agentinfo.name}}</view>
+                    <view bindtap="goregister">累计收益:￥0.0元</view>
+                </view>
+            </view>
+        </view>
+        <view class="mymoney">
+            <view bindtap="toNoteorder" class="item_line">
+                <view>{{savecount}}0</view>
+                <view>收益数</view>
+            </view>
+            <view class="line"></view>
+            <view bindtap="toMyorder" class="item_line">
+                <view>{{gzcount}}0</view>
+                <view>团队数</view>
+            </view>
+            <view class="line"></view>
+            <view bindtap="toGetmoney" class="item_line">
+                <view>0</view>
+                <view>申请提现</view>
+            </view>
+            <view class="line"></view>
+            <view bindtap="toGetmoney" class="item_line">
+                <view>0</view>
+                <view>访客记录</view>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view bindtap="toAgentqrcode" class="item">
+            <image src="../../resource/img/ewm.png"></image>
+            <view style="margin-left:16rpx;">我的二维码</view>
+        </view>
+        <view bindtap="toMyteam" class="item">
+            <image src="../../resource/img/team.png"></image>
+            <view style="margin-left:16rpx;">我的团队</view>
+        </view>
+        <view bindtap="toFxrecord" class="item">
+            <image src="../../resource/img/record.png"></image>
+            <view style="margin-left:16rpx;">收益记录</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,30 @@
+<view class="container">
+    <view class="main" wx:if="{{moneylist}}">
+        <view class="title" style="font-size:.7rem;">
+        报价列表
+        </view>
+        <view class="scorelist">
+            <view class="title2">
+                <view style="width:10%;">ID</view>
+                <view style="width:20%;">报价</view>
+                <view style="width:30%;">备注</view>
+                <view style="width:40%;">操作</view>
+            </view>
+            <view class="list2" wx:for="{{moneylist}}">
+                <view style="width:10%;">{{item.id}}</view>
+                <view style="width:20%;">￥{{item.money}}</view>
+                <view style="width:30%;">{{item.content}}</view>
+                <view class="payitem" style="width:40%;">
+                    <view data-id="{{item.id}}" wx:if="{{item.status==2}}">已拒绝</view>
+                    <block wx:else>
+                        <view data-id="{{item.id}}" style="width:200rpx;" wx:if="{{item.status==1}}">已同意</view>
+                        <block wx:else>
+                            <view bindtap="doagree" data-id="{{item.id}}" style="width:200rpx;">同意</view>
+                            <view bindtap="dounagree" data-id="{{item.id}}" style="width:200rpx;">拒绝</view>
+                        </block>
+                    </block>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

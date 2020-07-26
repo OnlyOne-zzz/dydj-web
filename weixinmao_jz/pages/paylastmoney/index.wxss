@@ -1,0 +1,158 @@
+.container {
+    background-color: #FFF;
+    min-height: 100%;
+}
+
+.container .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400rpx;
+}
+
+.container .header image {
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.container .header view:nth-child(2) {
+    font-size: .8rem;
+    color: #414141;
+}
+
+.container .header view:nth-child(3) {
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-top: 10rpx;
+}
+
+.container .getmoney button {
+    width: 600rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: .8rem;
+    margin-bottom: 20rpx;
+    color: #FFF;
+}
+
+.container .getmoney button:nth-child(1) {
+    background: #47b34e;
+}
+
+.container .getmoney button:nth-child(2) {
+    background: #bfbfbf;
+}
+
+.picker {
+    width: 600rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border: 1rpx solid #dad8d8;
+    border-radius: 10rpx;
+    color: #b4b3b3;
+    text-align: center;
+    margin-top: 100rpx;
+}
+
+.totalmoney {
+    width: 600rpx;
+    font-size: .7rem;
+    text-align: right;
+    color: red;
+}
+
+.container .main {
+    width: 700rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFF;
+    align-self: center;
+    padding: 10rpx;
+    border-radius: 5rpx;
+    margin-top: 10rpx;
+}
+
+.container .main .title {
+    width: 700rpx;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+    font-size: 1rem;
+    color: #303030;
+    border-bottom: 1rpx dotted #f5f5f5;
+}
+
+.container .main .list {
+    width: 700rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFF;
+}
+
+.container .main .list .item {
+    width: 700rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+    align-self: center;
+    padding-top: 25rpx;
+    padding-bottom: 25rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container .main .list .item .name {
+    width: 35%;
+    font-size: .9rem;
+    color: #2d2d2d;
+}
+
+.container .main .list .item .selectitem {
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    color: #808080;
+    font-size: .9rem;
+}
+
+.container .main .list .item .selectitem input {
+    width: 100%;
+}
+
+.container .main .list .item .selectitem .picker {
+    width: 100%;
+    text-align: right;
+}
+
+.container .main .list .item .selectitem>image {
+    width: 30rpx;
+    height: 30rpx;
+    align-self: center;
+}
+
+.container .main .checklist {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 750rpx;
+    background: #fff;
+    flex-wrap: wrap;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    padding-left: 20rpx;
+}
+
+.container .main .checklist checkbox-group {
+    width: 720rpx;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container .main .checklist .checkitem {
+    font-size: .7rem;
+    width: 240rpx;
+    margin-top: 10rpx;
+}

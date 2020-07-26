@@ -1,0 +1,12 @@
+<view class="container">
+    <view class="header">
+        <view></view>
+        <view></view>
+        <view>￥{{companyrole.money}}</view>
+        <view></view>
+        <view class="totalmoney"></view>
+    </view>
+    <view class="getmoney">
+        <button bindtap="paymoney" data-id="{{id}}">立即支付</button>
+    </view>
+</view>

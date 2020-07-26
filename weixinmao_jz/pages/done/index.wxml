@@ -1,0 +1,85 @@
+<form reportSubmit bindsubmit="pay">
+    <view class="container">
+        <view class="proline">
+            <view class="progress">
+                <view class="linetext">下单</view>
+                <view class="linetext">支付</view>
+                <view class="linetext">议价</view>
+                <view class="linetext">上门</view>
+                <view class="linetext">评价</view>
+            </view>
+            <view class="progress">
+                <view class="line"></view>
+                <view class="line" style="background: #42BE9C;"></view>
+                <view class="cricle "></view>
+                <view class="line"></view>
+                <view class="line"></view>
+                <view class="line"></view>
+            </view>
+        </view>
+        <block wx:if="{{addressinfo}}">
+            <view bindtap="selectaddress" class="newaddress">
+                <view class="showaddress">
+                    <view>
+                        <text>{{addressinfo.name}}</text>
+                        <text style="margin-left:20rpx;"> {{addressinfo.tel}}</text>
+                    </view>
+                    <view>{{addressinfo.address}}{{addressinfo.daddress}}</view>
+                </view>
+                <view>
+                    <image src="../../resource/images/ri.png"></image>
+                </view>
+            </view>
+            <view class="addressimg" style="margin-top:-20rpx;">
+                <image src="../../resource/images/addr-line.png"></image>
+            </view>
+        </block>
+        <view class="newaddress2" wx:else>
+            <view bindtap="getaddress" class="flexaddress">
+                <view>
+                    <image src="../../resource/images/newaddress.png"></image>
+                </view>
+                <view>新增我的地址</view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          详细需求
+        </view>
+            <view class="list" style="border-bottom:0rpx;">
+                <view class="item" style="border-bottom:0rpx;">
+                    <view class="selectitem" style="border-bottom:0rpx;">
+                        <textarea name="content" placeholder="请认真填写详细需求，避免影响报价" style="width:700rpx;" value=""></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title"></view>
+            <view class="list" style="border-bottom:0rpx;">
+                <view class="item" style="border-bottom:0rpx;">
+                    <view class="selectitem" style="width:100%;border-bottom:0rpx; justify-content:flex-start;">
+支付方式：
+   <radio-group bindchange="radioPayChange" class="radio-group">
+                            <label class="radio">
+                                <radio checked value="0"></radio>微信支付
+  </label>
+                            <label class="radio">
+                                <radio value="1"></radio>余额支付
+  </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weixinmao-float">
+            <view class="weixinmao-foot">
+                <button class="footer" formType="submit" style="background:{{intro.maincolor}}">
+    
+       {{orderinfo.money==0?'立即提交':'立即支付 ￥'}}
+        {{orderinfo.money==0?'':orderinfo.money}}
+     </button>
+            </view>
+        </view>
+    </view>
+</form>

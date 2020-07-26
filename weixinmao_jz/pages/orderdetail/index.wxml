@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="orderlist">
+        <view class="orderid">订 单 号:{{data.orderid}}</view>
+        <view class="content">
+            <view class="item">实付金额:￥{{data.money}}</view>
+            <view class="item">创建时间:{{data.createtime}}</view>
+            <view class="payitem"></view>
+        </view>
+    </view>
+    <view class="orderlist">
+        <view class="orderid">服务列表</view>
+        <view class="content" wx:for="{{list}}">
+            <view class="item">
+                <image src="{{item.thumb}}"></image>{{item.title}} 
+              
+              </view>
+        </view>
+    </view>
+</view>

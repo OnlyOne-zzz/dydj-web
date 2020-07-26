@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="header"></view>
+    <view class="pic">
+        <image src="{{data.avatarUrl}}"></image>
+        <view>{{data.name}}</view>
+        <view>{{data.sex==1?'男':'女'}} {{data.age}}岁 {{data.express}} {{data.education}}</view>
+    </view>
+    <view class="order" style="margin-top:140rpx;">
+        <view class="title">
+        基本信息
+      </view>
+        <view class="list">
+            <view class="item">类 型 : <text wx:for="{{typelist}}">{{item.name}}</text>
+            </view>
+            <view class="item">身份证号 : {{data.card}}</view>
+            <view class="item">籍 贯: {{data.place}}</view>
+            <view class="item">出生年份 : {{data.birthday}}</view>
+            <view class="item">最高学历  : {{data.education}}</view>
+            <view class="item">工作经验 : {{data.express}}</view>
+            <view class="item">现居住地 : {{data.address}}</view>
+            <view class="item">工作地区 : {{data.areaname}}</view>
+        </view>
+    </view>
+    <view class="order">
+        <view class="title">
+         自我介绍及工作经历
+      </view>
+        <view class="content">
+        {{data.content}}
+      </view>
+    </view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <button bindtap="toNotemessage" class="footer" data-id="{{data.id}}" hidden="{{!isuser}}">立即预约</button>
+        <button bindgetuserinfo="bindGetUserInfo" class="footer" hidden="{{isuser}}" openType="getUserInfo">立即预约</button>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <navigator class="u-go-home" openType="switchTab" url="/weixinmao_jz/pages/index/index">
+        <view class="iconfont fa fa-home"></view>
+    </navigator>
+</view>

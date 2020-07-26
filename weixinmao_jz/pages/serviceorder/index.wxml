@@ -1,0 +1,22 @@
+<view class="container" hidden="{{isshow}}">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
+            <swiper-item wx:for="{{banners}}">
+                <image class="slide-image" data-id="" height="562.5rpx" src="{{item.thumb}}" width="750rpx"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="index"></view>
+        </view>
+    </view>
+    <view class="container">
+        <view class="weui-grids">
+            <view bindtap="toList" class="weui-grid" id="{{item.id}}" wx:for="{{catelist}}" wx:key="name">
+                <view class="weui-grid__icon">
+                    <image mode="scaleToFill" src="{{item.thumb}}"></image>
+                </view>
+                <text class="weui-grid__label">{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</view>

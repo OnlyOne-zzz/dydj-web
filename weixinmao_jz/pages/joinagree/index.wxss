@@ -1,0 +1,139 @@
+page {
+    background-color: #fff;
+}
+
+.container {
+    background-color: #FFF;
+}
+
+.container .header {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .header .title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-top: 30rpx;
+}
+
+.container .header .content {
+    font-size: .9rem;
+    padding-top: 20rpx;
+    color: #868686;
+}
+
+.container .header .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 620rpx;
+    margin-top: 60rpx;
+    flex-wrap: wrap;
+}
+
+.container .header .logo image {
+    width: 125rpx;
+    height: 125rpx;
+    border-radius: 50%;
+    margin-bottom: 80rpx;
+}
+
+.container .step {
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    background: #f6fbf5;
+    padding-bottom: 20rpx;
+}
+
+.container .step .title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-top: 30rpx;
+    align-self: center;
+}
+
+.container .step .content {
+    font-size: .9rem;
+    padding-top: 20rpx;
+    color: #868686;
+    align-self: center;
+    margin-bottom: 20rpx;
+}
+
+.container .step .list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 30rpx;
+}
+
+.container .step .list .item {
+    height: 100rpx;
+    width: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-left: 40rpx;
+}
+
+.container .step .list .item view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 60rpx;
+    height: 60rpx;
+    background: #47c11e;
+    color: #FFF;
+    border-radius: 75rpx;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.container .step .list .itemtitle {
+    color: #888d87;
+    font-size: .8rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30rpx;
+    height: 100rpx;
+}
+
+.container .step .list .itemtitle view:nth-child(1) {
+    color: #888d87;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.container .step .list .itemtitle view:nth-child(2) {
+    color: #c0c2bd;
+    font-size: .8rem;
+}
+
+.container .joinbtn {
+    width: 750rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50rpx;
+    margin-bottom: 50rpx;
+}
+
+.container .joinbtn button {
+    background: #47c11e;
+    color: #FFF;
+    font-size: .8rem;
+    width: 600rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+}
+
+.container .doagree {
+    font-size: .7rem;
+    margin-left: 50rpx;
+    margin-top: 40rpx;
+}

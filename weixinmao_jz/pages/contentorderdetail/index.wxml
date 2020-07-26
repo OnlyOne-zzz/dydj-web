@@ -1,0 +1,63 @@
+<import src="../../resource/wxParse/wxParse.wxml"></import>
+<view class="container">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperChange" circular="{{circular}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;">
+            <swiper-item wx:for="{{piclist}}">
+                <image bindload="imageLoad" class="slide-image" data-id="" src="{{item}}" style="height:{{imgheights[current]}}rpx;width:{{imgwidth}}rpx;"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{piclist}}" wx:key="index"></view>
+        </view>
+    </view>
+    <view class="cartitle">
+        <view> {{data.title}}</view>
+        <view> {{data.isding==0?'一口价':'定金'}} ￥{{data.money}} <text style="font-size:.7rem;">元</text>
+        </view>
+    </view>
+    <view class="main">
+        <view class="casetitle">
+            <view></view>
+            <view>详情介绍</view>
+        </view>
+        <view class="content">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <view bindtap="toShopinfo" class="footer">
+            <text class="fa fa-home fa-lg"></text>返回</view>
+        <view class="footer" data-id="{{data.companyid}}">
+            <form reportSubmit bindsubmit="toOrder">
+                <button class="footerbutton" formType="submit" hidden="{{isuser}}" style="background:#fe552e; font-size:.8rem; height:100rpx;">立即下单</button>
+            </form>
+            <form bindsubmit="doSendjob" reportSubmit="true">
+                <button bindgetuserinfo="bindGetUserInfo" class="footerbutton" formType="submit" hidden="{{!isuser}}" openType="getUserInfo" style="background:#fe552e; font-size:.8rem; height:100rpx;">立即下单</button>
+            </form>
+        </view>
+    </view>
+</view>
+<view class="add-cart-box floatBox" wx:if="{{is_add_cart_view}}">
+    <view class="layout">
+        <text bindtap="add_cart_close_bind" class="iconfont icon-close fr">×</text>
+        <view class="layout-info gridXb flex">
+            <image height="40" mode="aspectFill" src="{{data.thumb}}" width="40"></image>
+            <view class="sub ml10">
+                <view class="lineText">{{data.title}}</view>
+                <view class="red f18">
+          {{data.isding==0?'一口价':'定金'}}￥{{money}}
+          </view>
+            </view>
+        </view>
+        <view></view>
+        <view class="options">
+            <view bindtap="tabClick" class="options-tiem {{item.id==currentid?'item_on':''}}   " data-id="{{item.id}}" wx:for="{{gooditemslist}}">
+              {{item.name}}
+        </view>
+        </view>
+        <button bindtap="toMsgdone" class="add-cart-btn" disabled="{{btn_add_cart_disabled}}" style="background:{{intro.maincolor}}">确定</button>
+    </view>
+    <view bindtap="add_cart_close_bind" class="floatBox floatBoxBg" style="display:block;"></view>
+</view>

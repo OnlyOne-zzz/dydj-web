@@ -1,0 +1,39 @@
+<view class="container">
+    <view class="header"></view>
+    <view class="pic">
+        <image src="{{data.avatarUrl}}"></image>
+        <view>{{data.name}}</view>
+        <view></view>
+    </view>
+    <view class="order" style="margin-top:140rpx;">
+        <view class="title">
+        基本信息
+      </view>
+        <view class="list">
+            <view class="item">服务项目 : <text wx:for="{{typelist}}">{{item.name}}</text>
+            </view>
+            <view class="item">联系电话 : {{data.tel}}</view>
+            <view class="item">公司地址 : {{data.address}}</view>
+            <view class="item">工作地区 : {{data.areaname}}</view>
+        </view>
+    </view>
+    <view class="order">
+        <view class="title">
+         公司介绍
+      </view>
+        <view class="content">
+        {{data.content}}
+      </view>
+    </view>
+</view>
+<view class="weixinmao-float">
+    <view class="weixinmao-foot">
+        <button bindtap="toNotemessage" class="footer" data-id="{{data.id}}" hidden="{{!isuser}}">立即预约</button>
+        <button bindgetuserinfo="bindGetUserInfo" class="footer" hidden="{{isuser}}" openType="getUserInfo">立即预约</button>
+    </view>
+</view>
+<view class="u-tap-btn">
+    <navigator class="u-go-home" openType="switchTab" url="/weixinmao_jz/pages/index/index">
+        <view class="iconfont fa fa-home"></view>
+    </navigator>
+</view>

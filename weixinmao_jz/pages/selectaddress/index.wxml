@@ -1,0 +1,14 @@
+<view class="container">
+    <view bindtap="selectaddress" class="newaddress" data-id="{{item.id}}" wx:for="{{list}}">
+        <view class="showaddress">
+            <view>
+                <text>{{item.name}}</text>
+                <text style="margin-left:20rpx;"> {{item.tel}}</text>
+            </view>
+            <view>{{item.address}}{{item.daddress}}</view>
+        </view>
+        <view>
+            <image src="../../resource/images/ri.png"></image>
+        </view>
+    </view>
+</view>
