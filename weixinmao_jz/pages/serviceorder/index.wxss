@@ -78,6 +78,7 @@ swiper-item image {
 .weui-grids {
     position: relative;
     overflow: hidden;
+    border: none;
 }
 
 .weui-grids:before {
@@ -109,9 +110,10 @@ swiper-item image {
 .weui-grid {
     position: relative;
     float: left;
-    padding: 40rpx 20rpx;
-    width: 33.33333333%;
+    width: 25%;
     box-sizing: border-box;
+    border: none;
+    padding: 10px;
 }
 
 .weui-grid:before {
@@ -148,12 +150,16 @@ swiper-item image {
     width: 160rpx;
     height: 160rpx;
     margin: 0 auto;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px #a6a6a6;
 }
 
 .weui-grid__icon image {
     display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .weui-grid__icon+.weui-grid__label {

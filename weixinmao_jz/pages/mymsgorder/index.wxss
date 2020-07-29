@@ -8,7 +8,6 @@ page {
     background-color: #fff;
     overflow: hidden;
     border-bottom: 1rpx solid #F2f2f2;
-    padding-bottom: 10rpx;
 }
 
 .type-navbar {

@@ -6,16 +6,16 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
-		"enhance": false,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": false,
-		"coverView": true,
-		"nodeModules": false,
 		"autoAudits": false,
+		"coverView": true,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
+		"enhance": false,
+		"nodeModules": false,
 		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -33,7 +33,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.12.0",
 	"appid": "wxfee9e92111e44d0b",
-	"projectname": "wxapp",
+	"projectname": "dydj-web",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
