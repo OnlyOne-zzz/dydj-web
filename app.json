@@ -81,26 +81,26 @@
       {
         "pagePath": "weixinmao_jz/pages/index/index",
         "text": "首页",
-        "iconPath": "weixinmao_jz/resource/images/nav/home-off.png",
-        "selectedIconPath": "weixinmao_jz/resource/images/nav/home-on.png"
+        "iconPath": "weixinmao_jz/resource/images/nav/sy_off.png",
+        "selectedIconPath": "weixinmao_jz/resource/images/nav/sy_on.png"
       },
       {
         "pagePath": "weixinmao_jz/pages/notelist/index",
         "text": "附近技师",
-        "iconPath": "weixinmao_jz/resource/images/nav/news-off.png",
-        "selectedIconPath": "weixinmao_jz/resource/images/nav/news-on.png"
+        "iconPath": "weixinmao_jz/resource/images/nav/fjjs_off.png",
+        "selectedIconPath": "weixinmao_jz/resource/images/nav/fjjs_on.png"
       },
       {
         "pagePath": "weixinmao_jz/pages/myorderlist/index",
         "text": "订单",
-        "iconPath": "weixinmao_jz/resource/images/nav/er-off.png",
-        "selectedIconPath": "weixinmao_jz/resource/images/nav/er-on.png"
+        "iconPath": "weixinmao_jz/resource/images/nav/dd_off.png",
+        "selectedIconPath": "weixinmao_jz/resource/images/nav/dd_on.png"
       },
       {
         "pagePath": "weixinmao_jz/pages/user/index",
         "text": "会员中心",
-        "iconPath": "weixinmao_jz/resource/images/nav/user-off.png",
-        "selectedIconPath": "weixinmao_jz/resource/images/nav/user-on.png"
+        "iconPath": "weixinmao_jz/resource/images/nav/wd_off.png",
+        "selectedIconPath": "weixinmao_jz/resource/images/nav/wd_on.png"
       }
     ]
   },

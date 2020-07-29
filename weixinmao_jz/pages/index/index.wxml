@@ -43,40 +43,23 @@
             </block>
             <block wx:else>
                 <view bindtap="toNotelist" class="item">
-                    <image src="../../resource/images/t6.png"></image>
+                    <image src="../../resource/images/jstj.png"></image>
                     <view>技师推荐</view>
                 </view>
                 <view bindtap="toServiceorder" class="item">
-                    <image src="../../resource/images/t4.png"></image>
+                    <image src="../../resource/images/xmtj.png"></image>
                     <view>项目推荐</view>
                 </view>
                 <view bindtap="toMyorder" class="item">
-                    <image src="../../resource/images/t2.png"></image>
+                    <image src="../../resource/images/kqzx.png"></image>
                     <view>领券中心</view>
                 </view>
                 <view bindtap="toLogin" class="item">
-                    <image src="../../resource/images/t1.png"></image>
+                    <image src="../../resource/images/jszm.png"></image>
                     <view>技师招募</view>
                 </view>
             </block>
         </view>
-       
-        <!-- <view class="card clearfix">
-            <view class="card-item" wx:for="{{couponlist}}">
-                <view bindtap="givecoupon" class="flex card-info" id="{{item.id}}" style="background:#fe8a0d;">
-                    <view class="card-count sub">
-                        <view class="cards">
-                            <view class="card-counts gridXb f24">￥{{item.money}}</view>
-                            <view class="card-tips">{{item.title}}</view>
-                        </view>
-                    </view>
-                    <view class="card-txt">
-                        <view class="card-txt-box">立即领取</view>
-                    </view>
-                </view>
-            </view>
-        </view> -->
-        
         <view class="news">
             <view class="newstitle">
                 <view style="background:{{intro.maincolor}};"></view>
