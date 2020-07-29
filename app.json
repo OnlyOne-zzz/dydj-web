@@ -98,7 +98,7 @@
       },
       {
         "pagePath": "weixinmao_jz/pages/user/index",
-        "text": "会员中心",
+        "text": "我的",
         "iconPath": "weixinmao_jz/resource/images/nav/wd_off.png",
         "selectedIconPath": "weixinmao_jz/resource/images/nav/wd_on.png"
       }
