@@ -29,7 +29,7 @@ Page({
     onLoad: function(t) {
         var i = this;
         wx.setNavigationBarTitle({
-            title: "预约技师-" + wx.getStorageSync("companyinfo").name
+            title: "预约门店-" + wx.getStorageSync("companyinfo").name
         });
         i.setData({
             housetypelist: [ {
