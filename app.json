@@ -86,7 +86,7 @@
       },
       {
         "pagePath": "weixinmao_jz/pages/notelist/index",
-        "text": "附近门店",
+        "text": "附近技师",
         "iconPath": "weixinmao_jz/resource/images/nav/news-off.png",
         "selectedIconPath": "weixinmao_jz/resource/images/nav/news-on.png"
       },

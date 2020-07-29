@@ -29,7 +29,7 @@ Page({
     onLoad: function(t) {
         var i = this;
         wx.setNavigationBarTitle({
-            title: "预约门店-" + wx.getStorageSync("companyinfo").name
+            title: "预约技师-" + wx.getStorageSync("companyinfo").name
         });
         i.setData({
             housetypelist: [ {
@@ -77,17 +77,17 @@ Page({
         }), wx.getLocation({
             type: "gcj02",
             success: function(t) {
-                wx.setStorageSync("latitude", t.latitude), wx.setStorageSync("longitude", t.longitude), 
-                qqmapsdk.reverseGeocoder({
-                    location: {
-                        latitude: t.latitude,
-                        longitude: t.longitude
-                    },
-                    success: function(t) {
-                        var e = t.result.address_component.city, a = e.substr(0, e.length - 1);
-                        wx.setStorageSync("city", a), i.initpage();
-                    }
-                });
+                wx.setStorageSync("latitude", t.latitude), wx.setStorageSync("longitude", t.longitude),
+                    qqmapsdk.reverseGeocoder({
+                        location: {
+                            latitude: t.latitude,
+                            longitude: t.longitude
+                        },
+                        success: function(t) {
+                            var e = t.result.address_component.city, a = e.substr(0, e.length - 1);
+                            wx.setStorageSync("city", a), i.initpage();
+                        }
+                    });
             },
             fail: function() {
                 i.initpage();
@@ -119,15 +119,15 @@ Page({
                 housetype: e.data.housetype
             },
             success: function(t) {
-                t.data.message.errno || (t.data.data.intro.maincolor || (t.data.data.intro.maincolor = "#09ba07"), 
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: t.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), console.log(t.data.data), e.setData({
+                t.data.message.errno || (t.data.data.intro.maincolor || (t.data.data.intro.maincolor = "#09ba07"),
+                    wx.setNavigationBarColor({
+                        frontColor: "#ffffff",
+                        backgroundColor: t.data.data.intro.maincolor,
+                        animation: {
+                            duration: 400,
+                            timingFunc: "easeIn"
+                        }
+                    }), console.log(t.data.data), e.setData({
                     worklist: t.data.data.worklist
                 }));
             },
