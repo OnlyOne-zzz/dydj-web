@@ -706,11 +706,27 @@ swiper-item image {
     margin-right: 10rpx;
 }
 
+.fjyy {
+    width: 115px;
+}
+.fjyy > image{
+    width: 100%;
+    /* height: 30px; */
+}
+
 .swiper_container_move {
     height: 55rpx;
     line-height: 55rpx;
     width: 100%;
-    padding: 0px 20px
+    padding: 0px 20px;
+    padding-left: 10px;
+}
+
+.swiper_item_move > image{
+    width: 20px;
+    height: 20px;
+    vertical-align: -5px;
+    margin-right: 5px;
 }
 
 .swiper_item_move {

@@ -1,6 +1,50 @@
 <form reportSubmit bindsubmit="pay">
     <view class="container">
-        <block wx:if="{{addressinfo}}">
+        <view class="addressimg">
+            <image mode="heightFix" src="../../resource/images/addr-line.png"></image>
+        </view>
+        <view class="userInfo">
+            <view>
+                <image mode='heightFix' src="../../resource/images/user.png"></image> 
+                <input type="text" value="{{addressinfo.name}}" placeholder="请输入您的姓名"/>
+            </view>
+            <view>
+                <image mode='heightFix' src="../../resource/images/phone.png"></image> 
+                <input type="text" value="{{addressinfo.tel}}" placeholder="请输入您的电话"/>
+            </view>
+            <view>
+                <image mode='heightFix' src="../../resource/images/addr.png"></image> 
+                <input type="text" value="{{addressinfo.address}}{{addressinfo.daddress}}" placeholder="请选择您的地址" disabled="disabled" bindtap="getaddress"/>
+                <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
+            </view>
+            <view>
+                <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
+                <input type="text" value="" placeholder="请输入详细的门牌号"/>
+            </view>
+        </view>
+        <view class="addressimg">
+            <image mode="heightFix" src="../../resource/images/addr-line.png"></image>
+        </view>
+        <view class="userInfo" style="padding-top: 0px">
+            <view>
+                <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
+                <picker mode="time" start="09:01" end="21:01" bindchange="bindTimeChange" style="width:100%">
+                    <view class="listcontent">
+                        <text>服务时间</text>
+                        <text class="listTime" style="padding-right: 30px">{{time}}</text>
+                    </view>
+                </picker>
+                <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
+            </view>
+            <view>
+                <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
+                <view class="listcontent">
+                    <text>服务人员</text>
+                    <text class="listTime">张小辉</text>
+                </view>
+            </view>
+        </view>
+        <!-- <block wx:if="{{addressinfo}}">
             <view bindtap="selectaddress" class="newaddress">
                 <view class="showaddress">
                     <view>
@@ -13,18 +57,15 @@
                     <image src="../../resource/images/ri.png"></image>
                 </view>
             </view>
-            <view class="addressimg" style="margin-top:-20rpx;">
-                <image src="../../resource/images/addr-line.png"></image>
-            </view>
-        </block>
-        <view class="newaddress2" wx:else>
+        </block> -->
+        <!-- <view class="newaddress2" wx:else>
             <view bindtap="getaddress" class="flexaddress">
                 <view>
                     <image src="../../resource/images/newaddress.png"></image>
                 </view>
                 <view>新增我的地址</view>
             </view>
-        </view>
+        </view> -->
         <view class="main">
             <view class="listmsg">
                 <view class="itemmsg">
@@ -35,6 +76,7 @@
                         <view> {{msgcontent.title}}</view>
                         <view> 规格:{{gooditems.name}}</view>
                         <view>￥{{gooditems.money}}</view>
+                        <view></view>
                     </view>
                 </view>
             </view>
@@ -59,10 +101,10 @@
                         <radio-group bindchange="radioPayChange" class="radio-group">
                             <label class="radio">
                                 <radio checked value="0"></radio>微信支付
-  </label>
+                            </label>
                             <label class="radio">
                                 <radio value="1"></radio>余额支付
-  </label>
+                            </label>
                         </radio-group>
                     </view>
                 </view>
@@ -71,10 +113,9 @@
         <view class="weixinmao-float">
             <view class="weixinmao-foot">
                 <button class="footer" formType="submit" style="background:{{intro.maincolor}}">
-    
-       {{gooditems.money==0?'立即提交':'立即支付 ￥'}}
-        {{gooditems.money==0?'':gooditems.money}}
-     </button>
+                    {{gooditems.money==0?'立即提交':'立即支付 ￥'}}
+                    {{gooditems.money==0?'':gooditems.money}}
+                </button>
             </view>
         </view>
     </view>

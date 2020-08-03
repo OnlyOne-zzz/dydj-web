@@ -11,13 +11,67 @@ page {
 }
 
 .addressimg {
-    width: 750rpx;
+    width: 100%;
+    height: 2px;
+    background: #fff;
 }
 
 .addressimg image {
-    height: 10rpx;
+    width: 100%;
+    height: 2px;
+    float: left;
+}
+.userInfo{
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    padding-left: 40px;
+    padding-top: 10px;
 }
 
+.userInfo > view {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+}
+.userInfo > view >image{
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    float: left;
+    margin-top: 10px;
+    margin-left: -30px;
+}
+.listcontent{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: .8rem;
+    display: flex;
+    justify-content:space-between;
+}
+.listTime{
+    padding-right: 10px;
+}
+.right{
+    width: 15px !important;
+    height: 15px !important;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    margin: 0 !important;
+    padding: 0 !important;
+    clear: left !important;
+}
+.userInfo > view >input{
+    font-size: .8rem;
+    display: inline-block;
+    height: 100%;
+    width: calc(100% - 10px);
+    padding-left: 0px;
+}
 .newaddress {
     width: 750rpx;
     padding-top: 30rpx;
@@ -135,7 +189,7 @@ page {
     font-size: .9rem;
 }
 
-.container .main .listmsg {
+.container .main {
     width: 750rpx;
     display: flex;
     justify-content: center;
@@ -144,13 +198,18 @@ page {
     padding: 20rpx;
 }
 
+.listmsg{
+    width: 100%;
+    height: 100px !important;
+    padding: 0px !important;
+}
+
 .listmsg .itemmsg {
-    width: 720rpx;
-    border-bottom: 1rpx solid #f5f5f5;
-    padding-top: 25rpx;
-    padding-bottom: 25rpx;
+    width: 100%;
+    height: 100px;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .listmsg .itemmsg .name {
@@ -189,6 +248,17 @@ page {
     width: 230rpx;
     height: 200rpx;
     border-radius: 5rpx;
+}
+.itemmsg > .name{
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.itemmsg > .name > image{
+    height: 100%;
+}
+.main{
+    padding-top: 0px !important;
 }
 
 .selecitemend {

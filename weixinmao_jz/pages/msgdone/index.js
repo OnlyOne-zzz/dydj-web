@@ -24,7 +24,8 @@ Page({
         payway: 0,
         shopid: 0,
         currentid: 0,
-        gooditems: []
+        gooditems: [],
+        time: ''
     },
     onLoad: function(a) {
         var t = this;
@@ -188,10 +189,20 @@ Page({
             showCancel: !1
         });
     },
+    bindTimeChange: function(e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        this.setData({
+            time: e.detail.value
+        })
+    },
     getaddress: function() {
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/getaddress/index"
-        });
+        if(this.data.addressinfo) {
+            this.selectaddress()
+        } else {
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/getaddress/index"
+            });
+        }
     },
     selectaddress: function() {
         wx.navigateTo({
@@ -214,11 +225,11 @@ Page({
             dates: a.detail.value
         });
     },
-    bindTimeChange: function(a) {
-        this.data.datetime = a.detail.value, console.log(a.detail.value), this.setData({
-            datetime: a.detail.value
-        });
-    },
+    // bindTimeChange: function(a) {
+    //     this.data.datetime = a.detail.value, console.log(a.detail.value), this.setData({
+    //         datetime: a.detail.value
+    //     });
+    // },
     uploadimg: function(a, i) {
         var t = app.util.geturl({
             url: "entry/wxapp/upload"
