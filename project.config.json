@@ -76,6 +76,20 @@
 					"id": -1,
 					"name": "支付订单",
 					"pathName": "weixinmao_jz/pages/msgdone/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/mycoupon/index",
+					"pathName": "weixinmao_jz/pages/mycoupon/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/user/index",
+					"pathName": "weixinmao_jz/pages/user/index",
 					"scene": null
 				}
 			]

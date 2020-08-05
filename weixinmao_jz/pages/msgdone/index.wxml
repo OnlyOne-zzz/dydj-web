@@ -1,3 +1,4 @@
+<wxs module="filter" src="./index.wxs"></wxs>
 <form reportSubmit bindsubmit="pay">
     <view class="container">
         <view class="addressimg">
@@ -27,7 +28,7 @@
         </view>
         <view class="userInfo" style="padding-top: 0px">
             <view>
-                <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
+                <image mode='heightFix' src="../../resource/images/times.png"></image> 
                 <picker mode="time" start="09:01" end="21:01" bindchange="bindTimeChange" style="width:100%">
                     <view class="listcontent">
                         <text>服务时间</text>
@@ -37,7 +38,7 @@
                 <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
             </view>
             <view>
-                <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
+                <image mode='heightFix' src="../../resource/images/fw.png"></image> 
                 <view class="listcontent">
                     <text>服务人员</text>
                     <text class="listTime">张小辉</text>
@@ -72,12 +73,41 @@
                     <view class="name">
                         <image src="{{msgcontent.thumb}}"></image>
                     </view>
-                    <view class="selectitem">
+                    <view class="selectitem" style="position: relative;">
                         <view> {{msgcontent.title}}</view>
                         <view> 规格:{{gooditems.name}}</view>
                         <view>￥{{gooditems.money}}</view>
-                        <view></view>
+                        <view class="selectNum">
+                            <view bindtap="numChange" data-index='0'>-</view>
+                            <input type="number" value='{{goodsNum}}'/>
+                            <view bindtap="numChange" data-index='1'>+</view>
+                        </view>
                     </view>
+                </view>
+            </view>
+        </view>
+        <view class="userInfo" style="padding-top: 0px;">
+            <view style="border-top: 1px solid #e5e5e5;">
+                <image mode='heightFix' src="../../resource/images/cx.png"></image> 
+                <view class="chuxing">
+                    <text>出行方式</text>
+                    <text class="listTime {{travel == 1 ? 'active':''}}" bindtap='selectTravel' data-index='1'>公交/地铁</text>
+                    <text class="listTime {{travel == 0 ? 'active':''}}" bindtap='selectTravel' data-index='0'>出租车</text>
+                </view>
+            </view>
+            <view>
+                <image mode='heightFix' src="../../resource/images/fy.png"></image> 
+                <view class="listcontent">
+                    <text>预估出行车费</text>
+                    <text class="listTime">￥10</text>
+                </view>
+            </view>
+            <view>
+                <image mode='heightFix' src="../../resource/images/yhq.png"></image> 
+                <view class="listcontent">
+                    <text>优惠券</text>
+                    <text class="listTime" style='padding-right: 30px'>请选择优惠券</text>
+                    <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
             </view>
         </view>
@@ -87,13 +117,13 @@
         </view>
             <view class="list" style="border-bottom:0rpx;">
                 <view class="item" style="border-bottom:0rpx;">
-                    <view class="selectitem" style="border-bottom:0rpx;">
+                    <view class="selectitem" style="border-bottom:0rpx; padding: 0px 10px">
                         <textarea name="content" placeholder="请填写备注" style="width:720rpx;" value=""></textarea>
                     </view>
                 </view>
             </view>
         </view>
-        <view class="main">
+        <!-- <view class="main">
             <view class="title"></view>
             <view class="list" style="border-bottom:0rpx;">
                 <view class="item" style="border-bottom:0rpx;">
@@ -109,13 +139,13 @@
                     </view>
                 </view>
             </view>
-        </view>
+        </view> -->
         <view class="weixinmao-float">
             <view class="weixinmao-foot">
-                <button class="footer" formType="submit" style="background:{{intro.maincolor}}">
-                    {{gooditems.money==0?'立即提交':'立即支付 ￥'}}
-                    {{gooditems.money==0?'':gooditems.money}}
-                </button>
+                <view>合计：￥{{filter.numberToFixed(gooditems.money * goodsNum)}}</view>
+                <view class="footer" formType="submit" style="background:{{intro.maincolor}}">
+                    {{gooditems.money==0?'立即提交':'立即支付'}}
+                </view>
             </view>
         </view>
     </view>

@@ -25,7 +25,9 @@ Page({
         shopid: 0,
         currentid: 0,
         gooditems: [],
-        time: ''
+        time: '',
+        goodsNum: 1,
+        travel: 0
     },
     onLoad: function(a) {
         var t = this;
@@ -40,6 +42,24 @@ Page({
         t.setData({
             isshow: !0
         }), t.oldhouseinit();
+    },
+    numChange: function(e) {
+        if(e.currentTarget.dataset['index'] == 1){
+            this.setData({
+                goodsNum: ++this.data.goodsNum
+            })
+        } else {
+            if(this.data.goodsNum > 1){
+                this.setData({
+                    goodsNum: --this.data.goodsNum
+                })
+            }
+        }
+    },
+    selectTravel: function(e){
+        this.setData({
+            travel: e.target.dataset.index
+        })
     },
     oldhouseinit: function(a) {
         var t = this, e = wx.getStorageSync("userInfo");
