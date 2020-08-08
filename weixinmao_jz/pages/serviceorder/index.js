@@ -27,6 +27,7 @@ Page({
                     intro: a.data.data.intro,
                     catelist: a.data.data.catelist,
                     banners: a.data.data.bannerlist,
+                    msgList: a.data.data.noticelist,
                     isshow: !1
                 }));
             },

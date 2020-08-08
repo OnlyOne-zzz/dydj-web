@@ -6,29 +6,29 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
+		"enhance": false,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": false,
-		"autoAudits": false,
 		"coverView": true,
+		"nodeModules": false,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
-		"enhance": false,
-		"nodeModules": false,
 		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"compileHotReLoad": false,
+		"useIsolateContext": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.12.0",
@@ -50,11 +50,11 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
+		"plugin": {
 			"current": -1,
 			"list": []
 		},
-		"plugin": {
+		"game": {
 			"current": -1,
 			"list": []
 		},
@@ -64,7 +64,35 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "项目推荐",
+					"pathName": "weixinmao_jz/pages/serviceorder/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付订单",
+					"pathName": "weixinmao_jz/pages/msgdone/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/mycoupon/index",
+					"pathName": "weixinmao_jz/pages/mycoupon/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/user/index",
+					"pathName": "weixinmao_jz/pages/user/index",
+					"scene": null
+				}
+			]
 		}
 	}
 }

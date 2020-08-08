@@ -3,7 +3,13 @@ var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = requi
 Page({
     data: {
         id: 1,
-        ordertype: 0
+        ordertype: 0,
+        active: 0
+    },
+    selectList(e){
+        this.setData({
+            active: e.target.dataset.index
+        })
     },
     onLoad: function(o) {
         var t = this;

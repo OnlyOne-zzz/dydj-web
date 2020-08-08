@@ -1,15 +1,74 @@
-<view class="card clearfix">
-    <view class="card-item" style="margin-left:80rpx;margin-bottom:20rpx;" wx:for="{{list}}">
-        <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
-            <view class="card-count sub" style="width:80%;">
-                <view class="cards">
-                    <view class="card-counts gridXb f24" style="margin-right:60rpx;font-size:1.2rem;">优惠券￥{{item.money}}</view>
-                    <view class="card-tips" style="margin-right:60rpx;font-size:.8rem;">使用条件:{{item.title}}</view>
+<view class="card clearfix" style='padding: 0;margin:0'>
+    <view class="invite">
+        <image mode='heightFix' src='https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3478379760,3683572478&fm=26&gp=0.jpg'></image>
+        <view class="share">邀请有礼</view>
+   </view>
+   <view class='cardList'>
+        <view class="{{active==0?'cardAct':''}}" data-index="0" bindtap="selectList">未使用</view>
+        <view class="{{active==1?'cardAct':''}}" data-index="1" bindtap="selectList">已使用</view>
+        <view class="{{active==2?'cardAct':''}}" data-index="2" bindtap="selectList">已过期</view>
+   </view>
+   <!-- 未使用 -->
+   <view class="listbox" wx:if="{{active==0}}">
+        <view class="card-item" wx:for="5">
+            <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
+                <view class="card-count sub">
+                    <view class="cards">
+                        <view class="card-counts gridXb f24"><text>￥</text>1000</view>
+                        <view class="card-tips">
+                            <text>经典推拿按摩套餐券</text>
+                            <text>免费领取</text>
+                            <text>使用规则：仅可在指定项目使用</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="card-txt">
+                    <view>截至时间：2020-01-01 - 2020-12-31</view>
+                    <view class="card-txt-box">去使用</view>
                 </view>
             </view>
-            <view class="card-txt" style="width:20%;">
-                <view class="card-txt-box">{{item.status==0?'未使用':'已使用'}}</view>
+         </view>
+   </view>
+   <!-- 已使用 -->
+   <view class="listbox" wx:if="{{active==1}}">
+        <view class="card-item" wx:for="5">
+            <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
+                <view class="card-count sub">
+                    <view class="cards">
+                        <view class="card-counts gridXb f24"><text>￥</text>1000</view>
+                        <view class="card-tips">
+                            <text>经典推拿按摩套餐券</text>
+                            <text>免费领取</text>
+                            <text>使用规则：仅可在指定项目使用</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="card-txt">
+                    <view>截至时间：2020-01-01 - 2020-12-31</view>
+                    <view class="card-txt-box card-txt-box-no ">已使用</view>
+                </view>
             </view>
-        </view>
-    </view>
+         </view>
+   </view>
+   <!-- 已过期 -->
+   <view class="listbox" wx:if="{{active==2}}">
+        <view class="card-item" wx:for="5">
+            <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
+                <view class="card-count sub">
+                    <view class="cards">
+                        <view class="card-counts gridXb f24"><text>￥</text>1000</view>
+                        <view class="card-tips">
+                            <text>经典推拿按摩套餐券</text>
+                            <text>免费领取</text>
+                            <text>使用规则：仅可在指定项目使用</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="card-txt">
+                    <view>截至时间：2020-01-01 - 2020-12-31</view>
+                    <view class="card-txt-box card-txt-box-no">已过期</view>
+                </view>
+            </view>
+         </view>
+   </view>
 </view>

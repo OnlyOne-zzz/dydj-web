@@ -11,21 +11,29 @@
                 </view>
             </view>
         </view>
-        <view hidden="{{isuser}}">
+        <view hidden="{{isuser}}" style="width: 100%; height: 100%;">
             <view class="pic">
                 <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
                 <view class="userinfo">
                     <view>{{userinfo.wxInfo.nickName}}</view>
-                    <view bindtap="toDomoney" class="paymoney">
-                        <view>账户余额: ￥{{moneyrecordinfo.totalmoney}}</view>
-                        <view>去充值</view>
+                </view>
+                <view bindtap="toDomoney" class="paymoney">
+                    <view>
+                        <text>￥{{moneyrecordinfo.totalmoney}}</text>
+                        <text>账户余额</text>
+                    </view>
+                    <view>
+                        <text>￥{{moneyrecordinfo.totalmoney}}</text>
+                        <text>优惠券</text>
                     </view>
                 </view>
             </view>
         </view>
-        <view bindtap="toLogin" class="opencard" style=" background:linear-gradient(to right,#EEB4B4,#EEA9B8);">
-            <image src="../../resource/images/comlogin.png"></image> 入驻中心</view>
+        <!-- <view bindtap="toLogin" class="opencard" style=" background:linear-gradient(to right,#EEB4B4,#EEA9B8);">
+            <image src="../../resource/images/comlogin.png"></image> 入驻中心</view> -->
     </view>
+    <!-- 宣传图 -->
+    <image class="invite" mode="widthFix" src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1364348244,612692244&fm=26&gp=0.jpg'></image>
     <view class="service">
         <view bindtap="toMymessageorder" class="servicelist" style="background:{{intro.maincolor}};">
             <view class="logo">

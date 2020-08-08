@@ -1,0 +1,12 @@
+var filter = {
+	numberToFixed: function(value){
+		if(value) {
+			return value.toFixed(2)
+		} else{
+			return '0.00'
+		}
+	}
+}
+module.exports = {
+	numberToFixed: filter.numberToFixed
+}

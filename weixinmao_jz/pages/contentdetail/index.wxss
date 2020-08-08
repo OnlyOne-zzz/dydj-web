@@ -358,6 +358,7 @@ swiper-item image {
     color: #FFF;
     align-self: center;
     height: 80rpx;
+    line-height: 80rpx;
     font-size: 1.5rem;
     display: flex;
     flex-direction: column;
