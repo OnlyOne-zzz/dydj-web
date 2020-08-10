@@ -153,7 +153,8 @@ Page({
                         }
                     }), 0 < a.data.data.storeid && (wx.setStorageSync("storeid", a.data.data.storeid), 
                     wx.setStorageSync("storename", a.data.data.storename)), wx.setNavigationBarTitle({
-                        title: wx.getStorageSync("storename") + "-" + wx.getStorageSync("shopinfo").name
+                        // title: wx.getStorageSync("storename") + "-" + wx.getStorageSync("shopinfo").name
+                        title: `${wx.getStorageSync("storename") ? `${wx.getStorageSync("storename")} - `:''}`
                     }), t.setData({
                         shopinfo: wx.setStorageSync("shopinfo"),
                         contact: a.data.data.intro,
