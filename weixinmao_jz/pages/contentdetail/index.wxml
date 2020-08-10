@@ -28,7 +28,7 @@
 <view class="weixinmao-float">
     <view class="weixinmao-foot">
         <view bindtap="toShopinfo" class="footer">
-            <text class="fa fa-home fa-lg"></text>店铺</view>
+            <text class="fa fa-home fa-lg"></text>技师</view>
         <view class="footer" data-id="{{data.companyid}}">
             <button bindtap="doOrder" class="footerbutton" hidden="{{isuser}}" style="background:#fe552e; font-size:.8rem; height:100rpx;">立即下单</button>
             <form bindsubmit="doSendjob" reportSubmit="true">

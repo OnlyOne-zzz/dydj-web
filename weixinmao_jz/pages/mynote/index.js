@@ -80,7 +80,7 @@ Page((_defineProperty(_Page = {
     onLoad: function(e) {
         var i = this;
         i.data.id = e.id, wx.setNavigationBarTitle({
-            title: "个人店铺入驻资料-" + wx.getStorageSync("companyinfo").name
+            title: "个人技师入驻资料-" + wx.getStorageSync("companyinfo").name
         });
         var a = wx.getStorageSync("cityinfo");
         a ? (wx.setStorageSync("city", a.name), i.oldhouseinit()) : (qqmapsdk = new QQMapWX({
@@ -299,7 +299,7 @@ Page((_defineProperty(_Page = {
             showCancel: !1
         }); else wx.showModal({
             title: "提示",
-            content: "请输入店铺简介",
+            content: "请输入技师简介",
             showCancel: !1
         }); else wx.showModal({
             title: "提示",
@@ -315,7 +315,7 @@ Page((_defineProperty(_Page = {
             showCancel: !1
         }); else wx.showModal({
             title: "提示",
-            content: "请填写店铺地址",
+            content: "请填写技师地址",
             showCancel: !1
         }); else wx.showModal({
             title: "提示",
@@ -327,7 +327,7 @@ Page((_defineProperty(_Page = {
             showCancel: !1
         }); else wx.showModal({
             title: "提示",
-            content: "请输入店铺名称",
+            content: "请输入技师名称",
             showCancel: !1
         });
     },

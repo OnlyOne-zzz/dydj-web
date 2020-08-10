@@ -6,7 +6,7 @@
                 <view class="userinfo">
                     <view>{{data.shopname}}</view>
                     <view>人气0</view>
-                    <view>认证店铺</view>
+                    <view>认证技师</view>
                 </view>
             </view>
         </view>
@@ -31,7 +31,7 @@
             <view>
                 <image src="../../resource/images/dw.png"></image> {{data.address}}</view>
             <view>
-                <button openType="share">分享店铺</button>
+                <button openType="share">分享技师</button>
             </view>
         </view>
         <view class="line"></view>
