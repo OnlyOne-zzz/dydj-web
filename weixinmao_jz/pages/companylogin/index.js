@@ -7,7 +7,7 @@ Page({
     },
     onLoad: function(o) {
         wx.setNavigationBarTitle({
-            title: "店铺中心"
+            title: "技师中心"
         });
     },
     onReady: function() {},

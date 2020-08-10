@@ -6,9 +6,9 @@
         </view>
             <view class="list">
                 <view class="item ">
-                    <view class="name red">*店铺名称</view>
+                    <view class="name red">*技师名称</view>
                     <view class="selectitem">
-                        <input name="shopname" placeholder="请输入店铺名称" type="text" value="{{account.shopname}}"></input>
+                        <input name="shopname" placeholder="请输入技师名称" type="text" value="{{account.shopname}}"></input>
                     </view>
                 </view>
                 <view class="item  ">
@@ -29,9 +29,9 @@
                     </view>
                 </view>
                 <view class="item">
-                    <view class="name red">*店铺地址</view>
+                    <view class="name red">*技师地址</view>
                     <view class="selectitem">
-                        <input name="address" placeholder="请输入店铺地址" type="text" value="{{address}}"></input>
+                        <input name="address" placeholder="请输入技师地址" type="text" value="{{address}}"></input>
                         <button bindtap="getaddress" style="background: #09ba07;width:200rpx;color:#FFF;border-radius: 5rpx;font-size: .6rem;">获取地址</button>
                     </view>
                 </view>
@@ -62,12 +62,12 @@
         </view>
         <view class="main">
             <view class="title">
-          店铺简介
+          技师简介
         </view>
             <view class="list">
                 <view class="item">
                     <view class="selectitem" style="width:100%;">
-                        <textarea name="content" placeholder="请填写店铺简介" value="{{noteinfo.content}}"></textarea>
+                        <textarea name="content" placeholder="请填写技师简介" value="{{noteinfo.content}}"></textarea>
                     </view>
                 </view>
             </view>
@@ -99,7 +99,7 @@
         </view>
         <view class="main">
             <view class="title">
-          店铺LOGO
+          技师LOGO
         </view>
             <view class="imglist">
                 <view class="imgitem">
