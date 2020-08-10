@@ -365,6 +365,8 @@ swiper-item image {
     text-align: center;
     padding-top: 10rpx;
     border: 0rpx;
+    width: 100% !important;
+    margin: 0px;
 }
 
 button::after {
@@ -412,6 +414,7 @@ button::after {
 }
 
 .footerbutton {
+    width: 100%;
     background: #fe552e;
     border-radius: 5rpx;
 }

@@ -27,7 +27,8 @@ Page({
         gooditems: [],
         time: '',
         goodsNum: 1,
-        travel: 0
+        travel: 0,
+        address: ''
     },
     onLoad: function(a) {
         var t = this;
@@ -98,9 +99,42 @@ Page({
     radioPayChange: function(a) {
         this.data.payway = a.detail.value;
     },
+    inputChange: function(event){
+        let view_name = event.detail.value
+        this.setData({
+            address: view_name    // worker: input框输入的值
+        })
+    },
     pay: function(a) {
-        var t = this, e = t.data.addressinfo, o = a.detail.formId;
-        if (e) {
+        var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
+        console.log('======================================')
+        console.log(t.data)
+        let content = ''
+        if(!e){
+            content = '请先增加地址'
+            wx.showModal({
+                title: "提示",
+                content: content,
+                showCancel: !1
+            });
+            return false
+        } else if(!t.data.address){
+            content = '请完善门牌号'
+            wx.showModal({
+                title: "提示",
+                content: content,
+                showCancel: !1
+            });
+            return false
+        } else if(!t.data.time){
+            content = '请选择服务时间'
+            wx.showModal({
+                title: "提示",
+                content: content,
+                showCancel: !1
+            });
+            return false
+        } else {
             var i = t.data.shopid, d = t.data.currentid, n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
             0 < t.data.gooditems.money ? 0 == r ? wx.showModal({
                 title: "确认支付",
@@ -110,6 +144,8 @@ Page({
                         url: "entry/wxapp/paymsg",
                         data: {
                             currentid: d,
+                            address: t.data.address,
+                            time: t.data.time,
                             addressid: e.id,
                             shopid: i,
                             sessionid: n.sessionid,
@@ -203,11 +239,8 @@ Page({
                     }
                 }
             });
-        } else wx.showModal({
-            title: "提示",
-            content: "请先增加地址",
-            showCancel: !1
-        });
+        }
+        
     },
     bindTimeChange: function(e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -229,11 +262,15 @@ Page({
             url: "/weixinmao_jz/pages/selectaddress/index"
         });
     },
-    onReady: function() {},
+    onReady: function() {
+    },
     onShow: function() {
-        this.data.addressinfo = wx.getStorageSync("addressinfo"), this.setData({
+        // this.data.addressinfo = wx.getStorageSync("addressinfo")
+        this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
         });
+        console.log('==================================')
+        console.log(this.data.addressinfo)
     },
     onHide: function() {},
     onUnload: function() {},

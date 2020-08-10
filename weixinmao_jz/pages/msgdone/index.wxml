@@ -7,11 +7,11 @@
         <view class="userInfo">
             <view>
                 <image mode='heightFix' src="../../resource/images/user.png"></image> 
-                <input type="text" value="{{addressinfo.name}}" placeholder="请输入您的姓名"/>
+                <input type="text" value="{{addressinfo.name}}" placeholder="请输入您的姓名" disabled="disabled" bindtap="getaddress"/>
             </view>
             <view>
                 <image mode='heightFix' src="../../resource/images/phone.png"></image> 
-                <input type="text" value="{{addressinfo.tel}}" placeholder="请输入您的电话"/>
+                <input type="text" value="{{addressinfo.tel}}" placeholder="请输入您的电话" disabled="disabled" bindtap="getaddress"/>
             </view>
             <view>
                 <image mode='heightFix' src="../../resource/images/addr.png"></image> 
@@ -20,7 +20,7 @@
             </view>
             <view>
                 <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
-                <input type="text" value="" placeholder="请输入详细的门牌号"/>
+                <input type="text" value="" placeholder="请输入详细的门牌号" bindinput="inputChange"/>
             </view>
         </view>
         <view class="addressimg">
@@ -29,7 +29,7 @@
         <view class="userInfo" style="padding-top: 0px">
             <view>
                 <image mode='heightFix' src="../../resource/images/times.png"></image> 
-                <picker mode="time" start="09:01" end="21:01" bindchange="bindTimeChange" style="width:100%">
+                <picker mode="time" start="00:01" end="23:59" bindchange="bindTimeChange" style="width:100%">
                     <view class="listcontent">
                         <text>服务时间</text>
                         <text class="listTime" style="padding-right: 30px">{{time}}</text>
@@ -143,8 +143,10 @@
         <view class="weixinmao-float">
             <view class="weixinmao-foot">
                 <view>合计：￥{{filter.numberToFixed(gooditems.money * goodsNum)}}</view>
-                <view class="footer" formType="submit" style="background:{{intro.maincolor}}">
-                    {{gooditems.money==0?'立即提交':'立即支付'}}
+                <view class="footer"  style="background:{{intro.maincolor}}">
+                    <button formType="submit">
+                        {{gooditems.money==0?'立即提交':'立即支付'}}
+                    </button>
                 </view>
             </view>
         </view>

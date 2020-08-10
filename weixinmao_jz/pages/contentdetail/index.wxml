@@ -30,7 +30,7 @@
         <view bindtap="toShopinfo" class="footer">
             <text class="fa fa-home fa-lg"></text>店铺</view>
         <view class="footer" data-id="{{data.companyid}}">
-            <button bindtap="doOrder" class="footerbutton" hidden="{{isuser}}" style="background:#fe552e; font-size:.8rem; height:100rpx;">立即下单</button>
+            <button bindtap="toMsgdone" class="footerbutton" hidden="{{isuser}}" style="background:#fe552e; font-size:.8rem; height:100rpx;">立即下单</button>
             <form bindsubmit="doSendjob" reportSubmit="true">
                 <button bindgetuserinfo="bindGetUserInfo" class="footerbutton" formType="submit" hidden="{{!isuser}}" openType="getUserInfo" style="background:#fe552e; font-size:.8rem; height:100rpx;">立即下单</button>
             </form>
