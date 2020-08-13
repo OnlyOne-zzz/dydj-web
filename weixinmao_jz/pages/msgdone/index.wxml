@@ -6,6 +6,11 @@
         </view>
         <view class="userInfo">
             <view>
+                <image mode='heightFix' src="../../resource/images/addr.png"></image> 
+                <input type="text" value="{{addressinfo.address}}{{addressinfo.daddress}}" placeholder="请选择您的地址" disabled="disabled" bindtap="getaddress"/>
+                <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
+            </view>
+            <view>
                 <image mode='heightFix' src="../../resource/images/user.png"></image> 
                 <input type="text" value="{{addressinfo.name}}" placeholder="请输入您的姓名" disabled="disabled" bindtap="getaddress"/>
             </view>
@@ -13,11 +18,7 @@
                 <image mode='heightFix' src="../../resource/images/phone.png"></image> 
                 <input type="text" value="{{addressinfo.tel}}" placeholder="请输入您的电话" disabled="disabled" bindtap="getaddress"/>
             </view>
-            <view>
-                <image mode='heightFix' src="../../resource/images/addr.png"></image> 
-                <input type="text" value="{{addressinfo.address}}{{addressinfo.daddress}}" placeholder="请选择您的地址" disabled="disabled" bindtap="getaddress"/>
-                <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
-            </view>
+            
             <view>
                 <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
                 <input type="text" value="" placeholder="请输入详细的门牌号" bindinput="inputChange"/>
