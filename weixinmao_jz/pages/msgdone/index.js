@@ -43,6 +43,19 @@ Page({
         t.setData({
             isshow: !0
         }), t.oldhouseinit();
+        var u = wx.getStorageSync("userInfo");
+        app.util.request({
+            url: "entry/wxapp/myaddresslist",
+            data: {
+                sessionid: u.sessionid,
+                uid: u.memberInfo.uid
+            },
+            success: function(a) {
+                if (!a.data.message.errno) {
+                    wx.setStorageSync("addressinfo", a.data.data.list);
+                }
+            }
+        });
     },
     numChange: function(e) {
         if(e.currentTarget.dataset['index'] == 1){
@@ -249,7 +262,8 @@ Page({
         })
     },
     getaddress: function() {
-        if(this.data.addressinfo) {
+        var t = this, a = wx.getStorageSync("addressinfo");
+        if(a) {
             this.selectaddress()
         } else {
             wx.navigateTo({
