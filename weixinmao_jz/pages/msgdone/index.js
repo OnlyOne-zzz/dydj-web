@@ -51,8 +51,9 @@ Page({
                 uid: u.memberInfo.uid
             },
             success: function(a) {
-                if (!a.data.message.errno) {
-                    wx.setStorageSync("addressinfo", a.data.data.list);
+                var list = a.data.data.list;
+                if (!a.data.message.errno && list.length>0) {
+                    wx.setStorageSync("addressinfo",list);
                 }
             }
         });
