@@ -35,7 +35,8 @@ Page(_defineProperty({
         id: 0,
         shopid: 0,
         currentid: 0,
-        currentmoney: []
+        currentmoney: [],
+        noteId:0
     }, _defineProperty(_data, "title", ""), _defineProperty(_data, "showmsg", !0), _defineProperty(_data, "showuser", !0), 
     _defineProperty(_data, "companyid", 0), _data),
     imageLoad: function(t) {
@@ -58,6 +59,10 @@ Page(_defineProperty({
         if (0 < a.data.shopid) var o = a.data.shopid; else {
             o = t.shopid;
             a.data.shopid = o;
+        }
+        if (0 < a.data.noteId) var n = a.data.noteId; else {
+            n = t.noteId;
+            a.data.noteId = n;
         }
         a.getlethousedetail();
     },
@@ -88,9 +93,9 @@ Page(_defineProperty({
         });
     },
     toMsgdone: function() {
-        var t = this.data.currentid, a = this.data.shopid;
+        var t = this.data.currentid, a = this.data.shopid , n = this.data.noteId;
         console.log(a), wx.navigateTo({
-            url: "/weixinmao_jz/pages/msgdone/index?currentid=" + t + "&shopid=" + a
+            url: "/weixinmao_jz/pages/msgdone/index?currentid=" + t + "&shopid=" + a +"&noteId=" +n
         });
     },
     goMap: function(t) {

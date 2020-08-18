@@ -53,6 +53,8 @@ Page(_defineProperty({
                 id: o
             },
             success: function(a) {
+                console.log("*****************")
+                console.log(a)
                 a.data.message.errno || (a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), 
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
@@ -90,9 +92,9 @@ Page(_defineProperty({
         });
     },
     toHouseDetail: function(a) {
-        var t = a.currentTarget.dataset.id, e = a.currentTarget.dataset.shopid;
+        var t = a.currentTarget.dataset.id, e = a.currentTarget.dataset.shopid, n = this.data.id;
         console.log(e), wx.navigateTo({
-            url: "/weixinmao_jz/pages/contentdetail/index?id=" + t + "&shopid=" + e
+            url: "/weixinmao_jz/pages/contentdetail/index?id=" + t + "&shopid=" + e+"&noteId=" +n
         });
     },
     toNotemessage: function(a) {

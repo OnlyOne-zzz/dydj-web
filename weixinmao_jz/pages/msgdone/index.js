@@ -28,7 +28,10 @@ Page({
         time: '',
         goodsNum: 1,
         travel: 0,
-        address: ''
+        address: '',
+        noteId:0,
+        noteName:'',
+        noteAvatarUrl:''
     },
     onLoad: function(a) {
         var t = this;
@@ -39,6 +42,10 @@ Page({
         if ("" != t.data.currentid) this.data.currentid; else {
             a.currentid;
             this.data.currentid = a.currentid;
+        }
+        if ("" != t.data.noteId) var n = this.data.noteId; else {
+            n = a.noteId;
+            this.data.noteId = n;
         }
         t.setData({
             isshow: !0
@@ -280,12 +287,29 @@ Page({
     onReady: function() {
     },
     onShow: function() {
-        // this.data.addressinfo = wx.getStorageSync("addressinfo")
+        var noteCallback = this
+        // this.data.addressinfo = wx.getStorageSync("addressinfo") 
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
         });
-        console.log('==================================')
-        console.log(this.data.addressinfo)
+        if(noteCallback.data.noteId!=0){
+            // 查询获取技师信息
+            app.util.request({
+                url: "entry/wxapp/Getnotedetail",
+                data: {
+                    id: noteCallback.data.noteId
+                },
+                success:function(obj){
+                    if(!obj.data.message.errno){
+                        noteCallback.setData({
+                            noteObj: obj.data.data.workerdetail
+                        });
+                    }
+                }
+            });
+        }
+        
+                
     },
     onHide: function() {},
     onUnload: function() {},
@@ -362,5 +386,10 @@ Page({
         }) : (app.util.getUserInfo(), !1) : (app.util.getUserInfo(function(a) {
             e.oldhouseinit();
         }), !1);
+    },
+    toNoteList:function(){
+        wx.switchTab({
+            url: "/weixinmao_jz/pages/notelist/index"
+        })
     }
 });

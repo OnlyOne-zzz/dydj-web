@@ -33,16 +33,22 @@
                 <picker mode="time" start="00:01" end="23:59" bindchange="bindTimeChange" style="width:100%">
                     <view class="listcontent">
                         <text>服务时间</text>
-                        <text class="listTime" style="padding-right: 30px">{{time}}</text>
+                        <text class="listTime" style="padding-right: 30px" >{{time}}</text>
                     </view>
                 </picker>
                 <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
             </view>
             <view>
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
-                <view class="listcontent">
+                <view wx:if="{{noteObj!=null}}" class="listcontent" >
                     <text>服务人员</text>
-                    <text class="listTime">张小辉</text>
+                    <text class="listTime" >{{noteObj.shopname}}
+                    </text>
+                    <!-- <image bindtap="toNoteList" class="right" mode='heightFix' src="../../resource/images/right.png"></image>  -->
+                </view>
+                <view wx:else class="listcontent" >
+                    <text>服务人员</text>
+                    <image bindtap="toNoteList" class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
             </view>
         </view>
