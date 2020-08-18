@@ -30,11 +30,11 @@ Page({
         travel: 0,
         address: '',
         noteId:0,
-        noteName:'',
-        noteAvatarUrl:''
+        trafficType:1
     },
     onLoad: function(a) {
         var t = this;
+        console.log(t.data.trafficType)
         if ("" != t.data.shopid) this.data.shopid; else {
             a.shopid;
             this.data.shopid = a.shopid;
@@ -284,6 +284,20 @@ Page({
             url: "/weixinmao_jz/pages/selectaddress/index"
         });
     },
+    toNoteList:function(){
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/notelist/index"
+        })
+    },
+    toMyCouponList: function() {
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/mycoupon/index"
+        });
+    },
+    changTraffic:function(obj){
+        this.data.trafficType =  obj.target.dataset.index;
+         console.log(this.data.trafficType); 
+    },
     onReady: function() {
     },
     onShow: function() {
@@ -386,10 +400,5 @@ Page({
         }) : (app.util.getUserInfo(), !1) : (app.util.getUserInfo(function(a) {
             e.oldhouseinit();
         }), !1);
-    },
-    toNoteList:function(){
-        wx.switchTab({
-            url: "/weixinmao_jz/pages/notelist/index"
-        })
     }
 });

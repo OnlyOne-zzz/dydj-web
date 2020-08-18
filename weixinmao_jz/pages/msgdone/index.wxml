@@ -42,9 +42,12 @@
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
                 <view wx:if="{{noteObj!=null}}" class="listcontent" >
                     <text>服务人员</text>
-                    <text class="listTime" >{{noteObj.shopname}}
-                    </text>
-                    <!-- <image bindtap="toNoteList" class="right" mode='heightFix' src="../../resource/images/right.png"></image>  -->
+                    <!-- 需要园头像的样式 始终都有一个箭头-->
+                     <!-- <swiper-item> -->
+                        <!-- <view class="swiper_item_move"> <image src="{{noteObj.avatarUrl}}"></image> -->
+                        <text class="listTime" >{{noteObj.shopname}} </text>
+                        <!-- </view> -->
+                     <!-- </swiper-item> -->
                 </view>
                 <view wx:else class="listcontent" >
                     <text>服务人员</text>
@@ -96,7 +99,7 @@
         <view class="userInfo" style="padding-top: 0px;">
             <view style="border-top: 1px solid #e5e5e5;">
                 <image mode='heightFix' src="../../resource/images/cx.png"></image> 
-                <view class="chuxing">
+                <view class="chuxing" bindtap="changTraffic">
                     <text>出行方式</text>
                     <text class="listTime {{travel == 1 ? 'active':''}}" bindtap='selectTravel' data-index='1'>公交/地铁</text>
                     <text class="listTime {{travel == 0 ? 'active':''}}" bindtap='selectTravel' data-index='0'>出租车</text>
@@ -111,7 +114,7 @@
             </view>
             <view>
                 <image mode='heightFix' src="../../resource/images/yhq.png"></image> 
-                <view class="listcontent">
+                <view class="listcontent" bindtap="toMyCouponList">
                     <text>优惠券</text>
                     <text class="listTime" style='padding-right: 30px'>请选择优惠券</text>
                     <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
