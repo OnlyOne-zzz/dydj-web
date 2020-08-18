@@ -30,11 +30,19 @@ Page({
         travel: 0,
         address: '',
         noteId:0,
-        trafficType:1
+        trafficType:1,
+        name:'',
+        contentId:0,
+        tel:'',
+        address:'',
+        daddress:'',
+        couponId:0
+
+
+
     },
     onLoad: function(a) {
         var t = this;
-        console.log(t.data.trafficType)
         if ("" != t.data.shopid) this.data.shopid; else {
             a.shopid;
             this.data.shopid = a.shopid;
@@ -172,7 +180,17 @@ Page({
                             sessionid: n.sessionid,
                             uid: n.memberInfo.uid,
                             content: s,
-                            form_id: o
+                            form_id: o,
+                            contentId:t.data.currentid,
+                            noteid:t.data.noteId,
+                            trafficType:t.data.trafficType,
+                            name:e.name,
+                            tel:t.e.tel,
+                            address:e.address,
+                            daddress:e.daddress,
+                            couponId:t.data.couponId
+
+
                         },
                         success: function(a) {
                             if (console.log(a), a.data && a.data.data) {
