@@ -40,11 +40,14 @@
             </view>
             <view>
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
-                <view wx:if="{{noteObj!=null}}" class="listcontent" >
+                <view wx:if="{{noteObj!=null}}" class="listcontent listcontents" style='display: block;'>
                     <text>服务人员</text>
                     <!-- 需要园头像的样式 始终都有一个箭头-->
                      <!-- <swiper-item> -->
                         <!-- <view class="swiper_item_move"> <image src="{{noteObj.avatarUrl}}"></image> -->
+                        <view class='touxiang'>
+                            <image src="{{noteObj.avatarUrl}}"></image>
+                        </view>
                         <text class="listTime" >{{noteObj.shopname}} </text>
                         <!-- </view> -->
                      <!-- </swiper-item> -->

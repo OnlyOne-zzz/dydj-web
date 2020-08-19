@@ -26,7 +26,9 @@
 .container .header .pic image {
     width: 120rpx;
     height: 120rpx;
-    border: 0rpx solid #FFF;
+    border: 4rpx solid #FFF;
+    border-radius: 5px;
+
 }
 
 .container .header .pic .userinfo {

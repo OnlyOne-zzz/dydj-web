@@ -25,7 +25,7 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false,
 		"compileHotReLoad": false,
 		"useIsolateContext": true
@@ -81,15 +81,9 @@
 				},
 				{
 					"id": -1,
-					"name": "weixinmao_jz/pages/mycoupon/index",
-					"pathName": "weixinmao_jz/pages/mycoupon/index",
+					"name": "地址",
+					"pathName": "weixinmao_jz/pages/getaddress/index",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "weixinmao_jz/pages/user/index",
-					"pathName": "weixinmao_jz/pages/user/index",
 					"scene": null
 				}
 			]

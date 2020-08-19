@@ -344,27 +344,23 @@ swiper-item image {
 }
 
 .weixinmao-foot {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+    width: 100%;
     position: fixed;
     z-index: 999;
     left: 0;
     bottom: 0;
     width: 100%;
 }
-
 .footer button {
     color: #FFF;
     align-self: center;
-    height: 80rpx;
-    line-height: 80rpx;
-    font-size: 1.5rem;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
     background: #0180cf;
     text-align: center;
-    padding-top: 10rpx;
     border: 0rpx;
     width: 100% !important;
     margin: 0px;
@@ -375,16 +371,15 @@ button::after {
 }
 
 .weixinmao-foot view:nth-child(1) {
+    width: 100%;
     color: #FFF;
     align-self: center;
-    height: 80rpx;
+    height: 40px;
     font-size: .9rem;
     display: flex;
     flex-direction: column;
     background: #0180cf;
-    width: 20%;
     text-align: center;
-    padding-top: 20rpx;
 }
 
 .black {
@@ -415,8 +410,11 @@ button::after {
 }
 
 .footerbutton {
-    background: #fe552e;
-    border-radius: 5rpx;
+    background: none;
+    height: 100%;
+    line-height: 40px;
+    font-style: .8rem;
+    padding: 0px;
 }
 
 .weixinmao-msg {

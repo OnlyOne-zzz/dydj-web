@@ -569,3 +569,22 @@ page {
     border-radius: 5rpx;
     border: 1rpx solid #f0f0f0;
 }
+.touxiang{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.touxiang image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.listcontents view{
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.listcontents >text:nth-of-type(2){
+    float: right;
+}

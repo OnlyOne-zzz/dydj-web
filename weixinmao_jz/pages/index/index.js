@@ -186,9 +186,11 @@ Page({
         }, a.detail);
     },
     toList: function(a) {
-        var t = a.currentTarget.id;
+        var t = a.currentTarget.dataset.id;
+        console.log('++++++++++++++++++++++++++++++++++')
+        console.log(t)
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/article/index?id=" + t
+            url: "/weixinmao_jz/pages/contentdetail/index?id=" + t
         });
     },
     toNotemessage: function(a) {
