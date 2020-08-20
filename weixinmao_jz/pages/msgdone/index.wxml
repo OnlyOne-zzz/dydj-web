@@ -22,7 +22,7 @@
             <view>
                 <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
                 <!-- <input type="text" value="{{addressinfo.daddress}}" placeholder="请输入详细的门牌号" bindinput="inputChange"/> -->
-                <input type="text" value="{{addressinfo.daddress}}" placeholder="请输入详细的门牌号" bindinput="getaddress"/>
+                <input type="text" value="{{addressinfo.daddress}}" placeholder="请输入详细的门牌号" disabled="disabled" bindtap="getaddress"/>
             </view>
         </view>
         <view class="addressimg">
