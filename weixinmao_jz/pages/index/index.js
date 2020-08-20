@@ -205,8 +205,8 @@ Page({
         });
     },
     toMyorder: function() {
-        wx.switchTab({
-            url: "/weixinmao_jz/pages/myorderlist/index"
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/mycoupon/index"
         });
     },
     tabClick: function(a) {
