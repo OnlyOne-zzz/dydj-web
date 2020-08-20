@@ -7,7 +7,7 @@
         <view class="userInfo">
             <view>
                 <image mode='heightFix' src="../../resource/images/addr.png"></image> 
-                <input type="text" value="{{addressinfo.address}}{{addressinfo.daddress}}" placeholder="请选择您的地址" disabled="disabled" bindtap="getaddress"/>
+                <input type="text" value="{{addressinfo.address}}" placeholder="请选择您的地址" disabled="disabled" bindtap="getaddress"/>
                 <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
             </view>
             <view>
@@ -21,7 +21,8 @@
             
             <view>
                 <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
-                <input type="text" value="" placeholder="请输入详细的门牌号" bindinput="inputChange"/>
+                <!-- <input type="text" value="{{addressinfo.daddress}}" placeholder="请输入详细的门牌号" bindinput="inputChange"/> -->
+                <input type="text" value="{{addressinfo.daddress}}" placeholder="请输入详细的门牌号" bindinput="getaddress"/>
             </view>
         </view>
         <view class="addressimg">

@@ -34,8 +34,6 @@ Page({
         name:'',
         contentId:0,
         tel:'',
-        address:'',
-        daddress:'',
         couponId:0
 
 
@@ -59,19 +57,22 @@ Page({
             isshow: !0
         }), t.oldhouseinit();
         var u = wx.getStorageSync("userInfo");
-        app.util.request({
-            url: "entry/wxapp/myaddresslist",
-            data: {
-                sessionid: u.sessionid,
-                uid: u.memberInfo.uid
-            },
-            success: function(a) {
-                var list = a.data.data.list;
-                if (!a.data.message.errno && list.length>0) {
-                    wx.setStorageSync("addressinfo",list);
+        var addressInfoStorage = wx.getStorageSync("addressinfo");
+        if(!addressInfoStorage){
+            app.util.request({
+                url: "entry/wxapp/myaddresslist",
+                data: {
+                    sessionid: u.sessionid,
+                    uid: u.memberInfo.uid
+                },
+                success: function(a) {
+                    var list = a.data.data.list;
+                    if (!a.data.message.errno && list.length>0) {
+                        wx.setStorageSync("addressinfo",list);
+                    }
                 }
-            }
-        });
+            });
+        }
     },
     numChange: function(e) {
         if(e.currentTarget.dataset['index'] == 1){
@@ -136,8 +137,6 @@ Page({
     },
     pay: function(a) {
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
-        console.log('======================================')
-        console.log(t.data)
         let content = ''
         if(!e){
             content = '请先增加地址'
@@ -147,7 +146,7 @@ Page({
                 showCancel: !1
             });
             return false
-        } else if(!t.data.address){
+        } else if(!e.daddress){
             content = '请完善门牌号'
             wx.showModal({
                 title: "提示",
@@ -155,15 +154,17 @@ Page({
                 showCancel: !1
             });
             return false
-        } else if(!t.data.time){
-            content = '请选择服务时间'
-            wx.showModal({
-                title: "提示",
-                content: content,
-                showCancel: !1
-            });
-            return false
-        } else {
+        } 
+        // else if(!t.data.time){
+        //     content = '请选择服务时间'
+        //     wx.showModal({
+        //         title: "提示",
+        //         content: content,
+        //         showCancel: !1
+        //     });
+        //     return false
+        // } 
+        else {
             var i = t.data.shopid, d = t.data.currentid, n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
             0 < t.data.gooditems.money ? 0 == r ? wx.showModal({
                 title: "确认支付",
@@ -186,7 +187,6 @@ Page({
                             trafficType:t.data.trafficType,
                             name:e.name,
                             tel:t.e.tel,
-                            address:e.address,
                             daddress:e.daddress,
                             couponId:t.data.couponId
 
