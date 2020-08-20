@@ -186,7 +186,7 @@ Page({
                             noteid:t.data.noteId,
                             trafficType:t.data.trafficType,
                             name:e.name,
-                            tel:t.e.tel,
+                            tel:e.tel,
                             daddress:e.daddress,
                             couponId:t.data.couponId
 
@@ -320,7 +320,7 @@ Page({
     },
     onShow: function() {
         var noteCallback = this
-        // this.data.addressinfo = wx.getStorageSync("addressinfo") 
+        this.data.addressinfo = wx.getStorageSync("addressinfo") 
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
         });
