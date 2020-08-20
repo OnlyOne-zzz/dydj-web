@@ -14,6 +14,7 @@ Page({
         }), app.util.request({
             url: "entry/wxapp/Intro",
             success: function(a) {
+                console.log(a)
                 a.data.message.errno || (wx.setStorageSync("companyinfo", a.data.data.intro), wx.setNavigationBarTitle({
                     title: wx.getStorageSync("companyinfo").name
                 }), a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), wx.setNavigationBarColor({

@@ -28,7 +28,7 @@
             <image mode="heightFix" src="../../resource/images/addr-line.png"></image>
         </view>
         <view class="userInfo" style="padding-top: 0px">
-            <view>
+            <!-- <view>
                 <image mode='heightFix' src="../../resource/images/times.png"></image> 
                 <picker mode="time" start="00:01" end="23:59" bindchange="bindTimeChange" style="width:100%">
                     <view class="listcontent">
@@ -37,7 +37,7 @@
                     </view>
                 </picker>
                 <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
-            </view>
+            </view> -->
             <view>
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
                 <view wx:if="{{noteObj!=null}}" class="listcontent listcontents" style='display: block;'>
