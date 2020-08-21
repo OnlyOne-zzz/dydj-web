@@ -1,16 +1,16 @@
 <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="position: absolute; left: 0; top:0; bottom: 0; right: 0;">
     <view class="container" hidden="{{isshow}}">
-        <!-- <view class="header" style="background:{{intro.maincolor}};">
+        <view class="header" style="background:{{intro.maincolor}};">
             <navigator hoverClass="none" url="../city/index?id=0">
                 <view class="city">
                     <text class="fa fa-map-marker  fa-lg"></text> {{cityinfo.name}}
                 </view>
             </navigator>
-            <view bindtap="toSearch" class="search">
+            <!-- <view bindtap="toSearch" class="search">
                 <icon size="14" type="search"></icon>
                 <view>请输入业务等相关信息</view>
-            </view>
-        </view> -->
+            </view> -->
+        </view>
         <view class="swiper-container">
             <swiper autoplay="{{autoplay}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
                 <swiper-item wx:for="{{banners}}">
