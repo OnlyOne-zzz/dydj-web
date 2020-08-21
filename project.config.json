@@ -85,6 +85,12 @@
 					"pathName": "weixinmao_jz/pages/getaddress/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "技师",
+					"pathName": "weixinmao_jz/pages/technician/index",
+					"scene": null
 				}
 			]
 		}

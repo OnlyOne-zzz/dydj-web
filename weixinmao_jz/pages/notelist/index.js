@@ -97,7 +97,7 @@ Page({
         }));
     },
     onShow: function(o){
-        this.data.back = o.data.back
+        this.data.back = wx.getStorageSync('waiter')
     },
     initpage: function() {
         var e = this, t = wx.getStorageSync("cityinfo").id;
@@ -145,8 +145,8 @@ Page({
     toNoteDetail: function(t) {
         var e = t.currentTarget.dataset.id;
         let index = t.currentTarget.dataset.index
-        wx.setStorageSync('waiterinfo', this.worklist[index])
         if(this.data.back){
+            wx.setStorageSync('waiterinfo', this.data.worklist[index])
             wx.navigateBack({delta: 1})
         } else {
             wx.navigateTo({

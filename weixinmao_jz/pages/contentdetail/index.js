@@ -157,6 +157,7 @@ Page(_defineProperty({
     onReady: function() {},
     onShow: function() {
         wx.removeStorageSync('cardinfo')
+        wx.removeStorageSync('technician')
     },
     onHide: function() {},
     onUnload: function() {},

@@ -1,0 +1,12 @@
+<view class='main'>
+    <view class='list' bindtap='select' wx:for='{{pageinfo}}' data-index='{{index}}'>
+        <view class='headerimg'>
+            <image src='{{item.avatarUrl}}'></image>
+        </view>
+        <view class='info'>
+            <text>{{item.shopname}}</text>
+            <text>技师评分：{{item.score}}</text>
+            <text>擅长：{{item.desc}}</text>
+        </view>
+    </view>
+</view>

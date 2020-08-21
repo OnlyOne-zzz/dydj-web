@@ -37,7 +37,8 @@ Page({
         address:'',
         daddress:'',
         couponId:0,
-        cardinfo: {}
+        cardinfo: {},
+        technician: {}
     },
     onLoad: function(a) {
         var t = this;
@@ -313,8 +314,8 @@ Page({
         });
     },
     selectwaiter: function() {
-        wx.switchTab({
-            url: "/weixinmao_jz/pages/notelist/index?back=1"
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/technician/index?back=1"
         });
     },
     changTraffic:function(obj){
@@ -340,16 +341,19 @@ Page({
                     id: noteCallback.data.noteId
                 },
                 success:function(obj){
-                    if(!obj.data.message.errno){
+                    let technician = wx.getStorageSync('technician')
+                    if(!obj.data.message.errno && !technician){
                         noteCallback.setData({
                             noteObj: obj.data.data.workerdetail
                         });
+                    } else {
+                        noteCallback.setData({
+                            noteObj: wx.getStorageSync('technician')
+                        })
                     }
                 }
             });
         }
-        
-                
     },
     onHide: function() {},
     onUnload: function() {},
