@@ -12,7 +12,7 @@
     </view>
     <view class="cartitle">
         <view> {{data.title}}</view>
-        <view> {{data.isding==0?'一口价':'定金'}} ￥{{money}} <text style="font-size:.7rem;">元</text>
+        <view> 价格 ￥{{money}} <text style="font-size:.7rem;">元</text>
         </view>
     </view>
     <view class="main">
@@ -45,7 +45,7 @@
             <view class="sub ml10">
                 <view class="lineText">{{data.title}}</view>
                 <view class="red f18">
-          {{data.isding==0?'一口价':'定金'}}￥{{money}}
+                价格 ￥{{money}}
           </view>
             </view>
         </view>

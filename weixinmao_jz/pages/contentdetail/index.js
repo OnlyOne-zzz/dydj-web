@@ -179,6 +179,7 @@ Page(_defineProperty({
                 uid: t.memberInfo.uid
             },
             success: function(t) {
+                console.log(t)
                 if (!t.data.message.errno) {
                     e.data.title = t.data.data.list.title, t.data.data.intro.maincolor || (t.data.data.intro.maincolor = "#09ba07"), 
                     wx.setNavigationBarColor({

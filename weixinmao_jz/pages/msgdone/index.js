@@ -57,6 +57,8 @@ Page({
             isshow: !0
         }), t.oldhouseinit();
         var u = wx.getStorageSync("userInfo");
+        var addressInfoStorage = wx.getStorageSync("addressinfo");
+        if(!addressInfoStorage){
         app.util.request({
             url: "entry/wxapp/myaddresslist",
             data: {
@@ -70,6 +72,7 @@ Page({
                 }
             }
         });
+        }
     },
     numChange: function(e) {
         if(e.currentTarget.dataset['index'] == 1){
@@ -134,8 +137,6 @@ Page({
     },
     pay: function(a) {
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
-        console.log('======================================')
-        console.log(t.data)
         let content = ''
         if(!e){
             content = '请先增加地址'
@@ -145,7 +146,7 @@ Page({
                 showCancel: !1
             });
             return false
-        } else if(!t.data.address){
+        } else if(!e.daddress){
             content = '请完善门牌号'
             wx.showModal({
                 title: "提示",
@@ -153,15 +154,17 @@ Page({
                 showCancel: !1
             });
             return false
-        } else if(!t.data.time){
-            content = '请选择服务时间'
-            wx.showModal({
-                title: "提示",
-                content: content,
-                showCancel: !1
-            });
-            return false
-        } else {
+        } 
+        // else if(!t.data.time){
+        //     content = '请选择服务时间'
+        //     wx.showModal({
+        //         title: "提示",
+        //         content: content,
+        //         showCancel: !1
+        //     });
+        //     return false
+        // } 
+        else {
             var i = t.data.shopid, d = t.data.currentid, n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
             0 < t.data.gooditems.money ? 0 == r ? wx.showModal({
                 title: "确认支付",
@@ -183,8 +186,7 @@ Page({
                             noteid:t.data.noteId,
                             trafficType:t.data.trafficType,
                             name:e.name,
-                            tel:t.e.tel,
-                            address:e.address,
+                            tel:e.tel,
                             daddress:e.daddress,
                             couponId:t.data.couponId
 
@@ -323,7 +325,7 @@ Page({
     },
     onShow: function() {
         var noteCallback = this
-        // this.data.addressinfo = wx.getStorageSync("addressinfo") 
+        this.data.addressinfo = wx.getStorageSync("addressinfo") 
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
         });

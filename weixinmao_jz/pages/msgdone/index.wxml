@@ -7,7 +7,7 @@
         <view class="userInfo">
             <view>
                 <image mode='heightFix' src="../../resource/images/addr.png"></image> 
-                <input type="text" value="{{addressinfo.address}}{{addressinfo.daddress}}" placeholder="请选择您的地址" disabled="disabled" bindtap="getaddress"/>
+                <input type="text" value="{{addressinfo.address}}" placeholder="请选择您的地址" disabled="disabled" bindtap="getaddress"/>
                 <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
             </view>
             <view>
@@ -21,14 +21,15 @@
             
             <view>
                 <image mode='heightFix' src="../../resource/images/menpai.png"></image> 
-                <input type="text" value="" placeholder="请输入详细的门牌号" bindinput="inputChange"/>
+                <!-- <input type="text" value="{{addressinfo.daddress}}" placeholder="请输入详细的门牌号" bindinput="inputChange"/> -->
+                <input type="text" value="{{addressinfo.daddress}}" placeholder="请输入详细的门牌号" disabled="disabled" bindtap="getaddress"/>
             </view>
         </view>
         <view class="addressimg">
             <image mode="heightFix" src="../../resource/images/addr-line.png"></image>
         </view>
         <view class="userInfo" style="padding-top: 0px">
-            <view>
+            <!-- <view>
                 <image mode='heightFix' src="../../resource/images/times.png"></image> 
                 <picker mode="time" start="00:01" end="23:59" bindchange="bindTimeChange" style="width:100%">
                     <view class="listcontent">
@@ -37,7 +38,7 @@
                     </view>
                 </picker>
                 <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
-            </view>
+            </view> -->
             <view>
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
                 <view bindtap="selectwaiter" wx:if="{{noteObj!=null}}" class="listcontent listcontents" style='display: block;'>

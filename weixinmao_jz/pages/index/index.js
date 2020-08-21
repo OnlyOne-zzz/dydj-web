@@ -187,7 +187,6 @@ Page({
     },
     toList: function(a) {
         var t = a.currentTarget.dataset.id;
-        console.log('++++++++++++++++++++++++++++++++++')
         console.log(t)
         wx.navigateTo({
             url: "/weixinmao_jz/pages/contentdetail/index?id=" + t
@@ -205,8 +204,8 @@ Page({
         });
     },
     toMyorder: function() {
-        wx.switchTab({
-            url: "/weixinmao_jz/pages/myorderlist/index"
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/mycoupon/index"
         });
     },
     tabClick: function(a) {
