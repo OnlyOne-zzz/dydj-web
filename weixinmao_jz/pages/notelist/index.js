@@ -24,7 +24,8 @@ Page({
         housepriceid: 0,
         housetype: 0,
         page: 1,
-        title: ""
+        title: "",
+        back: ''
     },
     onLoad: function(t) {
         var i = this;
@@ -95,6 +96,9 @@ Page({
             complete: function() {}
         }));
     },
+    onShow: function(o){
+        this.data.back = o.data.back
+    },
     initpage: function() {
         var e = this, t = wx.getStorageSync("cityinfo").id;
         app.util.request({
@@ -140,9 +144,15 @@ Page({
     },
     toNoteDetail: function(t) {
         var e = t.currentTarget.dataset.id;
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/notedetail/index?id=" + e
-        });
+        let index = t.currentTarget.dataset.index
+        wx.setStorageSync('waiterinfo', this.worklist[index])
+        if(this.data.back){
+            wx.navigateBack({delta: 1})
+        } else {
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/notedetail/index?id=" + e
+            });
+        }
     },
     toCompanyNoteDetail: function(t) {
         var e = t.currentTarget.dataset.id;

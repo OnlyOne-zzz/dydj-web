@@ -24,7 +24,7 @@
                 </view>
                 <view class="card-txt">
                     <view>截至时间：2020-01-01 - 2020-12-31</view>
-                    <view class="card-txt-box">去使用</view>
+                    <view class="card-txt-box" bindtap='employ'>去使用</view>
                 </view>
             </view>
          </view>

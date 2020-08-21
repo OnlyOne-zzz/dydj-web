@@ -155,7 +155,9 @@ Page(_defineProperty({
         });
     },
     onReady: function() {},
-    onShow: function() {},
+    onShow: function() {
+        wx.removeStorageSync('cardinfo')
+    },
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {

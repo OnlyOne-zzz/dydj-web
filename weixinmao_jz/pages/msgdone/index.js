@@ -36,10 +36,8 @@ Page({
         tel:'',
         address:'',
         daddress:'',
-        couponId:0
-
-
-
+        couponId:0,
+        cardinfo: {}
     },
     onLoad: function(a) {
         var t = this;
@@ -309,7 +307,12 @@ Page({
     },
     toMyCouponList: function() {
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/mycoupon/index"
+            url: "/weixinmao_jz/pages/mycoupon/index?back=1"
+        });
+    },
+    selectwaiter: function() {
+        wx.switchTab({
+            url: "/weixinmao_jz/pages/notelist/index?back=1"
         });
     },
     changTraffic:function(obj){
@@ -324,6 +327,9 @@ Page({
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
         });
+        this.setData({
+            cardinfo: wx.getStorageSync('cardinfo')
+        })
         if(noteCallback.data.noteId!=0){
             // 查询获取技师信息
             app.util.request({

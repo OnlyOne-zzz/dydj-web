@@ -4,7 +4,8 @@ Page({
     data: {
         id: 1,
         ordertype: 0,
-        active: 0
+        active: 0,
+        back: ''
     },
     selectList(e){
         this.setData({
@@ -18,8 +19,21 @@ Page({
         }), wx.getStorageSync("userInfo").sessionid ? t.InitPage() : app.util.getUserInfo(function() {
             t.InitPage();
         });
+        t.data.back = o.back
     },
     onShow: function(o) {},
+    employ: function(e){
+        let card = {
+            id: '0001',
+            name: '大保健'
+        }
+        wx.setStorageSync("cardinfo",card);
+        if(this.data.back){
+            wx.navigateBack({delta: 1})
+        } else {
+            wx.switchTab({url:'/weixinmao_jz/pages/index/index'})
+        }
+    },
     InitPage: function() {
         var t = this, o = wx.getStorageSync("userInfo");
         app.util.request({

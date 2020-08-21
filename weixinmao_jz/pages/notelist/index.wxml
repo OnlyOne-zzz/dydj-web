@@ -78,8 +78,8 @@
 <view bindtap="selectType" class="small_overlay" hidden="{{isType}}"></view>
 <view style="height:88px;"></view>
 <view class="news">
-    <view class="newslist" wx:for="{{worklist}}">
-        <view bindtap="{{item.toNoteDetail}}" class="pic" data-id="{{item.id}}">
+    <view class="newslist" wx:for="{{worklist}}" bindtap="{{item.toNoteDetail}}">
+        <view class="pic" data-id="{{item.id}}">
             <image src="{{item.avatarUrl}}"></image>
         </view>
         <view class="title">

@@ -40,7 +40,7 @@
             </view>
             <view>
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
-                <view wx:if="{{noteObj!=null}}" class="listcontent listcontents" style='display: block;'>
+                <view bindtap="selectwaiter" wx:if="{{noteObj!=null}}" class="listcontent listcontents" style='display: block;'>
                     <text>服务人员</text>
                     <!-- 需要园头像的样式 始终都有一个箭头-->
                      <!-- <swiper-item> -->
@@ -51,6 +51,7 @@
                         <text class="listTime" >{{noteObj.shopname}} </text>
                         <!-- </view> -->
                      <!-- </swiper-item> -->
+                     <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
                 <view wx:else class="listcontent" >
                     <text>服务人员</text>
@@ -119,7 +120,8 @@
                 <image mode='heightFix' src="../../resource/images/yhq.png"></image> 
                 <view class="listcontent" bindtap="toMyCouponList">
                     <text>优惠券</text>
-                    <text class="listTime" style='padding-right: 30px'>请选择优惠券</text>
+                    <text class="listTime" style='padding-right: 30px' wx:if='{{cardinfo.name}}'>{{cardinfo.name}}</text>
+                    <text class="listTime" style='padding-right: 30px' wx:else='{{!cardinfo.name}}'>请选择优惠券</text>
                     <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
             </view>
