@@ -17,12 +17,12 @@
                 <view class="userinfo">
                     <view>{{userinfo.wxInfo.nickName}}</view>
                 </view>
-                <view bindtap="toDomoney" class="paymoney">
-                    <view>
+                <view  class="paymoney">
+                    <view bindtap="toDomoney">
                         <text>￥{{moneyrecordinfo.totalmoney}}</text>
                         <text>账户余额</text>
                     </view>
-                    <view>
+                    <view bindtap="toMycoupon">
                         <text>￥{{moneyrecordinfo.totalmoney}}</text>
                         <text>优惠券</text>
                     </view>
