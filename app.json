@@ -92,7 +92,7 @@
         "selectedIconPath": "weixinmao_jz/resource/images/nav/fjjs_on.png"
       },
       {
-        "pagePath": "weixinmao_jz/pages/myorderlist/index",
+        "pagePath": "weixinmao_jz/pages/mymsgorder/index",
         "text": "订单",
         "iconPath": "weixinmao_jz/resource/images/nav/dd_off.png",
         "selectedIconPath": "weixinmao_jz/resource/images/nav/dd_on.png"
