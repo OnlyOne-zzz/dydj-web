@@ -100,69 +100,6 @@ Page({
     onShow: function(o){
         this.data.back = wx.getStorageSync('waiter')
     },
-    calculateDistanceParams: function(wt){
-        var qqmapsdk = new QQMapWX({
-            key: config.Config.key // 必填
-        });
-        var e = this;
-        var distanceTO = [];
-        for(var i = 0;  i < wt.length; i++){
-            distanceTO.push({'latitude': wt[i].lat, 'longitude': wt[i].lng});
-        }
-        qqmapsdk.calculateDistance({
-            //mode: 'driving',//可选值：'driving'（驾车）、'walking'（步行），不填默认：'walking',可不填
-            mode: 'driving',
-            //from参数不填默认当前地址
-            from: '', //若起点有数据则采用起点坐标，若为空默认当前地址
-            to:  distanceTO, //终点坐标
-            success: function(res) {//成功后的回调
-              console.log(res);
-              var res = res.result;
-              for (var i = 0; i < res.elements.length; i++) {
-               
-               var dis = res.elements[i].distance;
-               // 如果radius半径过小或者无法搜索到，则返回-1.给它默认赋值为100米
-               if(dis == -1){
-                wt[i].distance = 100;
-               }else{
-                wt[i].distance = res.elements[i].distance;
-               }
-              };
-              //冒泡排序
-              for (var i = 0; i < wt.length - 1; i++) {
-                for (var j = 0; j < wt.length - i -1; j++) {   // 这里说明为什么需要-1
-                    if (wt[j].distance > wt[j + 1].distance) {
-                        var temp = wt[j];
-                        wt[j] = wt[j + 1];
-                        wt[j + 1] = temp;
-                    }
-                }
-            }
-            //单位转换
-            for (var i = 0; i < wt.length; i++) {
-                var dit = wt[i].distance;
-                if(dis < 1000){
-                    wt[i].distance = wt[i].distance + "米";
-                }else{
-                    var num = wt[i].distance / 1000;
-                    wt[i].distance = num.toFixed(1) + "公里";
-                }
-            }
-
-              e.setData({ //设置并更新distance数据
-                worklist: wt
-              });
-            },
-            fail: function(error) {
-              console.error(error);
-            },
-            complete: function(res) {
-              console.log(res);
-            }
-        });
-
-        console.log(distanceTO);
-    },
     initpage: function() {
         var e = this, t = wx.getStorageSync("cityinfo").id;
         app.util.request({
@@ -178,7 +115,8 @@ Page({
                     typetitle: ""
                 }, "city", wx.getStorageSync("cityinfo").name));
             }
-        }), app.util.request({
+        }), 
+        app.util.request({
             url: "entry/wxapp/Getnotelist",
             data: {
                 cityid: t,
@@ -198,7 +136,7 @@ Page({
                         }
                     }), 
                     console.log(t.data.data), 
-                    e.calculateDistanceParams(t.data.data.worklist)
+                    e.calculateDistanceHandle(t.data.data.worklist, true)
                     );
             },
             complete: function() {
@@ -347,5 +285,121 @@ Page({
             title: "预约服务-" + wx.getStorageSync("companyinfo").name,
             path: "/weixinmao_jz/pages/notelist/index"
         };
+    },
+//分页排序实现
+    getNodeList: function(obj){
+        var _this = this;
+        //排序名称
+        var orderName = obj.orderName;
+        //排序类型
+        var orderType = obj.orderType;
+        //客服务状态  0：所有，1：客服务，2:服务中
+        var serviceStatus = obj.serviceStatus;
+        //前端参数获取  
+        var data = {
+            orderName:orderName,
+            orderType:orderType,
+            serviceStatus:serviceStatus
+        };
+        //按距离排序
+        if(orderName == 'distance'){
+            _this.requestNoteList(data, function(result){
+                _this.calculateDistanceHandle(result, true);
+            });
+        }else{
+            _this.requestNoteList(data, function(result){
+                _this.calculateDistanceHandle(result, false);
+            });
+        }
+    },
+    requestNoteList: function(data, call){
+        app.util.request({
+            url: "entry/wxapp/Getnotelist",
+            data: data,
+            success: function(t) {
+                t.data.message.errno || (t.data.data.intro.maincolor || (t.data.data.intro.maincolor = "#09ba07"),
+                    wx.setNavigationBarColor({
+                        frontColor: "#ffffff",
+                        backgroundColor: t.data.data.intro.maincolor,
+                        animation: {
+                            duration: 400,
+                            timingFunc: "easeIn"
+                        }
+                    }), 
+                    call(t.data.data.worklist)
+                    );
+            },
+            complete: function() {
+                wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), e.setData({
+                    loadMore: ""
+                });
+            }
+        });
+    },
+    calculateDistanceHandle: function(wt, isDistanceToSort){
+        var qqmapsdk = new QQMapWX({
+            key: config.Config.key // 必填
+        });
+        var e = this;
+        var distanceTO = [];
+        for(var i = 0;  i < wt.length; i++){
+            distanceTO.push({'latitude': wt[i].lat, 'longitude': wt[i].lng});
+        }
+        qqmapsdk.calculateDistance({
+            //mode: 'driving',//可选值：'driving'（驾车）、'walking'（步行），不填默认：'walking',可不填
+            mode: 'driving',
+            //from参数不填默认当前地址
+            from: '', //若起点有数据则采用起点坐标，若为空默认当前地址
+            to:  distanceTO, //终点坐标
+            success: function(res) {//成功后的回调
+              console.log(res);
+              var res = res.result;
+              for (var i = 0; i < res.elements.length; i++) {
+               
+               var dis = res.elements[i].distance;
+               // 如果radius半径过小或者无法搜索到，则返回-1.给它默认赋值为100米
+               if(dis == -1){
+                wt[i].distance = 100;
+               }else{
+                wt[i].distance = res.elements[i].distance;
+               }
+              };
+             //是否需要根据距离排序
+              if(isDistanceToSort){
+                   //冒泡排序
+                for (var i = 0; i < wt.length - 1; i++) {
+                    for (var j = 0; j < wt.length - i -1; j++) {   // 这里说明为什么需要-1
+                        if (wt[j].distance > wt[j + 1].distance) {
+                            var temp = wt[j];
+                            wt[j] = wt[j + 1];
+                            wt[j + 1] = temp;
+                        }
+                    }
+                }
+              }
+            //单位转换
+            for (var i = 0; i < wt.length; i++) {
+                var dit = wt[i].distance;
+                if(dis < 1000){
+                    wt[i].distance = wt[i].distance + "米";
+                }else{
+                    var num = wt[i].distance / 1000;
+                    wt[i].distance = num.toFixed(1) + "公里";
+                }
+            }
+
+              e.setData({ //设置并更新distance数据
+                worklist: wt
+              });
+            },
+            fail: function(error) {
+              console.error(error);
+            },
+            complete: function(res) {
+              console.log(res);
+            }
+        });
+
+        console.log(distanceTO);
     }
 });
