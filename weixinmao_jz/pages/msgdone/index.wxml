@@ -114,7 +114,7 @@
                 <image mode='heightFix' src="../../resource/images/fy.png"></image> 
                 <view class="listcontent">
                     <text>预估出行车费</text>
-                    <text class="listTime">￥10</text>
+                    <text class="listTime">￥0.1</text>
                 </view>
             </view>
             <view>
