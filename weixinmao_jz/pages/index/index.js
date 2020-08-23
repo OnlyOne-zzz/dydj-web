@@ -57,6 +57,8 @@ Page({
                 city: a
             },
             success: function(a) {
+                console.log("@@@@@@@@@@@@@")
+                console.log(a)
                 if (!a.data.message.errno) {
                     if (wx.setStorageSync("companyinfo", a.data.data.intro), wx.setStorageSync("cityinfo", a.data.data.cityinfo), 
                     wx.setNavigationBarTitle({
