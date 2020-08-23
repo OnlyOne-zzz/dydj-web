@@ -1,4 +1,4 @@
-var qqmapsdk, QQMapWX = require("../../resource/js/qqmap-wx-jssdk.min.js"), app = getApp();
+var qqmapsdk, QQMapWX = require("../../resource/js/qqmap-wx-jssdk.min.js"), config = require("../../resource/js/config.js"), app = getApp();
 
 Page({
     data: {
@@ -63,7 +63,7 @@ Page({
     getaddress: function() {
         var a = this;
         qqmapsdk = new QQMapWX({
-            key: "5D3BZ-J55WF-SFPJJ-NI6PG-YN2ZO-M4BHX"
+            key: config.Config.key
         }), console.log("fffff"), wx.getLocation({
             type: "wgs84",
             success: function(e) {

@@ -103,6 +103,9 @@
                 </view>
                 <view>{{item.address}}</view>
             </view>
+             <view class="price" style="color:#3c9bdf">
+              <view>距离:{{item.distance}}</view>
+            </view>
             <view class="price">
                 <view>
                                         满意度:<text class="fa fa-star  fa-lg"></text>

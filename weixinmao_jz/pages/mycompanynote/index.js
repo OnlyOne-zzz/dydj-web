@@ -9,7 +9,7 @@ function _defineProperty(e, a, t) {
     }) : e[a] = t, e;
 }
 
-var qqmapsdk, QQMapWX = require("../../resource/js/qqmap-wx-jssdk.min.js"), app = getApp();
+var qqmapsdk, QQMapWX = require("../../resource/js/qqmap-wx-jssdk.min.js"), config = require("../../resource/js/config.js"), app = getApp();
 
 function isHasElementOne(e, a) {
     for (var t = 0, i = e.length; t < i; t++) if (e[t] == a) return t;
@@ -84,7 +84,7 @@ Page((_defineProperty(_Page = {
         });
         var a = wx.getStorageSync("cityinfo");
         a ? (wx.setStorageSync("city", a.name), i.oldhouseinit()) : (qqmapsdk = new QQMapWX({
-            key: "5D3BZ-J55WF-SFPJJ-NI6PG-YN2ZO-M4BHX"
+            key: config.Config.key
         }), wx.getLocation({
             type: "gcj02",
             success: function(e) {

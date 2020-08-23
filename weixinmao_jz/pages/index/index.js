@@ -27,7 +27,7 @@ Page({
         }));
         var i = wx.getStorageSync("cityinfo");
         i ? (wx.setStorageSync("city", i.name), n.initpage()) : (qqmapsdk = new QQMapWX({
-            key: "5D3BZ-J55WF-SFPJJ-NI6PG-YN2ZO-M4BHX"
+            key: config.Config.key
         }), wx.getLocation({
             type: "gcj02",
             success: function(a) {
