@@ -38,7 +38,8 @@ Page({
         daddress:'',
         couponId:0,
         cardinfo: {},
-        technician: {}
+        technician: {},
+        distance:0
     },
     onLoad: function(a) {
         var t = this;
@@ -60,20 +61,21 @@ Page({
         var u = wx.getStorageSync("userInfo");
         var addressInfoStorage = wx.getStorageSync("addressinfo");
         if(!addressInfoStorage){
-        app.util.request({
-            url: "entry/wxapp/myaddresslist",
-            data: {
-                sessionid: u.sessionid,
-                uid: u.memberInfo.uid
-            },
-            success: function(a) {
-                var list = a.data.data.list;
-                if (!a.data.message.errno && list.length>0) {
-                    wx.setStorageSync("addressinfo",list);
+            app.util.request({
+                url: "entry/wxapp/myaddresslist",
+                data: {
+                    sessionid: u.sessionid,
+                    uid: u.memberInfo.uid
+                },
+                success: function(a) {
+                    var list = a.data.data.list;
+                    if (!a.data.message.errno && list.length>0) {
+                        wx.setStorageSync("addressinfo",list);
+                    }
                 }
-            }
-        });
+            });
         }
+      
     },
     numChange: function(e) {
         if(e.currentTarget.dataset['index'] == 1){
@@ -135,6 +137,24 @@ Page({
         this.setData({
             address: view_name    // worker: input框输入的值
         })
+    },
+    getFare: function(){
+        var pageObj = this;
+        app.util.request({
+            url: "entry/wxapp/TravelFare",
+            data: {
+                type: pageObj.data.trafficType,
+                distance: pageObj.data.distance
+            },
+            success: function(a) {
+                console.log(a)
+                if(!a.data.message.errno){
+                    pageObj.setData({
+                        fare:a.data.data
+                    });
+                }
+            }
+        });
     },
     pay: function(a) {
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
@@ -318,8 +338,9 @@ Page({
             url: "/weixinmao_jz/pages/technician/index?back=1"
         });
     },
-    changTraffic:function(obj){
+    changeTraffic:function(obj){
         this.data.trafficType =  obj.target.dataset.index;
+        this.getFare(this.data.trafficType );
          console.log(this.data.trafficType); 
     },
     onReady: function() {
@@ -333,6 +354,7 @@ Page({
         this.setData({
             cardinfo: wx.getStorageSync('cardinfo')
         })
+        this.getFare();
         if(noteCallback.data.noteId!=0){
             // 查询获取技师信息
             app.util.request({
