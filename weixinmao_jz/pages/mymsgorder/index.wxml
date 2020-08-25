@@ -31,7 +31,7 @@
             <view class="item">技师电话:{{item.notetel}}</view>
             <view class="item">交通方式:{{item.traffic_type==0?'出租车':'公交/地铁'}}</view>
             <view class="item">交通费用:￥{{item.traffic_money}}</view>
-            <view class="item">项目金额:￥{{item.content_money}}</view>
+            <view class="item">项目金额:￥{{item.content_money}}/{{item.content_name}}分钟</view>
             <view class="item">卡券减免:{{item.coupon_moeny!=0?'￥':''}}{{item.coupon_moeny==0?'未使用卡券':item.coupon_moeny}}</view>
             <view class="item">总金额: <text style="color:red; font-weight:600;">  {{item.paid==1?'已支付':'未支付'}}</text>￥{{item.money}}</view>
             <view class="item">状态:<text style="color:red; font-weight:600;">

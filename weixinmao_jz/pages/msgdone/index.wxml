@@ -139,7 +139,7 @@
                 </view>
             </view>
         </view>
-        <!-- <view class="main">
+        <view class="main">
             <view class="title"></view>
             <view class="list" style="border-bottom:0rpx;">
                 <view class="item" style="border-bottom:0rpx;">
@@ -155,7 +155,7 @@
                     </view>
                 </view>
             </view>
-        </view> -->
+        </view>
         <view class="weixinmao-float">
             <view class="weixinmao-foot">
                 <view>合计：￥{{filter.numberToFixed(gooditems.money * goodsNum+fare)}}</view>

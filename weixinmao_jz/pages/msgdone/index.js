@@ -39,7 +39,8 @@ Page({
         couponId:0,
         cardinfo: {},
         technician: {},
-        distance:0
+        distance:0,
+        orderid: ""
     },
     onLoad: function(a) {
         var t = this;
@@ -186,7 +187,7 @@ Page({
         //     return false
         // } 
         else {
-            var i = t.data.shopid, d = t.data.currentid, n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
+            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
             0 < t.data.gooditems.money ? 0 == r ? wx.showModal({
                 title: "确认支付",
                 content: "确认支付？",
@@ -244,11 +245,11 @@ Page({
                     sessionid: n.sessionid,
                     model: t.data.model,
                     addressid: e.id,
-                    orderid: orderid,
                     uid: n.memberInfo.uid,
                     form_id: o,
                     content: s
                 },
+                // orderid: t.data.orderid,
                 success: function(a) {
                     if (!a.data.message.errno) {
                         if (0 != a.data.data.error) return void wx.showModal({
@@ -262,7 +263,7 @@ Page({
                             showCancel: !1,
                             success: function() {
                                 wx.navigateTo({
-                                    url: "/weixinmao_jz/pages/matchorder/index?orderid=" + orderid
+                                    url: "/weixinmao_jz/pages/matchorder/index?orderid=" +  a.data.data.orderid
                                 });
                             }
                         });
@@ -274,7 +275,6 @@ Page({
                     sessionid: n.sessionid,
                     model: t.data.model,
                     addressid: e.id,
-                    orderid: orderid,
                     uid: n.memberInfo.uid,
                     form_id: o,
                     content: s
@@ -292,7 +292,7 @@ Page({
                             showCancel: !1,
                             success: function() {
                                 wx.navigateTo({
-                                    url: "/weixinmao_jz/pages/matchorder/index?orderid=" + orderid
+                                    url: "/weixinmao_jz/pages/matchorder/index?orderid=" + a.data.data.orderid
                                 });
                             }
                         });
