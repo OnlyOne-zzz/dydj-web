@@ -28,6 +28,7 @@ Page({
                 uid: e.memberInfo.uid
             },
             success: function(e) {
+                console.log(e)
                 e.data.message.errno || (e.data.data.intro.maincolor || (e.data.data.intro.maincolor = "#09ba07"), 
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
