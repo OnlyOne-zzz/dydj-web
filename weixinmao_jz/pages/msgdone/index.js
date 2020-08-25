@@ -138,6 +138,7 @@ Page({
             address: view_name    // worker: input框输入的值
         })
     },
+    // 获取交通费用
     getFare: function(){
         var pageObj = this;
         app.util.request({
@@ -147,7 +148,6 @@ Page({
                 distance: pageObj.data.distance
             },
             success: function(a) {
-                console.log(a)
                 if(!a.data.message.errno){
                     pageObj.setData({
                         fare:a.data.data

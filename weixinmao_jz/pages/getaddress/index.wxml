@@ -16,9 +16,9 @@
                 </view>
                 <view class="item" style='position: relative;'>
                     <view class="name">地址</view>
-                    <view class="selectitem">
-                        <input name="address" placeholder="请输入地址" type="text" value="{{address}}"></input>
-                        <button class="getaddress" bindtap="getaddress">
+                    <view class="selectitem" bindtap="getaddress">
+                        <input name="address" placeholder="请选择地址" disabled="disabled" type="text" value="{{address}}"></input>
+                        <button class="getaddress" >
                             <image src='./../../resource/img/addaddr.png'></image>
                         </button>
                     </view>
