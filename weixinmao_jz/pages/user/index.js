@@ -174,6 +174,11 @@ Page({
             phoneNumber: e
         });
     },
+    doaddress: function(){
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/selectaddress/index"
+        });
+    },
     toBindUser: function() {
         wx.navigateTo({
             url: "/weixinmao_jz/pages/binduser/index"

@@ -2,7 +2,8 @@ var app = getApp();
 
 Page({
     data: {
-        addresslist: {}
+        addresslist: {},
+        active: false
     },
     onLoad: function(a) {
         var i = this;
@@ -36,6 +37,50 @@ Page({
         });
     },
     onReady: function() {},
+    setmoren: function(e){
+        this.setData({
+            active: !this.data.active
+        })
+        if(this.data.active) {
+            wx.showToast({
+                title: '设为默认成功',
+                icon: 'success',
+                duration: 2000
+              })
+        } else {
+            wx.showToast({
+                title: '取消默认成功',
+                icon: 'success',
+                duration: 2000
+              })
+        }
+    },
+    edit:function(e){
+        let id = e.currentTarget.dataset.id;
+        console.log(id)
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/getaddress/index?id=" + id
+        });
+    },
+    delete:function(e){
+        let id = e.currentTarget.dataset.id;
+        wx.showModal({
+        title: '提示',
+        content: '确定删除此地址吗？',
+        success (res) {
+            if (res.confirm) {
+            console.log('用户点击确定')
+            } else if (res.cancel) {
+            console.log('用户点击取消')
+            }
+        }
+        })
+    },
+    addaddress: function(){
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/getaddress/index"
+        });
+    },
     selectaddress: function(a) {
         var t = a.currentTarget.dataset.id, n = this.data.addresslist;
         wx.setStorageSync("addressinfo", n[t]), wx.navigateBack({

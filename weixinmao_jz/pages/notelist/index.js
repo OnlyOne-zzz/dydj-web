@@ -16,6 +16,7 @@ Page({
         isSort: !0,
         isPrice: !0,
         isType: !0,
+        isType2: !0,
         loadMore: "",
         list: [],
         house_list: [],
@@ -262,6 +263,15 @@ Page({
             isCars: !0,
             isPrice: !0,
             isType: !this.data.isType
+        });
+    },
+    selectType2: function() {
+        this.setData({
+            isSort: !0,
+            isCars: !0,
+            isPrice: !0,
+            isType: !0,
+            isType2: !this.data.isType2
         });
     },
     selectSort: function() {

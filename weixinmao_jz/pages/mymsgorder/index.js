@@ -105,7 +105,7 @@ Page({
     toMyusermsgmoney: function(e) {
         var t = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/myusermsgmoney/index?id=" + t
+            url: "/weixinmao_jz/pages/matchorder/index?id=" + t
         });
     },
     onHide: function() {},

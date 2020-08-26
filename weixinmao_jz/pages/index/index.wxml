@@ -4,6 +4,7 @@
             <navigator hoverClass="none" url="../city/index?id=0">
                 <view class="city">
                     <text class="fa fa-map-marker  fa-lg"></text> {{cityinfo.name}}
+                    <text class='jiao'></text>
                 </view>
             </navigator>
             <!-- <view bindtap="toSearch" class="search">

@@ -35,53 +35,76 @@
     <!-- 宣传图 -->
     <image class="invite" mode="widthFix" src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1364348244,612692244&fm=26&gp=0.jpg'></image>
     <view class="service">
-        <view bindtap="toMymessageorder" class="servicelist" style="background:{{intro.maincolor}};">
-            <view class="logo">
-                <image src="../../resource/images/yuyue.png"></image>
+        <view bindtap="toMymessageorder" class="servicelist">
+            <view style="background:{{intro.maincolor}};">
+                <view class="logo">
+                    <image src="../../resource/images/yuyue.png"></image>
+                </view>
             </view>
             <view class="name">
                 <view>我的预约</view>
             </view>
         </view>
-        <view bindtap="toMyOrder" class="servicelist" style="background:{{intro.maincolor}};">
-            <view class="logo">
-                <image src="../../resource/images/order.png"></image>
+        <view bindtap="toMyOrder" class="servicelist">
+            <view  style="background:#fe8a0d;">
+                <view class="logo">
+                    <image src="../../resource/images/order.png"></image>
+                </view>
             </view>
             <view class="name">
                 <view>我的订单</view>
             </view>
         </view>
-        <view bindtap="toMycoupon" class="servicelist" style="background:#fe8a0d;">
-            <view class="logo">
-                <image src="../../resource/images/yhj.png"></image>
+        <view bindtap="toMycoupon" class="servicelist">
+            <view  style="background:#fe8a0d;">
+                <view class="logo">
+                    <image src="../../resource/images/yhj.png"></image>
+                </view>
             </view>
             <view class="name">
                 <view>我的优惠券</view>
                 <view></view>
             </view>
         </view>
-        <view bindtap="toAgent" class="servicelist" style="background: #ff553c;">
-            <view class="logo">
-                <image src="../../resource/images/fx.png"></image>
+        <view bindtap="toAgent" class="servicelist">
+            <view  style="background: #ff553c;">
+                <view class="logo">
+                    <image src="../../resource/images/fx.png"></image>
+                </view>
             </view>
             <view class="name">
                 <view>我要赚钱</view>
             </view>
         </view>
-        <view bindtap="toGetusermoney" class="servicelist" style="background: #ff553c;">
-            <view class="logo">
-                <image src="../../resource/images/money.png"></image>
+        <view bindtap="toGetusermoney" class="servicelist">
+            <view  style="background: #ff553c;">
+                <view class="logo">
+                    <image src="../../resource/images/money.png"></image>
+                </view>
             </view>
             <view class="name">
                 <view>申请提现</view>
             </view>
         </view>
-        <view bindtap="doCall" class="servicelist" style="background: #DA70D6;">
-            <view class="logo">
-                <image src="../../resource/images/kefu.png"></image>
+        <view bindtap="doCall" class="servicelist">
+            <view  style="background: #DA70D6;">
+                <view class="logo">
+                    <image src="../../resource/images/kefu.png"></image>
+                </view>
             </view>
             <view class="name">
                 <view>客服中心</view>
+                <view></view>
+            </view>
+        </view>
+        <view bindtap="doaddress" class="servicelist">
+            <view  style="background: #DA70D6;">
+                <view class="logo">
+                    <image src="../../resource/images/kefu.png"></image>
+                </view>
+            </view>
+            <view class="name">
+                <view>地址管理</view>
                 <view></view>
             </view>
         </view>

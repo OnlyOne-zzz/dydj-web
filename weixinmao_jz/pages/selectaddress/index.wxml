@@ -6,9 +6,23 @@
                 <text style="margin-left:20rpx;"> {{item.tel}}</text>
             </view>
             <view>{{item.address}}{{item.daddress}}</view>
+            <view class="hr"></view>
+            <view class='chaozuo'>
+                <view class='redios' bindtap='setmoren'>
+                    <text class='{{active?"active":""}}'></text>
+                    <text>设为默认地址</text>
+                </view>
+                <view class='chaozhuo'>
+                    <text bindtap='edit' data-id='5'>编辑</text>
+                    <text bindtap='delete' data-id='5'>删除</text>
+                </view>
+            </view>
         </view>
-        <view>
+        <!-- <view>
             <image src="../../resource/images/ri.png"></image>
-        </view>
+        </view> -->
+    </view>
+    <view class='add' bindtap='addaddress'>
+        新增地址
     </view>
 </view>

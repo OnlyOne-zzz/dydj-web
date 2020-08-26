@@ -139,11 +139,10 @@
                 </view>
             </view>
         </view>
-        <!-- <view class="main">
-            <view class="title"></view>
+        <view class="main">
             <view class="list" style="border-bottom:0rpx;">
                 <view class="item" style="border-bottom:0rpx;">
-                    <view class="selectitem" style="padding-left:20rpx;border-bottom:0rpx; justify-content:flex-start;">
+                    <view class="selectitem" style="padding: 10px 20px; padding-left:20rpx;border-bottom:0rpx; justify-content:flex-start;">
                         <radio-group bindchange="radioPayChange" class="radio-group">
                             <label class="radio">
                                 <radio checked value="0"></radio>微信支付
@@ -155,7 +154,7 @@
                     </view>
                 </view>
             </view>
-        </view> -->
+        </view>
         <view class="weixinmao-float">
             <view class="weixinmao-foot">
                 <view>合计：￥{{filter.numberToFixed(gooditems.money * goodsNum)}}</view>

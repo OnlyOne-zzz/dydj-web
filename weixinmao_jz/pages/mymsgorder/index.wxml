@@ -3,22 +3,27 @@
         <scroll-view class="type-navbar" scrollX="true">
             <view class="type-box">
                 <view bindtap="tabClick" class="type-navbar-item {{ordertype==1?'type-item-on':''}}" id="1">
-                    全部预约
+                    全部
                 </view>
             </view>
             <view class="type-box">
                 <view bindtap="tabClick" class="type-navbar-item {{ordertype==2?'type-item-on':''}}" id="2">
-                  未接单预约
+                  进行中
                 </view>
             </view>
             <view class="type-box">
                 <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
-                  已接单预约
+                  已完成
                 </view>
             </view>
             <view class="type-box">
                 <view bindtap="tabClick" class="type-navbar-item {{ordertype==4?'type-item-on':''}}" id="4">
-                  已完成预约
+                  待评价
+                </view>
+            </view>
+            <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==4?'type-item-on':''}}" id="4">
+                  取消/售后
                 </view>
             </view>
         </scroll-view>
@@ -26,38 +31,42 @@
     <view class="orderlist" wx:for="{{list}}">
         <view class="orderid">订单号:{{item.orderid}}</view>
         <view class="content">
-            <view class="item">购买服务:{{item.msgcontent}}/{{item.gooditems}}</view>
-            <view class="item">服务技师:{{item.notename}}</view>
-            <view class="item">技师电话:{{item.notetel}}</view>
-            <view class="item">{{item.isding==0?'一口价':'定金'}}: <text style="color:red; font-weight:600;">  {{item.paid==1?'已支付':'未支付'}}</text>￥{{item.money}}</view>
-            <view class="item">状态:<text style="color:red; font-weight:600;">
-                    <block wx:if="{{item.paid==1}}">
-                        <block wx:if="{{item.isding==0}}">
-                            <block wx:if="{{item.status==0}}">等待技师接单</block>
-                            <block wx:if="{{item.status==1}}">技师已接单</block>
-                            <block wx:if="{{item.status==2}}">完成订单</block>
-                        </block>
-                        <block wx:else>
-                            <block wx:if="{{item.status==0}}">等待技师接单</block>
-                            <block wx:if="{{item.status==1}}">技师已接单请报价</block>
-                            <block wx:if="{{item.status==2}}">
-                                <block wx:if="{{item.baostatus==0}}"> 技师已报价，等待确认</block>
-                                <block wx:if="{{item.baostatus==1}}"> 技师已报价，已同意</block>
-                                <block wx:if="{{item.baostatus==2}}"> 技师已报价，已拒绝</block>
-                            </block>
-                            <block wx:if="{{item.status==3}}">已同意报价，等待完成服务</block>
-                            <block wx:if="{{item.status==4}}">已完成服务，请支付尾款</block>
-                        </block>
-                    </block>
-                    <block wx:else> 未支付
-            </block>
-                </text>
+            <view class='image'>
+                <image mode='widthFix' src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3087705303,1740657087&fm=26&gp=0.jpg'></image>
             </view>
-            <view class="item">创建时间:{{item.createtime}}</view>
+            <view class='info'>
+                <view class="item">服务技师:{{item.note_name}}</view>
+                <view class="item">项目名称:{{item.msgcontent}}/{{item.gooditems}}</view>
+                <view class="item">项目时长:￥{{item.notetel}}/60分钟</view>
+                <view class="item">订单状态:
+                    <text style="color:red; font-weight:600;">
+                        <block wx:if="{{item.paid==1}}">
+                            <block wx:if="{{item.isding==0}}">
+                                <block wx:if="{{item.status==0}}">等待技师接单</block>
+                                <block wx:if="{{item.status==1}}">技师已接单</block>
+                                <block wx:if="{{item.status==2}}">完成订单</block>
+                            </block>
+                            <block wx:else>
+                                <block wx:if="{{item.status==0}}">等待技师接单</block>
+                                <block wx:if="{{item.status==1}}">技师已接单请报价</block>
+                                <block wx:if="{{item.status==2}}">
+                                    <block wx:if="{{item.baostatus==0}}"> 技师已报价，等待确认</block>
+                                    <block wx:if="{{item.baostatus==1}}"> 技师已报价，已同意</block>
+                                    <block wx:if="{{item.baostatus==2}}"> 技师已报价，已拒绝</block>
+                                </block>
+                                <block wx:if="{{item.status==3}}">已同意报价，等待完成服务</block>
+                                <block wx:if="{{item.status==4}}">已完成服务，请支付尾款</block>
+                            </block>
+                        </block>
+                        <block wx:else> 未支付</block>
+                    </text>
+                </view>
+                <view class="item" style='padding-top: 5px'>总价:￥{{item.money}}<text decode="true" >&nbsp;&nbsp;&nbsp;&nbsp;</text>实付款:￥{{item.money}}</view>
+            </view>
+            
             <view class="payitem">
-                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}" wx:if="{{item.status==2}}">查看报价</view>
-                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看报价</view>
-                <view bindtap="paymoney" data-id="{{item.id}}" wx:if="{{item.status==4}}">支付尾款</view>
+                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">评价</view>
+                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看进度</view>
             </view>
         </view>
     </view>

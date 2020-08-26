@@ -10,16 +10,17 @@
 </view>
 <view class="list_sort">
     <view bindtap="selectCars" class="sort_list {{isCars?'':'select'}}">
-        <text>{{title==''?'区域':title}}</text>
+        <text>{{title==''?'按距离排序':title}}</text>
         <image src="{{isCars?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
     </view>
     <view bindtap="selectPrice" class="sort_list {{isPrice?'':'select'}}">
-        <text>{{price==''?'服务':price}}</text>
-        <image src="{{isPrice?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
+        <text>{{price==''?'全部技师':price}}</text>
     </view>
     <view bindtap="selectType" class="sort_list {{isType?'':'select'}}">
-        <text>{{typetitle==''?'类型':typetitle}}</text>
-        <image src="{{isType?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
+        <text>{{typetitle==''?'可服务':typetitle}}</text>
+    </view>
+    <view bindtap="selectType2" class="sort_list {{isType2?'':'select'}}">
+        <text>{{typetitle==''?'服务中':typetitle}}</text>
     </view>
 </view>
 <view class="select_cars" hidden="{{isCars}}">
@@ -40,7 +41,7 @@
     </scroll-view>
 </view>
 <view bindtap="selectCars" class="small_overlay" hidden="{{isCars}}"></view>
-<view class="select_sort" hidden="{{isPrice}}">
+<!-- <view class="select_sort" hidden="{{isPrice}}">
     <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:600rpx; left: 0; top:0; bottom: 0; right: 0;">
         <view bindtap="selectpriceitem" class="select_cars_list {{priceid==0?'colorred':''}}" data-title="不限" id="0">
             <text>不限</text>
@@ -56,9 +57,9 @@
             </view>
         </block>
     </scroll-view>
-</view>
-<view bindtap="selectPrice" class="small_overlay" hidden="{{isPrice}}"></view>
-<view class="select_sort" hidden="{{isType}}">
+</view> -->
+<!-- <view bindtap="selectPrice" class="small_overlay" hidden="{{isPrice}}"></view> -->
+<!-- <view class="select_sort" hidden="{{isType}}">
     <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:600rpx; left: 0; top:0; bottom: 0; right: 0;">
         <view bindtap="selecttypeitem" class="select_cars_list {{typeid==0?'colorred':''}}" data-title="不限" id="0">
             <text>不限</text>
@@ -74,9 +75,9 @@
             </view>
         </block>
     </scroll-view>
-</view>
-<view bindtap="selectType" class="small_overlay" hidden="{{isType}}"></view>
-<view style="height:88px;"></view>
+</view> -->
+<!-- <view bindtap="selectType" class="small_overlay" hidden="{{isType}}"></view> -->
+<view style="height:83px;"></view>
 <view class="news">
     <view class="newslist" wx:for="{{worklist}}" data-id="{{item.id}}" bindtap="{{item.toNoteDetail}}">
         <view class="pic">
@@ -101,7 +102,7 @@
                 <view>
                     <image src="../../resource/images/dw.png" style="width:40rpx;height:40rpx;"></image>
                 </view>
-                <view>{{item.address}}</view>
+                <view style="height:40rpx; line-height: 40rpx;">{{item.address}}</view>
             </view>
              <view class="price" style="color:#3c9bdf">
               <view>距离:{{item.distance}}</view>

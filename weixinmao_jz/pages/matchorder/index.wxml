@@ -1,11 +1,11 @@
 <view class="container">
     <view class="proline">
         <view class="progress">
-            <view class="linetext">下单</view>
-            <view class="linetext">支付</view>
-            <view class="linetext">议价</view>
-            <view class="linetext">上门</view>
-            <view class="linetext">评价</view>
+            <view class="linetext">技师接单</view>
+            <view class="linetext">技师出发</view>
+            <view class="linetext">技师到达</view>
+            <view class="linetext">开始服务</view>
+            <view class="linetext">服务完成</view>
         </view>
         <view class="progress">
             <view class="line"></view>
@@ -18,23 +18,48 @@
     </view>
     <view class="orderinfo">
         <view class="main">
+            <view class='header'>
+                <text></text>
+                <text>订单信息</text>
+            </view>
             <view class="title">
-         订单号：{{orderinfo.orderid}}
-        </view>
-            <view class="title" style="font-weight:600;color:red;font-size:.7rem;">
-         已支付金额：￥{{orderinfo.money}}
-        </view>
-            <view class="list">
+                订单号：{{orderinfo.orderid}}
+            </view>
+            <view class="title">
+                用户昵称：{{orderinfo.orderid}}
+            </view>
+            <view class="title">
+                手机号码：{{orderinfo.orderid}}
+            </view>
+            <view class="title">
+                车费详情：{{orderinfo.orderid}}
+            </view>
+            <view class="title">
+                卡券使用：{{orderinfo.orderid}}
+            </view>
+            <view class="title">
+                服务地址：{{orderinfo.orderid}}
+            </view>
+            <view class="title">
+                支付方式：{{orderinfo.orderid}}
+            </view>
+            <view class="title">
+                订单状态：{{orderinfo.orderid}}
+            </view>
+            <view class="title" style="font-weight:600;color:red;font-size:.7rem;text-align: right;">
+                合计：￥{{orderinfo.money}}
+            </view>
+            <!-- <view class="list">
                 <view class="item" style="border:0rpx;">
                     <view class="name">备注</view>
                     <view class="selectitem">{{orderinfo.content}}</view>
                 </view>
-            </view>
+            </view> -->
         </view>
-        <view class="main">
+        <!-- <view class="main">
             <view class="title" style="font-size:.7rem;">
-        预约项目
-        </view>
+                预约项目
+            </view>
             <view class="list">
                 <view class="item" wx:for="{{order_detail}}">
                     <view class="name">
@@ -43,8 +68,8 @@
                     <view class="selectitem">{{item.title}}</view>
                 </view>
             </view>
-        </view>
-        <view class="newaddress">
+        </view> -->
+        <!-- <view class="newaddress">
             <view class="showaddress">
                 <view>
                     <text>{{addressinfo.name}}</text>
@@ -53,11 +78,34 @@
                 <view>{{addressinfo.address}}{{addressinfo.daddress}}</view>
             </view>
             <view></view>
+        </view> -->
+    </view>
+    <view class='main2'>
+        <view>
+            <image src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1775828326,1919764642&fm=26&gp=0.jpg"></image>
+        </view>
+        <view>
+            技师名称
+        </view>
+    </view>
+    <view class='main'>
+        <view class='header'>
+            <text></text>
+            <text>服务信息</text>
+        </view>
+        <view class="title">
+            服务项目：{{orderinfo.orderid}}
+        </view>
+        <view class="title">
+            项目时长：{{orderinfo.orderid}}
+        </view>
+        <view class="title">
+            项目价格：{{orderinfo.orderid}}
         </view>
     </view>
     <view class="weixinmao-float">
         <view class="weixinmao-foot">
-            <button bindtap="doCall" class="footer" style="background:{{intro.maincolor}}">咨询低价</button>
+            <button bindtap="doCall" class="footer" style="background:{{intro.maincolor}}">按钮</button>
         </view>
     </view>
 </view>
