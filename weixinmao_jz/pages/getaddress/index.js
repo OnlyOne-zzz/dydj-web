@@ -19,7 +19,10 @@ Page({
         date: "",
         datetime: "",
         listid: "",
-        ison: 0
+        ison: 0,
+        lat:"",
+        lng:""
+
     },
     onLoad: function(a) {
         var t = this;
@@ -91,6 +94,7 @@ Page({
         });
     },
     savepubinfo: function(a) {
+        
         var t = this, e = wx.getStorageSync("userInfo"), i = a.detail.value.name, o = a.detail.value.tel, n = (t.data.date, 
         t.data.datetime, a.detail.value.address), s = a.detail.value.daddress, d = (a.detail.value.content, 
         a.detail.formId), l = t.data.ison;
@@ -104,12 +108,15 @@ Page({
                 address: n,
                 daddress: s,
                 ison: l,
-                form_id: d
+                form_id: d,
+                lat:t.data.lat,
+                lng:t.data.lng
             };
             app.util.request({
                 url: "entry/wxapp/saveaddress",
                 data: r,
                 success: function(a) {
+                    console.log(a)
                     return 0 != a.data.errno ? (wx.hideLoading(), void wx.showModal({
                         title: "失败",
                         content: "提交失败",

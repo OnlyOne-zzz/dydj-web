@@ -28,6 +28,7 @@ Page({
                 uid: e.memberInfo.uid
             },
             success: function(e) {
+                console.log(e)
                 e.data.message.errno || (e.data.data.intro.maincolor || (e.data.data.intro.maincolor = "#09ba07"), 
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
@@ -105,7 +106,14 @@ Page({
     toMyusermsgmoney: function(e) {
         var t = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/matchorder/index?id=" + t
+            // url: "/weixinmao_jz/pages/myusermsgmoney/index?id=" + t
+            url:"/weixinmao_jz/pages/matchorder/index?orderid=" + t
+        });
+    },
+    setcomment: function(e) {
+        var a = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/setcomment/index?orderid=" + a
         });
     },
     onHide: function() {},

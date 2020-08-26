@@ -11,7 +11,8 @@ Page({
         var t = this;
         t.setData({
             isshow: t.data.isshow
-        }), app.util.request({
+        }), 
+        app.util.request({
             url: "entry/wxapp/Intro",
             success: function(a) {
                 console.log(a)
@@ -31,6 +32,20 @@ Page({
                     msgList: a.data.data.noticelist,
                     isshow: !1
                 }));
+            },
+            complete: function() {
+                wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
+            }
+        });
+        app.util.request({
+            url: "entry/wxapp/Getinfo",
+            success: function(a) {
+                console.log(a)
+                if(!a.data.message.errno){
+                    t.setData({
+                        contentList: a.data.data.list
+                    })
+                }
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
