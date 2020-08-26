@@ -112,9 +112,13 @@ button::after {
 }
 
 .service {
-    width: 100%;
+    width: 96%;
+    margin: auto;
     padding: 0px 10px;
     box-sizing: border-box;
+    background: #fff;
+    border-radius: 5px;
+    padding-top: 15px;
     /* display: flex;
     flex-direction: row;
     justify-content: space-between;

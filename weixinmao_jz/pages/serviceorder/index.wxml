@@ -23,7 +23,7 @@
         </view>
     <view class="container">
         <view class="weui-grids">
-            <view bindtap="toList" class="weui-grid" id="{{item.id}}" wx:for="{{contentList}}" wx:key="name">
+            <view bindtap="toList" class="weui-gridss" id="{{item.id}}" wx:for="{{contentList}}" wx:key="name">
                 <view class="weui-grid__icon">
                     <image mode="scaleToFill" src="{{item.thumb}}"></image>
                 </view>

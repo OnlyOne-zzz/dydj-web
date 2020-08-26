@@ -246,6 +246,7 @@ Page({
             isSort: !0,
             isPrice: !0,
             isType: !0,
+            isType2: !0,
             isCars: !this.data.isCars
         });
     },
@@ -254,6 +255,7 @@ Page({
             isSort: !0,
             isCars: !0,
             isType: !0,
+            isType2: !0,
             isPrice: !this.data.isPrice
         });
     },
@@ -262,6 +264,7 @@ Page({
             isSort: !0,
             isCars: !0,
             isPrice: !0,
+            isType2: !0,
             isType: !this.data.isType
         });
     },

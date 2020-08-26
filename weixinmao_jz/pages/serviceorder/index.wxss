@@ -1,6 +1,9 @@
+page{
+    background-color: #f0f0f0;
+}
 .container {
-    background-color: #FFF;
     min-height: 100%;
+    padding-top: 5px;
 }
 
 .header {
@@ -107,15 +110,17 @@ swiper-item image {
     transform: scaleX(0.5);
 }
 
-.weui-grid {
+.weui-gridss {
+    background-color: #fff;
     position: relative;
-    float: left;
-    width: 100%;
+    width: 96%;
     height: 120px;
     box-sizing: border-box;
     border: none;
     padding: 10px;
-    border-bottom: 1px solid #ebebeb;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 8px;
 }
 
 /* .weui-grid:before {
@@ -149,12 +154,12 @@ swiper-item image {
 } */
 
 .weui-grid__icon {
-    width: 100px;
-    height: 100px;
+    width: 98px;
+    height: 98px;
     float: left;
     border-radius: 5px;
     overflow: hidden;
-    box-shadow: 2px 2px 5px #a6a6a6;
+    border: 1px solid #f0f0f0;
 }
 
 .weui-grid__icon image {
@@ -250,6 +255,7 @@ swiper-item image {
     height: 20px;
     vertical-align: -5px;
     margin-right: 5px;
+    border-radius: 50%;
 }
 
 .swiper_item_move {
