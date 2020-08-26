@@ -110,6 +110,12 @@ Page({
             url:"/weixinmao_jz/pages/matchorder/index?orderid=" + t
         });
     },
+    setcomment: function(e) {
+        var a = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/setcomment/index?orderid=" + a
+        });
+    },
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {},

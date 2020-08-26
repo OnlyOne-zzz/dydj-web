@@ -61,6 +61,7 @@
             <view class="payitem">
                 <view bindtap="toMyusermsgmoney" data-id="{{item.id}}" wx:if="{{item.status==2}}">查看进度</view>
                 <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看进度</view>
+                <view bindtap="setcomment" data-id="{{item.id}}">评价</view>
                 <view bindtap="paymoney" data-id="{{item.id}}" wx:if="{{item.status==4}}">支付尾款</view>
             </view>
         </view>
