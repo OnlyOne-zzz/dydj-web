@@ -59,8 +59,8 @@
             </view>
             <view class="item">创建时间:{{item.createtime}}</view>
             <view class="payitem">
-                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}" wx:if="{{item.status==2}}">查看报价</view>
-                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看报价</view>
+                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}" wx:if="{{item.status==2}}">查看进度</view>
+                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看进度</view>
                 <view bindtap="paymoney" data-id="{{item.id}}" wx:if="{{item.status==4}}">支付尾款</view>
             </view>
         </view>
