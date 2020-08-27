@@ -310,8 +310,6 @@ Page({
         var serviceStatus = obj.serviceStatus;
         //前端参数获取  
         var data = {
-            orderName:orderName,
-            orderType:orderType,
             serviceStatus:serviceStatus
         };
         //按距离排序
@@ -320,6 +318,8 @@ Page({
                 _this.calculateDistanceHandle(result, true);
             });
         }else{
+            data.orderName = orderName;
+            data.orderType = orderType;
             _this.requestNoteList(data, function(result){
                 _this.calculateDistanceHandle(result, false);
             });
@@ -368,7 +368,6 @@ Page({
               console.log(res);
               var res = res.result;
               for (var i = 0; i < res.elements.length; i++) {
-               
                var dis = res.elements[i].distance;
                // 如果radius半径过小或者无法搜索到，则返回-1.给它默认赋值为100米
                if(dis == -1){
@@ -377,32 +376,61 @@ Page({
                 wt[i].distance = res.elements[i].distance;
                }
               };
+              //根据技师状态分组
+              var serviceable = []; //可服务
+              var inService = []; //服务中
+              for (var i = 0; i < wt.length; i++) {
+                var serviceStatus = wt[i].serviceStatus;
+                if(serviceStatus == 1){
+                   serviceable.push(wt[i]);
+                }else{
+                    inService.push(wt[i]);
+                }
+            }
              //是否需要根据距离排序
               if(isDistanceToSort){
                    //冒泡排序
-                for (var i = 0; i < wt.length - 1; i++) {
-                    for (var j = 0; j < wt.length - i -1; j++) {   // 这里说明为什么需要-1
-                        if (wt[j].distance > wt[j + 1].distance) {
-                            var temp = wt[j];
-                            wt[j] = wt[j + 1];
-                            wt[j + 1] = temp;
+                for (var i = 0; i < serviceable.length - 1; i++) {
+                    for (var j = 0; j < serviceable.length - i -1; j++) {   // 这里说明为什么需要-1
+                        if (serviceable[j].distance > serviceable[j + 1].distance) {
+                            var temp = serviceable[j];
+                            serviceable[j] = serviceable[j + 1];
+                            serviceable[j + 1] = temp;
+                        }
+                    }
+                }
+                for (var i = 0; i < inService.length - 1; i++) {
+                    for (var j = 0; j < inService.length - i -1; j++) {   // 这里说明为什么需要-1
+                        if (inService[j].distance > inService[j + 1].distance) {
+                            var temp = inService[j];
+                            inService[j] = inService[j + 1];
+                            inService[j + 1] = temp;
                         }
                     }
                 }
               }
             //单位转换
-            for (var i = 0; i < wt.length; i++) {
-                var dit = wt[i].distance;
+            for (var i = 0; i < inService.length; i++) {
+                var dit = inService[i].distance;
                 if(dis < 1000){
-                    wt[i].distance = wt[i].distance + "米";
+                    inService[i].distance = inService[i].distance + "米";
                 }else{
-                    var num = wt[i].distance / 1000;
-                    wt[i].distance = num.toFixed(1) + "公里";
+                    var num = inService[i].distance / 1000;
+                    inService[i].distance = num.toFixed(1) + "公里";
+                }
+            }
+            for (var i = 0; i < serviceable.length; i++) {
+                var dit = serviceable[i].distance;
+                if(dis < 1000){
+                    serviceable[i].distance = serviceable[i].distance + "米";
+                }else{
+                    var num = serviceable[i].distance / 1000;
+                    serviceable[i].distance = num.toFixed(1) + "公里";
                 }
             }
 
               e.setData({ //设置并更新distance数据
-                worklist: wt
+                worklist: serviceable.concat(inService)
               });
             },
             fail: function(error) {
