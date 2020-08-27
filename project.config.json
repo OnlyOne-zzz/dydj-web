@@ -20,20 +20,20 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"compileHotReLoad": false,
+		"useIsolateContext": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.12.0",
 	"appid": "wxfee9e92111e44d0b",
-	"projectname": "dydj",
+	"projectname": "dydj-web",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -90,6 +90,34 @@
 					"id": -1,
 					"name": "技师",
 					"pathName": "weixinmao_jz/pages/technician/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "weixinmao_jz/pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "2",
+					"pathName": "weixinmao_jz/pages/mymsgorder/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "3",
+					"pathName": "weixinmao_jz/pages/matchorder/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "4",
+					"pathName": "weixinmao_jz/pages/selectaddress/index",
 					"scene": null
 				}
 			]
