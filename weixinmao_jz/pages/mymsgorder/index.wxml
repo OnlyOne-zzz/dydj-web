@@ -65,7 +65,7 @@
             </view>
             
             <view class="payitem">
-                <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">评价</view>
+                <view bindtap="setcomment" data-id="{{item.id}}">评价</view>
                 <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看进度</view>
             </view>
         </view>

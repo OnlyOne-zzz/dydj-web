@@ -91,7 +91,8 @@ Page({
                         isshow: !1,
                         navlist: a.data.data.navlist,
                         ordertype: a.data.data.ordertype,
-                        cityinfo: a.data.data.cityinfo
+                        cityinfo: a.data.data.cityinfo,
+                        msgcontentlist:a.data.data.msgcontentlist
                     });
                 }
             },
