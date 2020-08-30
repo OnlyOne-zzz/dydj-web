@@ -26,7 +26,9 @@ Page({
         housetype: 0,
         page: 1,
         title: "",
-        back: ''
+        back: '',
+        serviceStatus: 0,
+        orderColumn: ''
     },
     onLoad: function(t) {
 
@@ -200,13 +202,18 @@ Page({
         });
     },
     selectcarsitem: function(t) {
-        console.log(t.currentTarget.id);
-        var e = t.currentTarget.id, a = t.currentTarget.dataset.title;
-        console.log(t.currentTarget), this.setData({
-            carid: e,
-            isCars: !0,
-            title: a
-        }), this.data.houseareaid = e, this.gethouselist();
+        var _this = this;
+        var id= t.currentTarget.id;
+        var obj = {
+            "serviceStatus": _this.data.serviceStatus
+        };
+        if(id == 0 || id == 1){
+            obj.orderColumn = '';
+        }else if(id == 2){
+            obj.orderColumn = "views"
+        }
+        _this.data.orderColumn = obj.orderColumn;
+        this.getNodeList(obj);
     },
     selectpriceitem: function(t) {
         console.log(t.currentTarget.id);
@@ -251,13 +258,21 @@ Page({
         });
     },
     selectPrice: function() {
+        
         this.setData({
             isSort: !0,
             isCars: !0,
             isType: !0,
             isType2: !0,
-            isPrice: !this.data.isPrice
+            isPrice: !this.data.isPrice,
+            serviceStatus: 0
         });
+        var _this = this;
+        var obj = {
+            "serviceStatus": _this.data.serviceStatus,
+            "orderColumn": _this.data.orderColumn
+        }
+        this.getNodeList(obj);
     },
     selectType: function() {
         this.setData({
@@ -265,8 +280,15 @@ Page({
             isCars: !0,
             isPrice: !0,
             isType2: !0,
-            isType: !this.data.isType
+            isType: !this.data.isType,
+            serviceStatus: 1
         });
+        var _this = this;
+        var obj = {
+            "serviceStatus": _this.data.serviceStatus,
+            "orderColumn": _this.data.orderColumn
+        }
+        this.getNodeList(obj);
     },
     selectType2: function() {
         this.setData({
@@ -274,8 +296,15 @@ Page({
             isCars: !0,
             isPrice: !0,
             isType: !0,
-            isType2: !this.data.isType2
+            isType2: !this.data.isType2,
+            serviceStatus: 2
         });
+        var _this = this;
+        var obj = {
+            "serviceStatus": _this.data.serviceStatus,
+            "orderColumn": _this.data.orderColumn
+        }
+        this.getNodeList(obj);
     },
     selectSort: function() {
         this.setData({
@@ -303,9 +332,9 @@ Page({
     getNodeList: function(obj){
         var _this = this;
         //排序名称
-        var orderName = obj.orderName;
+        var orderColumn = obj.orderColumn;
         //排序类型
-        var orderType = obj.orderType;
+        var orderType = 'desc';
         //客服务状态  0：所有，1：客服务，2:服务中
         var serviceStatus = obj.serviceStatus;
         //前端参数获取  
@@ -313,12 +342,12 @@ Page({
             serviceStatus:serviceStatus
         };
         //按距离排序
-        if(orderName == 'distance'){
+        if(orderColumn == 'distance'){
             _this.requestNoteList(data, function(result){
                 _this.calculateDistanceHandle(result, true);
             });
         }else{
-            data.orderName = orderName;
+            data.orderColumn = orderColumn;
             data.orderType = orderType;
             _this.requestNoteList(data, function(result){
                 _this.calculateDistanceHandle(result, false);
@@ -326,6 +355,7 @@ Page({
         }
     },
     requestNoteList: function(data, call){
+        var e = this;
         app.util.request({
             url: "entry/wxapp/Getnotelist",
             data: data,
@@ -358,6 +388,7 @@ Page({
         for(var i = 0;  i < wt.length; i++){
             distanceTO.push({'latitude': wt[i].lat, 'longitude': wt[i].lng});
         }
+        console.log(distanceTO)
         qqmapsdk.calculateDistance({
             //mode: 'driving',//可选值：'driving'（驾车）、'walking'（步行），不填默认：'walking',可不填
             mode: 'driving',

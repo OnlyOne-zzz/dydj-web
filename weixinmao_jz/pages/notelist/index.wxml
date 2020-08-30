@@ -25,19 +25,17 @@
 </view>
 <view class="select_cars" hidden="{{isCars}}">
     <scroll-view class="bigWrap" scrollTop="{{scrollTop}}" scrollY="true" style="height:600rpx; left: 0; top:0; bottom: 0; right: 0;">
-        <view bindtap="selectcarsitem" class="select_cars_list {{carid==0?'colorred':''}}" data-title="全部" id="0">
+        <view bindtap="selectcarsitem" class="select_cars_list" data-title="全部" id="0">
             <text>全部</text>
-            <image src="../../resource/images/dui.png" wx:if="{{carid==0}}"></image>
+            <image src="../../resource/images/dui.png"></image>
         </view>
-        <block wx:for="{{arealist}}" wx:key="index">
-            <view bindtap="selectcarsitem" class="select_cars_list colorred" data-title="{{item.name}}" id="{{item.id}}" wx:if="{{item.id==carid}}">
-                <text>{{item.name}}</text>
-                <image src="../../resource/images/dui.png"></image>
-            </view>
-            <view bindtap="selectcarsitem" class="select_cars_list" data-title="{{item.name}}" id="{{item.id}}" wx:else>
-                <text>{{item.name}}</text>
-            </view>
-        </block>
+        <view bindtap="selectcarsitem" class="select_cars_list colorred" data-title="按距离排序" id="1">
+            <text>按距离排序</text>
+            <image src="../../resource/images/dui.png"></image>
+        </view>
+        <view bindtap="selectcarsitem" class="select_cars_list" data-title="按浏览量排序" id="2">
+            <text>按浏览量排序</text>
+        </view>
     </scroll-view>
 </view>
 <view bindtap="selectCars" class="small_overlay" hidden="{{isCars}}"></view>
