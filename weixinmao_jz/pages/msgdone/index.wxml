@@ -104,7 +104,7 @@
         <view class="userInfo" style="padding-top: 0px;">
             <view style="border-top: 1px solid #e5e5e5;">
                 <image mode='heightFix' src="../../resource/images/cx.png"></image> 
-                <view class="chuxing" bindtap="changeTraffic">
+                <view class="chuxing">
                     <text>出行方式</text>
                     <text class="listTime {{travel == 1 ? 'active':''}}" bindtap='selectTravel' data-index='1'>公交/地铁</text>
                     <text class="listTime {{travel == 0 ? 'active':''}}" bindtap='selectTravel' data-index='0'>出租车</text>
