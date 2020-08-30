@@ -13,7 +13,7 @@
         <text>{{title==''?'按距离排序':title}}</text>
         <image src="{{isCars?'../../resource/images/buttom.png':'../../resource/images/top-red.png'}}"></image>
     </view>
-    <view bindtap="selectPrice" class="sort_list {{isPrice?'':'select'}}">
+    <view bindtap="selectPrice" class="sort_list {{isPrice?'':'select'}}" data-index="">
         <text>{{price==''?'全部技师':price}}</text>
     </view>
     <view bindtap="selectType" class="sort_list {{isType?'':'select'}}">

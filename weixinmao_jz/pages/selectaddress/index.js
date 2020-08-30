@@ -57,13 +57,13 @@ Page({
     },
     edit:function(e){
         let id = e.currentTarget.dataset.id;
-        console.log(id)
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/getaddress/index?id=" + id
+            url: "/weixinmao_jz/pages/getaddress/index?id="+id
         });
     },
     delete:function(e){
         let id = e.currentTarget.dataset.id;
+        console.log(id)
         wx.showModal({
         title: '提示',
         content: '确定删除此地址吗？',
@@ -76,6 +76,7 @@ Page({
         }
         })
     },
+    
     addaddress: function(){
         wx.navigateTo({
             url: "/weixinmao_jz/pages/getaddress/index"
