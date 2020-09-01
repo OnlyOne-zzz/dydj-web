@@ -21,7 +21,8 @@ Page({
         listid: "",
         ison: 0,
         lat:"",
-        lng:""
+        lng:"",
+        addressId:0
 
     },
     onLoad: function(a) {
@@ -31,6 +32,17 @@ Page({
         }), "" != t.data.listid) t.data.listid; else {
             a.listid;
             t.data.listid = a.listid;
+        }
+        if(0!=t.data.addressId) t.data.addressId=0;else{
+            t.data.addressId = a.addressId;   
+        }
+        if(t.data.addressId>0){
+            var editAddress = wx.getStorageSync('editAddress');
+            this.data.lat = editAddress.lat;
+            this.data.lng = editAddress.lng;
+            this.setData({
+                editAddress:editAddress
+            })
         }
         t.setData({
             isshow: !0
@@ -110,8 +122,11 @@ Page({
                 ison: l,
                 form_id: d,
                 lat:t.data.lat,
-                lng:t.data.lng
+                lng:t.data.lng,
+                id:t.data.addressId
             };
+            console.log("!QAZDWWWWWWWWWW")
+            console.log(r)
             app.util.request({
                 url: "entry/wxapp/saveaddress",
                 data: r,

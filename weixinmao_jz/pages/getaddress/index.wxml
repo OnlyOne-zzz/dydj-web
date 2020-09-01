@@ -5,13 +5,13 @@
                 <view class="item">
                     <view class="name">姓名</view>
                     <view class="selectitem">
-                        <input name="name" placeholder="请输入姓名" type="text"></input>
+                        <input name="name" placeholder="请输入姓名" type="text" value="{{editAddress.name}}"></input>
                     </view>
                 </view>
                 <view class="item">
                     <view class="name">电话</view>
                     <view class="selectitem">
-                        <input name="tel" placeholder="请输入电话" type="text"></input>
+                        <input name="tel" placeholder="请输入电话" type="number" value="{{editAddress.tel}}"></input>
                     </view>
                 </view>
                 <view class="item" style='position: relative;'>
@@ -26,7 +26,7 @@
                 <view class="item">
                     <view class="name">详细地址</view>
                     <view class="selectitem">
-                        <input name="daddress" placeholder="请输入详细地址" type="text"></input>
+                        <input name="daddress" placeholder="请输入详细地址" type="text" value="{{editAddress.daddress}}" ></input>
                     </view>
                 </view>
                 <view class="item" style="border:0rpx;">

@@ -13,7 +13,7 @@
                     <text>设为默认地址</text>
                 </view>
                 <view class='chaozhuo'>
-                    <text  bindtap='edit' data-id='{{item.id}}'>编辑</text>
+                    <text  bindtap='edit' data-obj='{{item}}'>编辑</text>
                     <text  bindtap='delete' data-id='{{item.id}}'>删除</text>
                 </view>
             </view>

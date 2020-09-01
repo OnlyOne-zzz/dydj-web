@@ -6,6 +6,79 @@ Page({
         active: false
     },
     onLoad: function(a) {
+        
+    },
+    onReady: function() {},
+    setmoren: function(e){
+        this.setData({
+            active: !this.data.active
+        })
+        if(this.data.active) {
+            wx.showToast({
+                title: '设为默认成功',
+                icon: 'success',
+                duration: 2000
+              })
+        } else {
+            wx.showToast({
+                title: '取消默认成功',
+                icon: 'success',
+                duration: 2000
+              })
+        }
+    },
+    edit:function(e){
+        var obj = e.currentTarget.dataset.obj;
+        var id = obj.id;
+        wx.setStorage({
+          data: obj,
+          key: 'editAddress',
+        });    
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/getaddress/index?addressId="+id
+        });
+    },
+    delete:function(e){
+        var pageObj = this;
+        let id = e.currentTarget.dataset.id;
+        wx.showModal({
+        title: '提示',
+        content: '确定删除此地址吗？',
+        success (res) {
+            if (res.confirm) {
+                app.util.request({
+                    url: "entry/wxapp/Deladdress",
+                    data: {
+                        id: id
+                    },
+                    success: function(a) {
+                        if (!a.data.message.errno) {
+                            wx.removeStorage({
+                              key: 'addressinfo',
+                            })
+                           pageObj.onShow()
+                        }
+                    }
+                });
+            } else if (res.cancel) {
+            console.log('用户点击取消')
+            }
+        }
+        })
+    },
+    
+    addaddress: function(){
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/getaddress/index"
+        });
+    },
+    selectaddress: function(a) {
+        var t = a.currentTarget.dataset.id, n = this.data.addresslist;
+        wx.setStorageSync("addressinfo", n[t]), wx.navigateBack({
+            changed: !0
+        });
+    },
+    onShow: function() {
         var i = this;
         wx.setNavigationBarTitle({
             title: "我的地址"
@@ -36,69 +109,6 @@ Page({
             }
         });
     },
-    onReady: function() {},
-    setmoren: function(e){
-        this.setData({
-            active: !this.data.active
-        })
-        if(this.data.active) {
-            wx.showToast({
-                title: '设为默认成功',
-                icon: 'success',
-                duration: 2000
-              })
-        } else {
-            wx.showToast({
-                title: '取消默认成功',
-                icon: 'success',
-                duration: 2000
-              })
-        }
-    },
-    edit:function(e){
-        let id = e.currentTarget.dataset.id;
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/getaddress/index?id="+id
-        });
-    },
-    delete:function(e){
-        var pageObj = this;
-        let id = e.currentTarget.dataset.id;
-        wx.showModal({
-        title: '提示',
-        content: '确定删除此地址吗？',
-        success (res) {
-            if (res.confirm) {
-                app.util.request({
-                    url: "entry/wxapp/Deladdress",
-                    data: {
-                        id: id
-                    },
-                    success: function(a) {
-                        if (!a.data.message.errno) {
-                            pageObj.onLoad()
-                        }
-                    }
-                });
-            } else if (res.cancel) {
-            console.log('用户点击取消')
-            }
-        }
-        })
-    },
-    
-    addaddress: function(){
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/getaddress/index"
-        });
-    },
-    selectaddress: function(a) {
-        var t = a.currentTarget.dataset.id, n = this.data.addresslist;
-        wx.setStorageSync("addressinfo", n[t]), wx.navigateBack({
-            changed: !0
-        });
-    },
-    onShow: function() {},
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {},
