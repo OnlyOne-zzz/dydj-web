@@ -62,14 +62,24 @@ Page({
         });
     },
     delete:function(e){
+        var pageObj = this;
         let id = e.currentTarget.dataset.id;
-        console.log(id)
         wx.showModal({
         title: '提示',
         content: '确定删除此地址吗？',
         success (res) {
             if (res.confirm) {
-            console.log('用户点击确定')
+                app.util.request({
+                    url: "entry/wxapp/Deladdress",
+                    data: {
+                        id: id
+                    },
+                    success: function(a) {
+                        if (!a.data.message.errno) {
+                            pageObj.onLoad()
+                        }
+                    }
+                });
             } else if (res.cancel) {
             console.log('用户点击取消')
             }
