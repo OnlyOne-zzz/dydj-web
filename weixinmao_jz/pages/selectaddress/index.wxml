@@ -1,11 +1,11 @@
 <view class="container">
     <view  class="newaddress" data-id="{{item.id}}" wx:for="{{list}}">
         <view class="showaddress" >
-            <view bindtap="selectaddress">
+            <view bindtap="selectaddress" data-id="{{item.id}}">
                 <text>{{item.name}}</text>
                 <text style="margin-left:20rpx;"> {{item.tel}}</text>
             </view>
-            <view bindtap="selectaddress">{{item.address}}{{item.daddress}}</view>
+            <view bindtap="selectaddress" data-id="{{item.id}}">{{item.address}}{{item.daddress}}</view>
             <view class="hr"></view>
             <view class='chaozuo'>
                 <view class='redios' bindtap='setmoren'>

@@ -224,6 +224,30 @@ Page({
                                     signType: "MD5",
                                     paySign: a.data.data.paySign,
                                     success: function(a) {
+                                            wx.requestSubscribeMessage({
+                                                tmplIds: ['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'],
+                                                success(res){
+                                                    if(res['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'] == 'accept'){
+                                                        app.util.request({
+                                                            url: "entry/wxapp/SmallSend",
+                                                            data: {
+                                                                sessionid: u.sessionid,
+                                                                uid: u.memberInfo.uid,
+                                                                templateId:'XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE',
+                                                                orderNo:t
+                                                            },
+                                                            success: function(a) {
+                                                                if (!a.data.message.errno) {
+                                                                    
+                                                                }
+                                                            }
+                                                        }); 
+                                                    }
+                                                },
+                                                fail(){
+                                                    console.log('不授权订阅消息')
+                                                }
+                                              })
                                         console.log(a), wx.navigateTo({
                                             url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
                                         });

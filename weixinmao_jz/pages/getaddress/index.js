@@ -122,11 +122,9 @@ Page({
                 ison: l,
                 form_id: d,
                 lat:t.data.lat,
-                lng:t.data.lng,
-                id:t.data.addressId
+                lng:t.data.lng
+                // id:t.data.addressId
             };
-            console.log("!QAZDWWWWWWWWWW")
-            console.log(r)
             app.util.request({
                 url: "entry/wxapp/saveaddress",
                 data: r,

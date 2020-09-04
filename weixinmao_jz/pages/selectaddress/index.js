@@ -74,6 +74,7 @@ Page({
     },
     selectaddress: function(a) {
         var t = a.currentTarget.dataset.id, n = this.data.addresslist;
+        console.log("id="+t)
         wx.setStorageSync("addressinfo", n[t]), wx.navigateBack({
             changed: !0
         });
