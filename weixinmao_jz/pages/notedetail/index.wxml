@@ -61,7 +61,7 @@
                 <view bindtap="toHouseDetail" class="pic" data-id="{{item.id}}" data-shopid="{{shopid}}">
                     <image src="{{item.thumb}}"></image>
                 </view>
-                <view bindtap="toHouseDetail" class="title" data-id="{{item.id}}" data-shopid="{{shopid}}">
+                <view  class="title" data-id="{{item.id}}" data-shopid="{{shopid}}">
                     <view class="address">
                         <view>{{item.title}}</view>
                     </view>
