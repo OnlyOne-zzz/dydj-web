@@ -229,28 +229,33 @@ Page({
                                                 success(res){
                                                     if(res['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'] == 'accept'){
                                                         app.util.request({
-                                                            url: "entry/wxapp/SmallSend",
+                                                            url: "entry/wxapp/SendMessageSmallSends",
                                                             data: {
-                                                                sessionid: u.sessionid,
-                                                                uid: u.memberInfo.uid,
                                                                 templateId:'XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE',
                                                                 orderNo:t
                                                             },
                                                             success: function(a) {
-                                                                if (!a.data.message.errno) {
-                                                                    
-                                                                }
+                                                                console.log("订阅消息发送成功");
+                                                                console.log(a);
+                                                                wx.navigateTo({
+                                                                    url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                                });
+                                                            },
+                                                            fail:function(){
+                                                                wx.navigateTo({
+                                                                    url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                                 });
                                                             }
                                                         }); 
                                                     }
                                                 },
                                                 fail(){
+                                                    wx.navigateTo({
+                                                        url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                    });
                                                     console.log('不授权订阅消息')
                                                 }
                                               })
-                                        console.log(a), wx.navigateTo({
-                                            url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                        });
                                     },
                                     fail: function(a) {
                                         console.log("取消支付");
