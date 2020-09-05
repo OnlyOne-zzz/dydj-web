@@ -237,7 +237,7 @@ Page({
                                             signType: "MD5",
                                             paySign: a.data.data.paySign,
                                             success: function(a) {
-                                                wx.navigateTo({
+                                                wx.switchTab({
                                                         url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
                                                 });
                                                     // wx.requestSubscribeMessage({
