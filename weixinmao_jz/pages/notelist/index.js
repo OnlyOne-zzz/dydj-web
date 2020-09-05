@@ -120,27 +120,21 @@ Page({
             }
         }), 
         app.util.request({
-            url: "entry/wxapp/Getnotelist",
+            url: "entry/wxapp/notePaging",
             data: {
-                cityid: t,
-                houseareaid: e.data.houseareaid,
-                housepriceid: e.data.housepriceid,
-                housetype: e.data.housetype
+                serviceStatus: e.data.serviceStatus
             },
             success: function(t) {
-                
-                t.data.message.errno || (t.data.data.intro.maincolor || (t.data.data.intro.maincolor = "#09ba07"),
-                    wx.setNavigationBarColor({
-                        frontColor: "#ffffff",
-                        backgroundColor: t.data.data.intro.maincolor,
-                        animation: {
-                            duration: 400,
-                            timingFunc: "easeIn"
-                        }
-                    }), 
-                    console.log(t.data.data), 
-                    e.calculateDistanceHandle(t.data.data.worklist, true)
-                    );
+                t.data.message.errno,
+                wx.setNavigationBarColor({
+                    frontColor: "#ffffff",
+                    backgroundColor: "#09ba07",
+                    animation: {
+                        duration: 400,
+                        timingFunc: "easeIn"
+                    }
+                }), 
+                e.calculateDistanceHandle(t.data.data.list, true);
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), e.setData({
@@ -342,6 +336,7 @@ Page({
             serviceStatus:serviceStatus
         };
         //按距离排序
+        console.log(data);
         if(orderColumn == 'distance'){
             _this.requestNoteList(data, function(result){
                 _this.calculateDistanceHandle(result, true);
@@ -349,6 +344,7 @@ Page({
         }else{
             data.orderColumn = orderColumn;
             data.orderType = orderType;
+            console.log(data);
             _this.requestNoteList(data, function(result){
                 _this.calculateDistanceHandle(result, false);
             });
@@ -357,20 +353,19 @@ Page({
     requestNoteList: function(data, call){
         var e = this;
         app.util.request({
-            url: "entry/wxapp/Getnotelist",
+            url: "entry/wxapp/notePaging",
             data: data,
             success: function(t) {
-                t.data.message.errno || (t.data.data.intro.maincolor || (t.data.data.intro.maincolor = "#09ba07"),
+                t.data.message.errno,
                     wx.setNavigationBarColor({
                         frontColor: "#ffffff",
-                        backgroundColor: t.data.data.intro.maincolor,
+                        backgroundColor: "#09ba07",
                         animation: {
                             duration: 400,
                             timingFunc: "easeIn"
                         }
                     }), 
-                    call(t.data.data.worklist)
-                    );
+                    call(t.data.data.list);
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), e.setData({
@@ -380,6 +375,7 @@ Page({
         });
     },
     calculateDistanceHandle: function(wt, isDistanceToSort){
+        console.log(wt);
         var qqmapsdk = new QQMapWX({
             key: config.Config.key // 必填
         });

@@ -11,19 +11,19 @@
    <!-- 未使用 -->
    <view class="listbox" wx:if="{{active==0}}">
         <view class="card-item" wx:for="5">
-            <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
+            <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
                 <view class="card-count sub">
                     <view class="cards">
-                        <view class="card-counts gridXb f24"><text>￥</text>1000</view>
+                        <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
                         <view class="card-tips">
-                            <text>经典推拿按摩套餐券</text>
+                            <text>{{item.title}}</text>
                             <text>免费领取</text>
                             <text>使用规则：仅可在指定项目使用</text>
                         </view>
                     </view>
                 </view>
                 <view class="card-txt">
-                    <view>截至时间：2020-01-01 - 2020-12-31</view>
+                    <view>截至时间：{{item.validityPeriod}}</view>
                     <view class="card-txt-box" bindtap='employ'>去使用</view>
                 </view>
             </view>
@@ -32,19 +32,19 @@
    <!-- 已使用 -->
    <view class="listbox" wx:if="{{active==1}}">
         <view class="card-item" wx:for="5">
-            <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
+            <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
                 <view class="card-count sub">
                     <view class="cards">
-                        <view class="card-counts gridXb f24"><text>￥</text>1000</view>
+                        <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
                         <view class="card-tips">
-                            <text>经典推拿按摩套餐券</text>
+                            <text>{{item.title}}</text>
                             <text>免费领取</text>
                             <text>使用规则：仅可在指定项目使用</text>
                         </view>
                     </view>
                 </view>
                 <view class="card-txt">
-                    <view>截至时间：2020-01-01 - 2020-12-31</view>
+                    <view>截至时间：{{item.validityPeriod}}</view>
                     <view class="card-txt-box card-txt-box-no ">已使用</view>
                 </view>
             </view>
@@ -53,19 +53,19 @@
    <!-- 已过期 -->
    <view class="listbox" wx:if="{{active==2}}">
         <view class="card-item" wx:for="5">
-            <view class="flex card-info" id="{{item.id}}" style="{{item.status==1?'background: #42BE9C;':'#ccc'}}">
+            <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
                 <view class="card-count sub">
                     <view class="cards">
-                        <view class="card-counts gridXb f24"><text>￥</text>1000</view>
+                        <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
                         <view class="card-tips">
-                            <text>经典推拿按摩套餐券</text>
+                            <text>{{item.title}}</text>
                             <text>免费领取</text>
                             <text>使用规则：仅可在指定项目使用</text>
                         </view>
                     </view>
                 </view>
                 <view class="card-txt">
-                    <view>截至时间：2020-01-01 - 2020-12-31</view>
+                    <view>截至时间：{{item.validityPeriod}}</view>
                     <view class="card-txt-box card-txt-box-no">已过期</view>
                 </view>
             </view>

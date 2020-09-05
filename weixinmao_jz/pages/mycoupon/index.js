@@ -10,7 +10,14 @@ Page({
     selectList(e){
         this.setData({
             active: e.target.dataset.index
-        })
+        });
+        var t = this, o = wx.getStorageSync("userInfo");
+        console.log(e);
+        var data = {
+            uid: o.memberInfo.uid,
+            state: e.target.dataset.index
+        };
+        this.loadConpenList(data);
     },
     onLoad: function(o) {
         var t = this;
@@ -36,25 +43,29 @@ Page({
     },
     InitPage: function() {
         var t = this, o = wx.getStorageSync("userInfo");
+        var data = {
+            uid: o.memberInfo.uid,
+            state: 0
+        };
+        this.loadConpenList(data);
+    },
+    loadConpenList:function(data){
+        var t = this, o = wx.getStorageSync("userInfo");
         app.util.request({
-            url: "entry/wxapp/mycouponlist",
-            data: {
-                sessionid: o.sessionid,
-                uid: o.memberInfo.uid
-            },
-            success: function(o) {
-                o.data.message.errno || (o.data.data.intro.maincolor || (o.data.data.intro.maincolor = "#09ba07"), 
+            url: "entry/wxapp/couponOrderUserList",
+            data: data,
+            success: function(res) {
+                res.data.message.errno,
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
-                    backgroundColor: o.data.data.intro.maincolor,
+                    backgroundColor: "#09ba07",
                     animation: {
                         duration: 400,
                         timingFunc: "easeIn"
                     }
                 }), t.setData({
-                    list: o.data.data.list,
-                    intro: o.data.data.intro
-                }));
+                    list: res.data.data
+                });
             }
         });
     },
