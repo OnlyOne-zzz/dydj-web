@@ -8,8 +8,8 @@
             <view bindtap="selectaddress" data-id="{{item.id}}">{{item.address}}{{item.daddress}}</view>
             <view class="hr"></view>
             <view class='chaozuo'>
-                <view class='redios' bindtap='setmoren'>
-                    <text class='{{active?"active":""}}'></text>
+                <view class='redios' bindtap='setmoren' data-id="{{item.id}}">
+                    <text class='{{item.ison==1?"active":""}}' ></text>
                     <text>设为默认地址</text>
                 </view>
                 <view class='chaozhuo'>

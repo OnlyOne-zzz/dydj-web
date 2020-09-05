@@ -10,22 +10,25 @@ Page({
     },
     onReady: function() {},
     setmoren: function(e){
-        this.setData({
-            active: !this.data.active
-        })
-        if(this.data.active) {
-            wx.showToast({
-                title: '设为默认成功',
-                icon: 'success',
-                duration: 2000
-              })
-        } else {
-            wx.showToast({
-                title: '取消默认成功',
-                icon: 'success',
-                duration: 2000
-              })
-        }
+        var id = e.currentTarget.dataset.id,pageObj=this;
+            app.util.request({
+                url: "entry/wxapp/Updateaddress",
+                data: {
+                    id: id
+                },
+                success: function(a) {
+                    if (!a.data.message.errno) {
+                        pageObj.onShow()
+                    }
+                }
+            });
+        //  else {
+        //     wx.showToast({
+        //         title: '取消默认成功',
+        //         icon: 'success',
+        //         duration: 2000
+        //       })
+        // }
     },
     edit:function(e){
         var obj = e.currentTarget.dataset.obj;
@@ -74,7 +77,6 @@ Page({
     },
     selectaddress: function(a) {
         var t = a.currentTarget.dataset.id, n = this.data.addresslist;
-        console.log("id="+t)
         wx.setStorageSync("addressinfo", n[t]), wx.navigateBack({
             changed: !0
         });
@@ -102,7 +104,8 @@ Page({
                         }
                     });
                     for (var t = a.data.data.list, n = i.data.addresslist, o = 0; o < t.length; o++) n[t[o].id] = t[o];
-                    i.data.addresslist = n, console.log(i.data.addresslist), i.setData({
+                    i.data.addresslist = n, console.log(i.data.addresslist),
+                    i.setData({
                         list: a.data.data.list,
                         intro: a.data.data.intro
                     });
