@@ -30,17 +30,17 @@
                 <view class="weui-gridlabel">
                     <view class="title">
                         <text>{{item.title}}</text>
-                        <text>已售{{item.id}}</text>
+                        <text>已售{{item.sales_volume}}</text>
                     </view>
                     <view class="desc">
                         <!-- <text>功效：弹性项目平均分布在该行上，两边留有一半的间隔空间。如果剩余空间为负或者只有一个弹性项，则该值等同于center。</text> -->
                         <text>{{item.intro}}</text>
                     </view>
-                    <view class="desc2">
+                    <!-- <view class="desc2">
                         <text>按摩部位：弹性项目平均分布在该行上，两边留有一半的间隔空间。如果剩余空间为负或者只有一个弹性项，则该值等同于center。</text>
-                    </view>
+                    </view> -->
                     <view class="time">
-                        <text style="text-decoration:line-through;">￥200</text>
+                        <text style="text-decoration:line-through;">{{item.initiali_money}}</text>
                         <text>￥{{item.money}}/{{item.time}}分钟</text>
                     </view>
                 </view>

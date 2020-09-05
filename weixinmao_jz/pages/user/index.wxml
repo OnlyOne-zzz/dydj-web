@@ -23,7 +23,7 @@
                         <text>账户余额</text>
                     </view>
                     <view bindtap="toMycoupon">
-                        <text>￥{{moneyrecordinfo.totalmoney}}</text>
+                        <text>{{couponCount}}</text>
                         <text>优惠券</text>
                     </view>
                 </view>

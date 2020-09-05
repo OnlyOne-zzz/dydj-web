@@ -142,7 +142,7 @@ Page({
     },
     // 获取交通费用
     getFare: function(param){
-        
+
         var pageObj = this;
         if(param=='undefined' || param == null || param==''){
             param = pageObj.data.trafficType;
@@ -194,7 +194,7 @@ Page({
         // } 
         else {
             var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
-            0 < t.data.gooditems.money ? 0 == r ? wx.showModal({
+            0 < t.data.gooditems.money ? wx.showModal({
                 title: "确认支付",
                 content: "确认支付？",
                 success: function(a) {
@@ -216,95 +216,113 @@ Page({
                             name:e.name,
                             tel:e.tel,
                             daddress:e.daddress,
-                            couponId:t.data.couponId
-
-
+                            couponId:t.data.couponId,
+                            type:r
                         },
                         success: function(a) {
-                            if (console.log(a), a.data && a.data.data) {
-                                var t = a.data.data.orderid;
-                                wx.requestPayment({
-                                    timeStamp: a.data.data.timeStamp,
-                                    nonceStr: a.data.data.nonceStr,
-                                    package: a.data.data.package,
-                                    signType: "MD5",
-                                    paySign: a.data.data.paySign,
-                                    success: function(a) {
-                                            wx.requestSubscribeMessage({
-                                                tmplIds: ['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'],
-                                                success(res){
-                                                    if(res['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'] == 'accept'){
-                                                        app.util.request({
-                                                            url: "entry/wxapp/SendMessageSmallSends",
-                                                            data: {
-                                                                templateId:'XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE',
-                                                                orderNo:t
-                                                            },
-                                                            success: function(a) {
-                                                                console.log("订阅消息发送成功");
-                                                                console.log(a);
-                                                                wx.navigateTo({
-                                                                    url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                                });
-                                                            },
-                                                            fail:function(){
-                                                                wx.navigateTo({
-                                                                    url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                                 });
+                            console.log("支付方式")
+                            console.log(r)
+                            if(!a.data.message.errno){
+                                if(r==1){
+                                    wx.switchTab({
+                                        url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                    });
+                                }else{
+                                    if (console.log(a), a.data && a.data.data) {
+                                        var t = a.data.data.orderid;
+                                        wx.requestPayment({
+                                            timeStamp: a.data.data.timeStamp,
+                                            nonceStr: a.data.data.nonceStr,
+                                            package: a.data.data.package,
+                                            signType: "MD5",
+                                            paySign: a.data.data.paySign,
+                                            success: function(a) {
+                                                // wx.switchTab({
+                                                //         url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                // });
+                                                    wx.requestSubscribeMessage({
+                                                        tmplIds: ['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'],
+                                                        success(res){
+                                                            if(res['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'] == 'accept'){
+                                                                app.util.request({
+                                                                    url: "entry/wxapp/SendMessageSmallSends",
+                                                                    data: {
+                                                                        templateId:'XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE',
+                                                                        orderNo:t
+                                                                    },
+                                                                    success: function(a) {
+                                                                        console.log("订阅消息发送成功");
+                                                                        console.log(a);
+                                                                        wx.switchTab({
+                                                                            url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                                        });
+                                                                    },
+                                                                    fail:function(){
+                                                                        wx.switchTab({
+                                                                            url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                                         });
+                                                                    }
+                                                                }); 
                                                             }
-                                                        }); 
-                                                    }
-                                                },
-                                                fail(){
-                                                    wx.navigateTo({
-                                                        url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                    });
-                                                    console.log('不授权订阅消息')
-                                                }
-                                              })
-                                    },
-                                    fail: function(a) {
-                                        console.log("取消支付");
+                                                        },
+                                                        fail(){
+                                                            wx.switchTab({
+                                                                url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                            });
+                                                            console.log('不授权订阅消息')
+                                                        }
+                                                      })
+                                            },
+                                            fail: function(a) {
+                                                console.log("取消支付");
+                                            }
+                                        });
                                     }
-                                });
+                                }
                             }
+                            // else{
+
+                            // }
+                            
                         },
                         fail: function(a) {
                             console.log(a);
                         }
                     });
                 }
-            }) : app.util.request({
-                url: "entry/wxapp/Paytotalmoney",
-                data: {
-                    sessionid: n.sessionid,
-                    model: t.data.model,
-                    addressid: e.id,
-                    uid: n.memberInfo.uid,
-                    form_id: o,
-                    content: s
-                },
-                // orderid: t.data.orderid,
-                success: function(a) {
-                    if (!a.data.message.errno) {
-                        if (0 != a.data.data.error) return void wx.showModal({
-                            title: "提示",
-                            content: a.data.data.msg,
-                            showCancel: !1
-                        });
-                        wx.showModal({
-                            title: "提示",
-                            content: a.data.data.msg,
-                            showCancel: !1,
-                            success: function() {
-                                wx.navigateTo({
-                                    url: "/weixinmao_jz/pages/matchorder/index?orderid=" +  a.data.data.orderid
-                                });
-                            }
-                        });
-                    }
-                }
-            }) : app.util.request({
+            }) 
+            // : app.util.request({
+            //     url: "entry/wxapp/Paytotalmoney",
+            //     data: {
+            //         sessionid: n.sessionid,
+            //         model: t.data.model,
+            //         addressid: e.id,
+            //         uid: n.memberInfo.uid,
+            //         form_id: o,
+            //         content: s
+            //     },
+            //     // orderid: t.data.orderid,
+            //     success: function(a) {
+            //         if (!a.data.message.errno) {
+            //             if (0 != a.data.data.error) return void wx.showModal({
+            //                 title: "提示",
+            //                 content: a.data.data.msg,
+            //                 showCancel: !1
+            //             });
+            //             wx.showModal({
+            //                 title: "提示",
+            //                 content: a.data.data.msg,
+            //                 showCancel: !1,
+            //                 success: function() {
+            //                     wx.navigateTo({
+            //                         url: "/weixinmao_jz/pages/matchorder/index?orderid=" +  a.data.data.orderid
+            //                     });
+            //                 }
+            //             });
+            //         }
+            //     }
+            // }) 
+            : app.util.request({
                 url: "entry/wxapp/PayNomoney",
                 data: {
                     sessionid: n.sessionid,

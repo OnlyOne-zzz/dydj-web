@@ -48,8 +48,11 @@ Page({
                     uid: t
                 },
                 success: function(e) {
+                    console.log("优惠券")
+                    console.log(e)
                     e.data.message.errno || o.setData({
-                        moneyrecordinfo: e.data.data.moneyrecordinfo
+                        moneyrecordinfo: e.data.data.moneyrecordinfo,
+                        couponCount:e.data.data.coupon_count
                     });
                 }
             });
