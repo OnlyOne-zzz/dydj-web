@@ -95,6 +95,7 @@ Page({
         this.setData({
             travel: e.target.dataset.index
         })
+        this.getFare(e.target.dataset.index);
     },
     oldhouseinit: function(a) {
         var t = this, e = wx.getStorageSync("userInfo");
@@ -140,15 +141,20 @@ Page({
         })
     },
     // 获取交通费用
-    getFare: function(){
+    getFare: function(param){
+        
         var pageObj = this;
+        if(param=='undefined' || param == null || param==''){
+            param = pageObj.data.trafficType;
+        }
         app.util.request({
             url: "entry/wxapp/TravelFare",
             data: {
-                type: pageObj.data.trafficType,
+                type: param,
                 distance: pageObj.data.distance
             },
             success: function(a) {
+                console.log(a)
                 if(!a.data.message.errno){
                     pageObj.setData({
                         fare:a.data.data
