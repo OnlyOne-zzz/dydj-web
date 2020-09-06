@@ -14,11 +14,12 @@ Page({
     },
     onShow: function(e) {
         wx.setNavigationBarTitle({
-            title: "客户预约订单"
+            title: "我的订单"
         });
         this.setData({
             isshow: !0
-        }), console.log("aaaa"), this.InitPage();
+        }), 
+        this.InitPage();
     },
     InitPage: function() {
         var t = this, e = wx.getStorageSync("userInfo"), o = wx.getStorageSync("loginid"), n = t.data.ordertype;
@@ -115,7 +116,7 @@ Page({
                                 uid: o.memberInfo.uid
                             },
                             success: function(e) {
-                                console.log(e), n.onShow();
+                                n.onReady();
                             },
                             fail: function(e) {
                                 console.log(e);
@@ -127,10 +128,29 @@ Page({
         });
     },
     doneOrder: function(e) {
-        var t = this, o = e.currentTarget.dataset.id, n = e.currentTarget.dataset.status, a = wx.getStorageSync("userInfo");
+        var t = this,  content = '',title='',
+        o = e.currentTarget.dataset.id,
+        n = e.currentTarget.dataset.status, 
+        a = wx.getStorageSync("userInfo");
+        if(n==1){
+            title = '技师接单',
+            content='是否接单？';
+        }else if(n==2){
+            title = '确认出发',
+            content='是否确认出发？';
+        }else if(n==3){
+            title = '技师到达',
+            content='是否确认到达？';
+        }else if(n==4){
+            title = '开始服务',
+            content='是否确认开始服务？';
+        }else if(n==5){
+            title = '服务完成',
+            content='服务确认完成？';
+        }
         wx.showModal({
-            title: "完成订单",
-            content: "是否完成订单？",
+            title: title,
+            content: content,
             success: function(e) {
                 e.confirm && app.util.request({
                     url: "entry/wxapp/doneShopOrder",
@@ -141,7 +161,7 @@ Page({
                         status: n
                     },
                     success: function(e) {
-                        console.log(e), t.onLoad();
+                        console.log(e), t.onReady();
                     },
                     fail: function(e) {
                         console.log(e);

@@ -166,9 +166,9 @@
     </view>
 </view>
 <view class="u-tap-btn">
-    <button bindtap="doCall" class="u-go-home2" style="background:red;">
+    <!-- <button bindtap="doCall" class="u-go-home2" style="background:red;">
         <view class="iconfont fa fa-phone"></view>
-    </button>
+    </button> -->
     <button class="u-go-home2" openType="contact">
         <view class="iconfont fa fa-comments-o"></view>
     </button>

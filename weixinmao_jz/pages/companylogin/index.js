@@ -58,6 +58,12 @@ Page({
             url: "/weixinmao_jz/pages/index/index"
         });
     },
+    doCall: function() {
+        var a = this.data.tel;
+        wx.makePhoneCall({
+            phoneNumber: a
+        });
+    },
     onShow: function() {
         var a = this, o = wx.getStorageSync("userInfo"), e = wx.getStorageSync("loginid");
         0 < e && app.util.request({
