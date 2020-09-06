@@ -12,28 +12,30 @@
         </view>
         <view class="mymoney">
             <view bindtap="toNoteorder" class="item_line">
-                <view>{{msgorder}}</view>
-                <view>预约订单</view>
+                <view>{{msgorder_1}}</view>
+                <view>待接单</view>
             </view>
             <view class="line"></view>
-            <!-- <view bindtap="toMyorder" class="item_line">
-                <view>{{matchorder}}</view>
-                <view>匹配订单</view>
-            </view> -->
+            <view bindtap="toMyorder" class="item_line">
+                <view>{{msgorder_2}}</view>
+                <view>未完成订单</view>
+            </view>
+            <view class="line"></view>
+            <view bindtap="toGetmoney" class="item_line">
+                <view>{{msgorder_3}}</view>
+                <view>已完成订单</view>
+            </view>
+            <view class="line"></view>
             <view bindtap="toGetmoney" class="item_line">
                 <view>{{totalmoney}}元</view>
                 <view>钱包*提现</view>
             </view>
-            <!-- <view bindtap="toGetmoney" class="item_line">
-                <view>0</view>
-                <view>访客记录</view>
-            </view> -->
         </view>
     </view>
     <view class="list">
         <view bindtap="toNoteorder" class="item">
             <image src="../../resource/images/msgorder.png"></image>
-            <view style="margin-left:16rpx;">预约订单</view>
+            <view style="margin-left:16rpx;">我的订单</view>
         </view>
         <!-- <view bindtap="toMyorder" class="item">
             <image src="../../resource/images/matchorder.png"></image>

@@ -68,7 +68,7 @@ Page({
                 uid: o.memberInfo.uid
             },
             success: function(o) {
-                console.log(0)
+                console.log(o)
                 o.data.message.errno || (o.data.data.intro.maincolor || (o.data.data.intro.maincolor = "#09ba07"), 
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
@@ -83,7 +83,9 @@ Page({
                     noteinfo: o.data.data.noteinfo,
                     totalmoney: o.data.data.totalmoney,
                     matchorder: o.data.data.matchorder,
-                    msgorder: o.data.data.msgorder,
+                    msgorder_1: o.data.data.msgorder_1,
+                    msgorder_2: o.data.data.msgorder_2,
+                    msgorder_3: o.data.data.msgorder_3,
                     msgcount: o.data.data.msgcount,
                     intro: o.data.data.intro
                 }));
