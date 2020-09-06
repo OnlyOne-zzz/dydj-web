@@ -113,7 +113,7 @@ Page({
     setcomment: function(e) {
         var a = e.currentTarget.dataset.id;
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/setcomment/index?orderid=" + a
+            url: "/weixinmao_jz/pages/setcomment/index?orderId=" + a
         });
     },
     onHide: function() {},

@@ -7,10 +7,14 @@ Page({
         info: "",
         noteNowLen: 0,
         score: 0,
-        id: 0
+        id: 0,
+        orderId:0
     },
     onLoad: function(a) {
         var t = this;
+        this.setData({
+            orderId : a.orderId
+        })
         t.data.id = a.id, app.util.request({
             url: "entry/wxapp/GetSysInit",
             data: {},
@@ -42,7 +46,7 @@ Page({
         });
     },
     bindSubmit: function(a) {
-        var t = this, o = t.data.score, n = a.detail.value.content, e = t.data.id, i = wx.getStorageSync("userInfo");
+        var t = this, o = t.data.score, n = a.detail.value.content, e = t.data.orderId, i = wx.getStorageSync("userInfo");
         if ("" != n) {
             var s = {
                 sessionid: i.sessionid,
@@ -52,6 +56,8 @@ Page({
                 score: o,
                 content: n
             };
+            console.log("靠靠靠靠靠靠靠")
+            console.log(s)
             app.util.request({
                 url: "entry/wxapp/savecomment",
                 data: s,
@@ -103,6 +109,8 @@ Page({
         this.data.score = 8, this.setData({
             flag: 4
         });
+    },
+    onShow:function(a){
     },
     changeColor5: function() {
         this.data.score = 10, this.setData({

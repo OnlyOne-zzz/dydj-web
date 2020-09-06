@@ -75,11 +75,23 @@
             </view>
         </view>
     </view>
+    <view class="company" hidden="{{ordertype==2?false:true}}" wx:for="{{comment}}">
+        <view class="clist">
+            <!-- <view class="ctitle">介绍</view> -->
+            <view class="dcontent">
+
+            {{item.nick_name}}
+            {{item.createtime}}
+            {{item.content}}
+            {{item.score}}
+        </view>
+        </view>
+    </view>
     <view class="company" hidden="{{ordertype==3?false:true}}">
         <view class="clist">
-            <view class="ctitle">商家介绍</view>
+            <view class="ctitle">介绍</view>
             <view class="dcontent">
-        顾客至上,主要营业油烟清洗、家装打扫、日常保洁等...
+        {{data.induce}}
         </view>
         </view>
         <view class="clist">

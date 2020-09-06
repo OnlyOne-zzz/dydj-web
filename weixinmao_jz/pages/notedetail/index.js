@@ -71,7 +71,8 @@ Page(_defineProperty({
                     typelist: a.data.data.typelist,
                     isuser: i.data.isuser,
                     intro: a.data.data.intro,
-                    msgcontentlist: a.data.data.msgcontentlist
+                    msgcontentlist: a.data.data.msgcontentlist,
+                    comment:a.data.data.comment
                 }));
             },
             complete: function() {

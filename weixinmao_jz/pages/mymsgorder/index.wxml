@@ -36,7 +36,7 @@
             </view>
             <view class='info'>
                 <view class="item">服务技师:{{item.note_name}}</view>
-                <view class="item">项目名称:{{item.msgcontent}}/{{item.gooditems}}</view>
+                <view class="item">项目名称:{{item.msgcontent}}</view>
                 <view class="item">项目时长:￥{{item.notetel}}/60分钟</view>
                 <view class="item">订单状态:
                     <text style="color:red; font-weight:600;">
