@@ -399,12 +399,12 @@ Page({
     onPullDownRefresh: function() {
         wx.showNavigationBarLoading(), this.onShow();
     },
-    doCall: function() {
-        var a = this.data.tel;
-        wx.makePhoneCall({
-            phoneNumber: a
-        });
-    },
+    // doCall: function() {
+    //     var a = this.data.tel;
+    //     wx.makePhoneCall({
+    //         phoneNumber: a
+    //     });
+    // },
     onShareAppMessage: function() {
         return {
             title: wx.getStorageSync("companyinfo").name,

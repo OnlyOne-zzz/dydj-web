@@ -59,9 +59,16 @@ Page({
         });
     },
     doCall: function() {
-        var a = this.data.tel;
-        wx.makePhoneCall({
-            phoneNumber: a
+       var u = wx.getStorageSync("userInfo"), loginid = wx.getStorageSync("loginid");
+        app.util.request({
+            url: "entry/wxapp/SosSend",
+            data: {
+                uid: u.memberInfo.uid,
+                loginid:loginid
+            },
+            success: function(a) {
+               
+            }
         });
     },
     onShow: function() {
