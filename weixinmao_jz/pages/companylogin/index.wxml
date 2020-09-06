@@ -16,20 +16,18 @@
                 <view>预约订单</view>
             </view>
             <view class="line"></view>
-            <view bindtap="toMyorder" class="item_line">
+            <!-- <view bindtap="toMyorder" class="item_line">
                 <view>{{matchorder}}</view>
                 <view>匹配订单</view>
-            </view>
-            <view class="line"></view>
+            </view> -->
             <view bindtap="toGetmoney" class="item_line">
                 <view>{{totalmoney}}元</view>
                 <view>钱包*提现</view>
             </view>
-            <view class="line"></view>
-            <view bindtap="toGetmoney" class="item_line">
+            <!-- <view bindtap="toGetmoney" class="item_line">
                 <view>0</view>
                 <view>访客记录</view>
-            </view>
+            </view> -->
         </view>
     </view>
     <view class="list">
@@ -37,18 +35,18 @@
             <image src="../../resource/images/msgorder.png"></image>
             <view style="margin-left:16rpx;">预约订单</view>
         </view>
-        <view bindtap="toMyorder" class="item">
+        <!-- <view bindtap="toMyorder" class="item">
             <image src="../../resource/images/matchorder.png"></image>
             <view style="margin-left:16rpx;">平台派单</view>
-        </view>
-        <view bindtap="toRoborder" class="item">
+        </view> -->
+        <!-- <view bindtap="toRoborder" class="item">
             <image src="../../resource/images/qorder.png"></image>
             <view style="margin-left:16rpx;">抢单大厅</view>
-        </view>
-        <view bindtap="toShopmsg" class="item">
+        </view> -->
+        <!-- <view bindtap="toShopmsg" class="item">
             <image src="../../resource/images/sendmsg.png"></image>
             <view style="margin-left:16rpx;">接收消息</view>
-        </view>
+        </view> -->
         <view bindtap="loginout" class="item">
             <image src="../../resource/images/logout.png"></image>
             <view style="margin-left:16rpx;">退出登录</view>

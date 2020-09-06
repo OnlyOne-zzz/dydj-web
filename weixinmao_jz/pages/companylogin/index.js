@@ -50,8 +50,12 @@ Page({
         });
     },
     loginout: function(o) {
-        wx.clearStorageSync("companyid"), wx.redirectTo({
-            url: "/weixinmao_jz/pages/login/index"
+        wx.removeStorage({
+          key: 'loginid',
+        }),
+        wx.switchTab({
+            // url: "/weixinmao_jz/pages/login/index"
+            url: "/weixinmao_jz/pages/index/index"
         });
     },
     onShow: function() {
@@ -64,6 +68,7 @@ Page({
                 uid: o.memberInfo.uid
             },
             success: function(o) {
+                console.log(0)
                 o.data.message.errno || (o.data.data.intro.maincolor || (o.data.data.intro.maincolor = "#09ba07"), 
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
