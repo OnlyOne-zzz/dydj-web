@@ -32,12 +32,12 @@
         <view class="orderid">订单号:{{item.orderid}}</view>
         <view class="content">
             <view class='image'>
-                <image mode='widthFix' src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3087705303,1740657087&fm=26&gp=0.jpg'></image>
+                <image mode='widthFix' src='{{item.content_thumb}}'></image>
             </view>
             <view class='info'>
                 <view class="item">服务技师:{{item.note_name}}</view>
                 <view class="item">项目名称:{{item.msgcontent}}</view>
-                <view class="item">项目时长:￥{{item.notetel}}/60分钟</view>
+                <!-- <view class="item">项目时长:￥{{item.notetel}}/60分钟</view> -->
                 <view class="item">订单状态:
                     <text style="color:red; font-weight:600;">
                         <block wx:if="{{item.paid==1}}">

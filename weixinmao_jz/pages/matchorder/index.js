@@ -43,6 +43,7 @@ Page({
                 uid: e.memberInfo.uid
             },
             success: function(a) {
+                console.log(a)
                 a.data.message.errno || (a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), 
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
