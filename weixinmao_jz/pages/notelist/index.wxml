@@ -77,12 +77,12 @@
 <!-- <view bindtap="selectType" class="small_overlay" hidden="{{isType}}"></view> -->
 <view style="height:83px;"></view>
 <view class="news">
-    <view class="newslist" wx:for="{{worklist}}" data-id="{{item.id}}" bindtap="{{item.toNoteDetail}}">
+    <view class="newslist" wx:for="{{worklist}}" data-id="{{item.id}}" bindtap="toNoteDetail">
         <view class="pic">
             <image src="{{item.avatarUrl}}"></image>
         </view>
         <view class="title">
-            <view bindtap="{{item.toNoteDetail}}" class="address" data-id="{{item.id}}">
+            <view  class="address" data-id="{{item.id}}">
                 <view style="background:{{intro.maincolor}};">
                     <block wx:if="{{item.type==0}}">个人</block>
                     <block wx:else>企业</block>
