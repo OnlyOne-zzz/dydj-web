@@ -22,7 +22,7 @@
                 </view>
             </view>
             <view class="type-box">
-                <view bindtap="tabClick" class="type-navbar-item {{ordertype==4?'type-item-on':''}}" id="4">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==5?'type-item-on':''}}" id="5">
                   取消/售后
                 </view>
             </view>
