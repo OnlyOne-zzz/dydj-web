@@ -16,6 +16,15 @@
             <view class="line"></view>
         </view>
     </view>
+    <view class='main2'>
+        <view>
+            <!-- <image src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1775828326,1919764642&fm=26&gp=0.jpg"></image> -->
+             <image src="{{noteinfo.avatarUrl}}"></image>
+        </view>
+        <view>
+            技师名称 {{noteinfo.shopname}}
+        </view>
+    </view>
     <view class="orderinfo">
         <view class="main">
             <view class='header'>
@@ -67,46 +76,9 @@
             <view class="title" style="font-weight:600;color:red;font-size:.7rem;text-align: right;">
                 合计：￥{{orderinfo.money}}
             </view>
-            <!-- <view class="list">
-                <view class="item" style="border:0rpx;">
-                    <view class="name">备注</view>
-                    <view class="selectitem">{{orderinfo.content}}</view>
-                </view>
-            </view> -->
-        </view>
-        <!-- <view class="main">
-            <view class="title" style="font-size:.7rem;">
-                预约项目
-            </view>
-            <view class="list">
-                <view class="item" wx:for="{{order_detail}}">
-                    <view class="name">
-                        <image src="{{item.thumb}}" style="width:180rpx;height:120rpx;"></image>
-                    </view>
-                    <view class="selectitem">{{item.title}}</view>
-                </view>
-            </view>
-        </view> -->
-        <!-- <view class="newaddress">
-            <view class="showaddress">
-                <view>
-                    <text>{{addressinfo.name}}</text>
-                    <text style="margin-left:20rpx;"> {{addressinfo.tel}}</text>
-                </view>
-                <view>{{addressinfo.address}}{{addressinfo.daddress}}</view>
-            </view>
-            <view></view>
-        </view> -->
-    </view>
-    <view class='main2'>
-        <view>
-            <!-- <image src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1775828326,1919764642&fm=26&gp=0.jpg"></image> -->
-             <image src="{{noteinfo.avatarUrl}}"></image>
-        </view>
-        <view>
-            技师名称 {{noteinfo.shopname}}
         </view>
     </view>
+    
     <view class='main'>
         <view class='header'>
             <text></text>
@@ -124,7 +96,16 @@
     </view>
     <view class="weixinmao-float">
         <view class="weixinmao-foot">
-            <button bindtap="doCall" class="footer" style="background:{{intro.maincolor}}">按钮</button>
+        <block wx:if="{{orderinfo.paid==1}}">
+            <block wx:if="{{orderinfo.status==5}}">
+                <button bindtap="setcomment" class="footer" style="background:{{intro.maincolor}}">评价</button>
+            </block>
+        </block>
+        <block wx:else> 
+            <block wx:if="{{orderinfo.status!=9}}">
+                <button bindtap="setcomment" class="footer" style="background:{{intro.maincolor}}">去支付</button>
+            </block>
+        </block>
         </view>
     </view>
 </view>
