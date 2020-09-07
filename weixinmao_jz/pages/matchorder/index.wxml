@@ -10,9 +10,9 @@
         <view class="progress">
             <view class="line"></view>
             <view class="line"></view>
-            <view class="line" style="background: #42BE9C;"></view>
-            <view class="cricle "></view>
             <view class="line"></view>
+            <view class="line"></view>
+            <view class="cricle"></view>
             <view class="line"></view>
         </view>
     </view>
@@ -32,19 +32,37 @@
                 手机号码：{{addressinfo.tel}}
             </view>
             <view class="title">
-                车费详情：{{orderinfo.traffic_type}} {{orderinfo.traffic_money}}
+                车费详情：{{orderinfo.traffic_type==0?'出租车':'地铁/公交'}} ￥{{orderinfo.traffic_money}}
             </view>
             <view class="title">
-                卡券使用：{{orderinfo.orderid}}
+                卡券使用：{{orderinfo.coupon_moeny==null || orderinfo.coupon_moeny==0?'未使用优惠券':orderinfo.coupon_moeny}}
             </view>
             <view class="title">
                 服务地址：{{addressinfo.address}}{{addressinfo.daddress}}
             </view>
             <view class="title">
-                支付方式：{{orderinfo.pay_type}}
+                支付方式：{{orderinfo.pay_type==0?'现金支付':'余额支付'}}
             </view>
             <view class="title">
-                订单状态：{{orderinfo.paid}} {{orderinfo.status}}
+                订单状态：
+                <block wx:if="{{orderinfo.paid==1}}">
+                    <block wx:if="{{orderinfo.status==0}}">等待技师接单</block>
+                    <block wx:if="{{orderinfo.status==1}}">技师已接单</block>
+                    <block wx:if="{{orderinfo.status==2}}">技师出发</block>
+                    <block wx:if="{{orderinfo.status==3}}">技师到达</block>
+                    <block wx:if="{{orderinfo.status==4}}">开始服务</block>
+                    <block wx:if="{{orderinfo.status==5}}">服务完成</block>
+                    <block wx:if="{{orderinfo.status==6}}">已评价</block>
+                    <block wx:if="{{orderinfo.status==7}}">退款中</block>
+                    <block wx:if="{{orderinfo.status==8}}">退款成功</block>
+                    <block wx:if="{{orderinfo.status==9}}">订单已关闭</block>
+                </block>
+                <block wx:else> 
+                     <block wx:if="{{orderinfo.status==9}}"> 订单已关闭</block>
+                     <block wx:else> 
+                     未支付 
+                     </block>
+                </block>
             </view>
             <view class="title" style="font-weight:600;color:red;font-size:.7rem;text-align: right;">
                 合计：￥{{orderinfo.money}}
@@ -86,7 +104,7 @@
              <image src="{{noteinfo.avatarUrl}}"></image>
         </view>
         <view>
-            技师名称{{noteinfo.shopname}}
+            技师名称 {{noteinfo.shopname}}
         </view>
     </view>
     <view class='main'>
