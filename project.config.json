@@ -20,15 +20,15 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"compileHotReLoad": false,
-		"useIsolateContext": true
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.12.0",
@@ -118,6 +118,20 @@
 					"id": -1,
 					"name": "4",
 					"pathName": "weixinmao_jz/pages/selectaddress/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "selectcoupon",
+					"pathName": "weixinmao_jz/pages/selectcoupon/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "msgdone",
+					"pathName": "weixinmao_jz/pages/msgdone/index",
 					"scene": null
 				}
 			]

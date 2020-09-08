@@ -1,0 +1,28 @@
+<view class="card clearfix" style='padding: 0;margin:0'>
+   <!-- <view class='cardList'>
+        <view class="{{active==0?'cardAct':''}}" data-index="0" bindtap="selectList">未使用</view>
+        <view class="{{active==1?'cardAct':''}}" data-index="1" bindtap="selectList">已使用</view>
+        <view class="{{active==2?'cardAct':''}}" data-index="2" bindtap="selectList">已过期</view>
+   </view> -->
+   <!-- 未使用 -->
+   <view class="listbox" >
+        <view class="card-item" >
+            <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
+                <view class="card-count sub">
+                    <view class="cards">
+                        <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
+                        <view class="card-tips">
+                            <text>{{item.title}}</text>
+                            <text>免费领取</text>
+                            <text>使用规则：仅可在指定项目使用</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="card-txt">
+                    <view>截至时间：{{item.validityPeriod}}</view>
+                    <view class="card-txt-box" bindtap='employ' data-obj="{{item}}">去使用</view>
+                </view>
+            </view>
+         </view>
+   </view>
+</view>

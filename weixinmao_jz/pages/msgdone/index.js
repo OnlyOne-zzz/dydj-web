@@ -237,41 +237,41 @@ Page({
                                             signType: "MD5",
                                             paySign: a.data.data.paySign,
                                             success: function(a) {
-                                                // wx.switchTab({
-                                                //         url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                // });
-                                                    wx.requestSubscribeMessage({
-                                                        tmplIds: ['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'],
-                                                        success(res){
-                                                            if(res['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'] == 'accept'){
-                                                                app.util.request({
-                                                                    url: "entry/wxapp/SendMessageSmallSends",
-                                                                    data: {
-                                                                        templateId:'XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE',
-                                                                        orderNo:t
-                                                                    },
-                                                                    success: function(a) {
-                                                                        console.log("订阅消息发送成功");
-                                                                        console.log(a);
-                                                                        wx.switchTab({
-                                                                            url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                                        });
-                                                                    },
-                                                                    fail:function(){
-                                                                        wx.switchTab({
-                                                                            url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                                         });
-                                                                    }
-                                                                }); 
-                                                            }
-                                                        },
-                                                        fail(){
-                                                            wx.switchTab({
-                                                                url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                            });
-                                                            console.log('不授权订阅消息')
-                                                        }
-                                                      })
+                                                wx.switchTab({
+                                                        url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                });
+                                                    // wx.requestSubscribeMessage({
+                                                    //     tmplIds: ['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'],
+                                                    //     success(res){
+                                                    //         if(res['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'] == 'accept'){
+                                                    //             app.util.request({
+                                                    //                 url: "entry/wxapp/SendMessageSmallSends",
+                                                    //                 data: {
+                                                    //                     templateId:'XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE',
+                                                    //                     orderNo:t
+                                                    //                 },
+                                                    //                 success: function(a) {
+                                                    //                     console.log("订阅消息发送成功");
+                                                    //                     console.log(a);
+                                                    //                     wx.switchTab({
+                                                    //                         url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                    //                     });
+                                                    //                 },
+                                                    //                 fail:function(){
+                                                    //                     wx.switchTab({
+                                                    //                         url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                    //                      });
+                                                    //                 }
+                                                    //             }); 
+                                                    //         }
+                                                    //     },
+                                                    //     fail(){
+                                                    //         wx.switchTab({
+                                                    //             url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                    //         });
+                                                    //         console.log('不授权订阅消息')
+                                                    //     }
+                                                    //   })
                                             },
                                             fail: function(a) {
                                                 console.log("取消支付");
@@ -381,9 +381,11 @@ Page({
             url: "/weixinmao_jz/pages/notelist/index"
         })
     },
-    toMyCouponList: function() {
+    toSelectCouponList: function(obj) {
+        let goodsid = obj.currentTarget.dataset.goodsid;
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/mycoupon/index?back=1"
+            // url: "/weixinmao_jz/pages/mycoupon/index?back=1"
+            url: "/weixinmao_jz/pages/selectcoupon/index?back=1&contentid="+goodsid
         });
     },
     selectwaiter: function() {
@@ -404,9 +406,24 @@ Page({
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
         });
-        this.setData({
-            cardinfo: wx.getStorageSync('cardinfo')
-        })
+        // this.setData({
+        //     cardinfo: wx.getStorageSync('cardinfo')
+        // });
+        
+        let selectcoupon = wx.getStorageSync('selectcoupon');
+        console.log("coupon=")
+        console.log(selectcoupon)
+        if(!selectcoupon){
+            this.setData({
+                couponinfo:selectcoupon,
+                couponmoney:selectcoupon.money
+            });
+        }else{
+            this.setData({
+                couponmoney:0
+            });
+        }
+      
         this.getFare();
         if(noteCallback.data.noteId!=0){
             // 查询获取技师信息

@@ -63,7 +63,8 @@
     "weixinmao_jz/pages/myusermsgmoney/index",
     "weixinmao_jz/pages/paylastmoney/index",
     "weixinmao_jz/pages/setcomment/index",
-    "weixinmao_jz/pages/technician/index"
+    "weixinmao_jz/pages/technician/index",
+    "weixinmao_jz/pages/selectcoupon/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",
