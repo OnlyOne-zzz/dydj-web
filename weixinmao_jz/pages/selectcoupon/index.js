@@ -48,6 +48,7 @@ Page({
             url: "entry/wxapp/couponOrderUserAvailableList",
             data: data,
             success: function(res) {
+                console.log(res)
                 res.data.message.errno,
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
