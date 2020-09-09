@@ -383,6 +383,7 @@ Page({
     },
     toSelectCouponList: function(obj) {
         let goodsid = obj.currentTarget.dataset.goodsid;
+        this.data.couponId = obj.currentTarget.dataset.couponid;
         wx.navigateTo({
             // url: "/weixinmao_jz/pages/mycoupon/index?back=1"
             url: "/weixinmao_jz/pages/selectcoupon/index?back=1&contentid="+goodsid
@@ -406,16 +407,11 @@ Page({
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
         });
-        // this.setData({
-        //     cardinfo: wx.getStorageSync('cardinfo')
-        // });
-        
-        let selectcoupon = wx.getStorageSync('selectcoupon');
-        console.log("coupon=")
+        let selectcoupon = this.data.selectcoupon;
         console.log(selectcoupon)
-        if(!selectcoupon){
+        if(selectcoupon != undefined){
             this.setData({
-                couponinfo:selectcoupon,
+                selectcoupon:selectcoupon,
                 couponmoney:selectcoupon.money
             });
         }else{
@@ -423,7 +419,6 @@ Page({
                 couponmoney:0
             });
         }
-      
         this.getFare();
         if(noteCallback.data.noteId!=0){
             // 查询获取技师信息
