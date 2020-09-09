@@ -21,18 +21,6 @@ Page({
         t.data.back = a.back
     },
     onShow: function(o) {},
-    employ: function(e){
-        let card = {
-            id: '0001',
-            name: '大保健'
-        }
-        wx.setStorageSync("cardinfo",card);
-        if(this.data.back){
-            wx.navigateBack({delta: 1})
-        } else {
-            wx.switchTab({url:'/weixinmao_jz/pages/index/index'})
-        }
-    },
     InitPage: function() {
         var t = this, o = wx.getStorageSync("userInfo");
         var data = {
@@ -40,6 +28,7 @@ Page({
             state: 1,
             contentId:t.data.contentid
         };
+        console.log(data)
         this.loadConpenList(data);
     },
     loadConpenList:function(data){
@@ -63,9 +52,15 @@ Page({
             }
         });
     },
-    select: function(e){
-        let couponObj = e.currentTarget.dataset.obj;
-        wx.setStorageSync('selectcoupon',couponObj)
+    select: function(e){      
+        var pages = getCurrentPages();
+        var currPage = pages[pages.length - 1];   //当前页面
+        var prevPage = pages[pages.length - 2];
+        let money = e.currentTarget.dataset.money;
+        prevPage.setData({
+            selectcoupon:money
+        })
+        // wx.setStorageSync('selectcoupon',money)
         wx.navigateBack({
           delta: 1
         })

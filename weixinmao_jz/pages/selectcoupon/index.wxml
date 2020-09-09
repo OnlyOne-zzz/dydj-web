@@ -13,14 +13,14 @@
                         <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
                         <view class="card-tips">
                             <text>{{item.title}}</text>
-                            <text>免费领取</text>
+                            <!-- <text>免费领取</text> -->
                             <text>使用规则：仅可在指定项目使用</text>
                         </view>
                     </view>
                 </view>
                 <view class="card-txt">
                     <view>截至时间：{{item.validityPeriod}}</view>
-                    <view class="card-txt-box" bindtap='employ' data-obj="{{item}}">去使用</view>
+                    <view class="card-txt-box" bindtap='select' data-money="{{item}}">去使用</view>
                 </view>
             </view>
          </view>
