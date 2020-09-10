@@ -38,16 +38,7 @@ Page({
     },
     onShow: function(o) {},
     employ: function(e){
-        let card = {
-            id: '0001',
-            name: '大保健'
-        }
-        wx.setStorageSync("cardinfo",card);
-        if(this.data.back){
-            wx.navigateBack({delta: 1})
-        } else {
-            wx.switchTab({url:'/weixinmao_jz/pages/index/index'})
-        }
+            wx.switchTab({url:'/weixinmao_jz/pages/notelist/index'})
     },
     InitPage: function() {
         var t = this, o = wx.getStorageSync("userInfo");
