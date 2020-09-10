@@ -103,7 +103,7 @@ swiper-item image {
 }
 
 .save-btn {
-    background-color: #42BE9C;
+    background-color: #3C9BDF;
     color: #fff;
 }
 

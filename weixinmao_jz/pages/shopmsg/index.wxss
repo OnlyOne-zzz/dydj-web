@@ -10,7 +10,7 @@
 }
 
 .save-btn {
-    background-color: #3274e5;
+    background-color: #3C9BDF;
     color: #fff;
 }
 

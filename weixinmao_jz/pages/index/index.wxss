@@ -229,7 +229,7 @@ swiper-item image {
 }
 
 .newslist .title .address view:nth-child(1) {
-    background: #60d065;
+    background: #3C9BDF;
     color: #FFF;
     width: 80rpx;
     text-align: center;

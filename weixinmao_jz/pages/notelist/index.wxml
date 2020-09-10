@@ -83,10 +83,10 @@
         </view>
         <view class="title">
             <view  class="address" data-id="{{item.id}}">
-                <view style="background:{{intro.maincolor}};">
+                <!-- <view style="background:{{intro.maincolor}};">
                     <block wx:if="{{item.type==0}}">个人</block>
                     <block wx:else>企业</block>
-                </view>
+                </view> -->
                 <view>{{item.shopname}}</view>
             </view>
             <view class="price" style="color:#3c9bdf">

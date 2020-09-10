@@ -24,8 +24,8 @@
                 </view>
             </view>
         </view>
-        <button class="save-btn" formType="submit" style="background:{{intro.maincolor}};">立即登录</button>
-        <button bindtap="goregister" class="save-btn" style="background:{{intro.maincolor}};">入驻申请</button>
+        <button class="save-btn" formType="submit">立即登录</button> 
+        <button bindtap="goregister" class="save-btn" >入驻申请</button>
     </form>
 </view>
 <view class="u-tap-btn">
