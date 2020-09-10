@@ -36,7 +36,7 @@
     <image class="invite" mode="widthFix" src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1364348244,612692244&fm=26&gp=0.jpg'></image>
     <view class="service">
         <view bindtap="toMymessageorder" class="servicelist">
-            <view style="background:{{intro.maincolor}};">
+            <view style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/yuyue.png"></image>
                 </view>
@@ -46,7 +46,7 @@
             </view>
         </view>
         <view bindtap="toMyOrder" class="servicelist">
-            <view  style="background:{{intro.maincolor}};">
+            <view  style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/order.png"></image>
                 </view>
@@ -56,7 +56,7 @@
             </view>
         </view>
         <view bindtap="toMycoupon" class="servicelist">
-            <view  style="background:{{intro.maincolor}};">
+            <view  style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/yhj.png"></image>
                 </view>
@@ -67,7 +67,7 @@
             </view>
         </view>
         <view bindtap="toAgent" class="servicelist">
-            <view  style="background:{{intro.maincolor}};">
+            <view style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/fx.png"></image>
                 </view>
@@ -77,7 +77,7 @@
             </view>
         </view>
         <view bindtap="toGetusermoney" class="servicelist">
-            <view  style="background:{{intro.maincolor}};">
+            <view  style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/money.png"></image>
                 </view>
@@ -87,7 +87,7 @@
             </view>
         </view>
         <view bindtap="doCall" class="servicelist">
-            <view  style="background:{{intro.maincolor}};">
+            <view  style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/kefu.png"></image>
                 </view>
@@ -98,7 +98,7 @@
             </view>
         </view>
         <view bindtap="doaddress" class="servicelist">
-            <view  style="background:{{intro.maincolor}};">
+            <view  style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/kefu.png"></image>
                 </view>

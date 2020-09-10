@@ -20,16 +20,8 @@ Page((_defineProperty(_Page = {
         }), app.util.request({
             url: "entry/wxapp/Intro",
             success: function(a) {
-                a.data.message.errno || (wx.setStorageSync("companyinfo", a.data.data.intro), wx.setNavigationBarTitle({
-                    title: wx.getStorageSync("companyinfo").name
-                }), a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: a.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), e.setData({
+                a.data.message.errno || (wx.setStorageSync("companyinfo", a.data.data.intro), 
+                e.setData({
                     intro: a.data.data.intro,
                     banners: a.data.data.bannerlist
                 }));
@@ -75,7 +67,19 @@ Page((_defineProperty(_Page = {
         });
     },
     onReady: function() {},
-    onLoad: function() {},
+    onLoad: function() {
+        wx.setNavigationBarTitle({
+            title: wx.getStorageSync("companyinfo").name
+        }), 
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        })
+    },
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {
