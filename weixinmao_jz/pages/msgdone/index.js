@@ -402,11 +402,11 @@ Page({
             console.log(selectnote)
                 this.setData({
                     noteObj:selectnote,
-                    noteId:selectnote.id
+                    noteId:selectnote.id,
+                    shopid:selectnote.id
                 })
         }
         this.getFare();
-        
     },
     getnote:function(noteId){
         var noteCallback=this;
