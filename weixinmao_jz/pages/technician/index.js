@@ -71,6 +71,7 @@ calculateDistanceHandle: function(wt, isDistanceToSort){
       from: '', //若起点有数据则采用起点坐标，若为空默认当前地址
       to:  distanceTO, //终点坐标
       success: function(res) {//成功后的回调
+        console.log("算路成功")
         console.log(res);
         var res = res.result;
         for (var i = 0; i < res.elements.length; i++) {

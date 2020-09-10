@@ -194,31 +194,33 @@ Page({
         // } 
         else {
             var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
+            var res={
+                currentid: d,
+                address: e.address,
+                time: t.data.time,
+                addressId: e.id,
+                shopid: i,
+                sessionid: n.sessionid,
+                uid: n.memberInfo.uid,
+                content: s,
+                form_id: o,
+                contentId:t.data.currentid,
+                noteid:t.data.noteId,
+                trafficType:t.data.trafficType,
+                name:e.name,
+                tel:e.tel,
+                daddress:e.daddress,
+                couponId:t.data.couponId,
+                type:r
+            };
+            console.log(res)
             0 < t.data.gooditems.money ? wx.showModal({
                 title: "确认支付",
                 content: "确认支付？",
                 success: function(a) {
                     a.confirm && app.util.request({
                         url: "entry/wxapp/paymsg",
-                        data: {
-                            currentid: d,
-                            address: e.address,
-                            time: t.data.time,
-                            addressId: e.id,
-                            shopid: i,
-                            sessionid: n.sessionid,
-                            uid: n.memberInfo.uid,
-                            content: s,
-                            form_id: o,
-                            contentId:t.data.currentid,
-                            noteid:t.data.noteId,
-                            trafficType:t.data.trafficType,
-                            name:e.name,
-                            tel:e.tel,
-                            daddress:e.daddress,
-                            couponId:t.data.couponId,
-                            type:r
-                        },
+                        data:res,
                         success: function(a) {
                             console.log("支付方式")
                             console.log(r)
@@ -291,37 +293,7 @@ Page({
                     });
                 }
             }) 
-            // : app.util.request({
-            //     url: "entry/wxapp/Paytotalmoney",
-            //     data: {
-            //         sessionid: n.sessionid,
-            //         model: t.data.model,
-            //         addressid: e.id,
-            //         uid: n.memberInfo.uid,
-            //         form_id: o,
-            //         content: s
-            //     },
-            //     // orderid: t.data.orderid,
-            //     success: function(a) {
-            //         if (!a.data.message.errno) {
-            //             if (0 != a.data.data.error) return void wx.showModal({
-            //                 title: "提示",
-            //                 content: a.data.data.msg,
-            //                 showCancel: !1
-            //             });
-            //             wx.showModal({
-            //                 title: "提示",
-            //                 content: a.data.data.msg,
-            //                 showCancel: !1,
-            //                 success: function() {
-            //                     wx.navigateTo({
-            //                         url: "/weixinmao_jz/pages/matchorder/index?orderid=" +  a.data.data.orderid
-            //                     });
-            //                 }
-            //             });
-            //         }
-            //     }
-            // }) 
+          
             : app.util.request({
                 url: "entry/wxapp/PayNomoney",
                 data: {
@@ -383,7 +355,10 @@ Page({
     },
     toSelectCouponList: function(obj) {
         let goodsid = obj.currentTarget.dataset.goodsid;
-        this.data.couponId = obj.currentTarget.dataset.couponid;
+        this.setData({
+            couponId:obj.currentTarget.dataset.couponid
+        })
+        // this.data.couponId = obj.currentTarget.dataset.couponid;
         wx.navigateTo({
             // url: "/weixinmao_jz/pages/mycoupon/index?back=1"
             url: "/weixinmao_jz/pages/selectcoupon/index?back=1&contentid="+goodsid
@@ -408,11 +383,11 @@ Page({
             addressinfo: wx.getStorageSync("addressinfo")
         });
         let selectcoupon = this.data.selectcoupon;
-        console.log(selectcoupon)
         if(selectcoupon != undefined){
             this.setData({
                 selectcoupon:selectcoupon,
-                couponmoney:selectcoupon.money
+                couponmoney:selectcoupon.money,
+                couponId:selectcoupon.id
             });
         }else{
             this.setData({

@@ -35,6 +35,13 @@ Page({
         var i = this;
         wx.setNavigationBarTitle({
             title: "预约技师-" + wx.getStorageSync("companyinfo").name
+        }), wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
         });
         i.setData({
             housetypelist: [ {
@@ -125,15 +132,7 @@ Page({
                 serviceStatus: e.data.serviceStatus
             },
             success: function(t) {
-                t.data.message.errno,
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: "#09ba07",
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), 
+                // t.data.message.errno,
                 e.calculateDistanceHandle(t.data.data.list, true);
             },
             complete: function() {
@@ -357,14 +356,6 @@ Page({
             data: data,
             success: function(t) {
                 t.data.message.errno,
-                    wx.setNavigationBarColor({
-                        frontColor: "#ffffff",
-                        backgroundColor: "#09ba07",
-                        animation: {
-                            duration: 400,
-                            timingFunc: "easeIn"
-                        }
-                    }), 
                     call(t.data.data.list);
             },
             complete: function() {

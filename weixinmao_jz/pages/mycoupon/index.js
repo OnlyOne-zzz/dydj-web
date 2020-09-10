@@ -23,7 +23,15 @@ Page({
         var t = this;
         wx.setNavigationBarTitle({
             title: "我的优惠券"
-        }), wx.getStorageSync("userInfo").sessionid ? t.InitPage() : app.util.getUserInfo(function() {
+        }), 
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        }),wx.getStorageSync("userInfo").sessionid ? t.InitPage() : app.util.getUserInfo(function() {
             t.InitPage();
         });
         t.data.back = o.back
@@ -56,14 +64,7 @@ Page({
             data: data,
             success: function(res) {
                 res.data.message.errno,
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: "#09ba07",
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), t.setData({
+               t.setData({
                     list: res.data.data
                 });
             }

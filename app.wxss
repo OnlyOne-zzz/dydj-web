@@ -4285,7 +4285,7 @@ i.weui-tabbar__icon,.weui-tabbar__icon>i {
     z-index: 2;
     opacity: 0.8;
     margin-bottom: 20rpx;
-    background: #44b549;
+    background: #3C9BDF;
 }
 
 .u-go-home2 .iconfont {
