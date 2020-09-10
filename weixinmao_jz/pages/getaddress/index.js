@@ -161,7 +161,9 @@ Page({
             showCancel: !1
         });
     },
-    onReady: function() {},
+    onReady: function() {
+       
+    },
     switchOn: function(a) {
         a.detail.value ? this.data.ison = 1 : this.data.ison = 0;
     },

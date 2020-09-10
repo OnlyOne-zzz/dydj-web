@@ -1,14 +1,26 @@
-var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = require("../../resource/js/images.js"), app = getApp();
-
+var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = require("../../resource/js/images.js"),qqmapsdk, QQMapWX = require("../../resource/js/qqmap-wx-jssdk.min.js"), config = require("../../resource/js/config.js"),app = getApp();
 Page({
     data: {
         showmsg: !0,
-        istype: 0
+        istype: 0,
+        address:''
     },
     onLoad: function(o) {
+        var _this = this;
+        qqmapsdk = new QQMapWX({
+            key: config.Config.key
+        }),
         wx.setNavigationBarTitle({
             title: "技师中心"
         });
+        wx.getLocation({
+            type: 'wgs84',
+                success(res) {
+                    const latitude = res.latitude
+                    const longitude = res.longitude
+                    _this.getLocal(latitude,longitude)
+                }
+            })
     },
     onReady: function() {},
     toOrderlist: function(o) {
@@ -60,17 +72,46 @@ Page({
     },
     doCall: function() {
        var u = wx.getStorageSync("userInfo"), loginid = wx.getStorageSync("loginid");
+       let send= {
+            noteId: u.memberInfo.uid,
+            loginid:loginid,
+            address:this.data.address
+         };
+         console.log(send);
         app.util.request({
             url: "entry/wxapp/SosSend",
-            data: {
-                uid: u.memberInfo.uid,
-                loginid:loginid
-            },
+            data: send,
             success: function(a) {
-               
+                console.log(a)
+               console.log("发送报警成功")
             }
         });
     },
+    getLocal: function(latitude, longitude) {
+        let _this = this;
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: latitude,
+            longitude: longitude
+          },
+          success: function(res) {
+              console.log("地址")
+            console.log(res);
+            // let province = res.result.ad_info.province
+            // let city = res.result.ad_info.city
+            let address = res.result.address
+            _this.setData({
+                address:address
+            })
+          },
+          fail: function(res) {
+            console.log(res);
+          },
+          complete: function(res) {
+            // console.log(res);
+          }
+        });
+      },
     onShow: function() {
         var a = this, o = wx.getStorageSync("userInfo"), e = wx.getStorageSync("loginid");
         0 < e && app.util.request({
