@@ -73,7 +73,7 @@ Page({
     doCall: function() {
        var u = wx.getStorageSync("userInfo"), loginid = wx.getStorageSync("loginid");
        let send= {
-            noteId: u.memberInfo.uid,
+            uid: u.memberInfo.uid,
             loginid:loginid,
             address:this.data.address
          };
