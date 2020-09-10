@@ -43,45 +43,19 @@
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
                 <view bindtap="selectwaiter" wx:if="{{noteObj!=null}}" class="listcontent listcontents" style='display: block;'>
                     <text>服务人员</text>
-                    <!-- 需要园头像的样式 始终都有一个箭头-->
-                     <!-- <swiper-item> -->
-                        <!-- <view class="swiper_item_move"> <image src="{{noteObj.avatarUrl}}"></image> -->
                         <view class='touxiang'>
                             <image src="{{noteObj.avatarUrl}}"></image>
                         </view>
                         <text class="listTime" >{{noteObj.shopname}} </text>
-                        <!-- </view> -->
-                     <!-- </swiper-item> -->
                      <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
-                <view wx:else class="listcontent" >
+                <view wx:else class="listcontent listcontents"  style='display: block;'>
                     <text>服务人员</text>
-                    <image bindtap="toNoteList" class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
+                     <text class="listTime" >请选择技师</text>
+                    <image  class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
             </view>
         </view>
-        <!-- <block wx:if="{{addressinfo}}">
-            <view bindtap="selectaddress" class="newaddress">
-                <view class="showaddress">
-                    <view>
-                        <text>{{addressinfo.name}}</text>
-                        <text style="margin-left:20rpx;"> {{addressinfo.tel}}</text>
-                    </view>
-                    <view>{{addressinfo.address}}{{addressinfo.daddress}}</view>
-                </view>
-                <view>
-                    <image src="../../resource/images/ri.png"></image>
-                </view>
-            </view>
-        </block> -->
-        <!-- <view class="newaddress2" wx:else>
-            <view bindtap="getaddress" class="flexaddress">
-                <view>
-                    <image src="../../resource/images/newaddress.png"></image>
-                </view>
-                <view>新增我的地址</view>
-            </view>
-        </view> -->
         <view class="main">
             <view class="listmsg">
                 <view class="itemmsg">

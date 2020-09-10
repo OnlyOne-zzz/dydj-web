@@ -67,9 +67,9 @@
                     </view>
                     <view class="housearea">预约成后，请保持电话畅通</view>
                     <view class="perprice">
-                        <view>  ￥{{item.money}} <text style="font-size:.7rem;">起</text>
+                        <view>  ￥{{item.money}} 
                         </view>
-                        <view bindtap="toHouseDetail" data-id="{{item.id}}" data-shopid="{{shopid}}" style="background:{{intro.maincolor}}">去下单</view>
+                        <view bindtap="toHouseDetail" data-id="{{item.id}}" data-shopid="{{shopid}}" data-status="" style="background:#3C9BDF;">去下单</view>
                     </view>
                 </view>
             </view>

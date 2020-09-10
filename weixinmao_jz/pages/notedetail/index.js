@@ -34,6 +34,13 @@ Page(_defineProperty({
     onLoad: function(a) {
         wx.setNavigationBarTitle({
             title: wx.getStorageSync("companyinfo").name
+        }),wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
         });
         var t = wx.getStorageSync("companyid"), e = !0;
         0 < t && (e = !1);
@@ -55,25 +62,20 @@ Page(_defineProperty({
             success: function(a) {
                 console.log("*****************")
                 console.log(a)
-                a.data.message.errno || (a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), 
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: a.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), i.data.title = a.data.data.workerdetail.name, wx.setNavigationBarTitle({
-                    title: i.data.title + "-" + wx.getStorageSync("companyinfo").name
-                }), i.setData({
-                    data: a.data.data.workerdetail,
-                    showcontact: e,
-                    typelist: a.data.data.typelist,
-                    isuser: i.data.isuser,
-                    intro: a.data.data.intro,
-                    msgcontentlist: a.data.data.msgcontentlist,
-                    comment:a.data.data.comment
-                }));
+                if(!a.data.message.errno){
+                    i.data.title = a.data.data.workerdetail.name,
+                    wx.setNavigationBarTitle({
+                       title: i.data.title + "-" + wx.getStorageSync("companyinfo").name
+                   }), i.setData({
+                       data: a.data.data.workerdetail,
+                       showcontact: e,
+                       typelist: a.data.data.typelist,
+                       isuser: i.data.isuser,
+                       intro: a.data.data.intro,
+                       msgcontentlist: a.data.data.msgcontentlist,
+                       comment:a.data.data.comment
+                   });
+                }
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();

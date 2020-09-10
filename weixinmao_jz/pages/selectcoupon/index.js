@@ -10,6 +10,16 @@ Page({
     },
     onLoad: function(a) {
         var t = this;
+        wx.setNavigationBarTitle({
+            title: "选择优惠券"
+        }), wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
         if(""!=t.data.contentid || 0!=t.data.contentid) this.data.contentid;else{
             this.data.contentid = a.contentid;
         }
@@ -38,15 +48,8 @@ Page({
             data: data,
             success: function(res) {
                 console.log(res)
-                res.data.message.errno,
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: "#09ba07",
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), t.setData({
+                // res.data.message.errno,
+                t.setData({
                     list: res.data.data
                 });
             }

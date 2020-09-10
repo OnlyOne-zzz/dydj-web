@@ -76,7 +76,9 @@ Page({
                 }
             });
         }
-      
+        if(this.data.noteId!=0){
+            this.getnote(this.data.noteId)
+        }
     },
     numChange: function(e) {
         if(e.currentTarget.dataset['index'] == 1){
@@ -351,6 +353,7 @@ Page({
     toNoteList:function(){
         wx.navigateTo({
             url: "/weixinmao_jz/pages/notelist/index"
+            // url: "/weixinmao_jz/pages/selectnotelist/index"
         })
     },
     toSelectCouponList: function(obj) {
@@ -366,7 +369,7 @@ Page({
     },
     selectwaiter: function() {
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/technician/index?back=1"
+            url: "/weixinmao_jz/pages/selectnotelist/index?back=1"
         });
     },
     changeTraffic:function(obj){
@@ -394,28 +397,33 @@ Page({
                 couponmoney:0
             });
         }
+        let selectnote = this.data.selectnote;
+        if(selectnote != undefined){
+            console.log(selectnote)
+                this.setData({
+                    noteObj:selectnote,
+                    noteId:selectnote.id
+                })
+        }
         this.getFare();
-        if(noteCallback.data.noteId!=0){
+        
+    },
+    getnote:function(noteId){
+        var noteCallback=this;
             // 查询获取技师信息
             app.util.request({
                 url: "entry/wxapp/Getnotedetail",
                 data: {
-                    id: noteCallback.data.noteId
+                    id: noteId
                 },
                 success:function(obj){
-                    let technician = wx.getStorageSync('technician')
-                    if(!obj.data.message.errno && !technician){
+                    if(!obj.data.message.errno){
                         noteCallback.setData({
                             noteObj: obj.data.data.workerdetail
                         });
-                    } else {
-                        noteCallback.setData({
-                            noteObj: wx.getStorageSync('technician')
-                        })
-                    }
+                    } 
                 }
             });
-        }
     },
     onHide: function() {},
     onUnload: function() {},
