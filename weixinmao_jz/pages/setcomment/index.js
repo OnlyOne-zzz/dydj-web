@@ -56,8 +56,6 @@ Page({
                 score: o,
                 content: n
             };
-            console.log("靠靠靠靠靠靠靠")
-            console.log(s)
             app.util.request({
                 url: "entry/wxapp/savecomment",
                 data: s,

@@ -52,6 +52,8 @@ Page({
         this.checkuser({
             doServices: function() {
                 var t = a.currentTarget.id, e = wx.getStorageSync("userInfo");
+                console.log("切换")
+                console.log(t)
                 app.util.request({
                     url: "entry/wxapp/mymsgorder",
                     data: {
