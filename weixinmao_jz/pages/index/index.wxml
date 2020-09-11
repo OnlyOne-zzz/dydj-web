@@ -112,7 +112,7 @@
                     </view> -->
                     <view class="price">
                         <view>
-                                        满意度:<text class="fa fa-star  fa-lg"></text>
+                            <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>
