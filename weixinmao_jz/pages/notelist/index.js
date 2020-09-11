@@ -183,6 +183,7 @@ Page({
                 housetype: e.data.housetype
             },
             success: function(t) {
+                
                 t.data.message.errno || (console.log(t.data.data), e.setData({
                     worklist: t.data.data.worklist
                 }));
@@ -450,6 +451,8 @@ Page({
               e.setData({ //设置并更新distance数据
                 worklist: serviceable.concat(inService)
               });
+              console.log("技师列表")
+            console.log(serviceable.concat(inService))
             },
             fail: function(error) {
               console.error(error);

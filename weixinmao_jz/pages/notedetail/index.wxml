@@ -69,7 +69,8 @@
                     <view class="perprice">
                         <view>  ￥{{item.money}} 
                         </view>
-                        <view bindtap="toHouseDetail" data-id="{{item.id}}" data-shopid="{{shopid}}" data-status="" style="background:#3C9BDF;">去下单</view>
+                        <view wx:if="{{data.serviceStatus==1}}" bindtap="toHouseDetail" data-id="{{item.id}}" data-shopid="{{shopid}}" data-status="" style="background:#3C9BDF;">去下单</view>
+                        <view wx:else="{{data.serviceStatus!=1}}" data-id="{{item.id}}" data-shopid="{{shopid}}" data-status="" style="background:#D6D6D6;">去下单</view>
                     </view>
                 </view>
             </view>
