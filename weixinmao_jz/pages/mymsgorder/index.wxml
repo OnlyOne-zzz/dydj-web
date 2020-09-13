@@ -12,18 +12,18 @@
                 </view>
             </view>
             <view class="type-box">
-                <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
-                  已完成
-                </view>
-            </view>
-            <view class="type-box">
                 <view bindtap="tabClick" class="type-navbar-item {{ordertype==4?'type-item-on':''}}" id="4">
                   待评价
                 </view>
             </view>
             <view class="type-box">
+                <view bindtap="tabClick" class="type-navbar-item {{ordertype==3?'type-item-on':''}}" id="3">
+                  已完成
+                </view>
+            </view>
+            <view class="type-box">
                 <view bindtap="tabClick" class="type-navbar-item {{ordertype==5?'type-item-on':''}}" id="5">
-                  取消/售后
+                  退款
                 </view>
             </view>
         </scroll-view>
@@ -61,7 +61,7 @@
              <block wx:if="{{item.paid==1}}">
                  <!-- 开始服务之前都可以取消订单 -->
                 <block wx:if="{{item.status<4}}">
-                     <view data-id="{{item.id}}">取消订单</view>
+                     <view bindtap="RefundOrder" data-id="{{item.id}}" data-status="7">取消订单</view>
                 </block>
                 <block wx:if="{{item.status==5}}">
                       <view bindtap="setcomment" data-id="{{item.id}}">评价</view>
