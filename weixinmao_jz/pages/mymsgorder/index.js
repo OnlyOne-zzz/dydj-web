@@ -46,6 +46,32 @@ Page({
             }
         });
     },
+    RefundOrder: function(e) {
+        var a = this, t = e.currentTarget.dataset.id, n = e.currentTarget.dataset.status;
+        console.log(n)
+        var o = wx.getStorageSync("userInfo");
+        wx.showModal({
+            title: "订单退款",
+            content: "确认退款？",
+            success: function(e) {
+                e.confirm && app.util.request({
+                    url: "entry/wxapp/RefundOrderStatus",
+                    data: {
+                        id: t,
+                        sessionid: o.sessionid,
+                        uid: o.memberInfo.uid,
+                        status: n
+                    },
+                    success: function(e) {
+                        console.log(e), a.onLoad();
+                    },
+                    fail: function(e) {
+                        console.log(e);
+                    }
+                });
+            }
+        });
+    },
     onReady: function() {},
     tabClick: function(a) {
         var o = this;

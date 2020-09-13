@@ -8,6 +8,14 @@ Page({
         var o = this;
         wx.setNavigationBarTitle({
             title: "申请提现"
+        }),
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
         });
         var n = wx.getStorageSync("userInfo");
         app.util.request({

@@ -12,6 +12,14 @@ Page({
     onLoad: function(a) {
         wx.setNavigationBarTitle({
             title: "绑定提现账号"
+        }),
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
         });
     },
     bindDateChange: function(a) {
