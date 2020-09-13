@@ -11,6 +11,11 @@ Page({
             e.id;
             t.data.id = e.id;
         }
+        console.log("type")
+        console.log(e.ordertype)
+        if(e.ordertype != 'undefined' && e.ordertype != '' && e.ordertype != null){
+            this.data.ordertype = e.ordertype
+        }
     },
     onShow: function(e) {
         wx.setNavigationBarTitle({

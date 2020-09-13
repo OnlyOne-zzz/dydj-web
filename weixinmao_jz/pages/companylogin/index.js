@@ -41,9 +41,10 @@ Page({
             url: "/weixinmao_jz/pages/getmoney/index"
         });
     },
-    toNoteorder: function(o) {
+    toNoteorder: function(obj) {
+        let ordertype = obj.currentTarget.dataset.type;
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/noteorder/index"
+            url: "/weixinmao_jz/pages/noteorder/index?ordertype="+ordertype
         });
     },
     toShopmsg: function(o) {

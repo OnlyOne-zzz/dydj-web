@@ -11,17 +11,17 @@
             </view>
         </view>
         <view class="mymoney">
-            <view bindtap="toNoteorder" class="item_line">
+            <view bindtap="toNoteorder" data-type="2" class="item_line">
                 <view>{{msgorder_1}}</view>
                 <view>待接单</view>
             </view>
             <view class="line"></view>
-            <view bindtap="toMyorder" class="item_line">
+            <view bindtap="toNoteorder" data-type="3" class="item_line">
                 <view>{{msgorder_2}}</view>
                 <view>未完成订单</view>
             </view>
             <view class="line"></view>
-            <view bindtap="toGetmoney" class="item_line">
+            <view bindtap="toNoteorder" data-type="4" class="item_line">
                 <view>{{msgorder_3}}</view>
                 <view>已完成订单</view>
             </view>
