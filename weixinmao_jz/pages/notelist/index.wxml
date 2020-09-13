@@ -79,7 +79,7 @@
 <view class="news">
     <view class="newslist" wx:for="{{worklist}}" data-id="{{item.id}}" bindtap="toNoteDetail">
         <view class="pic">
-            <image src="{{item.avatarUrl}}"></image>
+            <image src="{{item.avatarurl}}"></image>
         </view>
         <view class="title">
             <view  class="address" data-id="{{item.id}}">
