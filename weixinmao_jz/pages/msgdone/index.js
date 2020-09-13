@@ -212,7 +212,7 @@ Page({
                 name:e.name,
                 tel:e.tel,
                 daddress:e.daddress,
-                couponId:t.data.couponId,
+                couponid:t.data.couponId,
                 type:r
             };
             console.log(res)

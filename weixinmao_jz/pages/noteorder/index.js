@@ -166,7 +166,7 @@ Page({
                         status: n
                     },
                     success: function(e) {
-                        console.log(e), t.onReady();
+                        console.log(e), t.onShow();
                     },
                     fail: function(e) {
                         console.log(e);
