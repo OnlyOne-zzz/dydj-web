@@ -29,7 +29,7 @@ Page({
     },
     Tojoinagree: function() {
         0 != this.data.isagree ? wx.navigateTo({
-            url: "/weixinmao_jz/pages/switchrole/index"
+            url: "/weixinmao_jz/pages/mynote/index"
         }) : wx.showModal({
             title: "提示",
             content: "请先同意家政入驻协议",

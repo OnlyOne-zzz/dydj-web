@@ -166,34 +166,19 @@ Page({
             url: "/weixinmao_jz/pages/notemessage/index?id=" + e
         });
     },
-    toSearch: function(t) {
-        wx.navigateTo({
-            url: "/weixinmao_zp/pages/search/index"
-        });
-    },
     gethouselist: function(t) {
-        var e = this, a = wx.getStorageSync("cityinfo").id;
-        app.util.request({
-            url: "entry/wxapp/Getnotelist",
-            data: {
-                cityid: a,
-                page: e.data.page,
-                houseareaid: e.data.houseareaid,
-                housepriceid: e.data.housepriceid,
-                housetype: e.data.housetype
-            },
-            success: function(t) {
-                
-                t.data.message.errno || (console.log(t.data.data), e.setData({
-                    worklist: t.data.data.worklist
-                }));
-            },
-            complete: function() {
-                e.setData({
-                    loadMore: ""
-                });
-            }
-        });
+        var _this = this;
+        var id= t.currentTarget.id;
+        var obj = {
+            "serviceStatus": _this.data.serviceStatus
+        };
+        if(id == 0 || id == 1){
+            obj.orderColumn = '';
+        }else if(id == 2){
+            obj.orderColumn = "views"
+        }
+        obj.orderColumn = _this.data.orderColumn;
+        this.getNodeList(obj);
     },
     selectcarsitem: function(t) {
         var _this = this;
@@ -216,7 +201,8 @@ Page({
             priceid: e,
             isPrice: !0,
             price: a
-        }), this.data.housepriceid = e, this.gethouselist();
+        })
+        //, this.data.housepriceid = e, this.gethouselist();
     },
     selecttypeitem: function(t) {
         console.log(t.currentTarget.id);
@@ -225,12 +211,14 @@ Page({
             typeid: e,
             isType: !0,
             typetitle: a
-        }), this.data.housetype = e, this.gethouselist();
+        })
+        //, this.data.housetype = e, this.gethouselist();
     },
     onReachBottom: function(t) {
         this.setData({
             loadMore: "正在加载中..."
-        }), this.data.page = this.data.page + 1, this.gethouselist();
+        })
+        //, this.data.page = this.data.page + 1, this.gethouselist();
     },
     clickSearch: function(t) {
         wx.switchTab({
@@ -336,7 +324,6 @@ Page({
             serviceStatus:serviceStatus
         };
         //按距离排序
-        console.log(data);
         if(orderColumn == 'distance'){
             _this.requestNoteList(data, function(result){
                 _this.calculateDistanceHandle(result, true);
@@ -349,6 +336,27 @@ Page({
                 _this.calculateDistanceHandle(result, false);
             });
         }
+    },
+    getInputValue(e){
+        console.log(e.detail)// {value: "ff", cursor: 2}  
+        var _this = this;
+        var name = e.detail.value;
+        console.log(name);
+        app.util.request({
+            url: "entry/wxapp/nameSearch",
+            data: {
+                name: name
+            },
+            success: function(t) {
+                t.data.message.errno,
+                _this.calculateDistanceHandle(t.data.data.list, false)
+            },
+            complete: function() {
+                wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), _this.setData({
+                    loadMore: ""
+                });
+            }
+        });
     },
     requestNoteList: function(data, call){
         var e = this;
@@ -367,16 +375,22 @@ Page({
         });
     },
     calculateDistanceHandle: function(wt, isDistanceToSort){
-        console.log(wt);
         var qqmapsdk = new QQMapWX({
             key: config.Config.key // 必填
         });
         var e = this;
         var distanceTO = [];
+        if(!wt || wt.length == 0){
+            console.log(wt);
+            e.setData({
+                worklist:[]
+            });
+            return;
+        }
+        console.log(wt);
         for(var i = 0;  i < wt.length; i++){
             distanceTO.push({'latitude': wt[i].lat, 'longitude': wt[i].lng});
         }
-        console.log(distanceTO)
         qqmapsdk.calculateDistance({
             //mode: 'driving',//可选值：'driving'（驾车）、'walking'（步行），不填默认：'walking',可不填
             mode: 'driving',
@@ -451,8 +465,6 @@ Page({
               e.setData({ //设置并更新distance数据
                 worklist: serviceable.concat(inService)
               });
-              console.log("技师列表")
-            console.log(serviceable.concat(inService))
             },
             fail: function(error) {
               console.error(error);

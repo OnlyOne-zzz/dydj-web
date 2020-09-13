@@ -3,10 +3,9 @@
         <image mode="aspectFit" src="../../resource/images/coord.png"></image>
         <text>{{city}}</text>
     </navigator>
-    <view bindtap="toSearch" class="search_box">
-        <icon size="14" type="search"></icon>
-        <text>请输入查询信息</text>
-    </view>
+  
+    <input  class="search_box" bindconfirm='getInputValue'  name='price' type='text' placeholder='输入技师姓名'>
+     </input>
 </view>
 <view class="list_sort">
     <view bindtap="selectCars" class="sort_list {{isCars?'':'select'}}">
