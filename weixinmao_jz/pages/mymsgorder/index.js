@@ -13,11 +13,10 @@ Page({
             e.id;
             t.data.id = e.id;
         }
-        wx.getStorageSync("userInfo").sessionid ? t.InitPage() : app.util.getUserInfo(function() {
-            t.InitPage();
-        });
     },
-    onShow: function(e) {},
+    onShow: function(e) { wx.getStorageSync("userInfo").sessionid ? this.InitPage() : app.util.getUserInfo(function() {
+        this.InitPage();
+    });},
     InitPage: function() {
         var t = this, e = wx.getStorageSync("userInfo"), a = t.data.ordertype;
         app.util.request({
