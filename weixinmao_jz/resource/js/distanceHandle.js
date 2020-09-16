@@ -39,7 +39,7 @@ var QQMapWX = require("../../resource/js/qqmap-wx-jssdk.min.js"),
  * @param successCallback 成功后的回调
  * @param failCallback 失败回调
  */
-calculation = function (form, to, successCallback, failCallback) {
+var calculation = function (form, to, successCallback, failCallback) {
     var qqmapsdk = new QQMapWX({
         key: config.Config.key // 必填
     });
