@@ -66,3 +66,4 @@ var calculation = function (form, to, successCallback, failCallback) {
         }
     });
 }
+module.exports.calculation = calculation;
