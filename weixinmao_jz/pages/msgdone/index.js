@@ -1,4 +1,4 @@
-var app = getApp();
+var app = getApp(),distanceHandle = require("../../resource/js/distanceHandle.js");
 
 Page({
     data: {
@@ -40,7 +40,7 @@ Page({
         cardinfo: {},
         technician: {},
         distance:0,
-        orderid: ""
+        resultDis:''
     },
     onLoad: function(a) {
         var t = this;
@@ -76,7 +76,7 @@ Page({
                 }
             });
         }
-        if(this.data.noteId!=0){
+        if(this.data.noteId!=0 && this.data.noteId!=undefined){
             this.getnote(this.data.noteId)
         }
     },
@@ -144,8 +144,8 @@ Page({
     },
     // 获取交通费用
     getFare: function(param){
-
         var pageObj = this;
+        console.log(pageObj.data.distance)
         if(param=='undefined' || param == null || param==''){
             param = pageObj.data.trafficType;
         }
@@ -375,12 +375,11 @@ Page({
     changeTraffic:function(obj){
         this.data.trafficType =  obj.target.dataset.index;
         this.getFare(this.data.trafficType );
-         console.log(this.data.trafficType); 
     },
     onReady: function() {
     },
     onShow: function() {
-        var noteCallback = this
+        var _this = this
         this.data.addressinfo = wx.getStorageSync("addressinfo") 
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")
@@ -399,16 +398,15 @@ Page({
         }
         let selectnote = this.data.selectnote;
         if(selectnote != undefined){
-            console.log(selectnote)
+            this.getnote(selectnote.id);
                 this.setData({
-                    noteObj:selectnote,
-                    noteId:selectnote.id,
+                    // noteObj:selectnote,
+                    // noteId:selectnote.id,
                     shopid:selectnote.id
                 })
         }
-        this.getFare();
     },
-    getnote:function(noteId){
+getnote:function(noteId){
         var noteCallback=this;
             // 查询获取技师信息
             app.util.request({
@@ -418,12 +416,34 @@ Page({
                 },
                 success:function(obj){
                     if(!obj.data.message.errno){
+                        let noteObj = obj.data.data.workerdetail;
+                        let lat = noteObj.lat;
+                        let lng = noteObj.lng;
+                        noteCallback.getDistance(lat,lng);
                         noteCallback.setData({
-                            noteObj: obj.data.data.workerdetail
+                            noteObj: noteObj
                         });
                     } 
                 }
             });
+    },
+    getDistance:function(latitude,longitude){
+        var _this =this;
+        var param = [{
+                    latitude: latitude,
+                    longitude: longitude
+                }];
+        distanceHandle.calculation('',param, function (dis) {
+            let subDistance = dis[0];
+            let result = subDistance/1000;
+            _this.setData({
+                distance:result
+            })
+            _this.getFare();
+        },function (errMsg) {
+        //错误信息处理
+        console.log("算距离失败")
+        });
     },
     onHide: function() {},
     onUnload: function() {},
