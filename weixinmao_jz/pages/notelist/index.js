@@ -214,12 +214,12 @@ Page({
         })
         //, this.data.housetype = e, this.gethouselist();
     },
-    onReachBottom: function(t) {
-        this.setData({
-            loadMore: "正在加载中..."
-        })
-        //, this.data.page = this.data.page + 1, this.gethouselist();
-    },
+    // onReachBottom: function(t) {
+    //     this.setData({
+    //         loadMore: "正在加载中..."
+    //     })
+    //     //, this.data.page = this.data.page + 1, this.gethouselist();
+    // },
     clickSearch: function(t) {
         wx.switchTab({
             url: "/pages/search/search"
