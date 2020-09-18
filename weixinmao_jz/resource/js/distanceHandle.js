@@ -53,7 +53,8 @@ var calculation = function (form, to, successCallback, failCallback) {
             var res = res.result;
             var dis = [];
             for (var i = 0; i < res.elements.length; i++) {
-                dis.push(res.elements[i].distance); //将返回数据存入dis数组，
+                var num = res.elements[i].distance;
+                dis.push(num.toFixed(2)); //将返回数据存入dis数组，
             }
             successCallback(dis);
         },
