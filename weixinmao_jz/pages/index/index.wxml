@@ -73,7 +73,9 @@
                 </view>
                 <view class="name" style="color:{{intro.maincolor}}">
                     <view> {{item.title}}</view>
-                    <view> {{item.price}}/{{item.time}}分钟</view>
+                    <view class="perprice">
+                        <view>￥{{item.price}}/{{item.time}}分钟</view>
+                    </view>
                     <view>{{item.intro}}</view>
                 </view>
             </view>
