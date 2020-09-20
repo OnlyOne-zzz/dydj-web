@@ -118,7 +118,7 @@
                             <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>
                         </view>
-                        <view>已服务:{{item.ordernum}}次</view>
+                        <view>已服务:{{item.basic_service_frequency}}次</view>
                     </view>
                 </view>
             </view>
