@@ -1,12 +1,12 @@
 <view class="container">
     <view class="header">
         <view class="title">他们都在用</view>
-        <view class="content">目前已覆盖全市(区、乡、镇),1000+商家已入驻</view>
+        <view class="content">目前已覆盖全市主城区</view>
     </view>
     <view class="step">
-        <view class="title">快速开店,立即<text style="color:#51af37;">开抢</text>
+        <view class="title">快速入住,立即接单
         </view>
-        <view class="content">审核快,订单多,四步开启抢单模式</view>
+        <view class="content">审核快,订单多,四步开启接单模式</view>
         <view class="list">
             <view class="item">
                 <view>1</view>
@@ -31,7 +31,7 @@
             </view>
             <view class="itemtitle">
                 <view> 选择服务区域、服务项目</view>
-                <view>根据自身业务需求开通服务区域和项目</view>
+                <view>根据自身熟悉业务，开通服务项目</view>
             </view>
         </view>
         <view class="list">
@@ -39,14 +39,14 @@
                 <view>4</view>
             </view>
             <view class="itemtitle">
-                <view> 开店成功，开始抢单</view>
-                <view>有单就抢，赚大了</view>
+                <view> 入住成功，开始接单</view>
+                <view>订单越多，提成越高</view>
             </view>
         </view>
     </view>
     <view class="doagree">
         <checkbox-group bindchange="doagree">
-            <checkbox checked="" value="1"></checkbox>我已阅读并同意<text bindtap="goHousexy" style="color:blue;">《家政入驻协议》</text>
+            <checkbox checked="" value="1"></checkbox>我已阅读并同意<text bindtap="goHousexy" style="color:blue;">《入驻协议》</text>
         </checkbox-group>
     </view>
     <view class="joinbtn">
