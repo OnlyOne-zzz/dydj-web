@@ -195,7 +195,10 @@ Page({
         //     return false
         // } 
         else {
-            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
+            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway,couponid=t.data.couponId;
+            if(couponid==undefined){
+                couponid=0;
+            }
             var res={
                 currentid: d,
                 address: e.address,
@@ -212,7 +215,7 @@ Page({
                 name:e.name,
                 tel:e.tel,
                 daddress:e.daddress,
-                couponid:t.data.couponId,
+                couponid:couponid,
                 type:r
             };
             console.log(res)
