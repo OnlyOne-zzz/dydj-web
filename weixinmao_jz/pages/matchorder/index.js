@@ -87,6 +87,12 @@ Page({
             url: "/weixinmao_jz/pages/setcomment/index?orderId=" + a
         });
     },
+    paymoney: function(e) {
+        var t = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/paylastmoney/index?id=" + t
+        });
+    },
     onReady: function() {},
     onShow: function() {
         this.setData({

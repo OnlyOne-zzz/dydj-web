@@ -71,9 +71,9 @@
                 </block>
                 <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看进度</view>
              </block>
-             <block wx:else> 
-                <block wx:if="{{item.status==0}}" ><view  data-id="{{item.id}}">去支付</view></block>
-             </block>
+             <!-- <block wx:else>  -->
+                <!-- <block wx:if="{{item.status==0}}" ><view  bindtap="paymoney" data-id="{{item.id}}">去支付</view></block> -->
+             <!-- </block> -->
             </view>
         </view>
     </view>

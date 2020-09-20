@@ -101,11 +101,11 @@
                 <button bindtap="setcomment" class="footer" style="background:{{intro.maincolor}}">评价</button>
             </block>
         </block>
-        <block wx:else> 
+        <!-- <block wx:else> 
             <block wx:if="{{orderinfo.status!=9}}">
-                <button bindtap="setcomment" class="footer" style="background:{{intro.maincolor}}">去支付</button>
+                <button bindtap="paymoney" class="footer" style="background:{{intro.maincolor}}">去支付</button>
             </block>
-        </block>
+        </block> -->
         </view>
     </view>
 </view>
