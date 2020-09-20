@@ -8,6 +8,7 @@
         </button>
     </form>
 </view>
+
 <view class="goblance">
     <view class="txt_t">
         <button bindtap="pay" data-money="500">立即充值</button>

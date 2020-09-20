@@ -51,7 +51,7 @@
                 </view>
                 <view class="type-box_switch">
                     <view bindtap="tabClick" class="type-navbar-item_switch {{ordertype==3?'type-item-on_switch':''}}" id="3">
-                  商家
+                  技师
                 </view>
                 </view>
             </scroll-view>
@@ -95,6 +95,11 @@
         {{data.induce}}
         </view>
         </view>
-      
+        <!-- <view class="clist">
+            <view class="ctitle">商家地址</view>
+            <view class="dcontent">
+        {{data.address}}
+        </view>
+        </view> -->
     </view>
 </view>
