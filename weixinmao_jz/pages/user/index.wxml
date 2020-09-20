@@ -56,7 +56,7 @@
                 <view></view>
             </view>
         </view>
-        <view bindtap="toAgent" class="servicelist">
+        <!-- <view bindtap="toAgent" class="servicelist">
             <view style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/fx.png"></image>
@@ -64,6 +64,16 @@
             </view>
             <view class="name">
                 <view>我要赚钱</view>
+            </view>
+        </view> -->
+        <view bindtap="toDomoney" class="servicelist">
+            <view style="background:#3C9BDF;">
+                <view class="logo">
+                    <image src="../../resource/images/fx.png"></image>
+                </view>
+            </view>
+            <view class="name">
+                <view>我要充值</view>
             </view>
         </view>
         <view bindtap="toGetusermoney" class="servicelist">

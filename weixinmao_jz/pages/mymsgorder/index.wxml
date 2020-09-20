@@ -50,9 +50,11 @@
                            <block wx:if="{{item.status==6}}">已评价</block>
                            <block wx:if="{{item.status==7}}">退款中</block>
                            <block wx:if="{{item.status==8}}">退款成功</block>
-                           <block wx:if="{{item.status==9}}">订单已关闭</block>
                         </block>
-                        <block wx:else> 未支付</block>
+                        <block wx:else> 
+                           <block wx:if="{{item.status==9}}">订单已关闭</block>
+                           <block wx:else>未支付</block>
+                        </block>
                     </text>
                 </view>
                 <view class="item" style='padding-top: 5px'>总价:￥{{item.money}}<text decode="true" >&nbsp;&nbsp;&nbsp;&nbsp;</text>实付款:￥{{item.money}}</view>
@@ -69,7 +71,7 @@
                 <view bindtap="toMyusermsgmoney" data-id="{{item.id}}">查看进度</view>
              </block>
              <block wx:else> 
-                <view  data-id="{{item.id}}">去支付</view>
+                <block wx:if="{{item.status==0}}" ><view  data-id="{{item.id}}">去支付</view></block>
              </block>
             </view>
         </view>

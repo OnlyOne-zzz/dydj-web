@@ -104,8 +104,9 @@
               <view>距离:{{item.distance}}</view>
             </view>
             <view class="price">
+            <!-- {{item.score}} -->
                 <view>
-                    满意度:{{item.score}} <text class="fa fa-star  fa-lg"></text>
+                    满意度: <text class="fa fa-star  fa-lg"></text>
                     <text class="fa fa-star  fa-lg"></text>
                     <text class="fa fa-star  fa-lg"></text>
                     <text class="fa fa-star  fa-lg"></text>

@@ -195,7 +195,10 @@ Page({
         //     return false
         // } 
         else {
-            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway;
+            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway,couponid=t.data.couponId;
+            if(couponid==undefined){
+                couponid=0;
+            }
             var res={
                 currentid: d,
                 address: e.address,
@@ -212,7 +215,7 @@ Page({
                 name:e.name,
                 tel:e.tel,
                 daddress:e.daddress,
-                couponid:t.data.couponId,
+                couponid:couponid,
                 type:r
             };
             console.log(res)
@@ -397,17 +400,24 @@ Page({
             });
         }
         let selectnote = this.data.selectnote;
-        if(selectnote != undefined){
-            this.getnote(selectnote.id);
+        let noteid = _this.data.noteId;    
+        console.log("111111")
+        console.log(noteid)
+        if(selectnote != undefined || noteid!=undefined){
+            if(noteid==undefined){
+                noteid=selectnote.id;
+            }
+            this.getnote(noteid);
                 this.setData({
                     // noteObj:selectnote,
                     // noteId:selectnote.id,
-                    shopid:selectnote.id
+                    shopid:noteid
                 })
         }
     },
 getnote:function(noteId){
         var noteCallback=this;
+        var addressInfoStorage = wx.getStorageSync("addressinfo");
             // 查询获取技师信息
             app.util.request({
                 url: "entry/wxapp/Getnotedetail",
@@ -419,7 +429,9 @@ getnote:function(noteId){
                         let noteObj = obj.data.data.workerdetail;
                         let lat = noteObj.lat;
                         let lng = noteObj.lng;
-                        noteCallback.getDistance(lat,lng);
+                        // if(!addressInfoStorage){
+                            noteCallback.getDistance(lat,lng);
+                        // }
                         noteCallback.setData({
                             noteObj: noteObj
                         });
@@ -429,11 +441,16 @@ getnote:function(noteId){
     },
     getDistance:function(latitude,longitude){
         var _this =this;
+        var addressInfoStorage = wx.getStorageSync("addressinfo");
         var param = [{
                     latitude: latitude,
                     longitude: longitude
                 }];
-        distanceHandle.calculation('',param, function (dis) {
+        var addreLat = {
+            latitude:addressInfoStorage.lat,
+            longitude:addressInfoStorage.lng
+        }
+        distanceHandle.calculation(addreLat,param, function (dis) {
             let subDistance = dis[0];
             let result = subDistance/1000;
             _this.setData({

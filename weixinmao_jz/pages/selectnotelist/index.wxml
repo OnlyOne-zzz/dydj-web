@@ -1,7 +1,7 @@
 <view class="news">
     <view class="newslist" wx:for="{{worklist}}" data-note="{{item}}" bindtap="select">
         <view class="pic">
-            <image src="{{item.avatarUrl}}"></image>
+            <image src="{{item.avatarurl}}"></image>
         </view>
         <view class="title">
             <view  class="address" data-id="{{item.id}}">
@@ -9,17 +9,17 @@
             </view>
             <view class="price" style="color:#3c9bdf">
                 <view>
-                                       主营:{{item.catename}}
+                推荐服务项目:{{item.catename}}
                                         
                                         </view>
                 <view></view>
             </view>
-            <view class="price" style="justify-content: flex-start;">
+            <!-- <view class="price" style="justify-content: flex-start;">
                 <view>
                     <image src="../../resource/images/dw.png" style="width:40rpx;height:40rpx;"></image>
                 </view>
                 <view style="height:40rpx; line-height: 40rpx;">{{item.address}}</view>
-            </view>
+            </view> -->
              <view class="price" style="color:#3c9bdf">
               <view>距离:{{item.distance}}</view>
             </view>
@@ -31,7 +31,7 @@
                     <text class="fa fa-star  fa-lg"></text>
                     <text class="fa fa-star  fa-lg"></text>
                 </view>
-                <view>已服务:{{item.ordernum}}次</view>
+                <view>已服务:{{item.serviceFrequency}}次</view>
             </view>
         </view>
     </view>

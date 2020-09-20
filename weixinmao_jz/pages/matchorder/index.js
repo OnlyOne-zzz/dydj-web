@@ -35,6 +35,8 @@ Page({
     },
     oldhouseinit: function(a) {
         var t = this, e = wx.getStorageSync("userInfo");
+        console.log("orderid")
+        console.log( t.data.orderid)
         app.util.request({
             url: "entry/wxapp/MatchOrderInfo",
             data: {

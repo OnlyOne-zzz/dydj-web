@@ -66,7 +66,11 @@
                         <view> {{msgcontent.title}}</view>
                         <view> 规格:{{gooditems.name}}</view>
                         <view>￥{{gooditems.money}}</view>
-                
+                        <view class="selectNum">
+                            <view style="background:#D6D6D6;" data-index='0'>-</view>
+                            <input disabled="disabled" value='{{goodsNum}}'/>
+                            <view style="background:#D6D6D6;" data-index='1'>+</view>
+                        </view>
                     </view>
                 </view>
             </view>
@@ -84,7 +88,13 @@
                 <image mode='heightFix' src="../../resource/images/fy.png"></image> 
                 <view class="listcontent">
                     <text>预估出行车费</text>
-                    <text class="listTime">￥{{fare}}</text>
+                    <block wx:if="{{addressinfo!=null}}" >
+                        <text class="listTime">￥{{fare}}</text>
+                    </block>
+                    <block wx:else>
+                        <text class="listTime">请先选择地址</text>
+                        <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
+                    </block>
                 </view>
             </view>
             <view>
