@@ -5,8 +5,12 @@
                 <image src="{{data.avatarUrl}}"></image>
                 <view class="userinfo">
                     <view>{{data.shopname}}</view>
-                    <view>人气0</view>
                     <view>认证技师</view>
+                    <!-- <view> -->
+                        <!-- <block wx:if="{{item.serviceStatus==1}}"><view  style="background:#3C9BDF;">可服务</view></block>
+                        <block wx:else ><view style="background:#F59545;">服务中</view></block> -->
+                    <!-- </view> -->
+                    <view>{{data.serviceStatus==1?'可服务':'正在服务'}}</view>
                 </view>
             </view>
         </view>
@@ -24,12 +28,14 @@
                 <text class="fa fa-star  fa-lg"></text>
                 <text class="fa fa-star  fa-lg"></text>
             </view>
-            <view>已服务0</view>
+            <!-- <view>已服务0</view> -->
         </view>
         <view class="noteservice">{{data.content}}</view>
         <view class="noteaddress">
             <view>
-                <image src="../../resource/images/dw.png"></image> {{data.address}}</view>
+                <!-- <image src="../../resource/images/dw.png"></image> {{data.address}} -->
+                 {{data.induce}} 
+            </view>
             <view>
                 <button openType="share">分享技师</button>
             </view>
