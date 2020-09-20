@@ -66,11 +66,7 @@
                         <view> {{msgcontent.title}}</view>
                         <view> 规格:{{gooditems.name}}</view>
                         <view>￥{{gooditems.money}}</view>
-                        <view class="selectNum">
-                            <view bindtap="numChange" data-index='0'>-</view>
-                            <input type="number" value='{{goodsNum}}'/>
-                            <view bindtap="numChange" data-index='1'>+</view>
-                        </view>
+                
                     </view>
                 </view>
             </view>

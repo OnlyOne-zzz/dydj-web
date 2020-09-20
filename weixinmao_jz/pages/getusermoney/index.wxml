@@ -7,7 +7,7 @@
         <view>￥{{moneyinfo.totalmoney}}</view>
     </view>
     <view class="getmoney">
-        <button bindtap="toMymoney">全部提现</button>
+        <button bindtap="toMymoney">申请提现</button>
         <button bindtap="toMymoneyrecord">查看流水</button>
     </view>
 </view>

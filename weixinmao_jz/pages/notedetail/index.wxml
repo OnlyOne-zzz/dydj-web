@@ -95,11 +95,6 @@
         {{data.induce}}
         </view>
         </view>
-        <view class="clist">
-            <view class="ctitle">商家地址</view>
-            <view class="dcontent">
-        {{data.address}}
-        </view>
-        </view>
+      
     </view>
 </view>
