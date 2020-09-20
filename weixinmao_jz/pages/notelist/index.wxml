@@ -90,7 +90,7 @@
             </view>
             <view class="price" style="color:#3c9bdf">
                 <view>
-                                       推荐服务项目:{{item.catename}}
+                                       推荐服务项目:{{item.cateName}}
                                         </view>
                 <view></view>
             </view>

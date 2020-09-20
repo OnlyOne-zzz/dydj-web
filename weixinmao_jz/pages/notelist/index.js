@@ -398,7 +398,6 @@ Page({
             from: '', //若起点有数据则采用起点坐标，若为空默认当前地址
             to:  distanceTO, //终点坐标
             success: function(res) {//成功后的回调
-              console.log(res);
               var res = res.result;
               for (var i = 0; i < res.elements.length; i++) {
                var dis = res.elements[i].distance;
@@ -445,7 +444,7 @@ Page({
             //单位转换
             for (var i = 0; i < inService.length; i++) {
                 var dit = inService[i].distance;
-                if(dis < 1000){
+                if(dit < 1000){
                     inService[i].distance = inService[i].distance + "米";
                 }else{
                     var num = inService[i].distance / 1000;
@@ -454,7 +453,7 @@ Page({
             }
             for (var i = 0; i < serviceable.length; i++) {
                 var dit = serviceable[i].distance;
-                if(dis < 1000){
+                if(dit < 1000){
                     serviceable[i].distance = serviceable[i].distance + "米";
                 }else{
                     var num = serviceable[i].distance / 1000;
