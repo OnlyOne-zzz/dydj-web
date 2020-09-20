@@ -216,7 +216,8 @@ Page({
                 tel:e.tel,
                 daddress:e.daddress,
                 couponid:couponid,
-                type:r
+                type:r,
+                trafficReckonMile:t.data.distance
             };
             console.log(res)
             0 < t.data.gooditems.money ? wx.showModal({
@@ -450,6 +451,9 @@ getnote:function(noteId){
             latitude:addressInfoStorage.lat,
             longitude:addressInfoStorage.lng
         }
+        console.log("地址111")
+        console.log(param)
+        console.log(addreLat)
         distanceHandle.calculation(addreLat,param, function (dis) {
             let subDistance = dis[0];
             let result = subDistance/1000;

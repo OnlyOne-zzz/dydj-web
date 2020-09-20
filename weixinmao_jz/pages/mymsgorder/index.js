@@ -8,7 +8,7 @@ Page({
     onLoad: function(e) {
         var t = this;
         if (wx.setNavigationBarTitle({
-            title: "我的预约"
+            title: "我的订单"
         }), 0 < t.data.id) t.data.id; else {
             e.id;
             t.data.id = e.id;
