@@ -88,12 +88,11 @@
                 <image mode='heightFix' src="../../resource/images/fy.png"></image> 
                 <view class="listcontent">
                     <text>预估出行车费</text>
-                    <block wx:if="{{addressinfo!=null}}" >
+                    <block wx:if="{{fare!=undefind}}" >
                         <text class="listTime">￥{{fare}}</text>
                     </block>
                     <block wx:else>
-                        <text class="listTime">请先选择地址</text>
-                        <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
+                        <text class="listTime" style="padding-right: 30px">￥0</text>
                     </block>
                 </view>
             </view>
