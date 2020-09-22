@@ -41,7 +41,7 @@
             </view> -->
             <view>
                 <image mode='heightFix' src="../../resource/images/fw.png"></image> 
-                <view bindtap="selectwaiter" wx:if="{{noteObj!=null}}" class="listcontent listcontents" style='display: block;'>
+                <view bindtap="selectwaiter" wx:if="{{noteObj.shopname!=undefind}}" class="listcontent listcontents" style='display: block;'>
                     <text>服务人员</text>
                         <view class='touxiang'>
                             <image src="{{noteObj.avatarUrl}}"></image>
@@ -49,10 +49,10 @@
                         <text class="listTime" >{{noteObj.shopname}} </text>
                      <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
-                <view wx:else class="listcontent listcontents"  style='display: block;'>
+                <view wx:else class="listcontent"  style='display: block;folat:right'>
                     <text>服务人员</text>
-                     <text class="listTime" >请选择技师</text>
-                    <image  class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
+                     <text class="listTime" style='padding-right: 10px;'>去选择服务人员</text>
+                    <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
             </view>
         </view>
@@ -67,9 +67,9 @@
                         <view> 规格:{{gooditems.name}}</view>
                         <view>￥{{gooditems.money}}</view>
                         <view class="selectNum">
-                            <view style="background:#D6D6D6;" data-index='0'>-</view>
-                            <input disabled="disabled" value='{{goodsNum}}'/>
-                            <view style="background:#D6D6D6;" data-index='1'>+</view>
+                            <!-- <view style="background:#D6D6D6;" data-index='0'>-</view> -->
+                            <!-- <input disabled="disabled" value='{{goodsNum}}'/> -->
+                            <!-- <view style="background:#D6D6D6;" data-index='1'>+</view> -->
                         </view>
                     </view>
                 </view>
@@ -102,7 +102,7 @@
                 <view class="listcontent" data-goodsid='{{gooditems.id}}' data-couponid="{{selectcoupon.id}}" bindtap="toSelectCouponList">
                     <text>优惠券</text>
                     <text class="listTime" style='padding-right: 30px' wx:if='{{couponmoney>0}}'>-￥{{couponmoney}}</text>
-                    <text class="listTime" style='padding-right: 30px' wx:else>请选择优惠券</text>
+                    <text class="listTime" style='padding-right: 30px;' wx:else>去选择优惠券</text>
                     <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
             </view>

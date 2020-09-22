@@ -426,10 +426,13 @@ getnote:function(noteId){
                     id: noteId
                 },
                 success:function(obj){
+                    console.log(obj)
                     if(!obj.data.message.errno){
                         let noteObj = obj.data.data.workerdetail;
                         let lat = noteObj.lat;
                         let lng = noteObj.lng;
+                        console.log("%%%%%")
+                        console.log(noteObj)
                         // if(!addressInfoStorage){
                             noteCallback.getDistance(lat,lng);
                         // }

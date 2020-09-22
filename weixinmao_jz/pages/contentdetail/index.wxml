@@ -45,7 +45,7 @@
             <view class="sub ml10">
                 <view class="lineText">{{data.title}}</view>
                 <view class="red f18">
-                价格 ￥{{money}}
+                价格 ￥{{money}}/{{data.time}}
           </view>
             </view>
         </view>

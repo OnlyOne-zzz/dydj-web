@@ -86,11 +86,10 @@
         <view class="clist">
             <!-- <view class="ctitle">介绍</view> -->
             <view class="dcontent">
-
-            {{item.nick_name}}
+            {{item.nick_name}}：
             {{item.createtime}}
             {{item.content}}
-            {{item.score}}
+            <!-- {{item.score}} -->
         </view>
         </view>
     </view>
