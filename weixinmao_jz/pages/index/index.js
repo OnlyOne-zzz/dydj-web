@@ -186,6 +186,9 @@ Page({
             }));
         }, a.detail);
     },
+    close:function(a){
+            console.log("关闭弹框")
+    },
     toList: function(a) {
         var t = a.currentTarget.dataset.id;
         console.log(t)
