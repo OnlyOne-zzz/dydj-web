@@ -34,7 +34,7 @@ Page({
 
         var i = this;
         wx.setNavigationBarTitle({
-            title: "预约技师-" + wx.getStorageSync("companyinfo").name
+            title: "技师列表" 
         }), wx.setNavigationBarColor({
             frontColor: "#ffffff",
             backgroundColor: "#3C9BDF",

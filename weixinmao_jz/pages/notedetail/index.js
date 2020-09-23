@@ -33,7 +33,7 @@ Page(_defineProperty({
     },
     onLoad: function(a) {
         wx.setNavigationBarTitle({
-            title: wx.getStorageSync("companyinfo").name
+            title: "技师详情"
         }),wx.setNavigationBarColor({
             frontColor: "#ffffff",
             backgroundColor: "#3C9BDF",
@@ -64,9 +64,7 @@ Page(_defineProperty({
                 console.log(a)
                 if(!a.data.message.errno){
                     i.data.title = a.data.data.workerdetail.name,
-                    wx.setNavigationBarTitle({
-                       title: i.data.title + "-" + wx.getStorageSync("companyinfo").name
-                   }), i.setData({
+                    i.setData({
                        data: a.data.data.workerdetail,
                        showcontact: e,
                        typelist: a.data.data.typelist,
