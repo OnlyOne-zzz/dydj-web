@@ -1,0 +1,20 @@
+<view class="container">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
+            <swiper-item wx:for="{{banners}}">
+                <image bindtap="tapBanner" class="slide-image" data-id="{{item.id}}" height="562.5rpx" src="{{item.thumb}}" width="750rpx"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="unique"></view>
+        </view>
+    </view>
+  
+<button  class="input-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">请输入电话号码</button>
+<button bindtap="goregister" class="save-btn" >登录</button>
+</view>
+<view class="u-tap-btn">
+    <button class="u-go-home2" openType="contact">
+        <view class="iconfont fa fa-comments-o"></view>
+    </button>
+</view>
