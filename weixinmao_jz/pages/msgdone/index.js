@@ -59,23 +59,23 @@ Page({
         t.setData({
             isshow: !0
         }), t.oldhouseinit();
-        var u = wx.getStorageSync("userInfo");
-        var addressInfoStorage = wx.getStorageSync("addressinfo");
-        if(!addressInfoStorage){
-            app.util.request({
-                url: "entry/wxapp/myaddresslist",
-                data: {
-                    sessionid: u.sessionid,
-                    uid: u.memberInfo.uid
-                },
-                success: function(a) {
-                    var list = a.data.data.list;
-                    if (!a.data.message.errno && list.length>0) {
-                        wx.setStorageSync("addressinfo",list);
-                    }
-                }
-            });
-        }
+        // var u = wx.getStorageSync("userInfo");
+        // var addressInfoStorage = wx.getStorageSync("addressinfo");
+        // if(!addressInfoStorage){
+        //     app.util.request({
+        //         url: "entry/wxapp/myaddresslist",
+        //         data: {
+        //             sessionid: u.sessionid,
+        //             uid: u.memberInfo.uid
+        //         },
+        //         success: function(a) {
+        //             var list = a.data.data.list;
+        //             if (!a.data.message.errno && list.length>0) {
+        //                 wx.setStorageSync("addressinfo",list);
+        //             }
+        //         }
+        //     });
+        // }
         if(this.data.noteId!=0 && this.data.noteId!=undefined){
             this.getnote(this.data.noteId)
         }
@@ -168,6 +168,11 @@ Page({
     pay: function(a) {
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
         let content = ''
+        if(t.data.u ==undefined || t.data.u ==null || t.data.u =='' ){
+            wx.switchTab({
+                url: " weixinmao_jz/pages/login-customer/index" 
+            });
+        }
         if(!e){
             content = '请先增加地址'
             wx.showModal({
@@ -384,6 +389,23 @@ Page({
     },
     onShow: function() {
         var _this = this
+        var u = wx.getStorageSync("userInfo");
+        var addressInfoStorage = wx.getStorageSync("addressinfo");
+        if(!addressInfoStorage){
+            app.util.request({
+                url: "entry/wxapp/myaddresslist",
+                data: {
+                    sessionid: u.sessionid,
+                    uid: u.memberInfo.uid
+                },
+                success: function(a) {
+                    var list = a.data.data.list;
+                    if (!a.data.message.errno && list.length>0) {
+                        wx.setStorageSync("addressinfo",list);
+                    }
+                }
+            });
+        }
         this.data.addressinfo = wx.getStorageSync("addressinfo") 
         this.setData({
             addressinfo: wx.getStorageSync("addressinfo")

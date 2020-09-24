@@ -14,9 +14,18 @@ Page({
             t.data.id = e.id;
         }
     },
-    onShow: function(e) { wx.getStorageSync("userInfo").sessionid ? this.InitPage() : app.util.getUserInfo(function() {
-        this.InitPage();
-    });},
+    onShow: function(e) {
+        var u = wx.getStorageSync("userInfo");
+        if(u ==undefined || u ==null || u =='' ){
+            wx.switchTab({
+                url: " weixinmao_jz/pages/login-customer/index" 
+            });
+        }
+        u.sessionid ? this.InitPage() : app.util.getUserInfo(function() {
+            this.InitPage();
+        });
+      
+},
     InitPage: function() {
         var t = this, e = wx.getStorageSync("userInfo"), a = t.data.ordertype;
         app.util.request({

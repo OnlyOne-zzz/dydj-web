@@ -132,7 +132,15 @@
 					"id": -1,
 					"name": "msgdone",
 					"pathName": "weixinmao_jz/pages/msgdone/index",
+					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/user/index",
+					"pathName": "weixinmao_jz/pages/user/index",
+					"query": "",
+					"scene": 1000
 				}
 			]
 		}

@@ -10,7 +10,8 @@ Page({
         var o = this;
         wx.setNavigationBarTitle({
             title: "会员中心"
-        }), app.util.request({
+        }), 
+        app.util.request({
             url: "entry/wxapp/Intro",
             success: function(e) {
                 if (!e.data.message.errno) {
@@ -27,9 +28,9 @@ Page({
                         var a = wx.getStorageSync("userInfo");
                         console.log(a), a ? o.dealuserinfo() : (o.data.isuser = !0, console.log("mmmmmmm"));
                     } else o.dealuserinfo();
-                    o.setData({
-                        isuser: o.data.isuser
-                    }), console.log(o.data.isuser), o.data.tel = e.data.data.intro.tel, o.setData({
+                    console.log("接口响应")
+                     console.log(o.data.isuser), 
+                     o.data.tel = e.data.data.intro.tel, o.setData({
                         intro: e.data.data.intro,
                         isshow: !1
                     });
@@ -40,6 +41,11 @@ Page({
             }
         });
         var a = wx.getStorageSync("userInfo");
+        if(a ==undefined || a ==null || a =='' ){
+            o.setData({
+                isuser: false
+            })
+        }
         if (console.log(a), a && a.hasOwnProperty("wxInfo")) {
             var t = a.memberInfo.uid;
             app.util.request({
