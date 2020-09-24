@@ -31,6 +31,49 @@ Page((_defineProperty(_Page = {
             }
         });
     },
+
+    getPhoneNumber2(detail, code){
+        app.util.request({
+            url: "接口地址",
+            data: {
+                code: code,
+                iv: detail.iv,
+                encryptedData: detail.encryptedData
+            },
+            cachetime: 0,
+            showLoading: !1,
+            success: function(res) {
+                //获取电话号码明文
+                //返现到按钮中
+            }
+        });
+    },
+    getUserInfo(detail, code){
+      //获取本JS全局电话号码
+      if(1){  //判断全局电话号码不存在
+        wx.showModal({
+            title: "提示",
+            content: "手机号码不能为空",
+            showCancel: !1
+        });
+      }else{
+        app.util.request({
+            url: "接口地址",
+            data: {
+                code: code,
+                iv: detail.iv,
+                encryptedData: detail.encryptedData,
+                phoneNumber:""
+            },
+            cachetime: 0,
+            showLoading: !1,
+            success: function(res) {
+                //获取用户个人信息
+                //保存到全局缓存中
+            }
+        });
+      }
+    },
     getPhoneNumber (e) {
         console.log(e)
         console.log(e.detail.errMsg)
@@ -39,6 +82,18 @@ Page((_defineProperty(_Page = {
         wx.login({
             success (res) {
               if (res.code) {
+                app.util.request({
+                    url: "auth/session/openid",
+                    data: {
+                        code: e || ""
+                    },
+                    cachetime: 0,
+                    showLoading: !1,
+                    success: function(e) {
+                        console.log(e);
+
+                    }
+                });
                 //发起网络请求
                 console.log(res);
               } else {
