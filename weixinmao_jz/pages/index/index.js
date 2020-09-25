@@ -14,6 +14,10 @@ Page({
     onShow: function() {
         var a = wx.getStorageSync("cityinfo");
         a && (wx.setStorageSync("city", a.name), this.initpage());
+        var o = wx.getStorageSync("userInfo");
+        console.log(o), o && o.hasOwnProperty("wxInfo") && (n.data.isuser = !0, n.setData({
+            isuser: n.data.isuser
+        }));
     },
     onLoad: function(a) {
         var n = this;
@@ -21,10 +25,6 @@ Page({
             var t = decodeURIComponent(a.scene).split("="), e = parseInt(t[1]);
             wx.setStorageSync("tid", e);
         }
-        var o = wx.getStorageSync("userInfo");
-        console.log(o), o && o.hasOwnProperty("wxInfo") && (n.data.isuser = !0, n.setData({
-            isuser: n.data.isuser
-        }));
         var i = wx.getStorageSync("cityinfo");
         i ? (wx.setStorageSync("city", i.name), n.initpage()) : (qqmapsdk = new QQMapWX({
             key: config.Config.key
@@ -208,9 +208,16 @@ Page({
         });
     },
     toMyorder: function() {
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/mycoupon/index"
-        });
+        if(o ==undefined || o ==null || o =='' ){
+            wx.switchTab({
+                url: " weixinmao_jz/pages/login-customer/index" 
+            });
+        }else{
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/mycoupon/index"
+            });
+        }
+       
     },
     tabClick: function(a) {
         var t = this, e = a.currentTarget.id;

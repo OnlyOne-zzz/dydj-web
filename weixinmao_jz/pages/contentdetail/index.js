@@ -94,9 +94,16 @@ Page(_defineProperty({
     },
     toMsgdone: function() {
         var t = this.data.currentid, a = this.data.shopid , n = this.data.noteId;
-        console.log(a), wx.navigateTo({
-            url: "/weixinmao_jz/pages/msgdone/index?currentid=" + t + "&shopid=" + a +"&noteId=" +n
-        });
+        let u = wx.getStorageSync("userInfo");
+        if(u ==undefined || u ==null || u =='' ){
+            wx.switchTab({
+                url: " weixinmao_jz/pages/login-customer/index" 
+            });
+        }else{
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/msgdone/index?currentid=" + t + "&shopid=" + a +"&noteId=" +n
+            });
+        }
     },
     goMap: function(t) {
         var a = this;

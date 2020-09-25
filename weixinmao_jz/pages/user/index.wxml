@@ -1,17 +1,17 @@
 <view class="container">
     <view class="header" style=" background:linear-gradient(to right,{{intro.maincolor}},#6bbffb);">
-        <view hidden="{{!isuser}}">
+        <view hidden="{{isuser}}">
             <view class="pic">
                 <image src="../../resource/images/male1.png"></image>
                 <view class="userinfo">
-                    <view>{{userinfo.wxInfo.nickName}}</view>
+                    <view>开启上门之旅</view>
                     <view>
-                        <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;">点击登录</button>
+                        <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;">登录/注册></button>
                     </view>
                 </view>
             </view>
         </view>
-        <view hidden="{{isuser}}" style="width: 100%; height: 100%;">
+        <view hidden="{{!isuser}}" style="width: 100%; height: 100%;">
             <view class="pic">
                 <image src="{{userinfo.wxInfo.avatarUrl}}"></image>
                 <view class="userinfo">
