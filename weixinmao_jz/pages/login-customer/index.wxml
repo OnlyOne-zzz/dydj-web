@@ -10,8 +10,8 @@
         </view>
     </view>
   
-<button  class="input-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">请输入电话号码</button>
-<button bindtap="goregister" class="save-btn" >登录</button>
+<button class="input-btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{phoneBtnContext}}</button>
+<button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">登录</button>
 </view>
 <view class="u-tap-btn">
     <button class="u-go-home2" openType="contact">
