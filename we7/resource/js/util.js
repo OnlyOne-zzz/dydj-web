@@ -139,6 +139,8 @@ util.base64Encode = function(e) {
         cachetime: 0,
         showLoading: !1,
         success: function(e) {
+            console.log("用户信息")
+            console.log(e)
             e.data.errno || (n.sessionid = e.data.data.sessionid, n.memberInfo = e.data.data.userinfo, 
             wx.setStorageSync("userInfo", n)), "function" == typeof t && t(n);
         }

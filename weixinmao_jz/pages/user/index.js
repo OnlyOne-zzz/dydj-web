@@ -7,30 +7,30 @@ Page({
         tel: ""
     },
     onLoad: function(e) {
-        var o = this;
+        var _this = this;
         wx.setNavigationBarTitle({
             title: "会员中心"
         }), 
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        }),
         app.util.request({
             url: "entry/wxapp/Intro",
             success: function(e) {
                 if (!e.data.message.errno) {
-                    if (wx.setStorageSync("companyinfo", e.data.data.intro), wx.setNavigationBarTitle({
-                        title: wx.getStorageSync("companyinfo").name
-                    }), e.data.data.intro.maincolor || (e.data.data.intro.maincolor = "#09ba07"), wx.setNavigationBarColor({
-                        frontColor: "#ffffff",
-                        backgroundColor: e.data.data.intro.maincolor,
-                        animation: {
-                            duration: 400,
-                            timingFunc: "easeIn"
-                        }
-                    }), 0 == e.data.data.intro.isright) {
+                    if (wx.setStorageSync("companyinfo", e.data.data.intro), e.data.data.intro.maincolor || (e.data.data.intro.maincolor = "#09ba07"),  0 == e.data.data.intro.isright) {
                         var a = wx.getStorageSync("userInfo");
-                        console.log(a), a ? o.dealuserinfo() : (o.data.isuser = !0, console.log("mmmmmmm"));
-                    } else o.dealuserinfo();
+                        console.log(a), a ? _this.dealuserinfo() : (_this.data.isuser = !0, console.log("mmmmmmm"));
+                    } else _this.dealuserinfo();
                     console.log("接口响应")
-                     console.log(o.data.isuser), 
-                     o.data.tel = e.data.data.intro.tel, o.setData({
+                     console.log(_this.data.isuser), 
+                     _this.data.tel = e.data.data.intro.tel, 
+                     _this.setData({
                         intro: e.data.data.intro,
                         isshow: !1
                     });
@@ -41,12 +41,8 @@ Page({
             }
         });
         var a = wx.getStorageSync("userInfo");
-        if(a ==undefined || a ==null || a =='' ){
-            o.setData({
-                isuser: false
-            })
-        }
-        if (console.log(a), a && a.hasOwnProperty("wxInfo")) {
+        console.log(a)
+        if (a!=undefined && a!=null && a!='') {
             var t = a.memberInfo.uid;
             app.util.request({
                 url: "entry/wxapp/sysInitUserinfo",
@@ -54,9 +50,8 @@ Page({
                     uid: t
                 },
                 success: function(e) {
-                    console.log("优惠券")
-                    console.log(e)
-                    e.data.message.errno || o.setData({
+                    e.data.message.errno ||
+                    _this.setData({
                         moneyrecordinfo: e.data.data.moneyrecordinfo,
                         couponCount:e.data.data.coupon_count
                     });
@@ -220,7 +215,14 @@ Page({
             url: "/weixinmao_jz/pages/myhouse/index"
         });
     },
-    onShow: function() {},
+    onShow: function() {
+        var userInfo = wx.getStorageSync("userInfo");
+        if(userInfo ==undefined || userInfo ==null || userInfo =='' ){
+            this.setData({
+                isuser: false
+            })
+        }
+    },
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {
