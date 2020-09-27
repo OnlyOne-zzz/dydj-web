@@ -23,12 +23,12 @@ Page({
             url: "entry/wxapp/Intro",
             success: function(e) {
                 if (!e.data.message.errno) {
-                    if (wx.setStorageSync("companyinfo", e.data.data.intro), e.data.data.intro.maincolor || (e.data.data.intro.maincolor = "#09ba07"),  0 == e.data.data.intro.isright) {
-                        var a = wx.getStorageSync("userInfo");
-                        console.log(a), a ? _this.dealuserinfo() : (_this.data.isuser = !0, console.log("mmmmmmm"));
-                    } else _this.dealuserinfo();
-                    console.log("接口响应")
-                     console.log(_this.data.isuser), 
+                    // if (wx.setStorageSync("companyinfo", e.data.data.intro), e.data.data.intro.maincolor || (e.data.data.intro.maincolor = "#09ba07"),  0 == e.data.data.intro.isright) {
+                    //     var a = wx.getStorageSync("userInfo");
+                    //     console.log(a), a ? _this.dealuserinfo() : (_this.data.isuser = !0, console.log("mmmmmmm"));
+                    // } else _this.dealuserinfo();
+                    // console.log("接口响应")
+                    //  console.log(_this.data.isuser), 
                      _this.data.tel = e.data.data.intro.tel, 
                      _this.setData({
                         intro: e.data.data.intro,
@@ -40,25 +40,6 @@ Page({
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
             }
         });
-        var a = wx.getStorageSync("userInfo");
-        console.log(a)
-        if (a!=undefined && a!=null && a!='') {
-            var t = a.memberInfo.uid;
-            app.util.request({
-                url: "entry/wxapp/sysInitUserinfo",
-                data: {
-                    uid: t
-                },
-                success: function(e) {
-                    e.data.message.errno ||
-                    _this.setData({
-                        moneyrecordinfo: e.data.data.moneyrecordinfo,
-                        couponCount:e.data.data.coupon_count
-                    });
-                }
-            });
-        }
-        wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
     },
     toAgent: function() {
         var e = wx.getStorageSync("userInfo").memberInfo.uid;
@@ -173,7 +154,7 @@ Page({
     //     });
     // },
     toMyOrder: function() {
-        wx.switchTab({
+        wx.navigateTo({
             url: "/weixinmao_jz/pages/myorderlist/index"
         });
     },
@@ -216,11 +197,32 @@ Page({
         });
     },
     onShow: function() {
+        var _this=this;
         var userInfo = wx.getStorageSync("userInfo");
         if(userInfo ==undefined || userInfo ==null || userInfo =='' ){
-            this.setData({
+            _this.setData({
                 isuser: false
             })
+        }else{
+            var t = userInfo.memberInfo.uid;
+            app.util.request({
+                url: "entry/wxapp/sysInitUserinfo",
+                data: {
+                    uid: t
+                },
+                success: function(e) {
+                    e.data.message.errno ||
+                    _this.setData({
+                        moneyrecordinfo: e.data.data.moneyrecordinfo,
+                        couponCount:e.data.data.coupon_count
+                    });
+                }
+            });
+            this.dealuserinfo();
+            _this.setData({
+                isuser: true
+            })
+        wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
         }
     },
     onHide: function() {},

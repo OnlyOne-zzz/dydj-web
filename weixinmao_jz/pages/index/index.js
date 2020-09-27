@@ -12,11 +12,12 @@ Page({
         tel: ""
     },
     onShow: function() {
+        var _this=this;
         var a = wx.getStorageSync("cityinfo");
-        a && (wx.setStorageSync("city", a.name), this.initpage());
+        a && (wx.setStorageSync("city", a.name), _this.initpage());
         var o = wx.getStorageSync("userInfo");
-        console.log(o), o && o.hasOwnProperty("wxInfo") && (n.data.isuser = !0, n.setData({
-            isuser: n.data.isuser
+        console.log(o), o && o.hasOwnProperty("wxInfo") && (_this.data.isuser = !0, _this.setData({
+            isuser: _this.data.isuser
         }));
     },
     onLoad: function(a) {

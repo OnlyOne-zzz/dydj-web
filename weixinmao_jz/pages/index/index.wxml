@@ -127,7 +127,7 @@
         </view>
     </view>
 </scroll-view>
-<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+<!-- <view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
     <view class="weixinmao-content-userinfo">
         <view class="userinfo-title">
           需要您的授权
@@ -143,7 +143,7 @@
             <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">允许</button>
         </view>
     </view>
-</view>
+</view> -->
 <view class="u-tap-btn">
     <!-- <button bindtap="doCall" class="u-go-home2" style="background:red;">
         <view class="iconfont fa fa-phone"></view>
