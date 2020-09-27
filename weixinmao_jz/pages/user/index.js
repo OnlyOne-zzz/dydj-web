@@ -100,6 +100,11 @@ Page({
             url: "/weixinmao_jz/pages/getusermoney/index"
         });
     },
+    toLogin:function(){
+        wx.navigateTo({
+            url: " weixinmao_jz/pages/login-customer/index" 
+        });
+    },
     dealuserinfo: function() {
         var a = this, o = wx.getStorageSync("userInfo");
         if (console.log(o), o) if (o.hasOwnProperty("wxInfo")) {
