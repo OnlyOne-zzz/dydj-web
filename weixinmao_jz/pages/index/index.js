@@ -209,7 +209,8 @@ Page({
         });
     },
     toMyorder: function() {
-        if(o ==undefined || o ==null || o =='' ){
+        var userInfo = this.data.o;
+        if(userInfo ==undefined || userInfo ==null || userInfo =='' ){
             wx.navigateTo({
                 url: "/weixinmao_jz/pages/login-customer/index" 
             });
