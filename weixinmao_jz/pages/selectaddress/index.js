@@ -6,7 +6,17 @@ Page({
         active: false
     },
     onLoad: function(a) {
-        
+        wx.setNavigationBarTitle({
+            title: "地址管理"
+        }), 
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        })
     },
     onReady: function() {},
     setmoren: function(e){
@@ -95,14 +105,7 @@ Page({
             },
             success: function(a) {
                 if (!a.data.message.errno) {
-                    a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), wx.setNavigationBarColor({
-                        frontColor: "#ffffff",
-                        backgroundColor: a.data.data.intro.maincolor,
-                        animation: {
-                            duration: 400,
-                            timingFunc: "easeIn"
-                        }
-                    });
+                    // a.data.data.intro.maincolor 
                     for (var t = a.data.data.list, n = i.data.addresslist, o = 0; o < t.length; o++) n[t[o].id] = t[o];
                     i.data.addresslist = n, console.log(i.data.addresslist),
                     i.setData({

@@ -72,6 +72,7 @@ Page({
         });
     },
     toGetusermoney: function() {
+        this.checkuserToJump();
         wx.navigateTo({
             url: "/weixinmao_jz/pages/getusermoney/index"
         });
@@ -131,17 +132,20 @@ Page({
     },
     onReady: function() {},
     toOrderlist: function(e) {
+        this.checkuserToJump();
         var a = e.currentTarget.dataset.id;
         console.log(a), wx.navigateTo({
             url: "/weixinmao_wy/pages/orderlist/index?id=" + a
         });
     },
     toMycoupon: function() {
+        this.checkuserToJump();
         wx.navigateTo({
             url: "/weixinmao_jz/pages/mycoupon/index"
         });
     },
     toDomoney: function() {
+        this.checkuserToJump();
         wx.navigateTo({
             url: "/weixinmao_jz/pages/domoney/index"
         });
@@ -154,6 +158,7 @@ Page({
     //     });
     // },
     toMyOrder: function() {
+        this.checkuserToJump();
         wx.navigateTo({
             url: "/weixinmao_jz/pages/myorderlist/index"
         });
@@ -164,7 +169,8 @@ Page({
             phoneNumber: e
         });
     },
-    doaddress: function(){
+    toaddress: function(){
+        this.checkuserToJump();
         wx.navigateTo({
             url: "/weixinmao_jz/pages/selectaddress/index"
         });
@@ -192,6 +198,7 @@ Page({
         });
     },
     toMyHouse: function(e) {
+        this.checkuserToJump();
         wx.navigateTo({
             url: "/weixinmao_jz/pages/myhouse/index"
         });
@@ -301,6 +308,14 @@ Page({
         });
     },
     onShareAppMessage: function() {},
+    checkuserToJump:function(){
+         let u = this.data.userInfo;
+        if(u ==undefined || u ==null || u =='' ){
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/login-customer/index" 
+            });
+        }
+    },
     checkuser: function(a) {
         var o = this, e = (a = a, wx.getStorageSync("userInfo"));
         return e ? e.memberInfo.uid ? void app.util.request({
