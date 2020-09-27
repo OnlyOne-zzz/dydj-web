@@ -209,8 +209,8 @@ Page({
     },
     toMyorder: function() {
         if(o ==undefined || o ==null || o =='' ){
-            wx.switchTab({
-                url: " weixinmao_jz/pages/login-customer/index" 
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/login-customer/index" 
             });
         }else{
             wx.navigateTo({

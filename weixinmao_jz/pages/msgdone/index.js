@@ -169,8 +169,8 @@ Page({
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
         let content = ''
         if(t.data.u ==undefined || t.data.u ==null || t.data.u =='' ){
-            wx.switchTab({
-                url: " weixinmao_jz/pages/login-customer/index" 
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/login-customer/index" 
             });
         }
         if(!e){

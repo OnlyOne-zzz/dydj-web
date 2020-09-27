@@ -141,6 +141,12 @@
 					"pathName": "weixinmao_jz/pages/user/index",
 					"query": "",
 					"scene": 1000
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/mymsgorder/index",
+					"pathName": "weixinmao_jz/pages/mymsgorder/index",
+					"scene": 1000
 				}
 			]
 		}

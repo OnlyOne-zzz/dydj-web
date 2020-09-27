@@ -96,8 +96,8 @@ Page(_defineProperty({
         var t = this.data.currentid, a = this.data.shopid , n = this.data.noteId;
         let u = wx.getStorageSync("userInfo");
         if(u ==undefined || u ==null || u =='' ){
-            wx.switchTab({
-                url: " weixinmao_jz/pages/login-customer/index" 
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/login-customer/index" 
             });
         }else{
             wx.navigateTo({

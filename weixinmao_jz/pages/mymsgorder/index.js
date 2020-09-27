@@ -9,7 +9,16 @@ Page({
         var t = this;
         if (wx.setNavigationBarTitle({
             title: "我的订单"
-        }), 0 < t.data.id) t.data.id; else {
+        }),
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        }), 
+        0 < t.data.id) t.data.id; else {
             e.id;
             t.data.id = e.id;
         }
@@ -17,14 +26,15 @@ Page({
     onShow: function(e) {
         var u = wx.getStorageSync("userInfo");
         if(u ==undefined || u ==null || u =='' ){
-            wx.switchTab({
-                url: " weixinmao_jz/pages/login-customer/index" 
+            wx.navigateTo({
+                // url: "/weixinmao_jz/pages/myusermsgmoney/index?id=" + t
+                url:"/weixinmao_jz/pages/login-customer/index"
+            });
+        }else{
+            u.sessionid ? this.InitPage() : app.util.getUserInfo(function() {
+                this.InitPage();
             });
         }
-        u.sessionid ? this.InitPage() : app.util.getUserInfo(function() {
-            this.InitPage();
-        });
-      
 },
     InitPage: function() {
         var t = this, e = wx.getStorageSync("userInfo"), a = t.data.ordertype;
@@ -37,20 +47,13 @@ Page({
             },
             success: function(e) {
                 console.log(e)
-                e.data.message.errno || (e.data.data.intro.maincolor || (e.data.data.intro.maincolor = "#09ba07"), 
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: e.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), t.setData({
+                // e.data.message.errno || 
+                t.setData({
                     list: e.data.data.list,
                     ordertype: a,
                     intro: e.data.data.intro,
                     isshow: !1
-                }));
+                });
             }
         });
     },

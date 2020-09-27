@@ -97,7 +97,7 @@ Page({
     },
     toLogin:function(){
         wx.navigateTo({
-            url: " weixinmao_jz/pages/login-customer/index" 
+            url: "/weixinmao_jz/pages/login-customer/index" 
         });
     },
     dealuserinfo: function() {
@@ -165,13 +165,13 @@ Page({
             url: "/weixinmao_jz/pages/domoney/index"
         });
     },
-    toLogin: function() {
-        0 < wx.getStorageSync("companyid") ? wx.navigateTo({
-            url: "/weixinmao_jz/pages/companylogin/index"
-        }) : wx.navigateTo({
-            url: "/weixinmao_jz/pages/login/index"
-        });
-    },
+    // toLogin: function() {
+    //     0 < wx.getStorageSync("companyid") ? wx.navigateTo({
+    //         url: "/weixinmao_jz/pages/companylogin/index"
+    //     }) : wx.navigateTo({
+    //         url: "/weixinmao_jz/pages/login/index"
+    //     });
+    // },
     toMyOrder: function() {
         wx.switchTab({
             url: "/weixinmao_jz/pages/myorderlist/index"
