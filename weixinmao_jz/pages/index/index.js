@@ -117,11 +117,11 @@ Page({
             url: "/weixinmao_jz/pages/user/index"
         });
     },
-    toMycoupon: function() {
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/mycoupon/index"
-        });
-    },
+    // toMycoupon: function() {
+    //     wx.navigateTo({
+    //         url: "/weixinmao_jz/pages/mycoupon/index"
+    //     });
+    // },
     toInnerUrl: function(a) {
         var t = a.currentTarget.dataset.url;
         wx.navigateTo({
@@ -208,8 +208,8 @@ Page({
             url: "/weixinmao_jz/pages/notelist/index"
         });
     },
-    toMyorder: function() {
-        var userInfo = this.data.o;
+    toMycoupon: function() {
+        let userInfo = wx.getStorageSync("userInfo");
         if(userInfo ==undefined || userInfo ==null || userInfo =='' ){
             wx.navigateTo({
                 url: "/weixinmao_jz/pages/login-customer/index" 

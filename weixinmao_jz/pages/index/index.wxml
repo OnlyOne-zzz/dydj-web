@@ -50,7 +50,7 @@
                     <image src="../../resource/images/xmtj.png"></image>
                     <view>项目推荐</view>
                 </view>
-                <view bindtap="toMyorder" class="item">
+                <view bindtap="toMycoupon" class="item">
                     <image src="../../resource/images/kqzx.png"></image>
                     <view>领券中心</view>
                 </view>

@@ -309,7 +309,7 @@ Page({
     },
     onShareAppMessage: function() {},
     checkuserToJump:function(){
-         let u = this.data.userInfo;
+        let u = wx.getStorageSync("userInfo");
         if(u ==undefined || u ==null || u =='' ){
             wx.navigateTo({
                 url: "/weixinmao_jz/pages/login-customer/index" 
