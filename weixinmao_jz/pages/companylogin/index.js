@@ -153,7 +153,11 @@ Page({
         });
     },
     onHide: function() {},
-    onUnload: function() {},
+    onUnload: function() {
+        wx.reLaunch({
+            url: 'weixinmao_jz/pages/index/index'
+        })
+    },
     onPullDownRefresh: function() {},
     binduserinfo: function(o) {
         var a = this;

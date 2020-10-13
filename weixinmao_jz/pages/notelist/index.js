@@ -28,7 +28,8 @@ Page({
         title: "",
         back: '',
         serviceStatus: 0,
-        orderColumn: ''
+        orderColumn: '',
+        bigWrap: 0
     },
     onLoad: function(t) {
 
@@ -183,6 +184,10 @@ Page({
     selectcarsitem: function(t) {
         var _this = this;
         var id= t.currentTarget.id;
+        this.setData({
+            bigWrap: id
+        })
+        console.log(this.data.bigWrap)
         var obj = {
             "serviceStatus": _this.data.serviceStatus
         };

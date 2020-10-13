@@ -154,6 +154,13 @@ Page({
             isuser: e.data.isuser
         }));
     },
+    closeUp: function(a){
+        console.log('000')
+        this.setData({
+            isuser: !0
+        })
+        console.log(this.data.isuser)
+    },
     toLogin: function(a) {
         0 < wx.getStorageSync("companyid") ? wx.navigateTo({
             url: "/weixinmao_jz/pages/companylogin/index"
@@ -181,7 +188,7 @@ Page({
                     a.data.message.errno || (o.data.isphone = a.data.data.isphone, o.setData({
                         userinfo: t,
                         isphone: o.data.isphone,
-                        isuser: o.data.isuser
+                        isuser: !0
                     }));
                 }
             }));

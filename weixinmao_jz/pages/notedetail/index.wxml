@@ -22,11 +22,8 @@
         </view>
         <view class="notescore">
             <view>
-                <text class="fa fa-star  fa-lg"></text>
-                <text class="fa fa-star  fa-lg"></text>
-                <text class="fa fa-star  fa-lg"></text>
-                <text class="fa fa-star  fa-lg"></text>
-                <text class="fa fa-star  fa-lg"></text>
+                <!-- 根据数字动态渲染星星 -->
+                <text wx:for='{{5}}' class="fa fa-star  fa-lg"></text>
             </view>
             <!-- <view>已服务0</view> -->
         </view>
@@ -84,13 +81,19 @@
     </view>
     <view class="company" hidden="{{ordertype==2?false:true}}" wx:for="{{comment}}">
         <view class="clist">
-            <!-- <view class="ctitle">介绍</view> -->
             <view class="dcontent">
-            {{item.nick_name}}：
-            {{item.createtime}}
-            {{item.content}}
-            <!-- {{item.score}} -->
+                {{item.nick_name}}：
+                {{item.createtime}}
+            </view>
+            <view class='dcontents'>{{item.content}}</view>
         </view>
+        <view class="clist">
+            <view class="dcontent">
+                {{item.nick_name}}：
+                {{item.createtime}}
+                {{item.score}}
+            </view>
+            <view class='dcontents'>{{item.content}}</view>
         </view>
     </view>
     <view class="company" hidden="{{ordertype==3?false:true}}">

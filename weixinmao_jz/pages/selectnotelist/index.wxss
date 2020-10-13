@@ -5,7 +5,14 @@ page {
     font-family: "微软雅黑","方正黑体";
     color: #333;
 }
-
+.default{
+    width: 100%;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 1rem;
+    color: #999;
+}
 .colorred {
     color: #e62129;
 }
