@@ -11,8 +11,6 @@ function _defineProperty(a, e, n) {
 
 var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = require("../../resource/js/images.js"), app = getApp();
 var userInfo = {
-  sessionid: "",
-  wxInfo: ""
 };
 
 Page({
@@ -89,15 +87,16 @@ Page({
             cachetime: 0,
             showLoading: !1,
             success: function(res) {
-              console.log(res);
-              res.data.errno || (userInfo.memberInfo = res.data.data,  wx.setStorageSync("userInfo", userInfo)), 
-               // var userInfo = res.data.data.userinfo;
-                //获取用户个人信息
-                //保存到全局缓存中
-               // wx.setStorageSync("userInfo", userInfo);
-               // console.log(res)
-                _this.userinfo(detail);
-            }
+              wx.getUserInfo({
+                success: function(e) {
+                  userInfo.wxInfo = e.userInfo;
+                  res.data.errno || (userInfo.memberInfo = res.data.data.userinfo, userInfo.sessionid = res.data.data.sessionid,  wx.setStorageSync("userInfo", userInfo)), 
+                  console.log(userInfo)
+                  _this.userinfo(detail);
+                },
+                fail: function(e) {},
+                complete: function(e) {}
+            })}
         });
       }
     },
