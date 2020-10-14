@@ -120,6 +120,9 @@ Page({
         showLoading: !1,
         success: function(res) {
            console.log(res);
+            wx.navigateBack({
+                delta: 1
+            })
         }
     });
     },
