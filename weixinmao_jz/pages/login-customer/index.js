@@ -23,7 +23,6 @@ Page({
       var _this = this;
       wx.login({
         success (res) {
-          console.log(res);
           _this.data.local_code = res.code;
         }
       })
@@ -91,7 +90,7 @@ Page({
                 success: function(e) {
                   userInfo.wxInfo = e.userInfo;
                   res.data.errno || (userInfo.memberInfo = res.data.data.userinfo, userInfo.sessionid = res.data.data.sessionid,  wx.setStorageSync("userInfo", userInfo)), 
-                  console.log(userInfo)
+                  console.log(wx.getStorageSync("userInfo"))
                   _this.userinfo(detail);
                 },
                 fail: function(e) {},
@@ -129,7 +128,6 @@ Page({
       },
       bindGetUserInfo: function(e) {
         var _this = this;
-        console.log(e);
         var data = e.detail;
         if(data.errMsg == "getUserInfo:ok"){
           _this.localGetUserInfo(data, _this.data.local_code);
