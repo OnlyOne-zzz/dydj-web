@@ -65,54 +65,54 @@ Page({
         });
     },
     getPhoneNumber: function(e) {
-        console.log(e.detail);
-        if ("getPhoneNumber:fail user deny" == e.detail.errMsg) wx.showModal({
-            title: "提示",
-            showCancel: !1,
-            content: "未授权",
-            success: function(e) {}
-        }); else {
-            var t = wx.getStorageSync("userInfo");
-            app.util.request({
-                url: "entry/wxapp/Getphone",
-                data: {
-                    iv: e.detail.iv,
-                    encryptedData: e.detail.encryptedData,
-                    uid: t.memberInfo.uid
-                },
-                success: function(e) {
-                    e.data.message.errno || wx.navigateBack({
-                        changed: !0
-                    });
-                }
-            });
-        }
+        // console.log(e.detail);
+        // if ("getPhoneNumber:fail user deny" == e.detail.errMsg) wx.showModal({
+        //     title: "提示",
+        //     showCancel: !1,
+        //     content: "未授权",
+        //     success: function(e) {}
+        // }); else {
+        //     var t = wx.getStorageSync("userInfo");
+        //     app.util.request({
+        //         url: "entry/wxapp/Getphone",
+        //         data: {
+        //             iv: e.detail.iv,
+        //             encryptedData: e.detail.encryptedData,
+        //             uid: t.memberInfo.uid
+        //         },
+        //         success: function(e) {
+        //             e.data.message.errno || wx.navigateBack({
+        //                 changed: !0
+        //             });
+        //         }
+        //     });
+        // }
     },
     bindGetUserInfo: function(e) {
-        var s = this;
-        app.util.getUserInfo(function(t) {
-            console.log(t), s.data.isuser = !0;
-            var e = t.memberInfo.uid, a = t.wxInfo.nickName, n = t.wxInfo.avatarUrl;
-            0 < (s.data.uid = e) && (s.setData({
-                userinfo: t,
-                isphone: !1,
-                isuser: s.data.isuser
-            }), app.util.request({
-                url: "entry/wxapp/Updateuserinfo",
-                data: {
-                    uid: e,
-                    nickname: a,
-                    avatarUrl: n
-                },
-                success: function(e) {
-                    e.data.message.errno || (app.globalData.isuser = !0, s.setData({
-                        userinfo: t,
-                        isphone: !1,
-                        isuser: s.data.isuser
-                    }));
-                }
-            }));
-        }, e.detail);
+        // var s = this;
+        // app.util.getUserInfo(function(t) {
+        //     console.log(t), s.data.isuser = !0;
+        //     var e = t.memberInfo.uid, a = t.wxInfo.nickName, n = t.wxInfo.avatarUrl;
+        //     0 < (s.data.uid = e) && (s.setData({
+        //         userinfo: t,
+        //         isphone: !1,
+        //         isuser: s.data.isuser
+        //     }), app.util.request({
+        //         url: "entry/wxapp/Updateuserinfo",
+        //         data: {
+        //             uid: e,
+        //             nickname: a,
+        //             avatarUrl: n
+        //         },
+        //         success: function(e) {
+        //             e.data.message.errno || (app.globalData.isuser = !0, s.setData({
+        //                 userinfo: t,
+        //                 isphone: !1,
+        //                 isuser: s.data.isuser
+        //             }));
+        //         }
+        //     }));
+        // }, e.detail);
     },
     onReady: function() {},
     changeCode: function() {

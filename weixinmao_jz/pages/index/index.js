@@ -160,31 +160,38 @@ Page({
             url: "/weixinmao_jz/pages/login/index"
         });
     },
+    toLogin2: function(a) {
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/login-customer/index"
+            //url:"/weixinmao_jz/pages/housexy/index"
+        });
+    },
     bindGetUserInfo: function(a) {
-        var o = this;
-        app.util.getUserInfo(function(t) {
-            console.log(t), o.data.isuser = !0;
-            var a = t.memberInfo.uid, e = t.wxInfo.nickName, n = t.wxInfo.avatarUrl;
-            0 < (o.data.uid = a) && (o.setData({
-                userinfo: t,
-                isphone: !1,
-                isuser: o.data.isuser
-            }), wx.setStorageSync("userInfo", t), app.util.request({
-                url: "entry/wxapp/Updateuserinfo",
-                data: {
-                    uid: a,
-                    nickname: e,
-                    avatarUrl: n
-                },
-                success: function(a) {
-                    a.data.message.errno || (o.data.isphone = a.data.data.isphone, o.setData({
-                        userinfo: t,
-                        isphone: o.data.isphone,
-                        isuser: o.data.isuser
-                    }));
-                }
-            }));
-        }, a.detail);
+        // console.log(a);
+        // var o = this;
+        // app.util.getUserInfo(function(t) {
+        //     console.log(t), o.data.isuser = !0;
+        //     var a = t.memberInfo.uid, e = t.wxInfo.nickName, n = t.wxInfo.avatarUrl;
+        //     0 < (o.data.uid = a) && (o.setData({
+        //         userinfo: t,
+        //         isphone: !1,
+        //         isuser: o.data.isuser
+        //     }), wx.setStorageSync("userInfo", t), app.util.request({
+        //         url: "entry/wxapp/Updateuserinfo",
+        //         data: {
+        //             uid: a,
+        //             nickname: e,
+        //             avatarUrl: n
+        //         },
+        //         success: function(a) {
+        //             a.data.message.errno || (o.data.isphone = a.data.data.isphone, o.setData({
+        //                 userinfo: t,
+        //                 isphone: o.data.isphone,
+        //                 isuser: o.data.isuser
+        //             }));
+        //         }
+        //     }));
+        // }, a.detail);
     },
     close:function(a){
             console.log("关闭弹框")

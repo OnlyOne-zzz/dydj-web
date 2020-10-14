@@ -78,31 +78,31 @@ Page({
         } else a.data.isuser = !1; else a.data.isuser = !1;
     },
     bindGetUserInfo: function(e) {
-        var n = this;
-        app.util.getUserInfo(function(a) {
-            console.log(a), n.data.isuser = !0;
-            var e = a.memberInfo.uid, o = a.wxInfo.nickName, t = a.wxInfo.avatarUrl;
-            0 < (n.data.uid = e) && (n.setData({
-                userinfo: a,
-                isphone: !1,
-                isuser: n.data.isuser
-            }), app.util.request({
-                url: "entry/wxapp/Updateuserinfo",
-                data: {
-                    uid: e,
-                    nickname: o,
-                    avatarUrl: t
-                },
-                success: function(e) {
-                    e.data.message.errno || (n.data.isuser = !1, n.data.isphone = e.data.data.isphone, 
-                    n.setData({
-                        userinfo: a,
-                        isphone: n.data.isphone,
-                        isuser: n.data.isuser
-                    }));
-                }
-            }));
-        }, e.detail);
+        // var n = this;
+        // app.util.getUserInfo(function(a) {
+        //     console.log(a), n.data.isuser = !0;
+        //     var e = a.memberInfo.uid, o = a.wxInfo.nickName, t = a.wxInfo.avatarUrl;
+        //     0 < (n.data.uid = e) && (n.setData({
+        //         userinfo: a,
+        //         isphone: !1,
+        //         isuser: n.data.isuser
+        //     }), app.util.request({
+        //         url: "entry/wxapp/Updateuserinfo",
+        //         data: {
+        //             uid: e,
+        //             nickname: o,
+        //             avatarUrl: t
+        //         },
+        //         success: function(e) {
+        //             e.data.message.errno || (n.data.isuser = !1, n.data.isphone = e.data.data.isphone, 
+        //             n.setData({
+        //                 userinfo: a,
+        //                 isphone: n.data.isphone,
+        //                 isuser: n.data.isuser
+        //             }));
+        //         }
+        //     }));
+        // }, e.detail);
     },
     onReady: function() {},
     toOrderlist: function(e) {

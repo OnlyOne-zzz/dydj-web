@@ -16,10 +16,14 @@ Page(_defineProperty({
     },
     onLoad: function(a) {
         var t = this;
+        var tempData =  {
+            content:""
+        };
         app.util.request({
             url: "entry/wxapp/Intro",
             data: {},
             success: function(a) {
+                console.log(a);
                 a.data.message.errno || (a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#3274e5"), 
                 wx.setNavigationBarColor({
                     frontColor: "#ffffff",
@@ -30,7 +34,9 @@ Page(_defineProperty({
                     }
                 }), t.data.title = "入驻协议-" + a.data.data.intro.name, wx.setNavigationBarTitle({
                     title: t.data.title
-                }), t.setData({
+                }),
+                
+                t.setData({
                     data: a.data.data.intro
                 }));
             },

@@ -113,53 +113,53 @@ util.url = function(e, t) {
             wxInfo: "",
             memberInfo: ""
         };
-        wx.login({
-            success: function(e) {
-                util.request({
-                    url: "auth/session/openid",
-                    data: {
-                        code: e.code
-                    },
-                    cachetime: 0,
-                    success: function(e) {
-                        e.data.errno || (t.sessionid = e.data.data.sessionid, wx.setStorageSync("userInfo", t), 
-                        wx.getUserInfo({
-                            success: function(e) {
-                                t.wxInfo = e.userInfo, wx.setStorageSync("userInfo", t), util.request({
-                                    url: "auth/session/userinfo",
-                                    data: {
-                                        signature: e.signature,
-                                        rawData: e.rawData,
-                                        iv: e.iv,
-                                        encryptedData: e.encryptedData
-                                    },
-                                    method: "POST",
-                                    header: {
-                                        "content-type": "application/x-www-form-urlencoded"
-                                    },
-                                    cachetime: 0,
-                                    success: function(e) {
-                                        e.data.errno || (t.memberInfo = e.data.data, wx.setStorageSync("userInfo", t)), 
-                                        "function" == typeof a && a(t);
-                                    }
-                                });
-                            },
-                            fail: function() {},
-                            complete: function() {}
-                        }));
-                    }
-                });
-            },
-            fail: function() {
-                wx.showModal({
-                    title: "获取信息失败",
-                    content: "请允许授权以便为您提供给服务",
-                    success: function(e) {
-                        e.confirm && util.getUserInfo();
-                    }
-                });
-            }
-        });
+        // wx.login({
+        //     success: function(e) {
+        //         util.request({
+        //             url: "auth/session/openid",
+        //             data: {
+        //                 code: e.code
+        //             },
+        //             cachetime: 0,
+        //             success: function(e) {
+        //                 e.data.errno || (t.sessionid = e.data.data.sessionid, wx.setStorageSync("userInfo", t), 
+        //                 wx.getUserInfo({
+        //                     success: function(e) {
+        //                         t.wxInfo = e.userInfo, wx.setStorageSync("userInfo", t), util.request({
+        //                             url: "auth/session/userinfo",
+        //                             data: {
+        //                                 signature: e.signature,
+        //                                 rawData: e.rawData,
+        //                                 iv: e.iv,
+        //                                 encryptedData: e.encryptedData
+        //                             },
+        //                             method: "POST",
+        //                             header: {
+        //                                 "content-type": "application/x-www-form-urlencoded"
+        //                             },
+        //                             cachetime: 0,
+        //                             success: function(e) {
+        //                                 e.data.errno || (t.memberInfo = e.data.data, wx.setStorageSync("userInfo", t)), 
+        //                                 "function" == typeof a && a(t);
+        //                             }
+        //                         });
+        //                     },
+        //                     fail: function() {},
+        //                     complete: function() {}
+        //                 }));
+        //             }
+        //         });
+        //     },
+        //     fail: function() {
+        //         wx.showModal({
+        //             title: "获取信息失败",
+        //             content: "请允许授权以便为您提供给服务",
+        //             success: function(e) {
+        //                 e.confirm && util.getUserInfo();
+        //             }
+        //         });
+        //     }
+        // });
     }, t = wx.getStorageSync("userInfo");
     t.sessionid ? wx.checkSession({
         success: function() {

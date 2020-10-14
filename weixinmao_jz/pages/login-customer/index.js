@@ -14,24 +14,46 @@ var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = requi
 Page({
     data:{
         phoneNumber: '',
-        phoneBtnContext: '请输入电话号码'
+        phoneBtnContext: '请输入电话号码',
+        local_code: ''
+    },
+    onLoad:function(){
+      var _this = this;
+      wx.setNavigationBarTitle({
+        title: "登录/注册"
+    }),wx.setNavigationBarColor({
+        frontColor: "#ffffff",
+        backgroundColor: "#3C9BDF",
+        animation: {
+            duration: 400,
+            timingFunc: "easeIn"
+        }
+    });
+       wx.login({
+            success (res) {
+              console.log(res);
+              _this.data.local_code = res.code;
+            }
+          })
     },
     localGetPhoneNumber(detail, code){
         var _this = this;
+        console.log(_this.data.local_code)
         console.log(detail)
         app.util.request({
-            url: "接口地址",
+            url: "entry/wxapp/DecryptData",
             data: {
-                code: code,
-                iv: detail.iv,
-                encryptedData: detail.encryptedData
+                code: encodeURIComponent(code),
+                iv: encodeURIComponent(detail.iv),
+                encryptedData: encodeURIComponent(detail.encryptedData)
             },
             cachetime: 0,
             showLoading: !1,
             success: function(res) {
-                var errmsg  = res.errMsg;
-                if(errmsg == 'ok'){
-                    var phoneNumber  = res.phoneNumber;
+                var errMsg  = res.errMsg;
+                console.log(res)
+                if(errMsg == "request:ok"){
+                    var phoneNumber  = res.data.data.phoneNumber;
                     _this.data.phoneNumber = phoneNumber;
                     _this.data.phoneBtnContext = phoneNumber;
                     _this.setData({
@@ -52,52 +74,57 @@ Page({
         });
       }else{
         app.util.request({
-            url: "接口地址",
+            url: "auth/session/openid",
             data: {
-                code: code,
-                iv: detail.iv,
-                encryptedData: detail.encryptedData,
-                phoneNumber: phoneNumber
+                code: encodeURIComponent(code)
+                // iv: encodeURIComponent(detail.iv),
+                // encryptedData: encodeURIComponent(detail.encryptedData),
+                // phoneNumber: encodeURIComponent(phoneNumber)
             },
             cachetime: 0,
             showLoading: !1,
             success: function(res) {
-                var data = res.userInfo;
+              console.log(res);
+                var userInfo = res.data.data.userinfo;
                 //获取用户个人信息
                 //保存到全局缓存中
-                wx.setStorageSync("userInfo", data);
+                wx.setStorageSync("userInfo", userInfo);
+                _this.userinfo(detail);
             }
         });
       }
     },
+    userinfo(detail){
+      var _this = this;
+      app.util.request({
+        url: "auth/session/userinfo",
+        data: {
+          code: encodeURIComponent( _this.data.local_code),
+          tel: _this.data.phoneNumber,
+          iv: encodeURIComponent(detail.iv),
+          encryptedData: encodeURIComponent(detail.encryptedData)
+        },
+        cachetime: 0,
+        showLoading: !1,
+        success: function(res) {
+           console.log(res);
+        }
+    });
+    },
     getPhoneNumber (e) {
+      console.log(encodeURI('68XVv9xjv1lYEGqVES9E5A=='));
         var _this = this;
-        wx.login({
-            success (res) {
-              if (res.code) {
-                _this.localGetPhoneNumber(e.detail, res.code);
-              } else {
-                console.log('登录失败！' + res.errMsg)
-                wx.showToast({
-                    title:"登录失败"
-                  })
-              }
-            }
-          })
+        var data = e.detail;
+        if(data.errMsg == "getPhoneNumber:ok"){
+          _this.localGetPhoneNumber(data, _this.data.local_code);
+        }
       },
-      getUserInfo (e) {
+      bindGetUserInfo: function(e) {
         var _this = this;
-        wx.login({
-            success (res) {
-              if (res.code) {
-                _this.localGetUserInfo(e.detail, res.code);
-              } else {
-                console.log('登录失败！' + res.errMsg)
-                wx.showToast({
-                    title:"登录失败"
-                  })
-              }
-            }
-          })
+        console.log(e);
+        var data = e.detail;
+        if(data.errMsg == "getUserInfo:ok"){
+          _this.localGetUserInfo(data, _this.data.local_code);
+        }
       }
 });
