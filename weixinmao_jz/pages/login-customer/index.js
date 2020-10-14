@@ -10,6 +10,11 @@ function _defineProperty(a, e, n) {
 }
 
 var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = require("../../resource/js/images.js"), app = getApp();
+var userInfo = {
+  sessionid: "",
+  wxInfo: "",
+  memberInfo: ""
+};
 
 Page({
     data:{
@@ -53,7 +58,6 @@ Page({
             showLoading: !1,
             success: function(res) {
                 var errMsg  = res.errMsg;
-                console.log(res)
                 if(errMsg == "request:ok"){
                     var phoneNumber  = res.data.data.phoneNumber;
                     _this.data.phoneNumber = phoneNumber;
@@ -87,10 +91,12 @@ Page({
             showLoading: !1,
             success: function(res) {
               console.log(res);
-                var userInfo = res.data.data.userinfo;
+              res.data.errno || (userInfo.memberInfo = res.data.data,  wx.setStorageSync("userInfo", userInfo)), 
+               // var userInfo = res.data.data.userinfo;
                 //获取用户个人信息
                 //保存到全局缓存中
-                wx.setStorageSync("userInfo", userInfo);
+               // wx.setStorageSync("userInfo", userInfo);
+               // console.log(res)
                 _this.userinfo(detail);
             }
         });
