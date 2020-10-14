@@ -12,8 +12,7 @@ function _defineProperty(a, e, n) {
 var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = require("../../resource/js/images.js"), app = getApp();
 var userInfo = {
   sessionid: "",
-  wxInfo: "",
-  memberInfo: ""
+  wxInfo: ""
 };
 
 Page({
