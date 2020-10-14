@@ -12,11 +12,12 @@ Page({
         tel: ""
     },
     onShow: function() {
+        var _this=this;
         var a = wx.getStorageSync("cityinfo");
-        a && (wx.setStorageSync("city", a.name), this.initpage());
+        a && (wx.setStorageSync("city", a.name), _this.initpage());
         var o = wx.getStorageSync("userInfo");
-        console.log(o), o && o.hasOwnProperty("wxInfo") && (n.data.isuser = !0, n.setData({
-            isuser: n.data.isuser
+        console.log(o), o && o.hasOwnProperty("wxInfo") && (_this.data.isuser = !0, _this.setData({
+            isuser: _this.data.isuser
         }));
     },
     onLoad: function(a) {
@@ -116,11 +117,11 @@ Page({
             url: "/weixinmao_jz/pages/user/index"
         });
     },
-    toMycoupon: function() {
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/mycoupon/index"
-        });
-    },
+    // toMycoupon: function() {
+    //     wx.navigateTo({
+    //         url: "/weixinmao_jz/pages/mycoupon/index"
+    //     });
+    // },
     toInnerUrl: function(a) {
         var t = a.currentTarget.dataset.url;
         wx.navigateTo({
@@ -153,17 +154,18 @@ Page({
             isuser: e.data.isuser
         }));
     },
+    closeUp: function(a){
+        console.log('000')
+        this.setData({
+            isuser: !0
+        })
+        console.log(this.data.isuser)
+    },
     toLogin: function(a) {
         0 < wx.getStorageSync("companyid") ? wx.navigateTo({
             url: "/weixinmao_jz/pages/companylogin/index"
         }) : wx.navigateTo({
             url: "/weixinmao_jz/pages/login/index"
-        });
-    },
-    toLogin2: function(a) {
-        wx.navigateTo({
-            url: "/weixinmao_jz/pages/login-customer/index"
-            //url:"/weixinmao_jz/pages/housexy/index"
         });
     },
     bindGetUserInfo: function(a) {
@@ -214,10 +216,11 @@ Page({
             url: "/weixinmao_jz/pages/notelist/index"
         });
     },
-    toMyorder: function() {
-        if(o ==undefined || o ==null || o =='' ){
-            wx.switchTab({
-                url: " weixinmao_jz/pages/login-customer/index" 
+    toMycoupon: function() {
+        let userInfo = wx.getStorageSync("userInfo");
+        if(userInfo ==undefined || userInfo ==null || userInfo =='' ){
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/login-customer/index"
             });
         }else{
             wx.navigateTo({

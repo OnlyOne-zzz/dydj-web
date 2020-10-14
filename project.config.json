@@ -136,11 +136,25 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "weixinmao_jz/pages/user/index",
-					"pathName": "weixinmao_jz/pages/user/index",
+					"id": 10,
+					"name": "0",
+					"pathName": "weixinmao_jz/pages/companylogin/index",
 					"query": "",
 					"scene": 1000
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/mymsgorder/index",
+					"pathName": "weixinmao_jz/pages/mymsgorder/index",
+					"query": "",
+					"scene": 1000
+				},
+				{
+					"id": -1,
+					"name": "weixinmao_jz/pages/notedetail/index",
+					"pathName": "weixinmao_jz/pages/notedetail/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

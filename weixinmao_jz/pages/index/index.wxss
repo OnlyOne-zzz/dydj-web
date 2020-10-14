@@ -771,7 +771,7 @@ swiper-item image {
 
 .weixinmao-content-userinfo {
     width: 650rpx;
-    height: 750rpx;
+    height: auto;
     z-index: 4001;
     background: #FFF;
     align-self: center;
@@ -814,7 +814,7 @@ swiper-item image {
     flex-direction: row;
     width: 400rpx;
     align-items: baseline;
-    padding-bottom: 20rpx;
+    padding-bottom: 40rpx;
 }
 
 .userinfo-button button {
@@ -822,8 +822,16 @@ swiper-item image {
     font-size: .8rem;
     color: #FFF;
     width: 300rpx;
+    margin-left: 10px;
 }
-
+.userinfo-button button:nth-of-type(1) {
+    background: #bebebe;
+    font-size: .8rem;
+    color: #FFF;
+    width: 300rpx;
+    margin-right: 10px;
+    margin-left: 0;
+}
 .weixinmao-msg-usertel {
     position: fixed;
     top: 0%;

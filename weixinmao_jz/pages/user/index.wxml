@@ -6,7 +6,7 @@
                 <view class="userinfo">
                     <view>开启上门之旅</view>
                     <view>
-                        <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;">登录/注册></button>
+                        <button bindgetuserinfo="toLogin" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;">登录/注册></button>
                     </view>
                 </view>
             </view>
@@ -97,7 +97,7 @@
                 <view></view>
             </view>
         </view>
-        <view bindtap="doaddress" class="servicelist">
+        <view bindtap="toaddress" class="servicelist">
             <view  style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/kefu.png"></image>

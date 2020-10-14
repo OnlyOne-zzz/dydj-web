@@ -9,9 +9,8 @@
             </view>
             <view class="price" style="color:#3c9bdf">
                 <view>
-                推荐服务项目:{{item.catename}}
-                                        
-                                        </view>
+                    推荐服务项目:{{item.catename}}
+                </view>
                 <view></view>
             </view>
             <!-- <view class="price" style="justify-content: flex-start;">
@@ -34,6 +33,10 @@
                 <view>已服务:{{item.serviceFrequency}}次</view>
             </view>
         </view>
+    </view>
+    <!-- 缺省提示 -->
+    <view wx-if="{{worklist.lenght  == 0}}" class='default'>
+        暂无可选内容~
     </view>
 </view>
 <view class="loadmore">

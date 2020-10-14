@@ -36,6 +36,18 @@ Page({
             }
           })
     },
+    onLoad:function(){
+      wx.setNavigationBarTitle({
+        title: "登录/注册"
+    }),wx.setNavigationBarColor({
+        frontColor: "#ffffff",
+        backgroundColor: "#3C9BDF",
+        animation: {
+            duration: 400,
+            timingFunc: "easeIn"
+        }
+    });
+    },
     localGetPhoneNumber(detail, code){
         var _this = this;
         console.log(_this.data.local_code)

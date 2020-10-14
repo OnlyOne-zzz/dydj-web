@@ -49,7 +49,14 @@ Page(_defineProperty({
     },
     onLoad: function(t) {
         wx.setNavigationBarTitle({
-            title: wx.getStorageSync("companyinfo").name
+            title: "项目下单详情"
+        }),wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
         });
         var a = this;
         if (0 < a.data.id) var e = a.data.id; else {
@@ -93,17 +100,21 @@ Page(_defineProperty({
         });
     },
     toMsgdone: function() {
+       
         var t = this.data.currentid, a = this.data.shopid , n = this.data.noteId;
-        let u = wx.getStorageSync("userInfo");
-        if(u ==undefined || u ==null || u =='' ){
-            wx.switchTab({
-                url: " weixinmao_jz/pages/login-customer/index" 
-            });
-        }else{
-            wx.navigateTo({
-                url: "/weixinmao_jz/pages/msgdone/index?currentid=" + t + "&shopid=" + a +"&noteId=" +n
-            });
-        }
+        wx.navigateTo({
+            url: "/weixinmao_jz/pages/msgdone/index?currentid=" + t + "&shopid=" + a +"&noteId=" +n
+        });
+        // let u = wx.getStorageSync("userInfo");
+        // if(u ==undefined || u ==null || u =='' ){
+        //     wx.navigateTo({
+        //         url: "/weixinmao_jz/pages/login-customer/index" 
+        //     });
+        // }else{
+        //     wx.navigateTo({
+        //         url: "/weixinmao_jz/pages/msgdone/index?currentid=" + t + "&shopid=" + a +"&noteId=" +n
+        //     });
+        // }
     },
     goMap: function(t) {
         var a = this;
@@ -181,25 +192,19 @@ Page(_defineProperty({
         var e = this, t = wx.getStorageSync("userInfo");
         app.util.request({
             url: "entry/wxapp/Getmsgcontentdetail",
+            // data: {
+            //     id: e.data.id,
+            //     sessionid: t.sessionid,
+            //     uid: t.memberInfo.uid
+            // },
             data: {
                 id: e.data.id,
-                sessionid: t.sessionid,
-                uid: t.memberInfo.uid
+                sessionid: t.sessionid
             },
             success: function(t) {
                 console.log(t)
                 if (!t.data.message.errno) {
-                    e.data.title = t.data.data.list.title, t.data.data.intro.maincolor || (t.data.data.intro.maincolor = "#09ba07"), 
-                    wx.setNavigationBarColor({
-                        frontColor: "#ffffff",
-                        backgroundColor: t.data.data.intro.maincolor,
-                        animation: {
-                            duration: 400,
-                            timingFunc: "easeIn"
-                        }
-                    }), wx.setNavigationBarTitle({
-                        title: e.data.title + "-" + wx.getStorageSync("companyinfo").name
-                    });
+                    e.data.title = t.data.data.list.title;
                     var a = t.data.data.gooditemslist;
                     e.data.currentmoney = a, e.data.currentid = a[0].id, e.setData({
                         data: t.data.data.list,
