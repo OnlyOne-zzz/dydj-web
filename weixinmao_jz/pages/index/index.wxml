@@ -58,6 +58,7 @@
                     <image src="../../resource/images/jszm.png"></image>
                     <view>技师招募</view>
                 </view>
+            
             </block>
         </view>
         <view class="news">
@@ -127,7 +128,7 @@
         </view>
     </view>
 </scroll-view>
-<view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
+<!-- <view class="weixinmao-msg-userinfo" hidden="{{isuser}}">
     <view class="weixinmao-content-userinfo">
         <view class="userinfo-title">
           需要您的授权
@@ -136,15 +137,15 @@
             <view>为了提供更好的服务</view>
             <view>请稍后在提示框上点击“允许”。</view>
         </view>
-        <!-- <view class="userinfo-img">
+         <view class="userinfo-img">
             <image src="../../resource/images/getinfo.png"></image>
-        </view> -->
+        </view> 
         <view class="userinfo-button">
             <button bindtap="closeUp">拒绝</button>
             <button bindgetuserinfo="bindGetUserInfo" openType="getUserInfo">允许</button>
         </view>
     </view>
-</view>
+</view> -->
 <view class="u-tap-btn">
     <!-- <button bindtap="doCall" class="u-go-home2" style="background:red;">
         <view class="iconfont fa fa-phone"></view>

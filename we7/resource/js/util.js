@@ -131,41 +131,39 @@ util.base64Encode = function(e) {
     }), e));
 }, util.getWe7User = function(t, e) {
     var n = wx.getStorageSync("userInfo") || {};
-    util.request({
-        url: "auth/session/openid",
-        data: {
-            code: e || ""
-        },
-        cachetime: 0,
-        showLoading: !1,
-        success: function(e) {
-            console.log("用户信息")
-            console.log(e)
-            e.data.errno || (n.sessionid = e.data.data.sessionid, n.memberInfo = e.data.data.userinfo, 
-            wx.setStorageSync("userInfo", n)), "function" == typeof t && t(n);
-        }
-    });
+    // util.request({
+    //     url: "auth/session/openid",
+    //     data: {
+    //         code: e || ""
+    //     },
+    //     cachetime: 0,
+    //     showLoading: !1,
+    //     success: function(e) {
+    //         e.data.errno || (n.sessionid = e.data.data.sessionid, n.memberInfo = e.data.data.userinfo, 
+    //         wx.setStorageSync("userInfo", n)), "function" == typeof t && t(n);
+    //     }
+    // });
 }, util.upadteUser = function(e, t) {
     var n = wx.getStorageSync("userInfo");
     if (!e) return "function" == typeof t && t(n);
-    n.wxInfo = e.userInfo, util.request({
-        url: "auth/session/userinfo",
-        data: {
-            signature: e.signature,
-            rawData: e.rawData,
-            iv: e.iv,
-            encryptedData: e.encryptedData
-        },
-        method: "POST",
-        header: {
-            "content-type": "application/x-www-form-urlencoded"
-        },
-        cachetime: 0,
-        success: function(e) {
-            e.data.errno || (n.memberInfo = e.data.data, wx.setStorageSync("userInfo", n)), 
-            "function" == typeof t && t(n);
-        }
-    });
+    // n.wxInfo = e.userInfo, util.request({
+    //     url: "auth/session/userinfo",
+    //     data: {
+    //         signature: e.signature,
+    //         rawData: e.rawData,
+    //         iv: e.iv,
+    //         encryptedData: e.encryptedData
+    //     },
+    //     method: "POST",
+    //     header: {
+    //         "content-type": "application/x-www-form-urlencoded"
+    //     },
+    //     cachetime: 0,
+    //     success: function(e) {
+    //         e.data.errno || (n.memberInfo = e.data.data, wx.setStorageSync("userInfo", n)),
+    //         "function" == typeof t && t(n);
+    //     }
+    // });
 }, util.checkSession = function(t) {
     util.request({
         url: "auth/session/check",
