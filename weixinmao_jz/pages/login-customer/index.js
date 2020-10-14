@@ -17,24 +17,14 @@ Page({
         phoneBtnContext: '请输入电话号码',
         local_code: ''
     },
-    onLoad:function(){
+    onShow:function(){
       var _this = this;
-      wx.setNavigationBarTitle({
-        title: "登录/注册"
-    }),wx.setNavigationBarColor({
-        frontColor: "#ffffff",
-        backgroundColor: "#3C9BDF",
-        animation: {
-            duration: 400,
-            timingFunc: "easeIn"
+      wx.login({
+        success (res) {
+          console.log(res);
+          _this.data.local_code = res.code;
         }
-    });
-       wx.login({
-            success (res) {
-              console.log(res);
-              _this.data.local_code = res.code;
-            }
-          })
+      })
     },
     onLoad:function(){
       wx.setNavigationBarTitle({
@@ -127,7 +117,6 @@ Page({
     });
     },
     getPhoneNumber (e) {
-      console.log(encodeURI('68XVv9xjv1lYEGqVES9E5A=='));
         var _this = this;
         var data = e.detail;
         if(data.errMsg == "getPhoneNumber:ok"){
