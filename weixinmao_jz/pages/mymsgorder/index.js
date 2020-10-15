@@ -54,6 +54,11 @@ Page({
                     intro: e.data.data.intro,
                     isshow: !1
                 });
+            },
+            complete: function() {
+                wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), e.setData({
+                    loadMore: ""
+                });
             }
         });
     },
