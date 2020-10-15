@@ -419,7 +419,6 @@ Page({
         }
         let selectnote = this.data.selectnote;
         let noteid = _this.data.noteId;    
-        console.log(selectnote)
         if(selectnote != undefined || noteid!=undefined){
             console.log(noteid)
             if(noteid=='undefined' || noteid==undefined ){
