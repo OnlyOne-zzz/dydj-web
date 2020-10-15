@@ -71,7 +71,8 @@ Page({
     onReady: function() {},
     onHide: function() {},
     onUnload: function() {},
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+    },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
     checkuser: function(t) {

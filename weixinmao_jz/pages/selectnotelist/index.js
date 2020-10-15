@@ -180,4 +180,6 @@ Page({
     onShow: function(o){
         this.data.back = wx.getStorageSync('waiter')
     },
+    onPullDownRefresh: function() {
+    }
 });
