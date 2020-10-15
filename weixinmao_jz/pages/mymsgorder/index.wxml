@@ -29,7 +29,7 @@
         </scroll-view>
     </view>
     <!-- 缺省提示 "-->
-    <view wx-if="{{list.length==0}}" class='default'>
+    <view wx-if="{{list=='' || list.length==0}}" class='default'>
             暂无订单~
     </view>
     <view wx-else class="orderlist" wx:for="{{list}}">

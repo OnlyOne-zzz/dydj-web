@@ -6,10 +6,10 @@
    </view> -->
    <!-- 未使用 -->
    <!-- 缺省提示 "-->
-    <view  wx-if="{{list.length==0}}" class='default'>
+    <view  wx-if="{{list=='' || list.length==0}}" class='default'>
         暂无可用的优惠券~
     </view>
-   <view class="listbox" >
+   <view wx-else class="listbox" >
         <view class="card-item" >
             <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
                 <view class="card-count sub">

@@ -49,12 +49,12 @@ Page({
         this.loadConpenList(data);
     },
     loadConpenList:function(data){
-        var t = this, o = wx.getStorageSync("userInfo");
+        var t = this;
         app.util.request({
             url: "entry/wxapp/couponOrderUserList",
             data: data,
             success: function(res) {
-                res.data.message.errno,
+                // res.data.message.errno,
                t.setData({
                     list: res.data.data
                 });
