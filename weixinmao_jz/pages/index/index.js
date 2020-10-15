@@ -168,12 +168,13 @@ Page({
                 url: "/weixinmao_jz/pages/login-customer/index"
             });
         }else{
-            0 < wx.getStorageSync("companyid") ? wx.navigateTo({
+            0 < wx.getStorageSync("loginid") ? wx.navigateTo({
                 url: "/weixinmao_jz/pages/companylogin/index"
             }) : wx.navigateTo({
                 url: "/weixinmao_jz/pages/login/index"
             });
         }
+        // weixinmao_jz/pages/companylogin/index
     },
     bindGetUserInfo: function(a) {
         // console.log(a);
