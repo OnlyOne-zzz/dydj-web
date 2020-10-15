@@ -168,11 +168,7 @@ Page({
     pay: function(a) {
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
         let content = ''
-        if(t.data.u ==undefined || t.data.u ==null || t.data.u =='' ){
-            wx.navigateTo({
-                url: "/weixinmao_jz/pages/login-customer/index" 
-            });
-        }
+        console.log(t.data.shopid)
         if(!e){
             content = '请先增加地址'
             wx.showModal({
@@ -181,7 +177,7 @@ Page({
                 showCancel: !1
             });
             return false
-        } else if(!e.daddress){
+        }else if(!e.daddress){
             content = '请完善门牌号'
             wx.showModal({
                 title: "提示",
@@ -189,16 +185,15 @@ Page({
                 showCancel: !1
             });
             return false
+        } else if(t.data.shopid=='' || t.data.shopid=='undefined' || t.data.shopid==0){
+            content = '请选择服务人员'
+            wx.showModal({
+                title: "提示",
+                content: content,
+                showCancel: !1
+            });
+            return false
         } 
-        // else if(!t.data.time){
-        //     content = '请选择服务时间'
-        //     wx.showModal({
-        //         title: "提示",
-        //         content: content,
-        //         showCancel: !1
-        //     });
-        //     return false
-        // } 
         else {
             var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway,couponid=t.data.couponId;
             if(couponid==undefined){
@@ -424,10 +419,10 @@ Page({
         }
         let selectnote = this.data.selectnote;
         let noteid = _this.data.noteId;    
-        console.log("111111")
-        console.log(noteid)
+        console.log(selectnote)
         if(selectnote != undefined || noteid!=undefined){
-            if(noteid==undefined){
+            console.log(noteid)
+            if(noteid=='undefined' || noteid==undefined ){
                 noteid=selectnote.id;
             }
             this.getnote(noteid);
