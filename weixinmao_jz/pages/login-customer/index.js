@@ -40,8 +40,16 @@ Page({
     });
     },
     // 协议 政策
-    xieyi:function(){},
-    zhengce:function(){},
+    xieyi:function(){
+      wx.navigateTo({
+        url: "/weixinmao_jz/pages/housexy/index"
+    });
+    },
+    zhengce:function(){
+      wx.navigateTo({
+        url: "/weixinmao_jz/pages/privacy/index"
+    });
+    },
     localGetPhoneNumber(detail, code){
         var _this = this;
         console.log(_this.data.local_code)
