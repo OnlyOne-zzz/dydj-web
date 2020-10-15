@@ -16,11 +16,11 @@
 <button class="input-btn" style="width:85%;height:43px;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{phoneBtnContext}}</button>
 <button bindgetuserinfo="bindGetUserInfo" class="input-btn" style="width:85%;height:43px;margin-top:10px" openType="getUserInfo">登录</button>
 </view>
-<view class="u-tap-btn">
+<!-- <view class="u-tap-btn">
     <button class="u-go-home2" openType="contact">
         <view class="iconfont fa fa-comments-o"></view>
     </button>
-</view>
+</view> -->
 <view class='xieyi'>
     点击登陆表示已同意<text bindtap='xieyi'>《用户使用协议》</text><text bindtap='zhengce'>《隐私政策》</text>
 </view>
