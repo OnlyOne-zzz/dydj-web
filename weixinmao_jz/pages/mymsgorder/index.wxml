@@ -28,7 +28,11 @@
             </view>
         </scroll-view>
     </view>
-    <view class="orderlist" wx:for="{{list}}">
+    <!-- 缺省提示 "-->
+    <view wx-if="{{list.length==0}}" class='default'>
+            暂无订单~
+    </view>
+    <view wx-else class="orderlist" wx:for="{{list}}">
         <view class="orderid">订单号:{{item.orderid}}</view>
         <view class="content">
             <view class='image'>
