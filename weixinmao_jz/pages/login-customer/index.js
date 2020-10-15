@@ -39,6 +39,9 @@ Page({
         }
     });
     },
+    // 协议 政策
+    xieyi:function(){},
+    zhengce:function(){},
     localGetPhoneNumber(detail, code){
         var _this = this;
         console.log(_this.data.local_code)

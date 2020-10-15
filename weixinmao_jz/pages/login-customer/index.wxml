@@ -1,10 +1,13 @@
 <view class="container">
     <view class="swiper-container">
-        <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
+        <!-- <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
             <swiper-item wx:for="{{banners}}">
                 <image bindtap="tapBanner" class="slide-image" data-id="{{item.id}}" height="562.5rpx" src="{{item.thumb}}" width="750rpx"></image>
             </swiper-item>
-        </swiper>
+        </swiper> -->
+        <view class="imgbox">
+            <image src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3308280385,965878387&fm=26&gp=0.jpg'></image>
+        </view>
         <view class="dots">
             <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="unique"></view>
         </view>
@@ -17,4 +20,7 @@
     <button class="u-go-home2" openType="contact">
         <view class="iconfont fa fa-comments-o"></view>
     </button>
+</view>
+<view class='xieyi'>
+    点击登陆表示已同意<text bindtap='xieyi'>《用户使用协议》</text><text bindtap='zhengce'>《隐私政策》</text>
 </view>
