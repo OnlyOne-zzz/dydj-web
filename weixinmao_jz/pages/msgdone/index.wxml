@@ -49,7 +49,7 @@
                         <text class="listTime" >{{noteObj.shopname}} </text>
                      <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 
                 </view>
-                <view wx:else class="listcontent chuxing"  style='display: block;folat:right'>
+                <view bindtap="selectwaiter" wx:else class="listcontent chuxing"  style='display: block;folat:right'>
                     <text>服务人员</text>
                      <text class="listTime" style='padding-right: 20px; border: none'>去选择服务人员</text>
                     <image class="right" mode='heightFix' src="../../resource/images/right.png"></image> 

@@ -5,7 +5,11 @@
         <view class="{{active==2?'cardAct':''}}" data-index="2" bindtap="selectList">已过期</view>
    </view> -->
    <!-- 未使用 -->
-   <view class="listbox" >
+   <!-- 缺省提示 "-->
+    <view  wx-if="{{list=='' || list.length==0}}" class='default'>
+        暂无可用的优惠券~
+    </view>
+   <view wx-else class="listbox" >
         <view class="card-item" >
             <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
                 <view class="card-count sub">

@@ -33,7 +33,13 @@
             </view>
         </scroll-view>
     </view>
-    <block wx:if="{{list}}">
+    <block  wx:if="{{list=='' || list.length==0}}" >
+        <!-- 缺省提示 "-->
+        <view class='default'>
+            暂无当前状态订单~
+        </view>
+    </block>
+    <block wx:else >
         <view class="orderlist" wx:for="{{list}}">
             <view class="orderid">订单号:{{item.orderid}}</view>
             <view class="content">
@@ -69,5 +75,4 @@
             </view>
         </view>
     </block>
-    <block wx:else></block>
 </view>

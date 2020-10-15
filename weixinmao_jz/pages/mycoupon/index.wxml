@@ -8,67 +8,75 @@
         <view class="{{active==1?'cardAct':''}}" data-index="1" bindtap="selectList">已使用</view>
         <view class="{{active==2?'cardAct':''}}" data-index="2" bindtap="selectList">已过期</view>
    </view>
-   <!-- 未使用 -->
-   <view class="listbox" wx:if="{{active==0}}">
-        <view class="card-item" wx:for="5">
-            <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
-                <view class="card-count sub">
-                    <view class="cards">
-                        <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
-                        <view class="card-tips">
-                            <text>{{item.title}}</text>
-                            <text>免费领取</text>
-                            <text>使用规则：仅可在指定项目使用</text>
+    <!-- 缺省提示 -->
+    <block wx:if="{{list=='' || list.lenght==0}}">
+        <view  class='default'>
+            暂无当前状态优惠券记录~
+        </view>
+    </block>
+    <block wx:else>
+        <!-- 未使用 -->
+        <view class="listbox" wx:if="{{active==0}}">
+                <view class="card-item" wx:for="5">
+                    <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
+                        <view class="card-count sub">
+                            <view class="cards">
+                                <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
+                                <view class="card-tips">
+                                    <text>{{item.title}}</text>
+                                    <text>免费领取</text>
+                                    <text>使用规则：仅可在指定项目使用</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="card-txt">
+                            <view>截至时间：{{item.validityPeriod}}</view>
+                            <view class="card-txt-box" bindtap='employ'>去使用</view>
                         </view>
                     </view>
                 </view>
-                <view class="card-txt">
-                    <view>截至时间：{{item.validityPeriod}}</view>
-                    <view class="card-txt-box" bindtap='employ'>去使用</view>
-                </view>
-            </view>
-         </view>
-   </view>
-   <!-- 已使用 -->
-   <view class="listbox" wx:if="{{active==1}}">
-        <view class="card-item" wx:for="5">
-            <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
-                <view class="card-count sub">
-                    <view class="cards">
-                        <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
-                        <view class="card-tips">
-                            <text>{{item.title}}</text>
-                            <text>免费领取</text>
-                            <text>使用规则：仅可在指定项目使用</text>
+        </view>
+        <!-- 已使用 -->
+        <view class="listbox" wx:if="{{active==1}}">
+                <view class="card-item" wx:for="5">
+                    <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
+                        <view class="card-count sub">
+                            <view class="cards">
+                                <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
+                                <view class="card-tips">
+                                    <text>{{item.title}}</text>
+                                    <text>免费领取</text>
+                                    <text>使用规则：仅可在指定项目使用</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="card-txt">
+                            <view>截至时间：{{item.validityPeriod}}</view>
+                            <view class="card-txt-box card-txt-box-no ">已使用</view>
                         </view>
                     </view>
                 </view>
-                <view class="card-txt">
-                    <view>截至时间：{{item.validityPeriod}}</view>
-                    <view class="card-txt-box card-txt-box-no ">已使用</view>
-                </view>
-            </view>
-         </view>
-   </view>
-   <!-- 已过期 -->
-   <view class="listbox" wx:if="{{active==2}}">
-        <view class="card-item" wx:for="5">
-            <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
-                <view class="card-count sub">
-                    <view class="cards">
-                        <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
-                        <view class="card-tips">
-                            <text>{{item.title}}</text>
-                            <text>免费领取</text>
-                            <text>使用规则：仅可在指定项目使用</text>
+        </view>
+        <!-- 已过期 -->
+        <view class="listbox" wx:if="{{active==2}}">
+                <view class="card-item" wx:for="5">
+                    <view class="flex card-info" id="{{item.id}}" wx:for="{{list}}" style="'#ccc'">
+                        <view class="card-count sub">
+                            <view class="cards">
+                                <view class="card-counts gridXb f24"><text>￥</text>{{item.money}}</view>
+                                <view class="card-tips">
+                                    <text>{{item.title}}</text>
+                                    <text>免费领取</text>
+                                    <text>使用规则：仅可在指定项目使用</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="card-txt">
+                            <view>截至时间：{{item.validityPeriod}}</view>
+                            <view class="card-txt-box card-txt-box-no">已过期</view>
                         </view>
                     </view>
                 </view>
-                <view class="card-txt">
-                    <view>截至时间：{{item.validityPeriod}}</view>
-                    <view class="card-txt-box card-txt-box-no">已过期</view>
-                </view>
-            </view>
-         </view>
-   </view>
+        </view>
+</block>    
 </view>

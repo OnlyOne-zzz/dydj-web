@@ -26,7 +26,7 @@ Page({
     onShow: function(e) {
         var u = wx.getStorageSync("userInfo");
         if(u ==undefined || u ==null || u =='' ){
-            wx.navigateTo({
+            wx.redirectTo({
                 // url: "/weixinmao_jz/pages/myusermsgmoney/index?id=" + t
                 url:"/weixinmao_jz/pages/login-customer/index"
             });
@@ -157,7 +157,9 @@ Page({
     },
     onHide: function() {},
     onUnload: function() {},
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+        wx.showNavigationBarLoading(), this.onShow();
+    },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
     checkuser: function(t) {

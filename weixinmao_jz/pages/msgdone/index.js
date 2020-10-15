@@ -44,6 +44,16 @@ Page({
     },
     onLoad: function(a) {
         var t = this;
+        wx.setNavigationBarTitle({
+            title: "提交订单"
+        }),wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
         if ("" != t.data.shopid) this.data.shopid; else {
             a.shopid;
             this.data.shopid = a.shopid;
@@ -110,17 +120,7 @@ Page({
                 uid: e.memberInfo.uid
             },
             success: function(a) {
-                a.data.message.errno || (a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), 
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: a.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), wx.setNavigationBarTitle({
-                    title: "提交订单"
-                }), t.data.gooditems = a.data.data.gooditems, t.setData({
+                a.data.message.errno || (t.data.gooditems = a.data.data.gooditems, t.setData({
                     msgcontent: a.data.data.msgcontent,
                     gooditems: a.data.data.gooditems,
                     addressinfo: a.data.data.addressinfo,

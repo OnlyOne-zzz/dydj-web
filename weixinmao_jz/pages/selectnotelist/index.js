@@ -28,7 +28,8 @@ Page({
         title: "",
         back: '',
         serviceStatus: 0,
-        orderColumn: ''
+        orderColumn: '',
+        worklist:[]
     },
     onLoad: function(t) {
         wx.setNavigationBarTitle({
@@ -67,7 +68,11 @@ Page({
               console.log("技师列表")
               console.log(t)
                 // t.data.message.errno,
-                    _this.calculateDistanceHandle(t.data.data.list,true);
+                if(!t.data.message.errno){
+                      if(t.data.data.list.length>0){
+                        _this.calculateDistanceHandle(t.data.data.list,true);
+                      } 
+                }
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), _this.setData({
@@ -175,4 +180,6 @@ Page({
     onShow: function(o){
         this.data.back = wx.getStorageSync('waiter')
     },
+    onPullDownRefresh: function() {
+    }
 });

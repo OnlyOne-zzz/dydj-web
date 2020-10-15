@@ -1,5 +1,9 @@
 <view class="container">
-    <view  class="newaddress" data-id="{{item.id}}" wx:for="{{list}}">
+<!-- 缺省提示 "-->
+    <view  wx-if="{{list=='' || list.length==0}}" class='default'>
+        暂无地址~
+    </view>
+    <view wx-else class="newaddress" data-id="{{item.id}}" wx:for="{{list}}">
         <view class="showaddress" >
             <view bindtap="selectaddress" data-id="{{item.id}}">
                 <text>{{item.name}}</text>

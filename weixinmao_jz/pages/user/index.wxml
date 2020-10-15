@@ -3,11 +3,11 @@
         <view hidden="{{isuser}}">
             <view class="pic">
                 <image src="../../resource/images/male1.png"></image>
-                <view class="userinfo">
-                    <view>开启上门之旅</view>
+                <view class="userinfos">
                     <view>
-                        <button bindgetuserinfo="toLogin" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;">登录/注册></button>
+                        <button bindgetuserinfo="toLogin" openType="getUserInfo">登录/注册></button>
                     </view>
+                    <view>开启上门之旅</view>
                 </view>
             </view>
         </view>
@@ -35,7 +35,7 @@
     <!-- 宣传图 -->
     <image class="invite" mode="widthFix" src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1364348244,612692244&fm=26&gp=0.jpg'></image>
     <view class="service">
-        <view bindtap="toMyOrder" class="servicelist">
+        <!-- <view bindtap="toMyOrder" class="servicelist">
             <view  style="background:#3C9BDF;">
                 <view class="logo">
                     <image src="../../resource/images/order.png"></image>
@@ -44,7 +44,7 @@
             <view class="name">
                 <view>我的订单</view>
             </view>
-        </view>
+        </view> -->
         <view bindtap="toMycoupon" class="servicelist">
             <view  style="background:#3C9BDF;">
                 <view class="logo">

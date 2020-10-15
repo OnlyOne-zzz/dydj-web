@@ -162,11 +162,19 @@ Page({
         console.log(this.data.isuser)
     },
     toLogin: function(a) {
-        0 < wx.getStorageSync("companyid") ? wx.navigateTo({
-            url: "/weixinmao_jz/pages/companylogin/index"
-        }) : wx.navigateTo({
-            url: "/weixinmao_jz/pages/login/index"
-        });
+        let userInfo = wx.getStorageSync("userInfo");
+        if(userInfo ==undefined || userInfo ==null || userInfo =='' ){
+            wx.navigateTo({
+                url: "/weixinmao_jz/pages/login-customer/index"
+            });
+        }else{
+            0 < wx.getStorageSync("loginid") ? wx.navigateTo({
+                url: "/weixinmao_jz/pages/companylogin/index"
+            }) : wx.navigateTo({
+                url: "/weixinmao_jz/pages/login/index"
+            });
+        }
+        // weixinmao_jz/pages/companylogin/index
     },
     bindGetUserInfo: function(a) {
         // console.log(a);

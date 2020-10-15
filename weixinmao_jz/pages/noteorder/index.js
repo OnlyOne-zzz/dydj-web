@@ -189,7 +189,9 @@ Page({
     },
     onHide: function() {},
     onUnload: function() {},
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+        wx.showNavigationBarLoading(), this.onShow();
+    },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
     checkuser: function(t) {

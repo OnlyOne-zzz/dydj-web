@@ -92,6 +92,8 @@ Page({
                         uid: e.memberInfo.uid
                     },
                     success: function(e) {
+                        console.log("12312312")
+                        console.log(e)
                         e.data.message.errno || n.setData({
                             list: e.data.data.list,
                             ordertype: a
