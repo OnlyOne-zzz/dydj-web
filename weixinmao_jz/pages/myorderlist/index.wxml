@@ -36,7 +36,7 @@
     <block  wx:if="{{list=='' || list.length==0}}" >
         <!-- 缺省提示 "-->
         <view class='default'>
-            暂无订单~
+            暂无当前状态订单~
         </view>
     </block>
     <block wx:else >

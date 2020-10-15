@@ -1,9 +1,12 @@
 <view class="news">
   <!-- 缺省提示 "-->
-    <view  wx-if="{{worklist.length==0}}" class='default'>
-        暂无可选技师~
+  <block wx:if="{{worklist=='' || worklist.length==0}}">
+    <view   class='default'>
+        暂无可预约技师~
     </view>
-    <view wx-else class="newslist" wx:for="{{worklist}}" data-note="{{item}}" bindtap="select">
+  </block>
+  <block wx:else>
+    <view class="newslist" wx:for="{{worklist}}" data-note="{{item}}" bindtap="select">
         <view class="pic">
             <image src="{{item.avatarurl}}"></image>
         </view>
@@ -38,7 +41,7 @@
             </view>
         </view>
     </view>
-  
+</block>
 </view>
 <view class="loadmore">
     <text>{{loadMore}}</text>
