@@ -71,4 +71,8 @@
             </view>
          </view>
    </view>
+    <!-- 缺省提示 -->
+    <view wx-if="{{list.lenght  == 0}}" class='default'>
+        暂无可选内容~
+    </view>
 </view>
