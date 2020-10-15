@@ -133,8 +133,8 @@ button::after {
     text-align: center;
 }
 .service .servicelist >view:nth-of-type(1) {
-     width: 50px;
-     height: 50px;
+     width: 40px;
+     height: 40px;
      border-radius: 50%;
      margin: auto;
      position: relative;
@@ -145,8 +145,8 @@ button::after {
 }
 
 .service .servicelist .logo image {
-    width: 50rpx;
-    height: 50rpx;
+    width: 40rpx;
+    height: 40rpx;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -433,4 +433,22 @@ button::after {
 
 button::after {
     border: none;
+}
+.userinfos {
+    display: inline-block;
+    background: initial;
+    width: calc(100% - 70px);
+    padding-top: 5px;
+}
+.userinfos >view>button{
+    font-size: 1rem;
+    height: 35px;
+    background: initial;
+    text-align: left;
+    color: #fff;
+}
+.userinfos >view:nth-of-type(2){
+    font-size: 0.7rem;
+    color: #fff;
+    padding-left: 15px;
 }

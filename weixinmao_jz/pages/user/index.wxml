@@ -3,11 +3,11 @@
         <view hidden="{{isuser}}">
             <view class="pic">
                 <image src="../../resource/images/male1.png"></image>
-                <view class="userinfo">
-                    <view>开启上门之旅</view>
+                <view class="userinfos">
                     <view>
-                        <button bindgetuserinfo="toLogin" openType="getUserInfo" style="background:{{intro.maincolor}};color:#FFF;font-size:.7rem;width:200rpx;margin-right:400rpx;">登录/注册></button>
+                        <button bindgetuserinfo="toLogin" openType="getUserInfo">登录/注册></button>
                     </view>
+                    <view>开启上门之旅</view>
                 </view>
             </view>
         </view>

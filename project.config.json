@@ -27,7 +27,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -94,9 +94,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "1",
-					"pathName": "weixinmao_jz/pages/user/index",
+					"pathName": "weixinmao_jz/pages/matchorder/index",
 					"query": "",
 					"scene": null
 				},
