@@ -1,18 +1,31 @@
 <view class="container">
-    <view class="proline">
-        <view class="progress">
-        <!-- 判断条件中的3为过程id 可根据实际情况调整 -->
-            <view class="linetext {{3> 0?'textac':''}}">技师接单</view>
-            <view class="linetext {{3> 1?'textac':''}}">技师出发</view>
-            <view class="linetext {{3> 2?'textac':''}}">技师到达</view>
-            <view class="linetext {{3> 3?'textac':''}}">开始服务</view>
-            <view class="linetext {{3>= 4?'textac':''}}">服务完成</view>
-        </view>
-        <view class="progress">
-            <!-- 判断条件中的3替换为实际过程id或数字 -->
-            <view wx:for='{{5}}' class="{{index<3?'line actives':''}} {{index == 3?'cricle':''}}"></view>
-        </view>
-    </view>
+        <block wx:if="{{orderinfo.paid==0}}">
+            <view class="proline">
+                        <view class="progress">
+                            <view class="linetext ''}}">技师接单</view>
+                            <view class="linetext ''}}">技师出发</view>
+                            <view class="linetext ''}}">技师到达</view>
+                            <view class="linetext ''}}">开始服务</view>
+                            <view class="linetext ''}}">服务完成</view>
+                        </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="proline">
+            <view class="progress">
+            <!-- 判断条件中的3为过程id 可根据实际情况调整 -->
+                <view class="linetext {{orderinfo.status> 0 && orderinfo.status<7?'textac':''}}">技师接单</view>
+                <view class="linetext {{orderinfo.status> 1 && orderinfo.status<7?'textac':''}}">技师出发</view>
+                <view class="linetext {{orderinfo.status> 2 && orderinfo.status<7?'textac':''}}">技师到达</view>
+                <view class="linetext {{orderinfo.status> 3 && orderinfo.status<7?'textac':''}}">开始服务</view>
+                <view class="linetext {{orderinfo.status> 4 && orderinfo.status<7?'textac':''}}">服务完成</view>
+            </view>
+            <view class="progress">
+                <!-- 判断条件中的3替换为实际过程id或数字 -->
+                <view wx:for='{{5}}' class="{{index<orderinfo.status && orderinfo.status<7?'line actives':''}} {{index == orderinfo.status && orderinfo.status>0?'cricle':''}}"></view>
+            </view>
+            </view>
+        </block>
     <view class='main2'>
         <view>
             <!-- <image src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1775828326,1919764642&fm=26&gp=0.jpg"></image> -->
