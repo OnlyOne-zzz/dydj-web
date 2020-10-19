@@ -12,9 +12,11 @@
             <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{banners}}" wx:key="unique"></view>
         </view>
     </view>
-  
-<button class="input-btn" style="width:85%;height:43px;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{phoneBtnContext}}</button>
-<button bindgetuserinfo="bindGetUserInfo" class="input-btn" style="width:85%;height:43px;margin-top:10px" openType="getUserInfo">登录</button>
+<button class="input-btn" style="width:85%;height:43px;background-color:#FFFFFF;color:#3C9BDF;border-style:solid;border-width:1px;border-color:#3C9BDF;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{phoneBtnContext}}</button>
+<view style="margin-top:10px;">
+    <button bindtap="unLogin" class="input-btn" style="width:35%;height:43px;margin-left:28px;float:left;background-color:#EDEDED;color:#3C9BDF" >暂不登录</button>
+    <button bindgetuserinfo="bindGetUserInfo" class="input-btn" style="width:35%;height:43px;margin-right:29px;" openType="getUserInfo">登录</button>
+</view>
 </view>
 <!-- <view class="u-tap-btn">
     <button class="u-go-home2" openType="contact">

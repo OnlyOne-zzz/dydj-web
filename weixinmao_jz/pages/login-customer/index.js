@@ -16,7 +16,7 @@ var userInfo = {
 Page({
     data:{
         phoneNumber: '',
-        phoneBtnContext: '请输入电话号码',
+        phoneBtnContext: '点击获取您的手机号码',
         local_code: ''
     },
     onShow:function(){
@@ -123,10 +123,7 @@ Page({
         cachetime: 0,
         showLoading: !1,
         success: function(res) {
-           console.log(res);
-            wx.navigateBack({
-                delta: 1
-            })
+           _this.jumpPage()
         }
     });
     },
@@ -135,6 +132,23 @@ Page({
         var data = e.detail;
         if(data.errMsg == "getPhoneNumber:ok"){
           _this.localGetPhoneNumber(data, _this.data.local_code);
+        }
+      },
+      unLogin: function() {
+        this.jumpPage()
+      },
+      jumpPage:function(){
+        let pages = getCurrentPages();
+        let prevPage = pages[pages.length - 2];//上一页
+        let addr = prevPage.route;
+        if(addr=='weixinmao_jz/pages/mymsgorder/index'){
+          wx.switchTab({
+            url: '/weixinmao_jz/pages/index/index',
+          })
+        }else{
+          wx.navigateBack({
+            delta: 1,
+          })
         }
       },
       bindGetUserInfo: function(e) {
