@@ -22,6 +22,16 @@ Page({
     },
     onLoad: function(a) {
         var n = this;
+        wx.setNavigationBarTitle({
+            title: "点约到家" 
+        }), wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
         if (a && a.hasOwnProperty("scene")) {
             var t = decodeURIComponent(a.scene).split("="), e = parseInt(t[1]);
             wx.setStorageSync("tid", e);
@@ -60,16 +70,7 @@ Page({
             success: function(a) {
                 if (!a.data.message.errno) {
                     if (wx.setStorageSync("companyinfo", a.data.data.intro), wx.setStorageSync("cityinfo", a.data.data.cityinfo), 
-                    wx.setNavigationBarTitle({
-                        title: wx.getStorageSync("companyinfo").name
-                    }), a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), wx.setNavigationBarColor({
-                        frontColor: "#ffffff",
-                        backgroundColor: a.data.data.intro.maincolor,
-                        animation: {
-                            duration: 400,
-                            timingFunc: "easeIn"
-                        }
-                    }), e.data.tel = a.data.data.intro.tel, 0 == a.data.data.intro.isright) e.data.isright = 0, 
+                    e.data.tel = a.data.data.intro.tel, 0 == a.data.data.intro.isright) e.data.isright = 0, 
                     e.data.isuser = !0, e.setData({
                         isuser: !0
                     }); else {

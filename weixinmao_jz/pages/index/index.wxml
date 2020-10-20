@@ -63,8 +63,8 @@
         </view>
         <view class="news">
             <view class="newstitle">
-                <view style="background:{{intro.maincolor}};"></view>
-                <view style="color:{{intro.maincolor}}">热门项目</view>
+                <view style="background:#3C9BDF;"></view>
+                <view style="color:#3C9BDF">热门项目</view>
             </view>
         </view>
         <view class="service">
@@ -72,19 +72,19 @@
                 <view class="logo">
                     <image src="{{item.thumb}}"></image>
                 </view>
-                <view class="name" style="color:{{intro.maincolor}}">
-                    <view> {{item.title}}</view>
+                <view class="name">
+                    <view style="color:#3C9BDF"> {{item.title}}</view>
                     <view class="perprice">
-                        <view>￥{{item.price}}/{{item.time}}分钟</view>
+                        <view style="font-size:.7rem;color:#eb4f38">￥{{item.price}}/{{item.time}}分钟</view>
                     </view>
-                    <view>{{item.intro}}</view>
+                    <view style="font-size:.7rem;">{{item.intro}}</view>
                 </view>
             </view>
         </view>
         <view class="news">
             <view class="newstitle">
-                <view style="background:{{intro.maincolor}};"></view>
-                <view style="color:{{intro.maincolor}}">技师推荐</view>
+                <view style="background:#3C9BDF"></view>
+                <view style="color:#3C9BDF">技师推荐</view>
             </view>
         </view>
         <view class="news">

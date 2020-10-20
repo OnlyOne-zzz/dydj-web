@@ -39,6 +39,9 @@ Page({
         }
     });
     },
+    // onUnload:function(){
+    //   this.jumpPage()
+    // },
     // 协议 政策
     xieyi:function(){
       wx.navigateTo({
