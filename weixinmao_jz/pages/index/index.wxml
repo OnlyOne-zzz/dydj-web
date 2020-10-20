@@ -115,7 +115,7 @@
                         <view>{{item.address}}</view>
                     </view> -->
                     <view class="price">
-                        <view>
+                       <view>
                             <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>

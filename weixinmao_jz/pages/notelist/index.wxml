@@ -89,11 +89,10 @@
                 </view>
                 <view>{{item.shopname}}</view>
             </view>
-            <view class="price" style="color:#3c9bdf">
+            <view class="price" style="color:#474747">
                 <view>
-                                       推荐服务项目:{{item.cateName}}
-                                        </view>
-                <view></view>
+                        推荐服务项目:{{item.cateName}}
+                </view>
             </view>
             <!-- <view class="price" style="justify-content: flex-start;">
                 <view>
@@ -101,13 +100,13 @@
                 </view>
                 <view style="height:40rpx; line-height: 40rpx;">{{item.address}}</view>
             </view> -->
-             <view class="price" style="color:#3c9bdf">
+             <view class="price" style="color:#474747">
               <view>距离:{{item.distance}}</view>
             </view>
             <view class="price">
             <!-- {{item.score}} -->
                 <view>
-                    满意度: <text class="fa fa-star  fa-lg"></text>
+                    <text class="fa fa-star  fa-lg"></text>
                     <text class="fa fa-star  fa-lg"></text>
                     <text class="fa fa-star  fa-lg"></text>
                     <text class="fa fa-star  fa-lg"></text>
