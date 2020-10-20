@@ -141,18 +141,18 @@ Page({
         this.jumpPage()
       },
       jumpPage:function(){
-        let pages = getCurrentPages();
-        let prevPage = pages[pages.length - 2];//上一页
-        let addr = prevPage.route;
-        if(addr=='weixinmao_jz/pages/mymsgorder/index'){
-          wx.switchTab({
-            url: '/weixinmao_jz/pages/index/index',
-          })
-        }else{
+        // let pages = getCurrentPages();
+        // let prevPage = pages[pages.length - 2];//上一页
+        // let addr = prevPage.route;
+        // if(addr=='weixinmao_jz/pages/mymsgorder/index'){
+        //   wx.switchTab({
+        //     url: '/weixinmao_jz/pages/index/index',
+        //   })
+        // }else{
           wx.navigateBack({
             delta: 1,
           })
-        }
+        // }
       },
       bindGetUserInfo: function(e) {
         var _this = this;

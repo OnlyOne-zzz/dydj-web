@@ -36,12 +36,12 @@
                         <!-- <text>功效：弹性项目平均分布在该行上，两边留有一半的间隔空间。如果剩余空间为负或者只有一个弹性项，则该值等同于center。</text> -->
                         <text>{{item.intro}}</text>
                     </view>
-                    <!-- <view class="desc2">
-                        <text>按摩部位：弹性项目平均分布在该行上，两边留有一半的间隔空间。如果剩余空间为负或者只有一个弹性项，则该值等同于center。</text>
+                    <view class="desc2">
+                        <text>舒缓压力，身心放松</text>
                     </view>
                     <view class="desc2">
-                        <text>强生健体</text>
-                    </view> -->
+                        <text>点约为您服务</text>
+                    </view> 
                     <view class="time">
                         <text style="text-decoration:line-through;">{{item.initiali_money}}</text>
                         <text style="font-size:.7rem;color:#eb4f38">￥{{item.money}}/{{item.time}}分钟</text>
