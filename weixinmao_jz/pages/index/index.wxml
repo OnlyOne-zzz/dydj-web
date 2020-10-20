@@ -96,7 +96,8 @@
                     <view class="address">
                          <view>
                             <block wx:if="{{item.serviceStatus==1}}"><view  style="background:#3C9BDF;">可服务</view></block>
-                             <block wx:else ><view style="background:#F59545;">服务中</view></block>
+                             <!-- <block wx:else ><view style="background:#F59545;">服务中</view></block> -->
+                             <block wx:else ><view style="background:#eb4f38;">服务中</view></block>
                          </view>
                         <view>{{item.shopname}}</view>
                     </view>
