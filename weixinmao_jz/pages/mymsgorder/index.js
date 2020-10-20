@@ -172,7 +172,7 @@ Page({
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {
-        wx.showNavigationBarLoading(), this.onShow();
+        wx.showNavigationBarLoading(), this.onLoad();
     },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
