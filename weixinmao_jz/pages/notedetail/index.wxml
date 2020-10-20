@@ -10,7 +10,12 @@
                         <!-- <block wx:if="{{item.serviceStatus==1}}"><view  style="background:#3C9BDF;">可服务</view></block>
                         <block wx:else ><view style="background:#F59545;">服务中</view></block> -->
                     <!-- </view> -->
-                    <view>{{data.serviceStatus==1?'可服务':'正在服务'}}</view>
+                    <!-- <block wx:if="{{data.serviceStatus==1}}">
+                         <view>可服务</view>
+                    </block>
+                    <block wx:else>
+                         <view  style="color:#eb4f38">正在服务</view>
+                    </block> -->
                 </view>
             </view>
         </view>
