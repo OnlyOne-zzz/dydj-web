@@ -178,8 +178,6 @@ Page({
     onShareAppMessage: function() {},
     checkuser: function(t) {
         var a = this, e = (t = t, wx.getStorageSync("userInfo"));
-        console.log("###############")
-        console.log(e)
         return console.log(e), e ? e.memberInfo.uid ? void app.util.request({
             url: "entry/wxapp/checkuserinfo",
             data: {
