@@ -36,8 +36,8 @@ Page({
         }
     },
     onShow: function(e) {
-        
-},
+        this.InitPage()
+    },
     InitPage: function() {
         var t = this, e = wx.getStorageSync("userInfo"), a = t.data.ordertype;
         if(e ==undefined || e ==null || e =='' ){
@@ -172,7 +172,7 @@ Page({
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {
-        wx.showNavigationBarLoading(), this.onLoad();
+        wx.showNavigationBarLoading(), this.onShow();
     },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
