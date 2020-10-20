@@ -101,7 +101,7 @@
                          </view>
                         <view>{{item.shopname}}</view>
                     </view>
-                    <view class="cate" style="color:#3c9bdf">
+                    <view class="cate" style="color:#474747">
                         <view>
                                        推荐服务项目:{{item.catename}}
                                         

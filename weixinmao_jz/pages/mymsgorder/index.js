@@ -3,7 +3,8 @@ var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = requi
 Page({
     data: {
         id: 0,
-        ordertype: 1
+        ordertype: 1,
+        list:[]
     },
     onLoad: function(e) {
         var t = this;
@@ -22,8 +23,6 @@ Page({
             e.id;
             t.data.id = e.id;
         }
-    },
-    onShow: function(e) {
         var u = wx.getStorageSync("userInfo");
         if(u ==undefined || u ==null || u =='' ){
             wx.navigateTo({
@@ -35,30 +34,39 @@ Page({
                 this.InitPage();
             });
         }
+    },
+    onShow: function(e) {
+        
 },
     InitPage: function() {
         var t = this, e = wx.getStorageSync("userInfo"), a = t.data.ordertype;
-        app.util.request({
-            url: "entry/wxapp/mymsgorder",
-            data: {
-                ordertype: a,
-                sessionid: e.sessionid,
-                uid: e.memberInfo.uid
-            },
-            success: function(e) {
-                console.log(e)
-                // e.data.message.errno || 
-                t.setData({
-                    list: e.data.data.list,
+        if(e ==undefined || e ==null || e =='' ){
+            t.setData({
+                isshow: !1
+            });
+        }else{
+            app.util.request({
+                url: "entry/wxapp/mymsgorder",
+                data: {
                     ordertype: a,
-                    intro: e.data.data.intro,
-                    isshow: !1
-                });
-            },
-            complete: function() {
-                wx.hideNavigationBarLoading(), wx.stopPullDownRefresh()
-            }
-        });
+                    sessionid: e.sessionid,
+                    uid: e.memberInfo.uid
+                },
+                success: function(e) {
+                    console.log(e)
+                    // e.data.message.errno || 
+                    t.setData({
+                        list: e.data.data.list,
+                        ordertype: a,
+                        intro: e.data.data.intro,
+                        isshow: !1
+                    });
+                },
+                complete: function() {
+                    wx.hideNavigationBarLoading(), wx.stopPullDownRefresh()
+                }
+            });
+        }
     },
     RefundOrder: function(e) {
         var a = this, t = e.currentTarget.dataset.id, n = e.currentTarget.dataset.status;
@@ -89,10 +97,13 @@ Page({
     onReady: function() {},
     tabClick: function(a) {
         var o = this;
+        var t = a.currentTarget.id;
+        o.setData({
+            ordertype: t
+        });
         this.checkuser({
             doServices: function() {
-                var t = a.currentTarget.id, e = wx.getStorageSync("userInfo");
-                console.log("切换")
+                e = wx.getStorageSync("userInfo");
                 console.log(t)
                 app.util.request({
                     url: "entry/wxapp/mymsgorder",
@@ -102,9 +113,9 @@ Page({
                         uid: e.memberInfo.uid
                     },
                     success: function(e) {
-                        e.data.message.errno || o.setData({
-                            list: e.data.data.list,
-                            ordertype: t
+                        e.data.message.errno || 
+                        o.setData({
+                            list: e.data.data.list
                         });
                     }
                 });
@@ -167,6 +178,8 @@ Page({
     onShareAppMessage: function() {},
     checkuser: function(t) {
         var a = this, e = (t = t, wx.getStorageSync("userInfo"));
+        console.log("###############")
+        console.log(e)
         return console.log(e), e ? e.memberInfo.uid ? void app.util.request({
             url: "entry/wxapp/checkuserinfo",
             data: {
