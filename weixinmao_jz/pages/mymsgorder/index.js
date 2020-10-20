@@ -103,7 +103,7 @@ Page({
         });
         this.checkuser({
             doServices: function() {
-                e = wx.getStorageSync("userInfo");
+                let e = wx.getStorageSync("userInfo");
                 console.log(t)
                 app.util.request({
                     url: "entry/wxapp/mymsgorder",
