@@ -104,7 +104,7 @@ Page({
         this.checkuser({
             doServices: function() {
                 let e = wx.getStorageSync("userInfo");
-                console.log(t)
+                // console.log(t)
                 app.util.request({
                     url: "entry/wxapp/mymsgorder",
                     data: {
@@ -113,7 +113,7 @@ Page({
                         uid: e.memberInfo.uid
                     },
                     success: function(e) {
-                        e.data.message.errno || 
+                        // e.data.message.errno || 
                         o.setData({
                             list: e.data.data.list
                         });
