@@ -74,10 +74,10 @@
                 </view>
                 <view class="name">
                     <view style="color:#3C9BDF"> {{item.title}}</view>
+                    <view style="font-size:.7rem;">{{item.intro}}</view>
                     <view class="perprice">
                         <view style="font-size:.7rem;color:#eb4f38">￥{{item.price}}/{{item.time}}分钟</view>
                     </view>
-                    <view style="font-size:.7rem;">{{item.intro}}</view>
                 </view>
             </view>
         </view>
