@@ -82,6 +82,11 @@ Page({
     online: function(a) {
         let serviceStatus = a.currentTarget.dataset.status;
         let loginid = wx.getStorageSync("loginid");
+        if(serviceStatus==1){
+            serviceStatus=2;    
+        }else{
+            serviceStatus==1;
+        }
         let onlineObj= {
             loginid:loginid,
             serviceStatus:serviceStatus
