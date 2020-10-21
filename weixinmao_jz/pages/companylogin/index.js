@@ -82,17 +82,19 @@ Page({
     online: function(a) {
         let serviceStatus = a.currentTarget.dataset.status;
         let loginid = wx.getStorageSync("loginid");
+        console.log(serviceStatus)
         if(serviceStatus==1){
             serviceStatus=2;    
         }else{
-            serviceStatus==1;
+            serviceStatus=1;
         }
         let onlineObj= {
             loginid:loginid,
             serviceStatus:serviceStatus
          };
+         console.log(onlineObj)
         app.util.request({
-            url: "entry/wxapp/Online",
+            url: "entry/wxapp/NoteOnline",
             data: onlineObj,
             success: function(a) {
                 
