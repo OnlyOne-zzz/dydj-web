@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="main" style="background:{{intro.maincolor}}"></view>
+    <view class="main" style="background:#3C9BDF"></view>
     <view class="header">
         <view hidden="">
             <view class="pic">
@@ -45,10 +45,11 @@
             <image src="../../resource/images/qorder.png"></image>
             <view style="margin-left:16rpx;">抢单大厅</view>
         </view> -->
-        <!-- <view bindtap="toShopmsg" class="item">
+        <view bindtap="online" data-status="{{noteinfo.service_status}}" class="item">
             <image src="../../resource/images/sendmsg.png"></image>
-            <view style="margin-left:16rpx;">接收消息</view>
-        </view> -->
+            <view wx:if="{{noteinfo.service_status==1}}" style="margin-left:16rpx;color:#eb4f38;">下线</view>
+            <view wx:else style="margin-left:16rpx;color:#3C9BDF">上线</view>
+        </view>
         <view bindtap="loginout" class="item">
             <image src="../../resource/images/logout.png"></image>
             <view style="margin-left:16rpx;">退出登录</view>

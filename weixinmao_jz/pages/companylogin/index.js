@@ -13,6 +13,14 @@ Page({
         wx.setNavigationBarTitle({
             title: "技师中心"
         });
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
         wx.getLocation({
             type: 'wgs84',
                 success(res) {
@@ -69,6 +77,21 @@ Page({
         wx.switchTab({
             // url: "/weixinmao_jz/pages/login/index"
             url: "/weixinmao_jz/pages/index/index"
+        });
+    },
+    online: function(a) {
+        let serviceStatus = a.currentTarget.dataset.status;
+        let loginid = wx.getStorageSync("loginid");
+        let onlineObj= {
+            loginid:loginid,
+            serviceStatus:serviceStatus
+         };
+        app.util.request({
+            url: "entry/wxapp/Online",
+            data: onlineObj,
+            success: function(a) {
+                
+            }
         });
     },
     doCall: function() {
@@ -155,7 +178,7 @@ Page({
     onHide: function() {},
     onUnload: function() {
         wx.reLaunch({
-            url: 'weixinmao_jz/pages/index/index'
+            url: '/weixinmao_jz/pages/index/index'
         })
     },
     onPullDownRefresh: function() {},
