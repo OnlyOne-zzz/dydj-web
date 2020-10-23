@@ -203,6 +203,16 @@ Page({
             url: "/weixinmao_jz/pages/myhouse/index"
         });
     },
+    toxieyi:function(){
+        wx.navigateTo({
+          url: "/weixinmao_jz/pages/housexy/index"
+      });
+      },
+     tozhengce:function(){
+        wx.navigateTo({
+          url: "/weixinmao_jz/pages/privacy/index"
+      });
+      },
     onShow: function() {
         var _this=this;
         var userInfo = wx.getStorageSync("userInfo");
