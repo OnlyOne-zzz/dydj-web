@@ -11,7 +11,7 @@
                 </view>
                 <view  class="paymoney">
                     <view bindtap="toLogin">
-                        <text>****</text>
+                        <text>***</text>
                         <text>账户余额</text>
                     </view>
                     <view bindtap="toLogin">
