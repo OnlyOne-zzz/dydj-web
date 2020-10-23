@@ -9,12 +9,12 @@
                 <text>{{item.name}}</text>
                 <text style="margin-left:20rpx;"> {{item.tel}}</text>
             </view>
-            <view bindtap="selectaddress" data-id="{{item.id}}">{{item.address}}{{item.daddress}}</view>
+            <view bindtap="selectaddress" data-id="{{item.id}}" style="margin-top:8rpx;font-size:24rpx">{{item.address}}{{item.daddress}}</view>
             <view class="hr"></view>
-            <view class='chaozuo'>
+            <view class='chaozuo' style="margin-top:5rpx;">
                 <view class='redios' bindtap='setmoren' data-id="{{item.id}}">
                     <text class='{{item.ison==1?"active":""}}' ></text>
-                    <text>设为默认地址</text>
+                    <text>设为默认</text>
                 </view>
                 <view class='chaozhuo'>
                     <text  bindtap='edit' data-obj='{{item}}'>编辑</text>
