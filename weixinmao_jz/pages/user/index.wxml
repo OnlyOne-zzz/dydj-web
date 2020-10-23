@@ -69,7 +69,7 @@
         <view bindtap="toDomoney" class="servicelist">
             <view style="background:#3C9BDF;">
                 <view class="logo">
-                    <image src="../../resource/images/fx.png"></image>
+                    <image src="../../resource/images/cz-wd.png"></image>
                 </view>
             </view>
             <view class="name">
@@ -100,7 +100,7 @@
         <view bindtap="toaddress" class="servicelist">
             <view  style="background:#3C9BDF;">
                 <view class="logo">
-                    <image src="../../resource/images/addr.png"></image>
+                    <image src="../../resource/images/addr-wd.png"></image>
                 </view>
             </view>
             <view class="name">
