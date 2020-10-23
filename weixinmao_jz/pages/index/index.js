@@ -68,6 +68,7 @@ Page({
                 city: a
             },
             success: function(a) {
+                console.log(a)
                 if (!a.data.message.errno) {
                     if (wx.setStorageSync("companyinfo", a.data.data.intro), wx.setStorageSync("cityinfo", a.data.data.cityinfo), 
                     e.data.tel = a.data.data.intro.tel, 0 == a.data.data.intro.isright) e.data.isright = 0, 

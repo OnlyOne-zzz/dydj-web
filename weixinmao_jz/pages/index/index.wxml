@@ -108,12 +108,9 @@
                                         </view>
                         <view></view>
                     </view>
-                    <!-- <view class="price" style="justify-content: flex-start;">
-                        <view>
-                            <image src="../../resource/images/dw.png" style="width:40rpx;height:40rpx; "></image>
-                        </view>
-                        <view>{{item.address}}</view>
-                    </view> -->
+                    <view class="price" style="justify-content: flex-start;">
+                        <view>{{item.induce}}</view>
+                    </view>
                     <view class="price">
                        <view>
                             <text class="fa fa-star  fa-lg"></text>

@@ -353,7 +353,7 @@ Page({
                 name: name
             },
             success: function(t) {
-                t.data.message.errno,
+                // t.data.message.errno,
                 _this.calculateDistanceHandle(t.data.data.list, false)
             },
             complete: function() {
@@ -369,8 +369,10 @@ Page({
             url: "entry/wxapp/notePaging",
             data: data,
             success: function(t) {
-                t.data.message.errno,
-                    call(t.data.data.list);
+                console.log("技师列表")
+                console.log(t)
+                // t.data.message.errno,
+                call(t.data.data.list);
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), e.setData({
