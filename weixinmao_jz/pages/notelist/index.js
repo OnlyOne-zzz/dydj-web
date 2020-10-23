@@ -365,8 +365,8 @@ Page({
                   console.log("定位授权了")
               }else{
                 wx.showModal({
-                    title: '地址授权',
-                    content:'您未授权地址信息是否授权获取地址信息',
+                    title: '位置信息授权',
+                    content:'您未授权位置信息无法正常使用是否重新授权',
                     success:function(res){
                         console.log(res)
                         if (res.confirm) {
