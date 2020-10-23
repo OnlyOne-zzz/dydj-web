@@ -27,9 +27,17 @@ Page({
     },
     onLoad: function(a) {
         var t = this;
-        if (wx.setNavigationBarTitle({
-            title: "我的地址"
-        }), "" != t.data.listid) t.data.listid; else {
+        wx.setNavigationBarTitle({
+            title: "添加地址"
+        }), wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
+        if ("" != t.data.listid) t.data.listid; else {
             a.listid;
             t.data.listid = a.listid;
         }
@@ -58,18 +66,10 @@ Page({
                 uid: e.memberInfo.uid
             },
             success: function(a) {
-                a.data.message.errno || (a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), 
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: a.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), t.setData({
+               t.setData({
                     intro: a.data.data.intro,
                     isshow: !1
-                }));
+                });
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
