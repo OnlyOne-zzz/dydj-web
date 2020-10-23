@@ -86,7 +86,27 @@ Page({
                 });
             },
             fail: function(a) {
-                console.log(a);
+                console.log(a)
+                if(a.errMsg=='chooseLocation:fail auth deny'){
+                    wx.showModal({
+                        title: '地址授权',
+                        content:'您未授权地址信息是否授权获取地址信息',
+                        success:function(res){
+                            console.log(res)
+                            if (res.confirm) {
+                                wx.openSetting({
+                                    success (res) {
+                                        if(res.authSetting['scope.userLocation']){
+                                            _this.onLoad();
+                                        }
+                                      }
+                                });
+                              } else if (res.cancel) {
+                                console.log('用户点击取消')
+                              }
+                        }
+                    })
+                }
             },
             complete: function() {}
         });
