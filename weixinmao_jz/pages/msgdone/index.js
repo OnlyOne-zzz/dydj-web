@@ -166,7 +166,9 @@ Page({
         });
     },
     pay: function(a) {
-        var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
+        var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), 
+        o = 'formId';
+        // o = a.detail.formId;
         let content = ''
         console.log(t.data.shopid)
         if(!e){
