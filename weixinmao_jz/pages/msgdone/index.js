@@ -166,9 +166,7 @@ Page({
         });
     },
     pay: function(a) {
-        var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), 
-        o = 'formId';
-        // o = a.detail.formId;
+        var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
         let content = ''
         console.log(t.data.shopid)
         if(!e){
@@ -212,7 +210,6 @@ Page({
                 content: s,
                 form_id: o,
                 contentId:t.data.currentid,
-                noteid:t.data.noteId,
                 trafficType:t.data.trafficType,
                 name:e.name,
                 tel:e.tel,
@@ -448,7 +445,6 @@ getnote:function(noteId){
                         let noteObj = obj.data.data.workerdetail;
                         let lat = noteObj.lat;
                         let lng = noteObj.lng;
-                        console.log("%%%%%")
                         console.log(noteObj)
                         // if(!addressInfoStorage){
                             noteCallback.getDistance(lat,lng);
