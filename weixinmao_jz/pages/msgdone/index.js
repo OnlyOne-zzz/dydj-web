@@ -417,10 +417,9 @@ Page({
                 couponmoney:0
             });
         }
-        let selectnote = this.data.selectnote;
+        let selectnote = _this.data.selectnote;
         let noteid = _this.data.noteId;    
-        if(selectnote != undefined || noteid!=undefined){
-            console.log(noteid)
+        if(selectnote != undefined || noteid!='undefined'){
             if(noteid=='undefined' || noteid==undefined ){
                 noteid=selectnote.id;
             }
