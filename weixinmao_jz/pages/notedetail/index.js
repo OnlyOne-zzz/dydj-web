@@ -60,7 +60,6 @@ Page(_defineProperty({
                 id: o
             },
             success: function(a) {
-                console.log("*****************")
                 console.log(a)
                 if(!a.data.message.errno){
                     i.data.title = a.data.data.workerdetail.name,

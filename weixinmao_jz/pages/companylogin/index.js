@@ -152,6 +152,7 @@ Page({
                 uid: o.memberInfo.uid
             },
             success: function(o) {
+                console.log(o)
                 a.data.istype = o.data.data.companyaccount.type,
                 a.setData({
                     companyaccount: o.data.data.companyaccount,
@@ -179,7 +180,9 @@ Page({
             url: '/weixinmao_jz/pages/index/index'
         })
     },
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+        this.onShow()
+    },
     binduserinfo: function(o) {
         var a = this;
         a.data.showmsg = !1;

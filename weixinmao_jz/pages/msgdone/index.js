@@ -40,7 +40,8 @@ Page({
         cardinfo: {},
         technician: {},
         distance:0,
-        resultDis:''
+        resultDis:'',
+        remake:''
     },
     onLoad: function(a) {
         var t = this;
@@ -69,23 +70,6 @@ Page({
         t.setData({
             isshow: !0
         }), t.oldhouseinit();
-        // var u = wx.getStorageSync("userInfo");
-        // var addressInfoStorage = wx.getStorageSync("addressinfo");
-        // if(!addressInfoStorage){
-        //     app.util.request({
-        //         url: "entry/wxapp/myaddresslist",
-        //         data: {
-        //             sessionid: u.sessionid,
-        //             uid: u.memberInfo.uid
-        //         },
-        //         success: function(a) {
-        //             var list = a.data.data.list;
-        //             if (!a.data.message.errno && list.length>0) {
-        //                 wx.setStorageSync("addressinfo",list);
-        //             }
-        //         }
-        //     });
-        // }
         if(this.data.noteId!=0 && this.data.noteId!=undefined){
             this.getnote(this.data.noteId)
         }
@@ -104,9 +88,6 @@ Page({
         }
     },
     selectTravel: function(e){
-        this.setData({
-            travel: e.target.dataset.index
-        })
         this.getFare(e.target.dataset.index);
     },
     oldhouseinit: function(a) {
@@ -158,6 +139,11 @@ Page({
             success: function(a) {
                 console.log(a)
                 if(!a.data.message.errno){
+                    if(param!=undefined && param!='undefined'){
+                        pageObj.setData({
+                            travel: param
+                        })
+                    }
                     pageObj.setData({
                         fare:a.data.data
                     });
@@ -167,7 +153,7 @@ Page({
     },
     pay: function(a) {
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
-        let content = ''
+        let content = '';
         if(!e){
             content = '请先增加地址'
             wx.showModal({
@@ -194,8 +180,9 @@ Page({
             return false
         } 
         else {
-            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway,couponid=t.data.couponId;
-            if(couponid==undefined){
+            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway,couponid=t.data.couponId,
+            remake  = a.detail.value.content;
+            if(couponid==undefined || couponid=='undefined' ){
                 couponid=0;
             }
             var res={
@@ -215,7 +202,8 @@ Page({
                 daddress:e.daddress,
                 couponid:couponid,
                 type:r,
-                trafficReckonMile:t.data.distance
+                trafficReckonMile:t.data.distance,
+                remake:remake
             };
             console.log(res)
             wx.showModal({
@@ -227,7 +215,6 @@ Page({
                             url: "entry/wxapp/paymsg",
                             data:res,
                             success: function(a) {
-                                console.log(a.data.message.errno)
                                 if(!a.data.message.errno){
                                     if(r==1){
                                         wx.switchTab({
@@ -255,8 +242,6 @@ Page({
                                         }
                                     }
                                 }
-                                // else{
-                                // }
                             },
                             fail: function(resp) {
                                 console.log(resp)
@@ -272,36 +257,6 @@ Page({
                     }
                 }
             }) 
-            // : app.util.request({
-            //     url: "entry/wxapp/PayNomoney",
-            //     data: {
-            //         sessionid: n.sessionid,
-            //         model: t.data.model,
-            //         addressid: e.id,
-            //         uid: n.memberInfo.uid,
-            //         form_id: o,
-            //         content: s
-            //     },
-            //     success: function(a) {
-            //         if (!a.data.message.errno) {
-            //             if (0 != a.data.data.error) return void wx.showModal({
-            //                 title: "提示",
-            //                 content: a.data.data.msg,
-            //                 showCancel: !1
-            //             });
-            //             wx.showModal({
-            //                 title: "提示",
-            //                 content: a.data.data.msg,
-            //                 showCancel: !1,
-            //                 success: function() {
-            //                     wx.navigateTo({
-            //                         url: "/weixinmao_jz/pages/matchorder/index?orderid=" + a.data.data.orderid
-            //                     });
-            //                 }
-            //             });
-            //         }
-            //     }
-            // });
         }
         
     },

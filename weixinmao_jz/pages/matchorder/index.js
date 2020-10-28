@@ -23,19 +23,22 @@ Page({
     },
     onLoad: function(a) {
         var t = this;
-        if (console.log(a.orderid), t.data.orderid = a.orderid, wx.setNavigationBarTitle({
+        wx.setNavigationBarTitle({
             title: "订单进度"
-        }), "" != this.data.orderid) this.data.orderid; else {
-            a.orderid;
+        });
+        if(a!=undefined){
             this.data.orderid = a.orderid;
+            t.setData({
+                orderid:a.orderid
+            })
         }
         t.setData({
-            isshow: !0
-        }), t.oldhouseinit();
+            isshow: !0,
+        }), 
+        t.oldhouseinit();
     },
     oldhouseinit: function(a) {
         var t = this, e = wx.getStorageSync("userInfo");
-        console.log("orderid")
         console.log( t.data.orderid)
         app.util.request({
             url: "entry/wxapp/MatchOrderInfo",
@@ -101,7 +104,9 @@ Page({
     },
     onHide: function() {},
     onUnload: function() {},
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+        this.onLoad()
+    },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
     bindDateChange: function(a) {
