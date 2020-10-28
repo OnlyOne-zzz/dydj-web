@@ -92,14 +92,6 @@
             </view>
             <view class='dcontents'>{{item.content}}</view>
         </view>
-        <view class="clist">
-            <view class="dcontent">
-                {{item.nick_name}}：
-                {{item.createtime}}
-                {{item.score}}
-            </view>
-            <view class='dcontents'>{{item.content}}</view>
-        </view>
     </view>
     <view class="company" hidden="{{ordertype==3?false:true}}">
         <view class="clist">

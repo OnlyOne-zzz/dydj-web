@@ -5,11 +5,13 @@ Page({
         id: 1,
         ordertype: 0,
         active: 0,
-        back: ''
+        back: '',
+        state:0
     },
     selectList(e){
         this.setData({
-            active: e.target.dataset.index
+            active: e.target.dataset.index,
+            state: e.target.dataset.index
         });
         var t = this, o = wx.getStorageSync("userInfo");
         console.log(e);
@@ -34,7 +36,7 @@ Page({
         }),wx.getStorageSync("userInfo").sessionid ? t.InitPage() : app.util.getUserInfo(function() {
             t.InitPage();
         });
-        t.data.back = o.back
+        // t.data.back = o.back
     },
     onShow: function(o) {},
     employ: function(e){
@@ -44,16 +46,18 @@ Page({
         var t = this, o = wx.getStorageSync("userInfo");
         var data = {
             uid: o.memberInfo.uid,
-            state: 0
+            state: t.data.state
         };
         this.loadConpenList(data);
     },
     loadConpenList:function(data){
         var t = this;
+        console.log(data)
         app.util.request({
             url: "entry/wxapp/couponOrderUserList",
             data: data,
             success: function(res) {
+                console.log(res)
                 // res.data.message.errno,
                t.setData({
                     list: res.data.data
@@ -65,7 +69,7 @@ Page({
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {
-        wx.showNavigationBarLoading(), this.onLoad();
+        this.onLoad();
     },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
