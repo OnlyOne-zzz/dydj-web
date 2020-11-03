@@ -26,9 +26,13 @@
                 <view>已完成订单</view>
             </view>
             <view class="line"></view>
-            <view bindtap="toGetmoney" class="item_line">
+            <!-- <view bindtap="toGetmoney" class="item_line">
                 <view>{{totalmoney}}元</view>
                 <view>钱包*提现</view>
+            </view> -->
+             <view class="item_line">
+                <view>财务结算</view>
+                <view>钱包</view>
             </view>
         </view>
     </view>
@@ -37,18 +41,10 @@
             <image src="../../resource/images/msgorder.png"></image>
             <view style="margin-left:16rpx;">我的订单</view>
         </view>
-        <!-- <view bindtap="toMyorder" class="item">
-            <image src="../../resource/images/matchorder.png"></image>
-            <view style="margin-left:16rpx;">平台派单</view>
-        </view> -->
-        <!-- <view bindtap="toRoborder" class="item">
-            <image src="../../resource/images/qorder.png"></image>
-            <view style="margin-left:16rpx;">抢单大厅</view>
-        </view> -->
         <view bindtap="online" data-status="{{noteinfo.service_status}}" class="item">
             <image src="../../resource/images/sendmsg.png"></image>
-            <view wx:if="{{noteinfo.service_status==1}}" style="margin-left:16rpx;color:#eb4f38;">下线</view>
-            <view wx:else style="margin-left:16rpx;color:#3C9BDF">上线</view>
+            <view wx:if="{{noteinfo.service_status==1}}" style="margin-left:16rpx;color:#eb4f38;font-weight:600;">下线</view>
+            <view wx:else style="margin-left:16rpx;color:#3C9BDF;font-weight:600;">上线</view>
         </view>
         <view bindtap="loginout" class="item">
             <image src="../../resource/images/logout.png"></image>

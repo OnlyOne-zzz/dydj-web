@@ -81,7 +81,7 @@
                 <view class="chuxing">
                     <text>出行方式</text>
                     <text class="listTime {{travel == 1 ? 'active':''}}" bindtap='selectTravel' data-index='1'>公交/地铁</text>
-                    <text class="listTime {{travel == 0 ? 'active':''}}" bindtap='selectTravel' data-index='0'>出租出租车</text>
+                    <text class="listTime {{travel == 0 ? 'active':''}}" bindtap='selectTravel' data-index='0'>出租车</text>
                 </view>
             </view>
             <view>
@@ -108,12 +108,24 @@
         </view>
         <view class="main">
             <view class="title">
-          备注
+          下单须知
         </view>
             <view class="list" style="border-bottom:0rpx;">
                 <view class="item" style="border-bottom:0rpx;">
                     <view class="selectitem" style="border-bottom:0rpx; padding: 0px 10px">
-                        <textarea name="content" placeholder="请填写备注" style="width:720rpx;" value=""></textarea>
+                        <textarea name="content" disabled="true" placeholder="" style="width:720rpx;" value="车费由您选择的出行方式和服务地址与技师位置计算得出，当平台技师出发后，您申请退款，则不退回出行费用并收取项目金额的20%做为违约金。"></textarea>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="main">
+            <view class="title">
+          备注(选填)
+        </view>
+            <view class="list" style="border-bottom:0rpx;">
+                <view class="item" style="border-bottom:0rpx;">
+                    <view class="selectitem" style="border-bottom:0rpx; padding: 0px 10px">
+                        <textarea name="content" placeholder="请输入备注内容" style="width:720rpx;height:60rpx" value=""></textarea>
                     </view>
                 </view>
             </view>

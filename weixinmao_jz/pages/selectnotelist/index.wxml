@@ -1,7 +1,8 @@
 <view class="news">
   <!-- 缺省提示 "-->
+  {{worklist}}
   <block wx:if="{{worklist=='' || worklist.length==0}}">
-    <view   class='default'>
+    <view  class='default'>
         暂无可预约技师~
     </view>
   </block>
@@ -20,12 +21,6 @@
                 </view>
                 <view></view>
             </view>
-            <!-- <view class="price" style="justify-content: flex-start;">
-                <view>
-                    <image src="../../resource/images/dw.png" style="width:40rpx;height:40rpx;"></image>
-                </view>
-                <view style="height:40rpx; line-height: 40rpx;">{{item.address}}</view>
-            </view>  -->
              <view class="price" style="color:#3c9bdf">
               <view>距离:{{item.distance}}</view>
             </view>

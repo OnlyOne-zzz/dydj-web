@@ -248,7 +248,14 @@ Page({
                                 wx.showModal({
                                     title: "提示",
                                     content: resp.data.message,
-                                    showCancel: !1
+                                    showCancel: !1,
+                                    success (res) {
+                                        if (res.confirm) {
+                                            wx.switchTab({
+                                              url: '/weixinmao_jz/pages/user/index',
+                                            })
+                                        } 
+                                      }
                                 });
                             }
                         });  

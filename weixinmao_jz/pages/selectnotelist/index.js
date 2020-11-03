@@ -69,8 +69,6 @@ Page({
               console.log(t)
                 // t.data.message.errno,
                 if(!t.data.message.errno){
-                    console.log("#######")
-                    console.log(t.data.data.list)
                       if(t.data.data.list.length>0){
                         _this.calculateDistanceHandle(t.data.data.list,true);
                       } 
