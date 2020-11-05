@@ -65,7 +65,6 @@ Page({
                 encryptedData: encodeURIComponent(detail.encryptedData)
             },
             cachetime: 0,
-            showLoading: !1,
             success: function(res) {
                 var errMsg  = res.errMsg;
                 if(errMsg == "request:ok"){
@@ -76,7 +75,10 @@ Page({
                         phoneBtnContext: phoneNumber
                     });
                 }
-            }
+            },
+            complete: function() {
+              wx.hideNavigationBarLoading(), wx.stopPullDownRefresh()
+          }
         });
     },
     localGetUserInfo(detail, code){
