@@ -447,6 +447,7 @@ navigator {
     margin: 0 auto;
     border-bottom: 1px solid #efefef;
     padding: 10px;
+    box-sizing: border-box;
 }
 
 .newslist .pic {
