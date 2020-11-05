@@ -1,6 +1,5 @@
 <view class="news">
   <!-- 缺省提示 "-->
-  {{worklist}}
   <block wx:if="{{worklist=='' || worklist.length==0}}">
     <view  class='default'>
         暂无可预约技师~
