@@ -86,15 +86,16 @@
                 <view>申请提现</view>
             </view>
         </view>
-        <view bindtap="doCall" class="servicelist">
-            <view  style="background:#3C9BDF;">
+        <view class="servicelist">
+            <view>
                 <view class="logo">
-                    <image src="../../resource/images/kefu.png"></image>
+                    <button class="kefu" openType="contact">
+                            <image src="../../resource/images/kefu.png"></image>
+                    </button>
                 </view>
             </view>
             <view class="name">
-                <view>客服中心</view>
-                <view></view>
+                <view style="width:100%">客服中心</view>
             </view>
         </view>
         <view bindtap="toaddress" class="servicelist">
