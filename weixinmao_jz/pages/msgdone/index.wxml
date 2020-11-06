@@ -113,7 +113,7 @@
             <view class="list" style="border-bottom:0rpx;">
                 <view class="item" style="border-bottom:0rpx;">
                     <view class="selectitem" style="border-bottom:0rpx; padding: 0px 10px">
-                        <textarea name="content" disabled="true" placeholder="" style="width:720rpx;" value="车费由您选择的出行方式和服务地址与技师位置计算得出，当平台技师出发后，您申请退款，则不退回出行费用并收取项目金额的20%做为违约金。"></textarea>
+                        <textarea name="content" disabled="true" placeholder="" style="width:720rpx;" value="车费由您选择的出行方式和服务地址与技师位置计算得出，当平台技师出发后，您申请退款，则不退回出行费用并收取项目金额的20%做为违约金；点约到家服务属于舒缓保健，并非医疗，如需治疗效果请到医院就医。"></textarea>
                     </view>
                 </view>
             </view>
