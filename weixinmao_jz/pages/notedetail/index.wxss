@@ -5,7 +5,9 @@
     flex-direction: column;
     align-items: center;
 }
-
+view{
+box-sizing: border-box;
+}
 .container .header {
     width: 750rpx;
     height: 320rpx;
