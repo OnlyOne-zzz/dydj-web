@@ -163,7 +163,7 @@ Page({
             });
             return false
         }else if(!e.daddress){
-            content = '请完善门牌号'
+            content = '请完善地址'
             wx.showModal({
                 title: "提示",
                 content: content,
