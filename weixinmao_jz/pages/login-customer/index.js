@@ -124,6 +124,8 @@ Page({
         showLoading: !1,
         success: function(res) {
            console.log(res);
+           var lcoaluserinfo = wx.getStorageSync("userInfo");
+           res.data.errno || (lcoaluserinfo.memberInfo = res.data.data.userinfo,  wx.setStorageSync("userInfo", lcoaluserinfo)), 
             wx.navigateBack({
                 delta: 1
             })
