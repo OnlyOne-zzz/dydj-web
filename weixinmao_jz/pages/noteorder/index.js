@@ -60,6 +60,7 @@ Page({
         var t = this, o = e.currentTarget.id;
         t.data.id = o;
         var n = wx.getStorageSync("userInfo"), a = wx.getStorageSync("loginid");
+        console.log(o)
         app.util.request({
             url: "entry/wxapp/mynoteorder",
             data: {
@@ -69,6 +70,7 @@ Page({
                 uid: n.memberInfo.uid
             },
             success: function(e) {
+                console.log(e)
                 e.data.message.errno || t.setData({
                     list: e.data.data.list,
                     ordertype: o

@@ -27,9 +27,17 @@ Page({
     },
     onLoad: function(a) {
         var t = this;
-        if (wx.setNavigationBarTitle({
-            title: "我的地址"
-        }), "" != t.data.listid) t.data.listid; else {
+        wx.setNavigationBarTitle({
+            title: "添加地址"
+        }), wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
+        if ("" != t.data.listid) t.data.listid; else {
             a.listid;
             t.data.listid = a.listid;
         }
@@ -58,18 +66,10 @@ Page({
                 uid: e.memberInfo.uid
             },
             success: function(a) {
-                a.data.message.errno || (a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), 
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: a.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), t.setData({
+               t.setData({
                     intro: a.data.data.intro,
                     isshow: !1
-                }));
+                });
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
@@ -86,7 +86,27 @@ Page({
                 });
             },
             fail: function(a) {
-                console.log(a);
+                console.log(a)
+                if(a.errMsg=='chooseLocation:fail auth deny'){
+                    wx.showModal({
+                        title: '地址授权',
+                        content:'您未授权地址信息是否授权获取地址信息',
+                        success:function(res){
+                            console.log(res)
+                            if (res.confirm) {
+                                wx.openSetting({
+                                    success (res) {
+                                        if(res.authSetting['scope.userLocation']){
+                                            _this.onLoad();
+                                        }
+                                      }
+                                });
+                              } else if (res.cancel) {
+                                console.log('用户点击取消')
+                              }
+                        }
+                    })
+                }
             },
             complete: function() {}
         });

@@ -16,7 +16,7 @@ var userInfo = {
 Page({
     data:{
         phoneNumber: '',
-        phoneBtnContext: '请输入电话号码',
+        phoneBtnContext: '点击获取您的手机号码',
         local_code: ''
     },
     onShow:function(){
@@ -39,6 +39,9 @@ Page({
         }
     });
     },
+    // onUnload:function(){
+    //   this.jumpPage()
+    // },
     // 协议 政策
     xieyi:function(){
       wx.navigateTo({
@@ -62,7 +65,6 @@ Page({
                 encryptedData: encodeURIComponent(detail.encryptedData)
             },
             cachetime: 0,
-            showLoading: !1,
             success: function(res) {
                 var errMsg  = res.errMsg;
                 if(errMsg == "request:ok"){
@@ -73,7 +75,10 @@ Page({
                         phoneBtnContext: phoneNumber
                     });
                 }
-            }
+            },
+            complete: function() {
+              wx.hideNavigationBarLoading(), wx.stopPullDownRefresh()
+          }
         });
     },
     localGetUserInfo(detail, code){
@@ -125,10 +130,11 @@ Page({
         success: function(res) {
            console.log(res);
            var lcoaluserinfo = wx.getStorageSync("userInfo");
-           res.data.errno || (lcoaluserinfo.memberInfo = res.data.data.userinfo,  wx.setStorageSync("userInfo", lcoaluserinfo)), 
+           res.data.errno || (lcoaluserinfo.memberInfo = res.data.data.userinfo,  wx.setStorageSync("userInfo", lcoaluserinfo)),
             wx.navigateBack({
                 delta: 1
             })
+           _this.jumpPage()
         }
     });
     },
@@ -138,6 +144,23 @@ Page({
         if(data.errMsg == "getPhoneNumber:ok"){
           _this.localGetPhoneNumber(data, _this.data.local_code);
         }
+      },
+      unLogin: function() {
+        this.jumpPage()
+      },
+      jumpPage:function(){
+        // let pages = getCurrentPages();
+        // let prevPage = pages[pages.length - 2];//上一页
+        // let addr = prevPage.route;
+        // if(addr=='weixinmao_jz/pages/mymsgorder/index'){
+        //   wx.switchTab({
+        //     url: '/weixinmao_jz/pages/index/index',
+        //   })
+        // }else{
+          wx.navigateBack({
+            delta: 1,
+          })
+        // }
       },
       bindGetUserInfo: function(e) {
         var _this = this;

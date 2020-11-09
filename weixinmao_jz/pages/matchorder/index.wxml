@@ -54,7 +54,7 @@
                 车费详情：{{orderinfo.traffic_type==0?'出租车':'地铁/公交'}} ￥{{orderinfo.traffic_money}}
             </view>
             <view class="title">
-                卡券使用：{{orderinfo.coupon_moeny==null || orderinfo.coupon_moeny==0?'未使用优惠券':orderinfo.coupon_moeny}}
+                卡券使用：{{orderinfo.coupon_money==null || orderinfo.coupon_money==0?'未使用优惠券':-orderinfo.coupon_money}}
             </view>
             <view class="title">
                 服务地址：{{addressinfo.address}}{{addressinfo.daddress}}

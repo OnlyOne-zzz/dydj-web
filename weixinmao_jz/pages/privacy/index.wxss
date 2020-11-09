@@ -65,9 +65,9 @@ image {
       background-color: #cccccc !important;
      }
      .title {
-        margin-left: 40rpx;
+        margin-left: 12rpx;
         margin-top: 40rpx;
-        text-align: center;
+        text-align: left;
         width: fit-content;
         width: -webkit-fit-content;
         width: -moz-fit-content;

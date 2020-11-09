@@ -62,7 +62,7 @@
                     </text>
                 </view>
                 <!-- <view class="item" style='padding-top: 5px'>总价:￥{{filter.numberToFixed(item.money+item.coupon_moeny)}} <text decode="true" >&nbsp;&nbsp;&nbsp;&nbsp;</text>实付款:￥{{item.money}}</view> -->
-                 <view class="item" style='padding-top: 5px'>总价:￥{{item.money}} <text decode="true" >&nbsp;&nbsp;&nbsp;&nbsp;</text>实付款:￥{{item.money}}</view>
+                 <view class="item" style='padding-top: 5px'>总价:￥{{item.total_money}} <text decode="true" >&nbsp;</text>实付款:￥{{item.money}}</view>
             </view>
             <view class="payitem">
              <block wx:if="{{item.paid==1}}">

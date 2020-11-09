@@ -13,6 +13,14 @@ Page({
         wx.setNavigationBarTitle({
             title: "技师中心"
         });
+        wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
         wx.getLocation({
             type: 'wgs84',
                 success(res) {
@@ -71,6 +79,27 @@ Page({
             url: "/weixinmao_jz/pages/index/index"
         });
     },
+    online: function(a) {
+        var _this=this;
+        let serviceStatus = a.currentTarget.dataset.status;
+        let loginid = wx.getStorageSync("loginid");
+        if(serviceStatus==1){
+            serviceStatus=2;    
+        }else{
+            serviceStatus=1;
+        }
+        let onlineObj= {
+            loginid:loginid,
+            serviceStatus:serviceStatus
+         };
+        app.util.request({
+            url: "entry/wxapp/NoteOnline",
+            data: onlineObj,
+            success: function(a) {
+                _this.onShow()
+            }
+        });
+    },
     doCall: function() {
        var u = wx.getStorageSync("userInfo"), loginid = wx.getStorageSync("loginid");
        let send= {
@@ -124,15 +153,8 @@ Page({
             },
             success: function(o) {
                 console.log(o)
-                o.data.message.errno || (o.data.data.intro.maincolor || (o.data.data.intro.maincolor = "#09ba07"), 
-                wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: o.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), a.data.istype = o.data.data.companyaccount.type, a.setData({
+                a.data.istype = o.data.data.companyaccount.type,
+                a.setData({
                     companyaccount: o.data.data.companyaccount,
                     isnote: o.data.data.isnote,
                     noteinfo: o.data.data.noteinfo,
@@ -143,7 +165,7 @@ Page({
                     msgorder_3: o.data.data.msgorder_3,
                     msgcount: o.data.data.msgcount,
                     intro: o.data.data.intro
-                }));
+                });
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();
@@ -155,10 +177,12 @@ Page({
     onHide: function() {},
     onUnload: function() {
         wx.reLaunch({
-            url: 'weixinmao_jz/pages/index/index'
+            url: '/weixinmao_jz/pages/index/index'
         })
     },
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function() {
+        this.onShow()
+    },
     binduserinfo: function(o) {
         var a = this;
         a.data.showmsg = !1;

@@ -12,26 +12,28 @@ Page({
         t.setData({
             isshow: t.data.isshow
         }), 
+        wx.setNavigationBarTitle({
+            title: "项目列表" 
+        }), wx.setNavigationBarColor({
+            frontColor: "#ffffff",
+            backgroundColor: "#3C9BDF",
+            animation: {
+                duration: 400,
+                timingFunc: "easeIn"
+            }
+        });
         app.util.request({
             url: "entry/wxapp/Intro",
             success: function(a) {
                 console.log(a)
-                a.data.message.errno || (wx.setStorageSync("companyinfo", a.data.data.intro), wx.setNavigationBarTitle({
-                    title: wx.getStorageSync("companyinfo").name
-                }), a.data.data.intro.maincolor || (a.data.data.intro.maincolor = "#09ba07"), wx.setNavigationBarColor({
-                    frontColor: "#ffffff",
-                    backgroundColor: a.data.data.intro.maincolor,
-                    animation: {
-                        duration: 400,
-                        timingFunc: "easeIn"
-                    }
-                }), t.setData({
+                // a.data.message.errno 
+                t.setData({
                     intro: a.data.data.intro,
                     catelist: a.data.data.catelist,
                     banners: a.data.data.bannerlist,
                     msgList: a.data.data.noticelist,
                     isshow: !1
-                }));
+                });
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh();

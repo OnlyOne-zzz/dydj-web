@@ -40,7 +40,8 @@ Page({
         cardinfo: {},
         technician: {},
         distance:0,
-        resultDis:''
+        resultDis:'',
+        remake:''
     },
     onLoad: function(a) {
         var t = this;
@@ -69,23 +70,6 @@ Page({
         t.setData({
             isshow: !0
         }), t.oldhouseinit();
-        // var u = wx.getStorageSync("userInfo");
-        // var addressInfoStorage = wx.getStorageSync("addressinfo");
-        // if(!addressInfoStorage){
-        //     app.util.request({
-        //         url: "entry/wxapp/myaddresslist",
-        //         data: {
-        //             sessionid: u.sessionid,
-        //             uid: u.memberInfo.uid
-        //         },
-        //         success: function(a) {
-        //             var list = a.data.data.list;
-        //             if (!a.data.message.errno && list.length>0) {
-        //                 wx.setStorageSync("addressinfo",list);
-        //             }
-        //         }
-        //     });
-        // }
         if(this.data.noteId!=0 && this.data.noteId!=undefined){
             this.getnote(this.data.noteId)
         }
@@ -104,9 +88,6 @@ Page({
         }
     },
     selectTravel: function(e){
-        this.setData({
-            travel: e.target.dataset.index
-        })
         this.getFare(e.target.dataset.index);
     },
     oldhouseinit: function(a) {
@@ -158,6 +139,11 @@ Page({
             success: function(a) {
                 console.log(a)
                 if(!a.data.message.errno){
+                    if(param!=undefined && param!='undefined'){
+                        pageObj.setData({
+                            travel: param
+                        })
+                    }
                     pageObj.setData({
                         fare:a.data.data
                     });
@@ -167,12 +153,7 @@ Page({
     },
     pay: function(a) {
         var t = this, e = t.data.addressinfo || wx.getStorageSync("addressinfo"), o = a.detail.formId;
-        let content = ''
-        if(t.data.u ==undefined || t.data.u ==null || t.data.u =='' ){
-            wx.navigateTo({
-                url: "/weixinmao_jz/pages/login-customer/index" 
-            });
-        }
+        let content = '';
         if(!e){
             content = '请先增加地址'
             wx.showModal({
@@ -181,8 +162,16 @@ Page({
                 showCancel: !1
             });
             return false
-        } else if(!e.daddress){
-            content = '请完善门牌号'
+        }else if(!e.daddress){
+            content = '请完善地址'
+            wx.showModal({
+                title: "提示",
+                content: content,
+                showCancel: !1
+            });
+            return false
+        } else if(t.data.shopid=='' || t.data.shopid=='undefined' || t.data.shopid==0){
+            content = '请选择服务人员'
             wx.showModal({
                 title: "提示",
                 content: content,
@@ -190,18 +179,10 @@ Page({
             });
             return false
         } 
-        // else if(!t.data.time){
-        //     content = '请选择服务时间'
-        //     wx.showModal({
-        //         title: "提示",
-        //         content: content,
-        //         showCancel: !1
-        //     });
-        //     return false
-        // } 
         else {
-            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway,couponid=t.data.couponId;
-            if(couponid==undefined){
+            var i = t.data.shopid, d = t.data.currentid,n = wx.getStorageSync("userInfo"), s = a.detail.value.content, r = t.data.payway,couponid=t.data.couponId,
+            remake  = a.detail.value.content;
+            if(couponid==undefined || couponid=='undefined' ){
                 couponid=0;
             }
             var res={
@@ -215,126 +196,74 @@ Page({
                 content: s,
                 form_id: o,
                 contentId:t.data.currentid,
-                noteid:t.data.noteId,
                 trafficType:t.data.trafficType,
                 name:e.name,
                 tel:e.tel,
                 daddress:e.daddress,
                 couponid:couponid,
                 type:r,
-                trafficReckonMile:t.data.distance
+                trafficReckonMile:t.data.distance,
+                remake:remake
             };
             console.log(res)
-            0 < t.data.gooditems.money ? wx.showModal({
-                title: "确认支付",
+            wx.showModal({
+                title: "支付",
                 content: "确认支付？",
-                success: function(a) {
-                    a.confirm && app.util.request({
-                        url: "entry/wxapp/paymsg",
-                        data:res,
-                        success: function(a) {
-                            console.log("支付方式")
-                            console.log(r)
-                            if(!a.data.message.errno){
-                                if(r==1){
-                                    wx.switchTab({
-                                        url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                    });
-                                }else{
-                                    if (console.log(a), a.data && a.data.data) {
-                                        var t = a.data.data.orderid;
-                                        wx.requestPayment({
-                                            timeStamp: a.data.data.timeStamp,
-                                            nonceStr: a.data.data.nonceStr,
-                                            package: a.data.data.package,
-                                            signType: "MD5",
-                                            paySign: a.data.data.paySign,
-                                            success: function(a) {
-                                                wx.switchTab({
-                                                        url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                });
-                                                    // wx.requestSubscribeMessage({
-                                                    //     tmplIds: ['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'],
-                                                    //     success(res){
-                                                    //         if(res['XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE'] == 'accept'){
-                                                    //             app.util.request({
-                                                    //                 url: "entry/wxapp/SendMessageSmallSends",
-                                                    //                 data: {
-                                                    //                     templateId:'XXYWwGEL5T6f3OxBgmj-Y1CiYjgkwyvY-kwYGGmNpyE',
-                                                    //                     orderNo:t
-                                                    //                 },
-                                                    //                 success: function(a) {
-                                                    //                     console.log("订阅消息发送成功");
-                                                    //                     console.log(a);
-                                                    //                     wx.switchTab({
-                                                    //                         url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                    //                     });
-                                                    //                 },
-                                                    //                 fail:function(){
-                                                    //                     wx.switchTab({
-                                                    //                         url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                    //                      });
-                                                    //                 }
-                                                    //             }); 
-                                                    //         }
-                                                    //     },
-                                                    //     fail(){
-                                                    //         wx.switchTab({
-                                                    //             url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
-                                                    //         });
-                                                    //         console.log('不授权订阅消息')
-                                                    //     }
-                                                    //   })
-                                            },
-                                            fail: function(a) {
-                                                console.log("取消支付");
-                                            }
+                success: function(button) {
+                    if(button.confirm){
+                        app.util.request({
+                            url: "entry/wxapp/paymsg",
+                            data:res,
+                            success: function(a) {
+                                if(!a.data.message.errno){
+                                    if(r==1){
+                                        wx.switchTab({
+                                            url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
                                         });
+                                    }else{
+                                        if (a.data && a.data.data) {
+                                            var t = a.data.data.orderid;
+                                            wx.requestPayment({
+                                                timeStamp: a.data.data.timeStamp,
+                                                nonceStr: a.data.data.nonceStr,
+                                                package: a.data.data.package,
+                                                signType: "MD5",
+                                                paySign: a.data.data.paySign,
+                                                success: function(a) {
+                                                    /***支付成功之后跳转 */
+                                                    wx.switchTab({
+                                                            url: "/weixinmao_jz/pages/mymsgorder/index?orderid=" + t
+                                                    });
+                                                },
+                                                fail: function(a) {
+                                                    console.log("取消支付");
+                                                }
+                                            });
+                                        }
                                     }
                                 }
-                            }
-                            // else{
-
-                            // }
-                            
-                        },
-                        fail: function(a) {
-                            console.log(a);
-                        }
-                    });
-                }
-            }) 
-          
-            : app.util.request({
-                url: "entry/wxapp/PayNomoney",
-                data: {
-                    sessionid: n.sessionid,
-                    model: t.data.model,
-                    addressid: e.id,
-                    uid: n.memberInfo.uid,
-                    form_id: o,
-                    content: s
-                },
-                success: function(a) {
-                    if (!a.data.message.errno) {
-                        if (0 != a.data.data.error) return void wx.showModal({
-                            title: "提示",
-                            content: a.data.data.msg,
-                            showCancel: !1
-                        });
-                        wx.showModal({
-                            title: "提示",
-                            content: a.data.data.msg,
-                            showCancel: !1,
-                            success: function() {
-                                wx.navigateTo({
-                                    url: "/weixinmao_jz/pages/matchorder/index?orderid=" + a.data.data.orderid
+                            },
+                            fail: function(resp) {
+                                console.log(resp)
+                                wx.showModal({
+                                    title: "提示",
+                                    content: resp.data.message,
+                                    showCancel: !1,
+                                    success (res) {
+                                        if (res.confirm) {
+                                            wx.switchTab({
+                                              url: '/weixinmao_jz/pages/user/index',
+                                            })
+                                        } 
+                                      }
                                 });
                             }
-                        });
+                        });  
+                    }else{
+                        console.log("确认支付选择取消")
                     }
                 }
-            });
+            }) 
         }
         
     },
@@ -422,12 +351,10 @@ Page({
                 couponmoney:0
             });
         }
-        let selectnote = this.data.selectnote;
+        let selectnote = _this.data.selectnote;
         let noteid = _this.data.noteId;    
-        console.log("111111")
-        console.log(noteid)
-        if(selectnote != undefined || noteid!=undefined){
-            if(noteid==undefined){
+        if(selectnote != undefined || noteid!='undefined'){
+            if(noteid=='undefined' || noteid==undefined ){
                 noteid=selectnote.id;
             }
             this.getnote(noteid);
@@ -453,7 +380,6 @@ getnote:function(noteId){
                         let noteObj = obj.data.data.workerdetail;
                         let lat = noteObj.lat;
                         let lng = noteObj.lng;
-                        console.log("%%%%%")
                         console.log(noteObj)
                         // if(!addressInfoStorage){
                             noteCallback.getDistance(lat,lng);

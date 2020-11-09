@@ -29,7 +29,7 @@ Page({
         back: '',
         serviceStatus: 0,
         orderColumn: '',
-        worklist:[]
+        worklist:null
     },
     onLoad: function(t) {
         wx.setNavigationBarTitle({
@@ -71,7 +71,11 @@ Page({
                 if(!t.data.message.errno){
                       if(t.data.data.list.length>0){
                         _this.calculateDistanceHandle(t.data.data.list,true);
-                      } 
+                      }else{
+                        _this.setData({
+                            worklist:[]
+                        })
+                      }
                 }
             },
             complete: function() {

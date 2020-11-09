@@ -2,12 +2,22 @@
     <view class="header" style=" background:linear-gradient(to right,{{intro.maincolor}},#6bbffb);">
         <view hidden="{{isuser}}">
             <view class="pic">
-                <image src="../../resource/images/male1.png"></image>
+                <image bindtap="toLogin" src="../../resource/images/touxiang.png"></image>
                 <view class="userinfos">
                     <view>
                         <button bindgetuserinfo="toLogin" openType="getUserInfo">登录/注册></button>
                     </view>
-                    <view>开启上门之旅</view>
+                    <view style="color:#BEC0C2;">登录即送优惠券</view>
+                </view>
+                <view  class="paymoney">
+                    <view bindtap="toLogin">
+                        <text>***</text>
+                        <text>账户余额</text>
+                    </view>
+                    <view bindtap="toLogin">
+                        <text>***</text>
+                        <text>优惠券</text>
+                    </view>
                 </view>
             </view>
         </view>
@@ -35,16 +45,16 @@
     <!-- 宣传图 -->
     <image class="invite" mode="widthFix" src='https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1364348244,612692244&fm=26&gp=0.jpg'></image>
     <view class="service">
-        <!-- <view bindtap="toMyOrder" class="servicelist">
+        <view bindtap="toDomoney" class="servicelist">
             <view  style="background:#3C9BDF;">
                 <view class="logo">
-                    <image src="../../resource/images/order.png"></image>
+                    <image src="../../resource/images/ye-wd.png"></image>
                 </view>
             </view>
             <view class="name">
-                <view>我的订单</view>
+                <view>我的余额</view>
             </view>
-        </view> -->
+        </view>
         <view bindtap="toMycoupon" class="servicelist">
             <view  style="background:#3C9BDF;">
                 <view class="logo">
@@ -52,24 +62,14 @@
                 </view>
             </view>
             <view class="name">
-                <view>我的优惠券</view>
+                <view>我的卡券</view>
                 <view></view>
             </view>
         </view>
-        <!-- <view bindtap="toAgent" class="servicelist">
-            <view style="background:#3C9BDF;">
-                <view class="logo">
-                    <image src="../../resource/images/fx.png"></image>
-                </view>
-            </view>
-            <view class="name">
-                <view>我要赚钱</view>
-            </view>
-        </view> -->
         <view bindtap="toDomoney" class="servicelist">
             <view style="background:#3C9BDF;">
                 <view class="logo">
-                    <image src="../../resource/images/fx.png"></image>
+                    <image src="../../resource/images/cz-wd.png"></image>
                 </view>
             </view>
             <view class="name">
@@ -86,25 +86,48 @@
                 <view>申请提现</view>
             </view>
         </view>
-        <view bindtap="doCall" class="servicelist">
-            <view  style="background:#3C9BDF;">
+        <view class="servicelist">
+            <view>
                 <view class="logo">
-                    <image src="../../resource/images/kefu.png"></image>
+                    <button class="kefu" openType="contact">
+                            <image src="../../resource/images/kefu.png"></image>
+                    </button>
                 </view>
             </view>
             <view class="name">
-                <view>客服中心</view>
-                <view></view>
+                <view style="width:100%">客服中心</view>
             </view>
         </view>
         <view bindtap="toaddress" class="servicelist">
             <view  style="background:#3C9BDF;">
                 <view class="logo">
-                    <image src="../../resource/images/kefu.png"></image>
+                    <image src="../../resource/images/addr-wd.png"></image>
                 </view>
             </view>
             <view class="name">
                 <view>地址管理</view>
+                <view></view>
+            </view>
+        </view>
+        <view bindtap="toxieyi" class="servicelist">
+            <view  style="background:#3C9BDF;">
+                <view class="logo">
+                    <image src="../../resource/images/userxy-wd.png"></image>
+                </view>
+            </view>
+            <view class="name">
+                <view>用户协议</view>
+                <view></view>
+            </view>
+        </view>
+        <view bindtap="tozhengce" class="servicelist">
+            <view  style="background:#3C9BDF;">
+                <view class="logo">
+                    <image src="../../resource/images/ysxy-wd.png"></image>
+                </view>
+            </view>
+            <view class="name">
+                <view>隐私政策</view>
                 <view></view>
             </view>
         </view>

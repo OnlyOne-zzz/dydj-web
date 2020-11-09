@@ -63,8 +63,8 @@
         </view>
         <view class="news">
             <view class="newstitle">
-                <view style="background:{{intro.maincolor}};"></view>
-                <view style="color:{{intro.maincolor}}">热门项目</view>
+                <view style="background:#3C9BDF;"></view>
+                <view style="color:#3C9BDF">热门项目</view>
             </view>
         </view>
         <view class="service">
@@ -72,19 +72,19 @@
                 <view class="logo">
                     <image src="{{item.thumb}}"></image>
                 </view>
-                <view class="name" style="color:{{intro.maincolor}}">
-                    <view> {{item.title}}</view>
+                <view class="name">
+                    <view style="color:#474747"> {{item.title}}</view>
+                    <view style="font-size:.7rem;color:#474747">{{item.intro}}</view>
                     <view class="perprice">
-                        <view>￥{{item.price}}/{{item.time}}分钟</view>
+                        <view style="font-size:.7rem;color:#eb4f38">￥{{item.price}}/{{item.time}}分钟</view>
                     </view>
-                    <view>{{item.intro}}</view>
                 </view>
             </view>
         </view>
         <view class="news">
             <view class="newstitle">
-                <view style="background:{{intro.maincolor}};"></view>
-                <view style="color:{{intro.maincolor}}">技师推荐</view>
+                <view style="background:#3C9BDF"></view>
+                <view style="color:#3C9BDF">技师推荐</view>
             </view>
         </view>
         <view class="news">
@@ -96,25 +96,23 @@
                     <view class="address">
                          <view>
                             <block wx:if="{{item.serviceStatus==1}}"><view  style="background:#3C9BDF;">可服务</view></block>
-                             <block wx:else ><view style="background:#F59545;">服务中</view></block>
+                             <!-- <block wx:else ><view style="background:#F59545;">服务中</view></block> -->
+                             <block wx:else ><view style="background:#eb4f38;">服务中</view></block>
                          </view>
                         <view>{{item.shopname}}</view>
                     </view>
-                    <view class="cate" style="color:#3c9bdf">
+                    <view class="cate" style="color:#474747">
                         <view>
                                        推荐服务项目:{{item.catename}}
                                         
                                         </view>
                         <view></view>
                     </view>
-                    <!-- <view class="price" style="justify-content: flex-start;">
-                        <view>
-                            <image src="../../resource/images/dw.png" style="width:40rpx;height:40rpx; "></image>
-                        </view>
-                        <view>{{item.address}}</view>
-                    </view> -->
+                    <view class="price" style="justify-content: flex-start;">
+                        <view>{{item.induce}}</view>
+                    </view>
                     <view class="price">
-                        <view>
+                       <view>
                             <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>
                             <text class="fa fa-star  fa-lg"></text>

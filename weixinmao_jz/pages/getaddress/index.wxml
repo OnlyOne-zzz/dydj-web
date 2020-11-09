@@ -17,10 +17,10 @@
                 <view class="item" style='position: relative;'>
                     <view class="name">地址</view>
                     <view class="selectitem" bindtap="getaddress">
-                        <input name="address" placeholder="请选择地址" disabled="disabled" type="text" value="{{address}}"></input>
-                        <button class="getaddress" >
-                            <image src='./../../resource/img/addaddr.png'></image>
-                        </button>
+                        <input  name="address" placeholder="请选择地址" disabled="disabled" type="text" value="{{address}}"></input>
+                    <button class="getaddress" >
+                            <image src='./../../resource/images/addr-add.png'></image>
+                    </button>
                     </view>
                 </view>
                 <view class="item">

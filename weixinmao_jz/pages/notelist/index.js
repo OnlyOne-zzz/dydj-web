@@ -44,35 +44,9 @@ Page({
                 timingFunc: "easeIn"
             }
         });
+        // 校验用户是否已经授权定位
+        this.getlocationsetting();
         i.setData({
-            housetypelist: [ {
-                name: "初中",
-                id: 1
-            }, {
-                name: "高中",
-                id: 2
-            }, {
-                name: "中技",
-                id: 3
-            }, {
-                name: "中专",
-                id: 4
-            }, {
-                name: "大专",
-                id: 5
-            }, {
-                name: "本科",
-                id: 6
-            }, {
-                name: "硕士",
-                id: 7
-            }, {
-                name: "博士",
-                id: 8
-            }, {
-                name: "博后",
-                id: 9
-            } ],
             typeid: 0,
             carid: 0,
             priceid: 0,
@@ -353,7 +327,7 @@ Page({
                 name: name
             },
             success: function(t) {
-                t.data.message.errno,
+                // t.data.message.errno,
                 _this.calculateDistanceHandle(t.data.data.list, false)
             },
             complete: function() {
@@ -369,8 +343,10 @@ Page({
             url: "entry/wxapp/notePaging",
             data: data,
             success: function(t) {
-                t.data.message.errno,
-                    call(t.data.data.list);
+                console.log("技师列表")
+                console.log(t)
+                // t.data.message.errno,
+                call(t.data.data.list);
             },
             complete: function() {
                 wx.hideNavigationBarLoading(), wx.stopPullDownRefresh(), e.setData({
@@ -378,6 +354,37 @@ Page({
                 });
             }
         });
+    },
+    getlocationsetting:function(){
+        var _this=this;
+        wx.getSetting({
+            withSubscriptions: false,
+            success (res) {
+                console.log(res)
+              if(res.authSetting['scope.userLocation']){
+                  console.log("定位授权了")
+              }else{
+                wx.showModal({
+                    title: '位置信息授权',
+                    content:'您未授权位置信息无法正常使用是否重新授权',
+                    success:function(res){
+                        console.log(res)
+                        if (res.confirm) {
+                            wx.openSetting({
+                                success (res) {
+                                    if(res.authSetting['scope.userLocation']){
+                                        _this.onLoad();
+                                    }
+                                  }
+                            });
+                          } else if (res.cancel) {
+                            console.log('用户点击取消')
+                          }
+                    }
+                })
+            }
+            }
+          })
     },
     calculateDistanceHandle: function(wt, isDistanceToSort){
         var qqmapsdk = new QQMapWX({

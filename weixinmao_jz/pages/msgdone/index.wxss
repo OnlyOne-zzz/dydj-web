@@ -1,13 +1,13 @@
 page {
     background-color: #f0f0f0;
 }
-
 .container {
     background-color: #f0f0f0;
     width: 750rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .addressimg {
