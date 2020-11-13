@@ -41,7 +41,8 @@ Page({
         technician: {},
         distance:0,
         resultDis:'',
-        remake:''
+        remake:'',
+        pid:0
     },
     onLoad: function(a) {
         var t = this;
@@ -101,12 +102,15 @@ Page({
                 uid: e.memberInfo.uid
             },
             success: function(a) {
+                console.log("项目")
+                console.log(a)
                 a.data.message.errno || (t.data.gooditems = a.data.data.gooditems, t.setData({
                     msgcontent: a.data.data.msgcontent,
                     gooditems: a.data.data.gooditems,
                     addressinfo: a.data.data.addressinfo,
                     intro: a.data.data.intro,
-                    isshow: !1
+                    isshow: !1,
+                    pid:a.data.data.msgcontent.pid
                 }));
             }
         });
@@ -306,8 +310,9 @@ Page({
         });
     },
     selectwaiter: function() {
+        var _this = this;
         wx.navigateTo({
-            url: "/weixinmao_jz/pages/selectnotelist/index?back=1"
+            url: "/weixinmao_jz/pages/selectnotelist/index?back=1&pid="+_this.data.pid
         });
     },
     changeTraffic:function(obj){

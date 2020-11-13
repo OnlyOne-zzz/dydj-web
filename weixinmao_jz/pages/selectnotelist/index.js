@@ -42,7 +42,8 @@ Page({
                 timingFunc: "easeIn"
             }
         });
-        this.requestNoteList();
+        var pid = t.pid;
+        this.requestNoteList(pid);
     },
     select: function(e){      
         var pages = getCurrentPages();
@@ -56,18 +57,17 @@ Page({
           delta: 1
         })
       },
-    requestNoteList: function(){
+    requestNoteList: function(pid){
         var _this = this;
         var data ={
-          serviceStatus:1
+          serviceStatus:1,
+          contentPid:pid
         };
+        console.log(data)
         app.util.request({
             url: "entry/wxapp/notePaging",
             data: data,
             success: function(t) {
-              console.log("技师列表")
-              console.log(t)
-                // t.data.message.errno,
                 if(!t.data.message.errno){
                       if(t.data.data.list.length>0){
                         _this.calculateDistanceHandle(t.data.data.list,true);
