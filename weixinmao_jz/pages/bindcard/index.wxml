@@ -10,9 +10,9 @@
                         </view>
                     </view>
                     <view class="item">
-                        <view class="name">微信手机号账号</view>
+                        <view class="name">支付宝账号手机号</view>
                         <view class="selectitem">
-                            <input name="account" placeholder="请输入您的微信账号" type="text"></input>
+                            <input name="account" placeholder="请输入您的支付宝账号" type="text"></input>
                         </view>
                     </view>
                 </view>
@@ -20,7 +20,7 @@
         </view>
         <view class="weixinmao-float">
             <view class="weixinmao-foot">
-                <button class="footer" formType="submit">立即绑定</button>
+                <button class="footer" formType="submit"  style="background:#3C9BDF">立即绑定</button>
             </view>
         </view>
     </form>
