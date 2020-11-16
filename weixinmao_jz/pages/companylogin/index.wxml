@@ -26,14 +26,14 @@
                 <view>已完成订单</view>
             </view>
             <view class="line"></view>
-            <!-- <view bindtap="toGetmoney" class="item_line">
+            <view bindtap="toGetmoney" class="item_line">
                 <view>{{totalmoney}}元</view>
                 <view>钱包*提现</view>
-            </view> -->
-             <view class="item_line">
+            </view>
+             <!-- <view class="item_line">
                 <view>财务结算</view>
                 <view>钱包</view>
-            </view>
+            </view> -->
         </view>
     </view>
     <view class="list">

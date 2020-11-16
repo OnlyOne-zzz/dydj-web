@@ -37,6 +37,7 @@ Page({
                 uid: n.memberInfo.uid
             },
             success: function(n) {
+                console.log(n)
                 n.data.message.errno || (1 == n.data.data.error ? wx.navigateTo({
                     url: "/weixinmao_jz/pages/bindcard/index"
                 }) : wx.navigateTo({

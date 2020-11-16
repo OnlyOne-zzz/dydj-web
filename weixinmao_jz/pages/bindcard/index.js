@@ -73,7 +73,7 @@ Page({
             });
         } else wx.showModal({
             title: "提示",
-            content: "请输入您的支付宝账号",
+            content: "请输入您的微信手机账号",
             showCancel: !1
         }); else wx.showModal({
             title: "提示",
