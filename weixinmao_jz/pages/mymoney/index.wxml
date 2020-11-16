@@ -7,11 +7,11 @@
                 <input class="money" name="money" placeholder="请输入提现金额" type="text" value=""></input>
             </view>
             <view>可提金额￥{{moneyinfo.totalmoney}}</view>
-            <view>注：平台将收取提现金额的{{msg}}服务费</view>
+            <!-- <view>注：平台将收取提现金额的{{msg}}服务费</view> -->
             <view></view>
         </view>
         <view class="getmoney">
-            <button formType="submit">立即提现</button>
+            <button formType="submit" style="background:#3C9BDF" >立即提现</button>
         </view>
     </form>
 </view>
