@@ -6,13 +6,13 @@
                     <view class="item">
                         <view class="name">姓名</view>
                         <view class="selectitem">
-                            <input name="name" placeholder="请输入您的姓名" type="text"></input>
+                            <input name="name" placeholder="请输入支付宝实名姓名" type="text"></input>
                         </view>
                     </view>
                     <view class="item">
                         <view class="name">支付宝账号</view>
                         <view class="selectitem">
-                            <input name="account" placeholder="请输入您的支付宝账号" type="text"></input>
+                            <input name="account" placeholder="请输入您的支付宝手机号账号" type="text"></input>
                         </view>
                     </view>
                 </view>
@@ -20,7 +20,7 @@
         </view>
         <view class="weixinmao-float">
             <view class="weixinmao-foot">
-                <button class="footer" formType="submit">立即绑定</button>
+                <button class="footer" formType="submit"  style="background:#3C9BDF">立即绑定</button>
             </view>
         </view>
     </form>
