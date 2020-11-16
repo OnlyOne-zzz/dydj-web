@@ -1,11 +1,21 @@
 <view class="container">
-    <view class="header" style=" background:linear-gradient(to right,{{intro.maincolor}},{{intro.maincolor}});">
+ <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperChange" circular="{{circular}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;">
+            <swiper-item wx:for="{{piclist}}">
+                <image bindload="imageLoad" class="slide-image" data-id="" src="{{item}}"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{piclist}}" wx:key="index"></view>
+        </view>
+    </view>
+    <!-- <view class="header" style=" background:linear-gradient(to right,{{intro.maincolor}},{{intro.maincolor}});">
         <view>
             <view class="pic">
                 <image src="{{data.avatarUrl}}"></image>
                 <view class="userinfo">
                     <view>{{data.shopname}}</view>
-                    <view>认证技师</view>
+                    <view>认证技师</view> -->
                     <!-- <view> -->
                         <!-- <block wx:if="{{item.serviceStatus==1}}"><view  style="background:#3C9BDF;">可服务</view></block>
                         <block wx:else ><view style="background:#F59545;">服务中</view></block> -->
@@ -16,10 +26,10 @@
                     <block wx:else>
                          <view  style="color:#eb4f38">正在服务</view>
                     </block> -->
-                </view>
+                <!-- </view>
             </view>
         </view>
-    </view>
+    </view> -->
     <view class="noteinfo">
         <view class="notename">
             <view>{{data.shopname}}</view>

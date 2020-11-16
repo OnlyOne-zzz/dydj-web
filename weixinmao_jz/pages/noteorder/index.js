@@ -3,7 +3,8 @@ var R_htmlToWxml = require("../../resource/js/htmlToWxml.js"), imageUtil = requi
 Page({
     data: {
         id: 0,
-        ordertype: 1
+        ordertype: 1,
+        autoplay: !0
     },
     onLoad: function(e) {
         var t = this;

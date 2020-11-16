@@ -481,3 +481,7 @@ button::after {
 .footerbutton {
     background: #fe552e;
 }
+.swiper-container {
+    width: 750rpx;
+    position: relative;
+}

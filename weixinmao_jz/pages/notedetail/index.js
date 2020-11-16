@@ -70,7 +70,8 @@ Page(_defineProperty({
                        isuser: i.data.isuser,
                        intro: a.data.data.intro,
                        msgcontentlist: a.data.data.msgcontentlist,
-                       comment:a.data.data.comment
+                       comment:a.data.data.comment,
+                       piclist:a.data.data.piclist
                    });
                 }
             },
