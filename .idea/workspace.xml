@@ -4,7 +4,6 @@
     <list default="true" id="ac8c509e-8408-4870-a2eb-1d30d8716499" name="Default Changelist" comment="批量算路提交">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixinmao_jz/pages/notelist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/weixinmao_jz/pages/notelist/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598184889424</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="优化">
+      <created>1605542856174</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605542856174</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,39 +163,40 @@
     <MESSAGE value="init" />
     <MESSAGE value="fix bug" />
     <MESSAGE value="批量算路提交" />
-    <option name="LAST_COMMIT_MESSAGE" value="批量算路提交" />
+    <MESSAGE value="优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="515" y="64" key="CommitChangelistDialog2" timestamp="1598184899510">
-      <screen x="0" y="23" width="1920" height="969" />
+    <state x="515" y="44" key="CommitChangelistDialog2" timestamp="1605615511335">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="515" y="111" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595994889754" />
+    <state x="515" y="44" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1605615511335" />
     <state x="515" y="64" key="CommitChangelistDialog2/0.23.1920.969@0.23.1920.969" timestamp="1598184899510" />
-    <state x="92" y="109" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1598174039611">
-      <screen x="0" y="23" width="1920" height="969" />
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog" timestamp="1605615503549">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597039410233" />
+    <state x="92" y="92" width="1736" height="856" maximized="true" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605615503549" />
     <state x="92" y="109" key="DiffContextDialog/0.23.1920.969@0.23.1920.969" timestamp="1598174039611" />
     <state x="669" y="235" key="MultipleFileMergeDialog" timestamp="1597039383749">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="235" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597039383749" />
-    <state x="765" y="230" key="RollbackChangesDialog" timestamp="1597039411179">
+    <state x="765" y="230" key="RollbackChangesDialog" timestamp="1605452567922">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="230" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1597039411179" />
-    <state x="552" y="259" key="Vcs.Push.Dialog.v2" timestamp="1598184925878">
-      <screen x="0" y="23" width="1920" height="969" />
+    <state x="765" y="230" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605452567922" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1605542858362">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595995489601" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605542858362" />
     <state x="552" y="259" key="Vcs.Push.Dialog.v2/0.23.1920.969@0.23.1920.969" timestamp="1598184925878" />
-    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598074724105">
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1605452530014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1598074724105" />
-    <state x="769" y="414" key="git4idea.ui.GitResetDialog" timestamp="1595993991287">
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605452530014" />
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605613269810">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="769" y="414" key="git4idea.ui.GitResetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595993991287" />
+    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1605613269810" />
   </component>
 </project>
