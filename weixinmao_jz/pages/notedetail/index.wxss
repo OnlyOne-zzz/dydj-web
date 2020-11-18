@@ -30,7 +30,6 @@ box-sizing: border-box;
     height: 120rpx;
     border: 4rpx solid #FFF;
     border-radius: 5px;
-
 }
 
 .container .header .pic .userinfo {
@@ -483,5 +482,6 @@ button::after {
 }
 .swiper-container {
     width: 750rpx;
+    height: 500rpx;
     position: relative;
 }

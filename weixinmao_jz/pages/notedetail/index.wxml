@@ -1,8 +1,8 @@
 <view class="container">
  <view class="swiper-container">
-        <swiper autoplay="{{autoplay}}" bindchange="swiperChange" circular="{{circular}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}" style="height:{{imgheights[current]}}rpx;">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperChange" circular="{{circular}}" class="swiper_box" duration="{{duration}}" interval="{{interval}}" style="height: 500rpx;">
             <swiper-item wx:for="{{piclist}}">
-                <image bindload="imageLoad" class="slide-image" data-id="" src="{{item}}"></image>
+                <image style="width: 750rpx; height: 500rpx" bindload="imageLoad" class="slide-image" data-id="" src="{{item}}"></image>
             </swiper-item>
         </swiper>
         <view class="dots">
