@@ -241,6 +241,9 @@ Page({
                                                     });
                                                 },
                                                 fail: function(a) {
+                                                    wx.switchTab({
+                                                        url: '/weixinmao_jz/pages/user/index',
+                                                      })
                                                     console.log("取消支付");
                                                 }
                                             });
