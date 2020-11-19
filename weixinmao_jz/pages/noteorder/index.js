@@ -193,7 +193,7 @@ Page({
     onHide: function() {},
     onUnload: function() {},
     onPullDownRefresh: function() {
-        wx.showNavigationBarLoading(), this.onShow();
+        this.onShow();
     },
     onReachBottom: function() {},
     onShareAppMessage: function() {},
