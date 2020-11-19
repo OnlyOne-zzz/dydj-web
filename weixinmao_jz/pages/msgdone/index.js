@@ -149,7 +149,8 @@ Page({
                         })
                     }
                     pageObj.setData({
-                        fare:a.data.data
+                        fare:a.data.data,
+                        trafficType:param
                     });
                 }
             }
